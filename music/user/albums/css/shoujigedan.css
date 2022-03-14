@@ -1,0 +1,17 @@
+@media (min-width: 768px) {
+    .pagination {
+        margin-left: 35%;
+    }
+}
+ 
+@media (min-width: 992px) {
+    .pagination {
+        margin-left: 35%;
+    }
+}
+ 
+@media (min-width: 1200px) {
+    .pagination {
+        margin-left: 35%;
+    }
+}

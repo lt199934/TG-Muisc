@@ -1,0 +1,33 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--配置生成策略，生成的是什么样的sql语句-->
+    <context id="dsql" targetRuntime="MyBatis3Simple">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库配置 驱动名 url-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/music"
+                        userId="root"
+                        password="123456"/>
+
+        <!--pojo生成规则 targetPackage 生成到哪个包下面   targetProject 生成当当前文件的哪个相对路径下-->
+        <javaModelGenerator targetPackage="com.edu.bean" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.edu.mapper" targetProject="src/main/resources"/>
+        <!--mapper（接口生成规则） type指定是XML还是注解-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.edu.mapper" targetProject="src/main/java"/>
+        <!-- 映射文件 地址-->
+
+        <!-- 可以有多个节点 domainName和mapper 可以不写会用默认的命名规范-->
+        <table tableName="admin" />
+<!--        <table tableName="user" />-->
+        <table tableName="singer" />
+        <table tableName="song" />
+        <table tableName="songlist" />
+        <table tableName="message" />
+        <table tableName="album" />
+    </context>
+</generatorConfiguration>

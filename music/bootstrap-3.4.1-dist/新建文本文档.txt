@@ -1,0 +1,9 @@
+<script src="bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+<script src="bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.4.1-dist/js/npm.js"></script>
+
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
