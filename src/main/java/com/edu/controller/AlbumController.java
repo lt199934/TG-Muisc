@@ -47,15 +47,17 @@ public class AlbumController {
     //  多条件查询
     @RequestMapping("/selectAlbumByExample")
     @ResponseBody
-    public Object selectAlbum(Album album,Date startDate, Date endDate, @RequestParam(value = "pageNum",defaultValue = "1",required = false) String pageNum, @RequestParam(value = "pageSize",required = false,defaultValue = "1")String pageSize){
+    public Object selectAlbum(Album album,Date startDate,Date endDate,@RequestParam(value = "pageNum",defaultValue = "1",required = false) String pageNum,@RequestParam(value = "pageSize",required = false,defaultValue = "1")String pageSize){
         System.out.println(album);
         System.out.println(startDate+"-"+endDate);
+        System.out.println("pageNum:"+pageNum);
+        System.out.println("pageSize"+pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum),Integer.parseInt(pageSize));
         return albumService.selectAlbumByExample(album,startDate,endDate).toPageInfo();
     }
 
     //查询所有专辑（不限制显示条数）
-    @RequestMapping("/selectallAlbum")
+    @RequestMapping("/selectAllAlbum")
     @ResponseBody
     public Object allAlbum(){
 //        List<Album> albums = albumService.allAlbum();

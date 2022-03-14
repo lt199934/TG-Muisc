@@ -117,39 +117,39 @@
 		and c.song_id=#{songId,jdbcType=INTEGER}
   </select>
 
-  <select id="selectSongByExample" resultMap="BaseResultMap">
-    select * from song
+  <select id="selectSongByExample" resultMap="song">
+    select * from song a,singer b
     <where>
+        b.singer_id = a.singer_id
       <if test="song.songId !=null and song.songId !=''">
-        and song_id = #{song.songId,jdbcType=INTEGER}
+        and a.song_id = #{song.songId,jdbcType=INTEGER}
       </if>
       <if test="song.song !=null and song.song !=''">
-        and  song = #{song.song,jdbcType=VARCHAR}
+        and  a.song = #{song.song,jdbcType=VARCHAR}
       </if>
       <if test="song.singerId !=null and song.singerId !=''">
-        and singer_id = #{song.singerId,jdbcType=INTEGER}
+        and a.singer_id = #{song.singerId,jdbcType=INTEGER}
       </if>
       <if test="song.playCount !=null and song.playCount !=''" >
-        and play_count = #{song.playCount,jdbcType=INTEGER}
+        and a.play_count = #{song.playCount,jdbcType=INTEGER}
       </if>
       <if test="song.downloadCount !=null and song.downloadCount !=''">
-        download_count = #{song.downloadCount,jdbcType=INTEGER}
+        and a.download_count = #{song.downloadCount,jdbcType=INTEGER}
       </if>
       <if test="song.url !=null and song.url !=''">
-        and url = #{song.url,jdbcType=VARCHAR}
+        and a.url = #{song.url,jdbcType=VARCHAR}
       </if>
       <if test="song.language !=null and song.language !=''">
-        and language = #{song.language,jdbcType=VARCHAR}
+        and a.language = #{song.language,jdbcType=VARCHAR}
       </if>
       <if test="song.albumId !=null and song.albumId !=''">
-        and album_id = #{song.albumId,jdbcType=INTEGER}
+        and a.album_id = #{song.albumId,jdbcType=INTEGER}
       </if>
-
       <if test="start != null">
-        and time >= #{start}
+        and a.time >= #{start}
       </if>
       <if test="end != null">
-        and time &lt;= #{end}
+        and a.time &lt;= #{end}
       </if>
     </where>
   </select>

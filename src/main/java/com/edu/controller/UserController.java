@@ -3,6 +3,7 @@ package com.edu.controller;
 import com.alibaba.fastjson.JSON;
 import com.edu.bean.User;
 import com.edu.service.UserService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -104,7 +105,10 @@ public class UserController {
     @ResponseBody
     public Object selectAll(User user,Date startDate, Date endDate,@RequestParam(value = "pageNum",defaultValue = "1",required = false) String pageNum,@RequestParam(value = "pageSize",required = false,defaultValue = "1")String pageSize){
         System.out.println(user);
+        System.out.println("pageNum:"+pageNum);
+        System.out.println("pageSize"+pageSize);
         System.out.println(startDate+"-"+endDate);
+        PageHelper.startPage(Integer.parseInt(pageNum),Integer.parseInt(pageSize));
         return userService.selectUserByExample(user,startDate,endDate).toPageInfo();
     }
     //  通过id查询自己创建的歌单

@@ -46,7 +46,8 @@ public class SongListController {
 // 后台多条件查询
     @RequestMapping("/selectSongListByExample")
     @ResponseBody
-    public Object selectSongListByExample(SongList songlist, Date startDate, Date endDate, @RequestParam(value = "pageNum",defaultValue = "1",required = false) String pageNum, @RequestParam(value = "pageSize",required = false,defaultValue = "1")String pageSize){
+    public Object selectSongListByExample(SongList songlist,Date startDate,Date endDate,@RequestParam(value = "pageNum",defaultValue = "1",required = false)String pageNum,@RequestParam(value = "pageSize",required = false,defaultValue = "1")String pageSize){
+        System.out.println(songlist);
         System.out.println("pageNum:"+pageNum);
         System.out.println("pageSize"+pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum),Integer.parseInt(pageSize));

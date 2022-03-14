@@ -21,7 +21,7 @@ public interface SongListMapper {
 
     int updateByPrimaryKey(SongList record);
 
-    Page<SongList> selectSongListByExample(@Param("songList") SongList songlist, @Param("start") Date startDate, @Param("end") Date endDate);
+    Page<SongList> selectSongListByExample(@Param("songList")SongList songlist,@Param("start")Date startDate, @Param("end")Date endDate);
 
     SongList selectAllBySongListId(int songListId);
 //    歌单里有歌曲

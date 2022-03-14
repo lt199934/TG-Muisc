@@ -73,7 +73,7 @@
                 <label for="singer" class="">歌手</label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                    <select name="singer" class="form-control" id="singer">
+                    <select name="singer" class="form-control singerName" id="singer">
                         <option value="" selected="selected">请选择歌手</option>
                     </select>
                 </div>
@@ -92,6 +92,9 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
                     <select name="language " class="form-control" id="language1">
                         <option value="" selected="selected">请选择语种</option>
+                        <option value="中文">中文</option>
+                        <option value="日文">日文</option>
+                        <option value="英语">英语</option>
                     </select>
                 </div>
             </div>
@@ -176,7 +179,7 @@
                             <label for="singerName" class="">歌手</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                                <select name="singerName" class="form-control" id="singerName">
+                                <select name="singerName" class="form-control singerName"  id="singerName">
                                     <option value="" selected="selected">请选择歌手</option>
                                 </select>
                             </div>
@@ -194,9 +197,9 @@
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
                                 <select name="language" class="form-control" id="language">
                                     <option value="" selected="selected">请选择语种</option>
-                                    <option value="中文" selected="selected">中文</option>
-                                    <option value="日文" selected="selected">日文</option>
-                                    <option value="英语" selected="selected">英语</option>
+                                    <option value="中文" >中文</option>
+                                    <option value="日文" >日文</option>
+                                    <option value="英语" >英语</option>
                                 </select>
                             </div>
                         </div>
@@ -223,20 +226,28 @@
 
 </body>
 <script>
-    $("#pageSize").change(function () {
-        getSongs();
+    $(function () {
+        allSingers();
+        getSongs(1);
     });
-    function getSongs(){
+    $("#selectForm").change(function () {
+        getSongs(1);
+    });
+    $("#pageSize").change(function () {
+        getSongs(1);
+    });
+    function getSongs(pageNum){
         $("#songTbody").empty();
         var url="http://localhost:8080/musicwebsite/selectSongByExample";
         var data={
             "song":$("#name").val(),
-            "singerName":$("#singer").val(),
+            "singerId":$(".singerName").val(),
             "playCount":$("#playCount").val(),
             "downloadCount":$("#downloadCount").val(),
             "language":$("#language").val(),
             "startDate":$("#startDate").val(),
             "endDate":$("#endDate").val(),
+            "pageNum": pageNum,
             "pageSize":$("#pageSize").val(),
         }
         $.ajax({
@@ -244,7 +255,7 @@
             method:"post",
             data:data,
             success:function(data) {
-                // makePage(data);
+                makePage(data);
                 console.log(data);
                 var songs=data.list;
                 for (var i=0;i<songs.length;i++){
@@ -278,50 +289,8 @@
         });
     }
 
-    $(function () {
-        $("#songTbody").empty();
-        var url="http://localhost:8080/musicwebsite/allSongs";
-        $.ajax({
-            url:url,
-            method:"post",
-            success:function(data) {
-                // makePage(data);
-                console.log(data);
-                var songs=data.list;
-                for (var i=0;i<songs.length;i++){
-                    var $tr=$("<tr>");
-                    var $songsId=$("<td>");
-                    var $song=$("<td>");
-                    var $singerName=$("<td>");
-                    var $playCount=$("<td>");
-                    var $downloadCount=$("<td>");
-                    var $language=$("<td>");
-                    var $album=$("<td>");
-                    var $time =$("<td>");
-                    var $url =$("<td>");
-                    var $upd =$("<td>");
-                    var $del =$("<td>");
-                    console.log(songs[i].songsId);
-                    $tr.append($songsId.html(songs[i].songId)).
-                    append($song.html(songs[i].song)).
-                    append($singerName.html(songs[i].singer.singerName)).
-                    append($playCount.html(songs[i].playCount)).
-                    append($downloadCount.html(songs[i].downloadCount)).
-                    append($language.html(songs[i].language)).
-                    append($album.html(songs[i].album.album)).
-                    append($time.html(songs[i].time)).
-                    append($url.html(songs[i].url)).
-                    append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" onclick="upd('+songs[i].songId+')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>')).
-                    append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del('+songs[i].songId+')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
-                    $("#songTbody").append($tr);
-                }
-            }
-        });
-    });
-    $("#selectForm").change(function () {
-        getSongs();
-    });
-    $("#getInsertRows").click(function () {
+
+   function allSingers() {
         $.ajax({
             url:"http://localhost:8080/musicwebsite/AllSingers",
             method:"post",
@@ -329,11 +298,12 @@
                 console.log(data.length);
                 for (var i=0;i<data.length;i++){
                     var $singer =$("<option value="+data[i].singerId+">"+data[i].singerName+"</option>");
-                    $("#singerName").append($singer)
+                    $(".singerName").append($singer)
                 }
             }
         });
-    });
+    };
+
     $("#singerName").change(function () {
         var singerId=$("#singerName").val();
         $.ajax({
@@ -409,51 +379,55 @@
 
     //分页
     function makePage(data){
-        var pageNums=data.navigatepageNums;
-        if(data.pages==1){
-            return;
-        }
+        if(data.list.length!=0){
+            $(".navigate").empty();
+            var pageNums=data.navigatepageNums;
+            if(data.pages==1){
+                return;
+            }
+            if(data.isFirstPage!=true){
+                var pageNum=1;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongs("+pageNum+")").text("首页");
+                $(".navigate").append($li);
+            }
+            if(data.hasPreviousPage==true){
+                var pageNum=data.pageNum-1;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongs("+pageNum+")").text("上一页");
+                $(".navigate").append($li);
+            }
+            for(var i=0;i<pageNums.length;i++){
+                var pageNum=pageNums[i];
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongs("+pageNum+")").text(pageNum);
+                $(".navigate").append($li);
+            }
+            if(data.hasNextPage==true){
+                var pageNum=data.pageNum+1;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongs("+pageNum+")").text("下一页");
+                $(".navigate").append($li);
+            }
 
-        if(data.isFirstPage!=true){
-            var pageNum=1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("首页");
-            $(".navigate").append($li);
-        }
-        if(data.hasPreviousPage==true){
-            var pageNum=data.pageNum-1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("上一页");
-            $(".navigate").append($li);
-        }
-        for(var i=0;i<pageNums.length;i++){
-            var pageNum=pageNums[i];
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text(pageNum);
-            $(".navigate").append($li);
-        }
-        if(data.hasNextPage==true){
-            var pageNum=data.pageNum+1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("下一页");
-            $(".navigate").append($li);
-        }
-
-        if(data.isLastPage!=true){
-            var pageNum=data.pages;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("尾页");
-            $(".navigate").append($li);
+            if(data.isLastPage!=true){
+                var pageNum=data.pages;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongs("+pageNum+")").text("尾页");
+                $(".navigate").append($li);
+            }
+        }else {
+            $(".navigate").empty();
         }
     }
 

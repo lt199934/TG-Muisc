@@ -139,6 +139,8 @@ public class Song {
                 ", albumId=" + albumId +
                 ", time=" + time +
                 ", songlists=" + songlists +
+                ", album=" + album +
+                ", singer=" + singer +
                 '}';
     }
 }
