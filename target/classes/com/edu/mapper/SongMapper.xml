@@ -39,7 +39,7 @@
   <insert id="insert" parameterType="com.edu.bean.Song">
     insert into song
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      song_id, song, singer_id,
+      song, singer_id,
       <if test="playCount !=null" >
         play_count,
       </if>
@@ -53,7 +53,6 @@
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
-    #{songId,jdbcType=INTEGER},
      #{song,jdbcType=VARCHAR},
      #{singerId,jdbcType=INTEGER},
       <if test="playCount !=null" >

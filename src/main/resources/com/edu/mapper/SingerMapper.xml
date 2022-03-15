@@ -32,27 +32,33 @@
       <result column="time" jdbcType="DATE" property="time" />
     </collection>
   </resultMap>
+<!--根据歌手id，进行删除-->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from singer
     where singer_id = #{singerId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.edu.bean.Singer">
-    insert into singer (singer_id, singer_name, sex, 
-      img_url, birthday, intrduction
-      )
-    values (#{singerId,jdbcType=INTEGER}, #{singerName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
-      #{imgUrl,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{intrduction,jdbcType=VARCHAR}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.edu.bean.Singer">
+
+  <update id="updateByExampleAnSingerId" parameterType="com.edu.bean.Singer">
     update singer
-    set singer_name = #{singerName,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=VARCHAR},
-      img_url = #{imgUrl,jdbcType=VARCHAR},
-      birthday = #{birthday,jdbcType=DATE},
-      intrduction = #{intrduction,jdbcType=VARCHAR}
-    where singer_id = #{singerId,jdbcType=INTEGER}
+    set
+        <if test="singer.singerName != null and singer.singerName !=''">
+          and singer_name = #{singer.singerName,jdbcType=VARCHAR},
+        </if>
+        <if test="singer.sex != null and singer.sex !=''">
+          and sex = #{singer.sex,jdbcType=VARCHAR},
+        </if>
+        <if test="singer.imgUrl != null and singer.imgUrl !=''">
+          and img_url = #{singer.imgUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="singer.intrduction != null and singer.intrduction !=''">
+          and intrduction = #{singer.intrduction,jdbcType=VARCHAR},
+        </if>
+        <if test="singer.birthday != null">
+          and birthday  = #{birthday,jdbcType=DATE},
+        </if>
+        where  singer_id = #{singer.singerId,jdbcType=INTEGER}
   </update>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select singer_id, singer_name, sex, img_url, birthday, intrduction
     from singer
@@ -70,11 +76,11 @@
   </select>
 
   <insert id="insertSinger" parameterType="com.edu.bean.Singer">
-    insert into singer (singer_name, sex,
-      img_url, birthday, intrduction
+    insert into singer (singer_name,sex,
+      img_url,birthday,intrduction
       )
-    values ( #{singerName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
-      #{imgUrl,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{intrduction,jdbcType=VARCHAR}
+    values (#{singerName,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
+      #{imgUrl,jdbcType=VARCHAR},#{birthday,jdbcType=DATE},#{intrduction,jdbcType=VARCHAR}
       )
   </insert>
 
