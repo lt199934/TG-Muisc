@@ -315,7 +315,7 @@
                 $li=$("<li class='pull-left'></li>");
                 $btn=$("<button class='btn btn-primary'></button>");
                 $li.append($btn);
-                $btn.attr("onclick","getUsers("+pageNum+")").text("首页");
+                $btn.attr("onclick","getSingers("+pageNum+")").text("首页");
                 $(".navigate").append($li);
             }
             if(data.hasPreviousPage==true){
@@ -323,7 +323,7 @@
                 $li=$("<li class='pull-left'></li>");
                 $btn=$("<button class='btn btn-primary'></button>");
                 $li.append($btn);
-                $btn.attr("onclick","getUsers("+pageNum+")").text("上一页");
+                $btn.attr("onclick","getSingers("+pageNum+")").text("上一页");
                 $(".navigate").append($li);
             }
             for(var i=0;i<pageNums.length;i++){
@@ -331,7 +331,7 @@
                 $li=$("<li class='pull-left'></li>");
                 $btn=$("<button class='btn btn-primary'></button>");
                 $li.append($btn);
-                $btn.attr("onclick","getUsers("+pageNum+")").text(pageNum);
+                $btn.attr("onclick","getSingers("+pageNum+")").text(pageNum);
                 $(".navigate").append($li);
             }
             if(data.hasNextPage==true){
@@ -339,7 +339,7 @@
                 $li=$("<li class='pull-left'></li>");
                 $btn=$("<button class='btn btn-primary'></button>");
                 $li.append($btn);
-                $btn.attr("onclick","getUsers("+pageNum+")").text("下一页");
+                $btn.attr("onclick","getSingers("+pageNum+")").text("下一页");
                 $(".navigate").append($li);
             }
 
@@ -348,7 +348,7 @@
                 $li=$("<li class='pull-left'></li>");
                 $btn=$("<button class='btn btn-primary'></button>");
                 $li.append($btn);
-                $btn.attr("onclick","getUsers("+pageNum+")").text("尾页");
+                $btn.attr("onclick","getSingers("+pageNum+")").text("尾页");
                 $(".navigate").append($li);
             }
         }else {
