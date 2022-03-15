@@ -83,7 +83,7 @@ function getSongLists(pageNum){
 function getSongs(pageNum) {
     var data = {
         "pageNum": pageNum,
-        "pageSize": 5,
+        "pageSize": 6,
     }
     $.ajax({
         "url": "http://localhost:8080/musicwebsite/allSongs",
