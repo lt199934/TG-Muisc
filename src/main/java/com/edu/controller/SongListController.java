@@ -77,16 +77,18 @@ public class SongListController {
     //添加歌单
     @RequestMapping("/insertSongList")
     @ResponseBody
-    public Object insertSongList(SongListDto songList , @Param("imgUrl") MultipartFile img) throws IOException {
+    public Object insertSongList(SongListDto songList , @Param("img") MultipartFile img) throws IOException {
+        int num=0;
         System.out.println(songList);
         System.out.println(img.getOriginalFilename());
-        File file = new File("c:/music/singlistImg/"+img.getOriginalFilename());
+        File file = new File("c:/music/songlistImg/"+img.getOriginalFilename());
         //复制文件 到指定的file对象
         img.transferTo(file);
         if (!"".equals(img.getOriginalFilename())){
-            songList.setImgUrl("/singlistImg/"+img.getOriginalFilename());
+            songList.setImgUrl("/songlistImg/"+img.getOriginalFilename());
         }
         System.out.println(songList);
-        return songListService.insertSongList(songList);
+        num = songListService.insertSongList(songList);
+        return num;
     }
 }

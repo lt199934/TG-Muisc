@@ -277,6 +277,8 @@
              console.log(data);
               if(data == 1){
                   alert("添加成功");
+                  $("#registerForm")[0].reset();
+                  $("#singerModal").modal("hide");
               }
               getSingers(1);
           }

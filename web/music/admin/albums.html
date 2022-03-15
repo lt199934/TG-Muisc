@@ -139,7 +139,7 @@
 
   </div>
 
-   <div class="modal fade" id="singerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
+   <div class="modal fade" id="albumModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -295,6 +295,8 @@ function allSinger(){
                console.log(data);
                if(data == 1){
                    alert("添加成功");
+                   $("#albumForm")[0].reset();
+                   $("#albumModal").modal("hide");
                    getUsers(1);
                }
 

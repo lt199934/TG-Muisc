@@ -159,7 +159,7 @@
 
 </div>
 <div class="container">
-    <div class="modal fade" id="singerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
+    <div class="modal fade" id="songModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -356,6 +356,8 @@
                 console.log(data);
                 if(data == 1){
                     alert("添加成功");
+                    $("#uploadSongForm")[0].reset();
+                    $("#songModal").modal("hide");
                     getSongs(1);
                 }
 

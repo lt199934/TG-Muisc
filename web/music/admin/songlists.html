@@ -98,24 +98,24 @@
                                     <th data-align="center">操作 </th>
                                 </tr>
                             </thead>
-                             <tbody id="songlistsBox">
+                             <tbody id="songListsBox">
 
 		                    </tbody>
                         </table>
                     <!--/div-->
                 </div>
             </div>
-				<label>
-                    每页
-                    <select id="pageSize" onchange="research()"
-                    aria-controls="DataTables_Table_0" size="1" name="DataTables_Table_0_length">
-                        <option selected="selected" value="10">1</option>
-                        <option value="25">2</option>
-                        <option value="50">3</option>
-                        <option value="100">4</option>
-                    </select>
-                     条记录
-                </label>
+                  <label>
+                      每页
+                      <select id="pageSize"
+                              aria-controls="DataTables_Table_0" size="1" name="DataTables_Table_0_length">
+                          <option selected="selected" value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                      </select>
+                      条记录
+                  </label>
                 <label style="float:right;" class="navigate">
 
                 </label>
@@ -127,7 +127,7 @@
 
   </div>
 
-   <div class="modal fade" id="singerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
+   <div class="modal fade" id="songListModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -135,19 +135,19 @@
                         <h4 class="modal-title" id="myModalLoginLabel">添加歌单页面</h4>
                     </div>
                     <div class="modal-body">
-                        <from id="songListForm">
+                        <form  id="songListForm">
                             <div class="form-group">
                                 <label for="songList" class="control-label">歌单</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <input type="text"  class="form-control" name="account" id="songList"  placeholder="请输入歌单名">
+                                    <input type="text"  class="form-control" name="songList" id="songList"  placeholder="请输入歌单名">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="introduction" class="control-label">简介</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <input type="text"  class="form-control" name="account" id="introduction"  placeholder="请输入简介">
+                                    <input type="text"  class="form-control" name="introduction" id="introduction"  placeholder="请输入简介">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -161,7 +161,7 @@
                                 <label for="time" class="">创建时间</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                                    <input type="date" name="birthday" class="form-control" id="time" placeholder="请输入创建时间">
+                                    <input type="date" name="time" class="form-control" id="time" placeholder="请输入创建时间">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -185,8 +185,18 @@
 </body>
 
 <script>
+    $(function () {
+        getSongListId(1);
+        allUsers();
+    });
+    $("#selectForm").change(function () {
+        getSongListId(1);
+    });
+    $("#pageSize").change(function () {
+        getSongListId(1);
+    });
     function getSongListId(pageNum){
-        $("#songlistsBox").empty();
+        $("#songListsBox").empty();
         var url = "http://localhost:8080/musicwebsite/selectSongListByExample";
         var data = {
             "songList": $("#name").val(),
@@ -202,7 +212,6 @@
                 makePage(data);
                 console.log(data);
                 var songlist = data.list;
-                // var pageNums = data.navigatepageNums;
                 for (var i = 0; i < songlist.length; i++) {
                     var $tr = $("<tr>");
                     var $songListId = $("<td>");
@@ -221,34 +230,26 @@
                     append($userId.html(songlist[i].userId)).
                     append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" onclick="upd('+songlist[i].songListId+')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>')).
                     append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del('+songlist[i].songListId+')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
-                    $("#songlistsBox").append($tr);
+                    $("#songListsBox").append($tr);
                 }
             }
         });
 
     };
-  $(function () {
-     getSongListId(1);
-  });
-    $("#selectForm").change(function () {
-        getSongListId(1);
-    });
-    $("#pageSize").change(function () {
-        getSongListId(1);
-    });
-    $("#getInsertRows").click(function () {
+
+    function allUsers() {
         $.ajax({
-            url:"http://localhost:8080/musicwebsite/selAllUser",
+            url:"http://localhost:8080/musicwebsite/allUsers",
             method:"post",
             success:function(data) {
-                console.log(data);
+                console.log("用户",data);
                 for (var i=0;i<data.length;i++){
                     var $user =$("<option value="+data[i].userId+">"+data[i].account+"</option>");
-                    $("#singerName").append($user)
+                    $("#userId").append($user)
                 }
             }
         });
-    });
+    };
   function del(songListId){
       var url = "http://localhost:8080/musicwebsite/delSongList/"+songListId;
       $.ajax({
@@ -281,59 +282,66 @@
                 console.log(data);
                 if(data == 1){
                     alert("添加成功");
+                    $("#songListForm")[0].reset();
+                    $("#songListModal").modal("hide");
+                    getSongListId(1);
                 }
-                getSongListId();
+
             }
         });
     });
 
     //分页
     function makePage(data){
-        var pageNums=data.navigatepageNums;
-        if(data.pages==1){
-            return;
-        }
+        if(data.list.length!=0){
+            $(".navigate").empty();
+            var pageNums=data.navigatepageNums;
+            if(data.pages==1){
+                return;
+            }
+            if(data.isFirstPage!=true){
+                var pageNum=1;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongListId("+pageNum+")").text("首页");
+                $(".navigate").append($li);
+            }
+            if(data.hasPreviousPage==true){
+                var pageNum=data.pageNum-1;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongListId("+pageNum+")").text("上一页");
+                $(".navigate").append($li);
+            }
+            for(var i=0;i<pageNums.length;i++){
+                var pageNum=pageNums[i];
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongListId("+pageNum+")").text(pageNum);
+                $(".navigate").append($li);
+            }
+            if(data.hasNextPage==true){
+                var pageNum=data.pageNum+1;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongListId("+pageNum+")").text("下一页");
+                $(".navigate").append($li);
+            }
 
-        if(data.isFirstPage!=true){
-            var pageNum=1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("首页");
-            $(".navigate").append($li);
-        }
-        if(data.hasPreviousPage==true){
-            var pageNum=data.pageNum-1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("上一页");
-            $(".navigate").append($li);
-        }
-        for(var i=0;i<pageNums.length;i++){
-            var pageNum=pageNums[i];
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text(pageNum);
-            $(".navigate").append($li);
-        }
-        if(data.hasNextPage==true){
-            var pageNum=data.pageNum+1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("下一页");
-            $(".navigate").append($li);
-        }
-
-        if(data.isLastPage!=true){
-            var pageNum=data.pages;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
-            $li.append($btn);
-            $btn.attr("onclick","getAlbums("+pageNum+")").text("尾页");
-            $(".navigate").append($li);
+            if(data.isLastPage!=true){
+                var pageNum=data.pages;
+                $li=$("<li class='pull-left'></li>");
+                $btn=$("<button class='btn btn-primary'></button>");
+                $li.append($btn);
+                $btn.attr("onclick","getSongListId("+pageNum+")").text("尾页");
+                $(".navigate").append($li);
+            }
+        }else {
+            $(".navigate").empty();
         }
     }
 

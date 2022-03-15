@@ -97,7 +97,7 @@
         </if>
   </select>
 <select id="selectSongListByExample" resultMap="BaseResultMap">
-  select * from user
+  select * from songlist
   <where>
     <if test="songList.songList != null and songList.songList !=''">
       song_list = #{songList.songList,jdbcType=INTEGER}

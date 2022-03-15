@@ -222,7 +222,7 @@ public class UserController {
         return userService.delSongsToSongList(Integer.parseInt(songListId),Integer.parseInt(songId));
     }
     //查询所有用户
-    @RequestMapping("/selAllUser")
+    @RequestMapping("/allUsers")
     @ResponseBody
     public Object selAllUser(){
 //        List<User> users = userService.selAllUser();
