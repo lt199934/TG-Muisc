@@ -43,7 +43,7 @@ public class SongController {
 //上传歌曲
     @RequestMapping("/uploadSong")
     @ResponseBody
-    public int uploadSong(Song song,@RequestParam("songPath") MultipartFile songPath) throws IOException {
+    public int uploadSong(Song song,@RequestParam("songPath")MultipartFile songPath) throws IOException {
         System.out.println(song);
         System.out.println(songPath.getOriginalFilename());
         String result=null;

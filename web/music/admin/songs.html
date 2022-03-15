@@ -179,16 +179,16 @@
                             <label for="singerName" class="">歌手</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                                <select name="singerName" class="form-control singerName"  id="singerName">
+                                <select name="singerId" class="form-control singerName"  id="singerName">
                                     <option value="" selected="selected">请选择歌手</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="musicUrl" class="">歌曲文件：</label>
+                            <label for="songPath" class="">歌曲文件：</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
-                                <input type="file" name="musicUrl" class="form-control"  id="musicUrl" placeholder="请选择上传的歌曲">
+                                <input type="file" name="songPath" class="form-control"  id="songPath" placeholder="请选择上传的歌曲">
                             </div>
                         </div>
                         <div class="form-group">
@@ -207,7 +207,7 @@
                             <label for="albumName" class="">专辑</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                                <select name="albumName" class="form-control" id="albumName">
+                                <select name="albumId" class="form-control" id="albumName">
                                     <option value="" selected="selected">请选择专辑</option>
                                 </select>
                             </div>
@@ -227,8 +227,9 @@
 </body>
 <script>
     $(function () {
-        allSingers();
         getSongs(1);
+        allSingers();
+        allAlbums();
     });
     $("#selectForm").change(function () {
         getSongs(1);
@@ -295,10 +296,24 @@
             url:"http://localhost:8080/musicwebsite/AllSingers",
             method:"post",
             success:function(data) {
-                console.log(data.length);
+                console.log("歌手",data);
                 for (var i=0;i<data.length;i++){
                     var $singer =$("<option value="+data[i].singerId+">"+data[i].singerName+"</option>");
                     $(".singerName").append($singer)
+                }
+            }
+        });
+    };
+    function allAlbums() {
+        $.ajax({
+            url:"http://localhost:8080/musicwebsite/allAlbums",
+            method:"post",
+            success:function(data) {
+                console.log("专辑",data);
+                var albums = data.list;
+                for (var i=0;i<albums.length;i++){
+                    var $album =$("<option value="+albums[i].albumId+">"+albums[i].album+"</option>");
+                    $("#albumName").append($album)
                 }
             }
         });
@@ -322,10 +337,10 @@
         var url="http://localhost:8080/musicwebsite/uploadSong";
         var date = new Date();
         var form=$("#uploadSongForm")[0];
-        // var time=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
-        // console.log(time);
+        var time=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+        console.log(time);
         var formData =new FormData(form);
-        // formData.append("time",time);
+        formData.append("time",time);
         console.log(formData);
         // $('#registerForm').data('bootstrapValidator').validate();//手动开启验证
         // var flag = $('#registerForm').data('bootstrapValidator').isValid();//

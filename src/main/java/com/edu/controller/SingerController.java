@@ -38,7 +38,7 @@ public class SingerController {
     // 通过id查询歌手所有信息
     @RequestMapping("/singer/{singerId}")
     @ResponseBody
-    public Singer selectAllBySinerId(@PathVariable("singerId") String singerId){
+    public Singer selectAllBySingerId(@PathVariable("singerId") String singerId){
         return singerService.selectAllBySingerId(Integer.parseInt(singerId));
     }
 
