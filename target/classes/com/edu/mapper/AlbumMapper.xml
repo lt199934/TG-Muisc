@@ -38,10 +38,10 @@
     where album_id = #{albumId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.edu.bean.Album">
-    insert into album (album_id, album, singer_id,album_img
-      introduction, company, time
+    insert into album (album, singer_id,album_img,
+      introduction,company, time
       )
-    values (#{albumId,jdbcType=INTEGER}, #{album,jdbcType=VARCHAR}, #{singerId,jdbcType=INTEGER}, 
+    values (#{album,jdbcType=VARCHAR}, #{singerId,jdbcType=INTEGER},
       #{albumImg,jdbcType=VARCHAR},#{introduction,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{time,jdbcType=DATE}
       )
   </insert>

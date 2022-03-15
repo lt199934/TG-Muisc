@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -75,7 +78,21 @@ public class AlbumController {
     //添加专辑
     @RequestMapping("/insertAlbum")
     @ResponseBody
-    public int insertAlbum(Album album){
-        return albumService.insertAlbum(album);
+    public int insertAlbum(Album album,@RequestParam("img") MultipartFile img) throws IOException {
+        System.out.println(album);
+        System.out.println(img.getOriginalFilename());
+        int num=0;
+        String data=new Date().getTime()+img.getOriginalFilename();
+        File file = new File("c:/music/album/"+data);
+        //复制文件 到指定的file对象
+        img.transferTo(file);
+        if (!"".equals(img.getOriginalFilename())){
+            album.setAlbumImg("/album/"+data);
+        }
+        System.out.println(album);
+        num = albumService.insertAlbum(album);
+        return num;
     }
+
+
 }
