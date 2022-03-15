@@ -25,21 +25,21 @@ $("#log").click(function () {
 function getAlbums(pageNum){
     var data = {
         "pageNum": pageNum,
-        "pageSize": $("#pageSize").val(),
+        "pageSize": 6,
     }
     $.ajax({
         "url": "http://localhost:8080/musicwebsite/allAlbums",
         method: "post",
         data:data,
         success: function (data) {
-            console.log(data);
             $("#albums").empty();
             var albums=data.list;
-            for (var i=0;i<4;i++){
+            console.log("精选专辑",data);
+            for (var i=0;i<albums.length;i++){
                var content="<div class='col-xs-6 col-sm-1-5 col-md-1-5' >";
                 content+="<div class='box'>";
                 content+="<div class='box-img'>";
-                content+="<img src="+albums[i].albumImg+">";
+                content+="<img src='"+albums[i].albumImg+"' />";
                 content+="</div>";
                 content+="<div class='box-content'>";
                 content+="<a href=javascript:void(0);><h4 class='title'>"+albums[i].album+"</h4></a>";
@@ -57,18 +57,17 @@ function getAlbums(pageNum){
 function getSongLists(pageNum){
     var data = {
         "pageNum": pageNum,
-        "pageSize": $("#pageSize").val(),
+        "pageSize": 4,
     }
     $.ajax({
         "url": "http://localhost:8080/musicwebsite/allSongLists",
         method: "post",
         data:data,
         success: function (data) {
-            // $("#songLists").val("");
             $("#songLists").empty();
-            console.log(data);
             var songList =data.list;
-            for (var i=0;i<10;i++){
+            console.log("精选歌单",data);
+            for (var i=0; i < songList.length; i++){
                 var  content="<div  class='col-xs-12 col-sm-4 col-md-3 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
                 content+="<a href=javascript:void(0);><img class='img-responsive' src='"+songList[i].imgUrl+"' alt='sample image'></a>";
                 content+="<a href=javascript:void(0);><span class='item-desc'>"+songList[i].songList+"</span></a>";
@@ -84,17 +83,16 @@ function getSongLists(pageNum){
 function getSongs(pageNum) {
     var data = {
         "pageNum": pageNum,
-        "pageSize": $("#pageSize").val(),
+        "pageSize": 5,
     }
-    console.log(pageNum);
     $.ajax({
         "url": "http://localhost:8080/musicwebsite/allSongs",
         method: "post",
         data: data,
         success: function (data) {
-            console.log(data);
-            for (var i = 0; i <10 ; i++) {
-                var songs=data.list;
+            var songs=data.list;
+            console.log("新歌精选",data);
+            for (var i = 0; i < songs.length; i++) {
                 content="<tr>";
                 content+="<td>"+(i+1)+"</td>";
                 content+="<td><img src="+songs[i].album.albumImg+"></td>";
@@ -112,7 +110,7 @@ function getSongs(pageNum) {
 function getSingers(pageNum){
     var data= {
         "pageNum": pageNum,
-        "pageSize": $("#pageSize").val(),
+        "pageSize": 4,
     }
     console.log(pageNum);
     $.ajax({
@@ -120,9 +118,9 @@ function getSingers(pageNum){
         method: "post",
         data:data,
         success: function (data) {
-            console.log(data);
+            console.log("歌手信息",data);
             var singers=data.list;
-            for (var i=0;i<4;i++){
+            for (var i=0;i<singers.length;i++){
                var content="<div class='tupian'>";
                 content+="<div style='background-image: url("+singers[i].imgUrl+")' class='p1'></div>"
                 content+="<div class='bq'>";
