@@ -31,7 +31,7 @@ create table user(
 -- 性别
 	sex varchar(10) not null,
 -- 头像
-	head_img varchar(50) not null default'/headImg/head.jpg',
+	head_img varchar(300) not null default'/headImg/head.jpg',
 -- 帐号类型
 	type varchar(10) not null default'普通用户',
 -- 个性签名
@@ -51,7 +51,7 @@ create table songlist(
 -- 简介 	
 	introduction varchar(300) not null,
 -- 歌单图片	
-  img_url varchar(30) not null,
+    img_url varchar(300) not null,
 -- 歌单创建时间
 	time date not null,
 -- 用户id
@@ -70,7 +70,7 @@ create table singer(
 -- 性别
 	sex varchar(10) not null,
 -- 歌手图片连接
-	img_url varchar(30) not null,
+	img_url varchar(300) not null,
 -- 生日
 	birthday date not null,
 -- 简介 
@@ -89,7 +89,7 @@ create table album(
 -- 歌手id
 	singer_id int not null,
 -- 	图片
-    	album_img varchar(30) not null,
+    album_img varchar(300) not null,
 -- 专辑 简介
 	introduction varchar(300) not null,
 -- 专辑 发行机构
