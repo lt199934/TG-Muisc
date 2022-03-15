@@ -95,15 +95,15 @@
               
                         <!-- 按钮触发模态框 -->
                         <button id="getInsertRows" type="button" class="btn btn-success"
-                        data-toggle="modal"  data-target="#singerModal">添加</button>
+                        data-toggle="modal"  data-target="#albumModal">添加</button>
                          <table id="grid" data-ajax="true" data-selection="true" data-multi-select="true" data-url="UserSerlvt" data-toggle="bootgrid" class="table table-condensed table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th  data-align="left" >ID</th>
+                                    <th  data-align="center" >ID</th>
                                     <th >专辑</th>
                                     <th >专辑图片</th>
                                     <th >歌手名</th>
-                                    <th >专辑简介</th>
+                                    <th style=" width: 487px;">专辑简介</th>
                                     <th >发行机构</th>
                                     <th >发布时间 </th>
                                     <th data-align="center">操作 </th>
@@ -248,7 +248,7 @@
                     $tr.append($albumId.html(album[i].albumId)).
                     append($album.html(album[i].album)).
                     append($imgurl.html('<img src="'+album[i].albumImg+'" style="width:50px;height:50px;border: 1px solid;">')).
-                    append($singername.html(album[i].singername)).
+                    append($singername.html(album[i].singerName)).
                     append($introduction.html(album[i].introduction)).
                     append($company.html(album[i].company)).
                     append($time.html(album[i].time)).

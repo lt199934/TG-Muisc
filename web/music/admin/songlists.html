@@ -24,6 +24,12 @@
         li{
             list-style: none;
         }
+       td >img{
+          margin-left:19px;
+       }
+       th{
+           text-align: center;
+       }
       </style>
      
    </head>
@@ -85,14 +91,14 @@
               
                         <!-- 按钮触发模态框 -->
                         <button id="getInsertRows" type="button" class="btn btn-success"
-                        data-toggle="modal"  data-target="#singerModal">添加</button>
+                        data-toggle="modal"  data-target="#songListModal">添加</button>
                          <table id="grid" data-ajax="true" data-selection="true" data-multi-select="true" data-url="UserSerlvt" data-toggle="bootgrid" class="table table-condensed table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th data-align="left">ID</th>
+                                    <th>ID</th>
                                     <th>歌单</th>
-                                    <th>简介</th>
-                                    <th>歌单图片</th>
+                                    <th style=" width: 400px;">简介</th>
+                                    <th style=" width: 100px;">歌单图片</th>
                                     <th>歌单创建时间</th>
                                     <th>用户id</th>
                                     <th data-align="center">操作 </th>
@@ -164,6 +170,7 @@
                                     <input type="date" name="time" class="form-control" id="time" placeholder="请输入创建时间">
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="userId" class="">创建用户</label>
                                 <div class="input-group">
@@ -173,7 +180,17 @@
                                     </select>
                                 </div>
                             </div>
-                        </from>
+
+                            <div class="form-group">
+                                <label for="fenLei" class="">歌单分类</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
+                                    <select name="fenLei" class="form-control" id="fenLei">
+                                        <option value="" selected="selected">请选择分类</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger"  data-dismiss="modal">取消</button>
@@ -188,6 +205,7 @@
     $(function () {
         getSongListId(1);
         allUsers();
+        getFenLei();
     });
     $("#selectForm").change(function () {
         getSongListId(1);
@@ -236,7 +254,21 @@
         });
 
     };
-
+    function getFenLei() {
+        $.ajax({
+            "url": "http://localhost:8080/musicwebsite/fenLei",
+            method: "post",
+            success: function (data) {
+                console.log(data);
+                var content=" <li class='active' data-filter='all'><input type='hidden' id='fenId' value=0>全部</li>";
+                console.log("分类",data);
+                for (var i=0;i<data.length;i++){
+                    var $fen =$("<option value="+data[i].fenId+">"+data[i].content+"</option>");
+                    $("#fenLei").append($fen)
+                }
+            }
+        });
+    }
     function allUsers() {
         $.ajax({
             url:"http://localhost:8080/musicwebsite/allUsers",
