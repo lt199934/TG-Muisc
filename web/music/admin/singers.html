@@ -197,15 +197,15 @@
 </body>
 <script>
     $(function () {
-        getUsers(1);
+        getSingers(1);
     });
     $("#selectForm").change(function () {
-        getUsers(1);
+        getSingers(1);
     });
     $("#pageSize").change(function () {
-        getUsers(1);
+        getSingers(1);
     });
-    function getUsers(pageNum) {
+    function getSingers(pageNum) {
         $("#singerTbody").empty();
         var url="http://localhost:8080/musicwebsite/selectAllSingers";
         var data={
@@ -278,7 +278,7 @@
               if(data == 1){
                   alert("添加成功");
               }
-              getUsers();
+              getSingers(1);
           }
         });
    });

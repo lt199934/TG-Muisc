@@ -19,7 +19,7 @@ function getSongList(pageNum){
             // $("#songLists").empty();
             $("#fenLei").empty();
             $("#song").empty();
-            console.log(data);
+            console.log("歌单详情",data);
             var songList =data;
             var songDto=data.songDto;
             $("#songListImg").attr("src",songList.imgUrl);

@@ -339,7 +339,7 @@
                 if(data == 1){
                     alert("添加成功");
                 }
-                getUsers();
+                getUsers(1);
             }
         });
     });
@@ -368,14 +368,11 @@
                   if(data == 1){
                       alert("删除成功");
                   }
-                  getUsers();
+                  getUsers(1);
               }
           });
       }
   }
-
-
-
     //分页
     function makePage(data){
         if(data.list.length!=0){
@@ -429,9 +426,5 @@
             $(".navigate").empty();
         }
     }
-
-
-
-
 </script>
 </html>

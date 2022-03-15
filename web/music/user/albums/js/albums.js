@@ -18,7 +18,7 @@ function getAlbums(pageNum){
             $(".navigate").empty();
             $("#albums").empty();
             makePage(data);
-            console.log(data);
+            console.log("专辑列表",data);
             var albums=data.list;
             for (var i=0;i<albums.length;i++){
                var content="<div class='col-xs-6 col-sm-1-5 col-md-1-5' >";

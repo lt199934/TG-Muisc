@@ -15,7 +15,7 @@ function getSongLists(pageNum){
             $(".navigate").empty();
             $("#songLists").empty();
             makePage(data);
-            console.log(data);
+            console.log("歌单列表",data);
             var songList =data.list;
             for (var i=0;i<songList.length;i++){
                 var  content="<div  class='col-xs-12 col-sm-4 col-md-3 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";

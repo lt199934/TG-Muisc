@@ -17,7 +17,7 @@ function getAlbum(pageNum){
         success: function (data) {
             $("#songLists").val();
             $("#albums").empty();
-            console.log(data);
+            console.log("专辑详情",data);
             var album =data;
             var songs=data.songs;
             var singer=data.singer;
@@ -31,7 +31,6 @@ function getAlbum(pageNum){
             $("#company").html(album.company);
             var content="";
             for (var i=0;i<songs.length;i++){
-                console.log(album);
                 content+="<tr>";
                 content+="<td>"+(i+1)+"</td>";
                 content+="<td>"+songs[i].song+"</td>";

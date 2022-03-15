@@ -5,7 +5,7 @@ $(function () {
 function getSingers(pageNum){
     var data= {
         "pageNum": pageNum,
-        "pageSize": $("#pageSize").val(),
+        "pageSize": 3,
     }
     console.log(pageNum);
     $.ajax({
@@ -13,7 +13,7 @@ function getSingers(pageNum){
         method: "post",
         data:data,
         success: function (data) {
-            console.log(data);
+            console.log("歌手详情",data);
             var content=" ";
             var singers=data.list;
             for (var i=0;i<4;i++){

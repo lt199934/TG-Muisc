@@ -5,7 +5,7 @@ $(function () {
 function getSingers(pageNum){
     var data= {
         "pageNum": pageNum,
-        "pageSize": $("#pageSize").val(),
+        "pageSize": 20,
     }
     console.log(pageNum);
     $.ajax({
@@ -16,7 +16,7 @@ function getSingers(pageNum){
             $(".navigate").empty();
             $("#singerList").empty();
             makePage(data);
-            console.log(data);
+            console.log("歌手列表",data);
             var singers=data.list;
             for (var i=0;i<singers.length;i++){
                 var content="<div class='tupian'>";
