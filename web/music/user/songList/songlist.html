@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>歌单详情页面</title>
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/css/index.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/css/common.css">
+    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
+    <link rel="stylesheet" href="/music/user/css/index.css">
+    <link rel="stylesheet" href="/music/user/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/music/user/albums/css/bootstrap-grid.min.css" />
     <link rel="shortcut icon" href="#"/>
-    <script src="http://localhost:8080/musicwebsite/music/user/js/jquery.min.js"></script>
-    <script src="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
-    <script src="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
+    <script src="/music/user/js/jquery.min.js"></script>
+    <script src="/music/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <script src="/music/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/musicwebsite/music/user/songLists/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="/music/user/songLists/css/demo.css">
     <style>
         body{
-            background-color:#84AF9B;
+            background-color:#FFFFFF;
             background-image:
                     radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
                     radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
@@ -24,9 +25,6 @@
                     radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
             background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
             background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-        }
-        .navbar-default{
-            background-color: #84AF9B;
         }
         img{
             width: 100%;
@@ -40,14 +38,14 @@
 </head>
 <body>
 <div class="container" id="songList">
-    <a href="http://localhost:8080/musicwebsite/music/user/index.html">
+    <a href="/">
         <h1 class="songList__logo">音乐网站</h1>
     </a>
     <div class="songList__header">
         <div class="songList__bg"></div>
         <div class="row">
-            <div class="col-md-12">
-                <dl class="col-md-12">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <dl class="col-md-12 col-xs-12 col-sm-12">
                     <dt class="col-md-1 col-md-offset-1"><img  style="width: 300px;height: 300px;background-color: white;box-shadow: 1px 1px #eee;border-radius: 10px; padding: 20px;"  src=""  id="songListImg" class="pull-left"></dt>
                     <div class="col-md-6 col-md-offset-4 pull-left" style="margin-top: 20px;">
                         <dd><h3 class="songList__name">一秒倾心! </h3></dd>
@@ -78,7 +76,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <table class="table table-hover">
+        <table class="table table-hover col-md-12 col-xs-11 col-sm-11">
             <thead>
             <tr class="text-left">
                 <td>序号</td>
@@ -97,9 +95,25 @@
             </tbody>
         </table>
     </div>
+    <!--        分页-->
+    <div class="row">
+        <nav aria-label="Page navigation " class="col-md-12 col-md-offset-1">
+            <ul class="pagination">
+
+            </ul>
+        </nav>
+    </div>
+    <!--    底部-->
+    <div class="row">
+        <div class="footer_copyright col-md-12 col-xs-12 col-sm-12">
+            <p class="text-center">
+                <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">音乐网站</a>powered by <a href="https://ltbk.net/">涛哥博客</a>
+            </p>
+        </div>
+    </div>
 </div>
     <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="280px" name="play" frameborder="0"></iframe>
 </body>
-<script src="http://localhost:8080/musicwebsite/music/user/songList/js/songlist.js"></script>
-<script src="http://localhost:8080/musicwebsite/music/user/js/util.js"></script>
+<script src="/music/user/songList/js/songlist.js"></script>
+<script src="/music/user/js/util.js"></script>
 </html>

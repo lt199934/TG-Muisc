@@ -1,7 +1,7 @@
 function delUser(userid) {
     alert(userid)
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/delUser/1"+userid,
+        "url": "/delUser/"+userid,
         method: "post",
         success: function (data) {
             console.log(data);

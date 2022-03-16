@@ -11,7 +11,7 @@
         song.append("time",time);
         console.log(song);
         $.ajax({
-            "url": "http://localhost:8080/musicwebsite/uploadSong",
+            "url": "/uploadSong",
             method: "post",
             data: song,
             async:false,
@@ -31,7 +31,7 @@
         }
         console.log(pageNum);
         $.ajax({
-            "url": "http://localhost:8080/musicwebsite/songs",
+            "url": "/songs",
             method: "post",
             data: data,
             success: function (data) {

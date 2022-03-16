@@ -68,7 +68,7 @@ $("#subBtn").click(function(){
          console.log(flag);
          if(flag==true){
         $.ajax({
-            "url": "http://localhost:8080/musicwebsite/userLogin",
+            "url": "/userLogin",
             method: "post",
             data: user,
             success: function (data) {
@@ -78,7 +78,7 @@ $("#subBtn").click(function(){
                     alert("登录成功");
                     console.log("登录成功");
                     sessionStorage.setItem("user",JSON.stringify(data));
-                    window.location.href="http://localhost:8080/musicwebsite/music/user/index.html";
+                    window.location.href="/";
                 }else{
                     alert("登录失败!该用户不存在");
                     console.log("登录失败");
@@ -115,7 +115,7 @@ function checkRegisterForm(){
                         },
                         threshold: 2,//有2字符以上才发送ajax请求
                             remote: {//ajax验证。server result:{"valid",true or false} 
-                                 url: "http://localhost:8080/musicwebsite/checkAccount",
+                                 url: "/checkAccount",
                              message: '用户名已存在,请重新输入！',
                                delay: 1000,//ajax刷新的时间是1秒一次
                                 type: 'POST',
@@ -256,7 +256,7 @@ $("#regBtn").click(function(){
     if(flag==true){
         var $btn = $(this).button('loading');
         $.ajax({
-            "url": "http://localhost:8080/musicwebsite/userRegister",
+            "url": "/userRegister",
             method: "post",
             data: formData,
             async:false,

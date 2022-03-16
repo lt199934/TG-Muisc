@@ -28,9 +28,9 @@ hr {
     align-items: flex-end;
 }
 .footer_copyright{
-    width: 1140px;
+    /*width: 1140px;*/
     height: 120px;
-    background-color: #9acfea;
+    background-color:#191d20;
     position: absolute;
 }
 .footer_copyright p{

@@ -24,7 +24,7 @@ $("#logout").click(function(){
         var logout=sessionStorage.removeItem("user");
         var user=JSON.parse(sessionStorage.getItem("user"));
         console.log(user);
-        window.location.href="http://localhost:8080/musicwebsite/music/user/index.html";
+        window.location.href="/";
     }
 
 });

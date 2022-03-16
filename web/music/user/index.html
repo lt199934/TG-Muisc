@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>网站主页</title>
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/css/index.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/css/common.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/musicwebsite/music/user/songLists/css/demo.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/songLists/css/gedan.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/musicwebsite/music/user/albums/css/zhuanjistyle.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/albums/css/wudengfen.css">
-    <link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/albums/css/shoujigedan.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/musicwebsite/music/user/singers/css/singers.css">
+    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
+    <link rel="stylesheet" href="/music/user/css/index.css">
+    <link rel="stylesheet" href="/music/user/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/music/user/songLists/css/demo.css">
+    <link rel="stylesheet" href="/music/user/songLists/css/gedan.css">
+    <link rel="stylesheet" type="text/css" href="/music/user/albums/css/zhuanjistyle.css">
+    <link rel="stylesheet" href="/music/user/albums/css/wudengfen.css">
+    <link rel="stylesheet" href="/music/user/albums/css/shoujigedan.css">
+    <link rel="stylesheet" type="text/css" href="/music/user/singers/css/singers.css">
     <link rel="shortcut icon" href="#"/>
-    <script src="http://localhost:8080/musicwebsite/music/user/js/jquery.min.js"></script>
-    <script src="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
-    <script src="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="/music/user/albums/css/bootstrap-grid.min.css" />
+    <script src="/music/user/js/jquery.min.js"></script>
+    <script src="/music/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <script src="/music/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
         body{
-            background-color:#84AF9B;
+            background-color:#FFFFFF;
             background-image:
                     radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
                     radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
@@ -30,60 +31,75 @@
             background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
             background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
         }
-        .navbar-default{
-            background-color: #84AF9B;
-        }
         img{
             width: 100%;
             height: 100%;
             box-shadow: 5px 5px 5px #000;
         }
-        .pagination{
-            margin-left: 30%;
-        }
+
         .box-img img{
             width: 144.59px;
             height: 155px;
         }
-        /*#collect{*/
-        /*    color: red;*/
-        /*}*/
+        hr {
+            height: 4px;
+            margin: 1em 0;
+            border: none;
+            background-color: rgb(100, 211, 255);
+        }
+
+        .recom__title {
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 定义反白导航条 -->
         <div class="row">
-
-            <nav class="navbar navbar-form" role="navigation">
-                <div class="clipped-container">
-                    <h1>音乐网站</h1>
-                    <div class="navbar-header">
-                            <a class="navbar-brand" href="http://localhost:8080/musicwebsite/music/user/index.html">音乐网站</a>
-                    </div>
-                    <ul class="nav navbar-nav navbar-link">
-                        <li><a href="http://localhost:8080/musicwebsite/music/user/music/music.html"> 曲库</a></li>
-                        <li><a href="http://localhost:8080/musicwebsite/music/user/songLists/songlists.html"> 歌单</a></li>
-                        <li><a href="http://localhost:8080/musicwebsite/music/user/singers/singers.html"> 歌手</a></li>
-                        <li><a href="http://localhost:8080/musicwebsite/music/user/albums/albums.html"> 专辑</a></li>
+            <h1> <a href="/">音乐网站</a></h1>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                        <span class="sr-only">展开导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">music</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/music/user/music/music.html"> 曲库</a></li>
+                        <li><a href="/music/user/songLists/songlists.html"> 歌单</a></li>
+                        <li><a href="/music/user/singers/singers.html"> 歌手</a></li>
+                        <li><a href="/music/user/albums/albums.html"> 专辑</a></li>
+                        <li>
+                            <form class="navbar-form " role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="searchbar" placeholder="搜索歌曲/歌手">
+                                </div>
+                            </form>
+                        </li>
+                        <li>
+                            <a id="uc">用户：aaa</a>
+                        </li>
+                        <li><a href="#" id="personalPage"><span class="glyphicon glyphicon-user"></span> 个人主页</a></li>
+                        <li><a id="register" data-toggle="modal" data-target="#myRegisterModal" href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                        <li><a id="login" data-toggle="modal" data-target="#myLoginModal" href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                        <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                        <li>
+                            <img src="" id="headimg" style="width: 50px;height:50px;"  class="img-responsive img-circle">
+                        </li>
                     </ul>
-                       <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="searchbar" placeholder="搜索歌曲/歌手">
-                            </div>
-                        </form>
-                    <ul class="nav navbar-nav navbar-right">
-                    <li></li>
-                    <li><a href="#" id="personalPage"><span class="glyphicon glyphicon-user"></span> 个人主页</a></li>
-                    <li><a id="register" data-toggle="modal" data-target="#myRegisterModal" href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-                    <li><a id="login" data-toggle="modal" data-target="#myLoginModal" href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-                    <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
-                </ul>
-                    <div class="navbar-header navbar-right" style="width: 160px;margin-top: -18px"><img src="" id="headimg" style="width: 60px;height:60px;float: left;margin-top: -6px"  class="img-responsive img-circle img-thumbnail"><span id="uc" style="margin-left:20px;margin-top: 34px;float: left">用户：aaa</span></div>
                 </div>
             </nav>
         </div>
-
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-inteval="500">
+        <div class="row">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-inteval="500">
             <!-- 轮播（Carousel）指标 -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -116,7 +132,7 @@
         <div class="row">
             <div class="recom__title">
                 <h2>精选专辑</h2>
-                <a href="http://localhost:8080/musicwebsite/music/user/albums/albums.html">
+                <a href="/music/user/albums/albums.html">
                     <span class="recom__more">更多&gt;&gt;</span></a>
             </div>
             <hr>
@@ -128,7 +144,7 @@
         <div class="row">
             <div class="recom__title">
             <h2>精选歌单</h2>
-            <a href="http://localhost:8080/musicwebsite/music/user/songLists/songlists.html">
+            <a href="/music/user/songLists/songlists.html">
                 <span class="recom__more">更多&gt;&gt;</span></a>
         </div>
             <hr>
@@ -141,7 +157,7 @@
         <table class="table table-hover">
             <div class="recom__title">
                 <h2>新歌精选</h2>
-                <a href="http://localhost:8080/musicwebsite/music/user/music/music.html">
+                <a href="/music/user/music/music.html">
                     <span class="recom__more">更多&gt;&gt;</span></a>
             </div>
             <hr>
@@ -163,7 +179,7 @@
         <div class="row row-no-gutters">
             <div class="recom__title">
                 <h2>歌手</h2>
-                <a href="http://localhost:8080/musicwebsite/music/user/singers/singers.html">
+                <a href="/music/user/singers/singers.html">
                     <span class="recom__more">更多&gt;&gt;</span></a>
             </div>
             <hr>
@@ -172,20 +188,15 @@
             </div>
 
         </div>
-
-        <div class="footer_copyright">
-            <p>
-                <a href="http://www.tencent.com/" rel="noopener noreferrer" target="_blank" title="关于腾讯">关于腾讯</a>
-                |<a href="http://www.tencent.com/index_e.shtml" rel="noopener noreferrer" target="_blank" title="About Tencent">About Tencent</a>
-                |<a href="http://www.qq.com/contract.shtml" rel="noopener noreferrer" target="_blank" title="服务条款">服务条款</a>
-                |<a href="http://y.qq.com/y/static/tips/service_tips.html" rel="noopener noreferrer" target="_blank" title="用户服务协议">用户服务协议</a>
-                |<a href="https://y.qq.com/m/client/intro/privacy.html" rel="noopener noreferrer" target="_blank" title="隐私政策">隐私政策</a>
-                |<a href="https://y.qq.com/vip/right_declare/index.html" rel="noopener noreferrer" target="_blank" title="权利声明">权利声明</a>
-                |<a href="http://www.tencentmind.com/" rel="noopener noreferrer" target="_blank" title="广告服务">广告服务</a>
-                |<a href="http://hr.tencent.com/" rel="noopener noreferrer" target="_blank" title="腾讯招聘">腾讯招聘</a>
-                |<a href="http://service.qq.com/" rel="noopener noreferrer" target="_blank" title="客服中心">客服中心</a>
-            </p>
-        <div class="modal fade"  id="myRegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="row">
+                <div class="footer_copyright col-md-12 col-xs-12 col-sm-12">
+                    <p class="text-center">
+                        <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">音乐网站</a>powered by <a href="https://ltbk.net/">涛哥博客</a>
+                    </p>
+                </div>
+            </div>
+<!--            注册-->
+        <div class="modal fade"   id="myRegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -316,12 +327,10 @@
 
     </div>
 
-
-    </div>
 <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="280px" name="play" frameborder="0"></iframe>
 </body>
-<script src="http://localhost:8080/musicwebsite/music/user/js/isLogin.js"></script>
-<script src="http://localhost:8080/musicwebsite/music/user/js/index.js"></script>
-<script src="http://localhost:8080/musicwebsite/music/user/js/util.js"></script>
-<script src="http://localhost:8080/musicwebsite/music/user/js/user.js"></script>
+<script src="/music/user/js/isLogin.js"></script>
+<script src="/music/user/js/index.js"></script>
+<script src="/music/user/js/util.js"></script>
+<script src="/music/user/js/user.js"></script>
 </html>

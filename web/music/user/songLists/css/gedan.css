@@ -2,8 +2,8 @@
     padding: 1rem;
 }
 .item-desc {
-    background-color: rgba(0,0,0,0.5);
-    color: white;
+    background-color: rgba(0,0,0,0.9);
+    color: #ffffff;
     position: absolute;
     text-transform: uppercase;
     text-align: center;
@@ -23,10 +23,10 @@
     padding: 1rem 2rem;
 }
 .simplefilter li {
-    background-color: #84AF9B;
+    background-color: #36b2e0;
 }
 .simplefilter li.active {
-    background-color: #008080;
+    background-color: #59d3d3;
 }
 select {
     padding: 1rem 1rem;

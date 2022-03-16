@@ -28,7 +28,7 @@ function getAlbums(pageNum){
         "pageSize": 6,
     }
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/allAlbums",
+        "url": "allAlbums",
         method: "post",
         data:data,
         success: function (data) {
@@ -36,7 +36,7 @@ function getAlbums(pageNum){
             var albums=data.list;
             console.log("精选专辑",data);
             for (var i=0;i<albums.length;i++){
-               var content="<div class='col-xs-6 col-sm-1-5 col-md-1-5' >";
+               var content="<div class='col-xs-6 col-sm-6 col-md-2' >";
                 content+="<div class='box'>";
                 content+="<div class='box-img'>";
                 content+="<img src='"+albums[i].albumImg+"' />";
@@ -60,7 +60,7 @@ function getSongLists(pageNum){
         "pageSize": 4,
     }
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/allSongLists",
+        "url": "allSongLists",
         method: "post",
         data:data,
         success: function (data) {
@@ -68,7 +68,7 @@ function getSongLists(pageNum){
             var songList =data.list;
             console.log("精选歌单",data);
             for (var i=0; i < songList.length; i++){
-                var  content="<div  class='col-xs-12 col-sm-4 col-md-3 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
+                var  content="<div  class='col-xs-6 col-sm-6 col-md-2 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
                 content+="<a href=javascript:void(0);><img class='img-responsive' src='"+songList[i].imgUrl+"' alt='sample image'></a>";
                 content+="<a href=javascript:void(0);><span class='item-desc'>"+songList[i].songList+"</span></a>";
                 content+="<input type='hidden' id='songListId' value='"+songList[i].songListId+"'></div>";
@@ -86,7 +86,7 @@ function getSongs(pageNum) {
         "pageSize": 6,
     }
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/allSongs",
+        "url": "allSongs",
         method: "post",
         data: data,
         success: function (data) {
@@ -114,14 +114,14 @@ function getSingers(pageNum){
     }
     console.log(pageNum);
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/selectAllSingers",
+        "url": "selectAllSingers",
         method: "post",
         data:data,
         success: function (data) {
             console.log("歌手信息",data);
             var singers=data.list;
             for (var i=0;i<singers.length;i++){
-               var content="<div class='tupian'>";
+               var content="<div class='col-xs-6 col-sm-6 col-md-3'>";
                 content+="<div style='background-image: url("+singers[i].imgUrl+")' class='p1'></div>"
                 content+="<div class='bq'>";
                 content+="<a href=javascript:void(0);>"+singers[i].singerName+"<span class='glyphicon glyphicon-home'></span></a>"
@@ -146,7 +146,7 @@ $("#music").on("click","#collect",function () {
                         $(this).css("color","red");
                         $(this).addClass("glyphicon glyphicon-heart");
                         $.ajax({
-                            url: "http://localhost:8080/musicwebsite/collectSongs",
+                            url: "collectSongs",
                             method: "post",
                             data:{"userId":user.userId,"songId":num},
                             success: function (data) {
@@ -161,7 +161,7 @@ $("#music").on("click","#collect",function () {
                         $(this).css("color","");
                         $(this).addClass("glyphicon glyphicon-heart-empty");
                         $.ajax({
-                            url: "http://localhost:8080/musicwebsite/delCollectedSongs",
+                            url: "delCollectedSongs",
                             method: "post",
                             data:{"userId":user.userId,"songId":num},
                             success: function (data) {
@@ -175,7 +175,7 @@ $("#music").on("click","#collect",function () {
                     }
     }else {
         alert("请先登录");
-        window.location.href="http://localhost:8080/musicwebsite/music/user/index.html";
+        window.location.href="/";
         $("#myLoginModal").modal("show");
     }
 
@@ -184,7 +184,7 @@ $("#music").on("click","#collect",function () {
 $("#music").on("click","#playOne",function () {
     var num =$(this).parent().parent().find("input[type='hidden']").val();
     $.ajax({
-        url: "http://localhost:8080/musicwebsite/updatePlayCount/"+num,
+        url: "/updatePlayCount/"+num,
         method: "post",
         success: function (data) {
             console.log(data);

@@ -1,5 +1,4 @@
-﻿create database music;
-use music;
+﻿use music;
 -- 管理员 
 create table admin(
 -- 管理员id

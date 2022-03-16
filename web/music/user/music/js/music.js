@@ -9,7 +9,7 @@ function getSongs(pageNum) {
     }
     console.log(pageNum);
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/allSongs",
+        "url": "/allSongs",
         method: "post",
         data: data,
         success: function (data) {
@@ -35,7 +35,7 @@ function getSongs(pageNum) {
 //删除歌曲
 function delSong(songid) {
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/delSong/"+songid,
+        "url": "/delSong/"+songid,
         method: "post",
         success: function (data) {
             console.log(data);
@@ -56,7 +56,7 @@ $("#music").on("click","#collect",function () {
             $(this).css("color","red");
             $(this).addClass("glyphicon glyphicon-heart");
             $.ajax({
-                url: "http://localhost:8080/musicwebsite/collectSongs",
+                url: "/collectSongs",
                 method: "post",
                 data:{"userId":user.userId,"songId":$("[type='hidden']").val()},
                 success: function (data) {
@@ -71,7 +71,7 @@ $("#music").on("click","#collect",function () {
             $(this).css("color","");
             $(this).addClass("glyphicon glyphicon-heart-empty");
             $.ajax({
-                url: "http://localhost:8080/musicwebsite/delCollectedSongs",
+                url: "/delCollectedSongs",
                 method: "post",
                 data:{"userId":user.userId,"songId":$("[type='hidden']").val()},
                 success: function (data) {
@@ -93,57 +93,62 @@ $("#music").on("click","#collect",function () {
 
 
 //分页
-function makePage(data){
-    if(data.list.length!=0){
-        $(".navigate").empty();
-        var pageNums=data.navigatepageNums;
-        if(data.pages==1){
+function makePage(data) {
+    if (data.list.length != 0) {
+        console.log(data)
+        var pageNums = data.navigatepageNums;
+        if (data.pages == 1) {
             return;
-        }
-        if(data.isFirstPage!= true){
-            var pageNum=1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
+        } else {
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Next' href='javascript:getSongs(" + 1 + ");'><span aria-hidden=\"true\">首页</span></a>");
             $li.append($btn);
-            $btn.attr("onclick","getSongs("+pageNum+")").text("首页");
-            $(".navigate").append($li);
+            $(".pagination").append($li);
         }
-        if(data.hasPreviousPage==true){
-            var pageNum=data.pageNum-1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
+        //是否由上一页
+        if (data.hasPreviousPage == true) {
+            var pageNum = data.pageNum - 1;
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Previous' href='javascript:getSongs(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
             $li.append($btn);
-            $btn.attr("onclick","getSongs("+pageNum+")").text("上一页");
-            $(".navigate").append($li);
+            $(".pagination").append($li);
+        } else {
+            $li = $("<li class='disabled'></li>");
+            $btn = $("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
         }
-        for(var i=0;i<pageNums.length;i++){
-            var pageNum=pageNums[i];
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
+        // 页数
+        for (var i = 0; i < pageNums.length; i++) {
+            var pageNum = pageNums[i];
+            $li = $("<li></li>");
+            $btn = $("<a href='javascript:getSongs(" + pageNum + ");'>" + pageNum + "</a>");
             $li.append($btn);
-            $btn.attr("onclick","getSongs("+pageNum+")").text(pageNum);
-            $(".navigate").append($li);
+            $(".pagination").append($li);
         }
-        if(data.hasNextPage==true){
-            var pageNum=data.pageNum+1;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
+        if (data.hasNextPage == true) {
+            var pageNum = data.pageNum + 1;
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Next' href='javascript:getSongs(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
             $li.append($btn);
-            $btn.attr("onclick","getSongs("+pageNum+")").text("下一页");
-            $(".navigate").append($li);
+            $(".pagination").append($li);
+        } else {
+            $li = $("<li class='disabled'></li>");
+            $btn = $("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
         }
 
-        if(data.isLastPage!=true){
-            var pageNum=data.pages;
-            $li=$("<li class='pull-left'></li>");
-            $btn=$("<button class='btn btn-primary'></button>");
+        if (data.isLastPage != true) {
+            var pageNum = data.pages;
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Next' href='javascript:getSongs(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");
             $li.append($btn);
-            $btn.attr("onclick","getSongs("+pageNum+")").text("尾页");
-            $(".navigate").append($li);
+            $(".pagination").append($li);
         }
-    }else {
-        $(".navigate").empty();
+    } else {
+        $(".pagination").empty();
     }
-}
 
+}
 

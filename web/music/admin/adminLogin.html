@@ -5,9 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>管理员登录</title>
-	<link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/admin/css/dlzc.css" />
-	<script src="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/js/jquery.min.js"></script>
-	<script src="http://localhost:8080/musicwebsite/music/bootstrap-3.4.1-dist/js/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" href="/music/admin/css/dlzc.css" />
+	<script src="/music/bootstrap-3.4.1-dist/js/jquery.min.js"></script>
+	<script src=/music/bootstrap-3.4.1-dist/js/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 	<div id="wrapper" class="login-page">
@@ -22,7 +22,7 @@
 </body>
 <script type="text/javascript">
 	function check_login(){
-		var url="http://localhost:8080/musicwebsite/adminLogin";
+		var url="/adminLogin";
 		var admin={
 			"account":$("#account").val(),
 			"pwd":$("#pwd").val(),
@@ -39,7 +39,7 @@
 					alert("登录成功");
 					console.log("登录成功");
 					sessionStorage.setItem("admin",JSON.stringify(data));
-					window.location.href="http://localhost:8080/musicwebsite/music/admin/users.html";
+					window.location.href="/music/admin/users.html";
 				}else{
 					alert("登录失败");
 					console.log("登录失败");

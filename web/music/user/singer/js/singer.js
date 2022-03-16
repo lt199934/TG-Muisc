@@ -9,7 +9,7 @@ function getSingers(pageNum){
     }
     console.log(pageNum);
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/selectAllSingers",
+        "url": "/selectAllSingers",
         method: "post",
         data:data,
         success: function (data) {
@@ -32,7 +32,7 @@ function getSingers(pageNum){
 function delSinger(singerId) {
     if(confirm("确定删除该位歌手吗?")){
         $.ajax({
-            "url": "http://localhost:8080/musicwebsite/delSong/"+singerId,
+            "url": "/delSong/"+singerId,
             method: "post",
             success: function (data) {
                 console.log(data);

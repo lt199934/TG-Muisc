@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>播放音乐</title>
-	<link rel="stylesheet" href="http://localhost:8080/musicwebsite/music/user/play/css/player.css">
-	<script src="http://localhost:8080/musicwebsite/music/user/js/jquery.min.js"></script>
-	<script src="http://localhost:8080/musicwebsite/music/user/play/js/jquery.marquee.min.js"></script>
-	<script src="http://localhost:8080/musicwebsite/music/user/js/util.js"></script>
+	<link rel="stylesheet" href="/music/user/play/css/player.css">
+	<script src="/music/user/js/jquery.min.js"></script>
+	<script src="/music/user/play/js/jquery.marquee.min.js"></script>
+	<script src="/music/user/js/util.js"></script>
 
 </head>
 <body>
@@ -45,7 +45,7 @@ console.log(getUrlParam("temp"))
 var	playlist=[{}];
 if("song"==getUrlParam("temp")){
 	$.ajax({
-		url: "http://localhost:8080/musicwebsite/playSong/" + getUrlParam("songId"),
+		url: "/playSong/" + getUrlParam("songId"),
 		method: "post",
 		async:false,
 		success: function (data) {
@@ -66,7 +66,7 @@ if("song"==getUrlParam("temp")){
 	});
 }else if("album"==getUrlParam("temp")){
 	$.ajax({
-		url: "http://localhost:8080/musicwebsite/album/" + getUrlParam("albumId"),
+		url: "/album/" + getUrlParam("albumId"),
 		method: "post",
 		async:false,
 		success: function (data) {
@@ -88,7 +88,7 @@ if("song"==getUrlParam("temp")){
 	});
 }else {
 	$.ajax({
-		url: "http://localhost:8080/musicwebsite/songList/" + getUrlParam("songListId"),
+		url: "/songList/" + getUrlParam("songListId"),
 		method: "post",
 		async:false,
 		success: function (data) {
@@ -111,12 +111,12 @@ if("song"==getUrlParam("temp")){
 
 	//播放列表
 		playlist1 = [
-		{title:"刚刚好",artist:"艾辰",mp3:"../music/艾辰 - 刚刚好.mp3",cover:"http://localhost:8080/album/%E5%B9%B2%E7%89%A9%E5%A5%B3.jfif",},
+		{title:"刚刚好",artist:"艾辰",mp3:"../music/艾辰 - 刚刚好.mp3",cover:"/album/%E5%B9%B2%E7%89%A9%E5%A5%B3.jfif",},
 	];
 	var isRotate = true;
 	var autoplay = true;
 </script>
-<script src="http://localhost:8080/musicwebsite/music/user/play/js/player.js"></script>
+<script src="/music/user/play/js/player.js"></script>
 <script>
 
 	function bgChange(){

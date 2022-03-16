@@ -22,7 +22,7 @@ public class AlbumController {
     @Autowired
     private AlbumService albumService;
 //点击专辑查询所有专辑信息
-    @RequestMapping("/album/{albumId}")
+    @RequestMapping("/albums/{albumId}")
     @ResponseBody
     public Object selectAllAlbums(@PathVariable("albumId")String albumId){
         System.out.println("albumId:"+albumId);

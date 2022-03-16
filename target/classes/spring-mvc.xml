@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <mvc:annotation-driven />
     <mvc:view-controller path="/" view-name="/music/user/index.html"/>
-    <mvc:resources mapping="music" location="/music/"></mvc:resources>
+    <mvc:resources mapping="/music/**" location="/music/"></mvc:resources>
     <mvc:view-controller path="/login" view-name="/music/admin/adminLogin.html"/>
    <mvc:default-servlet-handler></mvc:default-servlet-handler>
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">

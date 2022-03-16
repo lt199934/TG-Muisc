@@ -11,7 +11,7 @@ function getAlbum(pageNum){
         "pageSize": $("#pageSize").val(),
     }
     $.ajax({
-        "url": "http://localhost:8080/musicwebsite/album/"+getUrlParam("albumId"),
+        "url": "/albums/"+getUrlParam("albumId"),
         method: "post",
         data:data,
         success: function (data) {
@@ -24,7 +24,7 @@ function getAlbum(pageNum){
             var content="";
             $("#songListImg").attr("src",album.albumImg);
             $(".songList__name").html(album.album);
-            $(".singer").html("歌手：<a href='http://localhost:8080/musicwebsite/music/user/singer.html?singerId="+singer.singerId+"'>"+singer.singerName+"</a>");
+            $(".singer").html("歌手：<a href='/music/user/singer.html?singerId="+singer.singerId+"'>"+singer.singerName+"</a>");
             $(".songList__number").html(album.count+"首歌");
             $("#introduction").html(album.introduction);
             $("#time").html(album.time);
@@ -35,7 +35,7 @@ function getAlbum(pageNum){
                 content+="<td>"+(i+1)+"</td>";
                 content+="<td>"+songs[i].song+"</td>";
                 content+="<td><span id='collect' title='收藏音乐' class='glyphicon glyphicon-heart-empty' style='font-size: 16px'></span></td>";
-                content+="<td><a id='playOne' target='play' href=http://localhost:8080/musicwebsite/music/user/play/player.html?temp=song&songId="+songs[i].songId+"><span id='play' title='播放音乐' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a><audio src="+songs[i].url+"></audio></td>";
+                content+="<td><a id='playOne' target='play' href=/music/user/play/player.html?temp=song&songId="+songs[i].songId+"><span id='play' title='播放音乐' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a><audio src="+songs[i].url+"></audio></td>";
                 content+="<input type='hidden' value="+songs[i].songId+">";
                 content+="</tr>";
                 $("#albums").html(content);
@@ -50,7 +50,7 @@ function getAlbum(pageNum){
 function delAlbum(albumId) {
     if(confirm("确定删除该张专辑?")) {
         $.ajax({
-            "url": "http://localhost:8080/musicwebsite/delSong/" + albumId,
+            "url": "/delSong/"+albumId,
             method: "post",
             success: function (data) {
                 console.log(data);
@@ -75,7 +75,7 @@ $("#albums").on("click","#collect",function () {
             $(this).css("color","red");
             $(this).addClass("glyphicon glyphicon-heart");
             $.ajax({
-                url: "http://localhost:8080/musicwebsite/collectSongs",
+                url: "/collectSongs",
                 method: "post",
                 data:{"userId":user.userId,"songId":num},
                 success: function (data) {
@@ -91,7 +91,7 @@ $("#albums").on("click","#collect",function () {
             $(this).css("color","");
             $(this).addClass("glyphicon glyphicon-heart-empty");
             $.ajax({
-                url: "http://localhost:8080/musicwebsite/delCollectedSongs",
+                url: "/delCollectedSongs",
                 method: "post",
                 data:{"userId":user.userId,"songId":num},
                 success: function (data) {
@@ -105,7 +105,7 @@ $("#albums").on("click","#collect",function () {
         }
     }else {
         alert("请先登录");
-        window.location.href="http://localhost:8080/musicwebsite/music/user/index.html";
+        window.location.href="/music/user/index.html";
         $("#myLoginModal").modal("show");
     }
 
@@ -114,7 +114,7 @@ $("#albums").on("click","#collect",function () {
 $("#albums").on("click","#playOne",function () {
     var num =$(this).parent().parent().find("input[type='hidden']").val();
     $.ajax({
-        url: "http://localhost:8080/musicwebsite/updatePlayCount/"+num,
+        url: "/updatePlayCount/"+num,
         method: "post",
         success: function (data) {
             console.log(data);
@@ -134,7 +134,7 @@ $("#collectSongList").click(function () {
             $(this).css("color","red");
             $(this).addClass("glyphicon glyphicon-heart");
             $.ajax({
-                url: "http://localhost:8080/musicwebsite/collectAlbums",
+                url: "/collectAlbums",
                 method: "post",
                 data:{"userId":user.userId,"albumId":getUrlParam("albumId")},
                 success: function (data) {
@@ -150,7 +150,7 @@ $("#collectSongList").click(function () {
             $(this).css("color","");
             $(this).addClass("glyphicon glyphicon-heart-empty");
             $.ajax({
-                url: "http://localhost:8080/musicwebsite/delCollectAlbums",
+                url: "/delCollectAlbums",
                 method: "post",
                 data:{"userId":user.userId,"albumId":getUrlParam("albumId")},
                 success: function (data) {
@@ -164,12 +164,12 @@ $("#collectSongList").click(function () {
         }
     }else {
         alert("请先登录");
-        window.location.href="http://localhost:8080/musicwebsite/music/user/index.html";
+        window.location.href="/music/user/index.html";
         $("#myLoginModal").modal("show");
     }
 });
 //播放全部
 $("#playAll").click(function () {
-    $(this).attr("href","http://localhost:8080/musicwebsite/music/user/play/player.html?temp=album&albumId="+getUrlParam("albumId"));
+    $(this).attr("href","/music/user/play/player.html?temp=album&albumId="+getUrlParam("albumId"));
 })
 
