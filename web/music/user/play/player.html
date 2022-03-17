@@ -8,7 +8,7 @@
 	<script src="/music/user/js/jquery.min.js"></script>
 	<script src="/music/user/play/js/jquery.marquee.min.js"></script>
 	<script src="/music/user/js/util.js"></script>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
 <div id="QPlayer">
@@ -66,7 +66,7 @@ if("song"==getUrlParam("temp")){
 	});
 }else if("album"==getUrlParam("temp")){
 	$.ajax({
-		url: "/album/" + getUrlParam("albumId"),
+		url: "/albums/" + getUrlParam("albumId"),
 		method: "post",
 		async:false,
 		success: function (data) {
