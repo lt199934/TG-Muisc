@@ -15,7 +15,7 @@ $("#albums").on("click","a",function () {
 });
 
 $("#songLists").on("click","a",function () {
-    alert(window.location.href);
+    // alert(window.location.href);
 
     var songListId= $(this).parent().find("#songListId").val();
     $(this).attr("href","/music/user/songList/songlist.html?songListId="+songListId);

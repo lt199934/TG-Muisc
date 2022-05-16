@@ -8,7 +8,7 @@ var user=JSON.parse(sessionStorage.getItem("user"));//获取用户信息
 function getAlbum(pageNum){
     var data = {
         "pageNum": pageNum,
-        "pageSize": $("#pageSize").val(),
+        "pageSize": 5,
     }
     $.ajax({
         "url": "/albums/"+getUrlParam("albumId"),
@@ -65,8 +65,7 @@ function delAlbum(albumId) {
 //收藏歌曲
 $("#albums").on("click","#collect",function () {
     var num =$(this).parent().parent().find("input[type='hidden']").val();
-    alert(num)
-    console.log("你要收藏的歌曲id为"+num)
+    console.log("你要收藏的歌曲id为"+num);
     var className=$(this).attr("class");
     if (null!=user){
         $(this).removeClass("glyphicon-heart glyphicon-heart-empty");
@@ -105,7 +104,7 @@ $("#albums").on("click","#collect",function () {
         }
     }else {
         alert("请先登录");
-        window.location.href="/music/user/index.html";
+        window.location.href="/";
         $("#myLoginModal").modal("show");
     }
 
@@ -164,7 +163,7 @@ $("#collectSongList").click(function () {
         }
     }else {
         alert("请先登录");
-        window.location.href="/music/user/index.html";
+        window.location.href="/";
         $("#myLoginModal").modal("show");
     }
 });

@@ -24,7 +24,7 @@ public class AlbumController {
 //点击专辑查询所有专辑信息
     @RequestMapping("/albums/{albumId}")
     @ResponseBody
-    public Object selectAllAlbums(@PathVariable("albumId")String albumId){
+    public Object selectAllAlbum(@PathVariable("albumId")String albumId){
         System.out.println("albumId:"+albumId);
         Album album=albumService.selectAllByAlbumId(Integer.parseInt(albumId));
         album.setCount(albumService.count(Integer.parseInt(albumId)));
