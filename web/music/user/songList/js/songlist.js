@@ -38,8 +38,8 @@ function getSongList(pageNum){
                             content+="<td>"+(i+1)+"</td>";
                             content+="<td class='text-center'><img class='img-responsive center-block' src="+songDto[i].albumUrl+"></td>";
                             content+="<td>"+songDto[i].song+"</td>";
-                            content+="<td><a href='/music/user/singers.html?singerId="+songDto[i].singerId+"'>"+songDto[i].singerName+"</a></td>";
-                            content+="<td><a href='/music/user/album.html?albumId="+songDto[i].albumId+"'>"+songDto[i].albumName+"</td>";
+                            content+="<td><a href='/music/user/singer/singer.html?singerId="+songDto[i].singerId+"'>"+songDto[i].singerName+"</a></td>";
+                            content+="<td><a href='/music/user/album/album.html?albumId="+songDto[i].albumId+"'>"+songDto[i].albumName+"</td>";
                             content+="<td><span id='collect' title='收藏音乐' class='glyphicon glyphicon-heart-empty' style='font-size: 16px'></span></td>";
                             content+="<td><a id='playOne' target='play' href=/music/user/play/player.html?temp=song&songId="+songDto[i].songId+"><span id='play' title='播放音乐' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
                             content+="<input type='hidden' value="+songDto[i].songId+">"

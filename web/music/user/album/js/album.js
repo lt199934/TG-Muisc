@@ -24,7 +24,7 @@ function getAlbum(pageNum){
             var content="";
             $("#songListImg").attr("src",album.albumImg);
             $(".songList__name").html(album.album);
-            $(".singer").html("歌手：<a href='/music/user/singer.html?singerId="+singer.singerId+"'>"+singer.singerName+"</a>");
+            $(".singer").html("歌手：<a href='/music/user/singer/singer.html?singerId="+singer.singerId+"'>"+singer.singerName+"</a>");
             $(".songList__number").html(album.count+"首歌");
             $("#introduction").html(album.introduction);
             $("#time").html(album.time);
