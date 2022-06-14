@@ -49,7 +49,10 @@ public class SingerController {
         int i =0;
         System.out.println(singer);
         System.out.println(img.getOriginalFilename());
-        File file = new File("c:/music/singer/"+img.getOriginalFilename());
+        //windows
+//      File file = new File("c:/music/singer/"+img.getOriginalFilename());
+        //linux
+        File file = new File("/data/music/singer/"+img.getOriginalFilename());
         //复制文件 到指定的file对象
         img.transferTo(file);
         if (!"".equals(img.getOriginalFilename())){

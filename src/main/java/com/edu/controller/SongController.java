@@ -51,7 +51,10 @@ public class SongController {
         int i=songPath.getOriginalFilename().lastIndexOf("-");
         String data=songPath.getOriginalFilename().substring(i+1);
         System.out.println(data);
-        File file = new File("c:/music/songs/"+data);
+        //windows
+//        File file = new File("c:/music/songs/"+data);
+        //linux
+        File file = new File("/data/music/songs/"+data);
 //        复制文件 到指定的file对象
         songPath.transferTo(file);
         if (!"".equals(songPath.getOriginalFilename())){

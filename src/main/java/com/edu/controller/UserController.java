@@ -52,7 +52,10 @@ public class UserController {
         int register=0;
         System.out.println(img.getOriginalFilename());
         String data=new Date().getTime()+img.getOriginalFilename();
-        File file = new File("c:/music/headImg/"+data);
+        //windows
+//        File file = new File("c:/music/headImg/"+data);
+        //linux
+        File file = new File("/data/music/headImg/"+data);
         //复制文件 到指定的file对象
         img.transferTo(file);
         if (!"".equals(img.getOriginalFilename())){

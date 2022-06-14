@@ -83,7 +83,10 @@ public class AlbumController {
         System.out.println(img.getOriginalFilename());
         int num=0;
         String data=new Date().getTime()+img.getOriginalFilename();
-        File file = new File("c:/music/album/"+data);
+        //windows
+//        File file = new File("c:/music/album/"+data);
+        //linux
+        File file = new File("/data/music/album/"+data);
         //复制文件 到指定的file对象
         img.transferTo(file);
         if (!"".equals(img.getOriginalFilename())){
