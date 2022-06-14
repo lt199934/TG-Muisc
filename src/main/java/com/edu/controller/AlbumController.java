@@ -88,11 +88,19 @@ public class AlbumController {
         System.out.println(album);
         System.out.println(img.getOriginalFilename());
         int num=0;
+        File file = null;
         String data=new Date().getTime()+img.getOriginalFilename();
-        //windows
-//        File file = new File("c:/music/album/"+data);
-        //linux
-        File file = new File("/data/music/album/"+data);
+        String os = System.getProperty("os.name");
+        //Windows操作系统
+        if (os != null && os.toLowerCase().startsWith("windows")) {
+            System.out.println(String.format("当前系统版本是:%s", os));
+            file = new File("c:/music/album/"+data);
+        } else if (os != null && os.toLowerCase().startsWith("linux")) {//Linux操作系统
+            System.out.println(String.format("当前系统版本是:%s", os));
+            file = new File("/data/music/album/"+data);
+        } else { //其它操作系统
+            System.out.println(String.format("当前系统版本是:%s", os));
+        }
         //复制文件 到指定的file对象
         img.transferTo(file);
         if (!"".equals(img.getOriginalFilename())){

@@ -18,15 +18,15 @@ create table user(
 -- 用户id
  	user_id int primary key auto_increment,
 -- 帐号
-	account varchar(30) unique not null,
+	account varchar(100) unique not null,
 -- 密码
-	pwd varchar(30)  not null,
+	pwd varchar(100)  not null,
 -- 手机
-	phone varchar(30) unique not null,
+	phone varchar(100) unique not null,
 -- 邮箱
-	email varchar(30) unique not null,
+	email varchar(100) unique not null,
 -- 姓名
-	user_name varchar(30) unique not null,
+	user_name varchar(100) unique not null,
 -- 性别
 	sex varchar(10) not null,
 -- 头像
@@ -34,7 +34,7 @@ create table user(
 -- 帐号类型
 	type varchar(10) not null default'普通用户',
 -- 个性签名
-	Personal_signature varchar(80),
+	Personal_signature varchar(580),
 -- 生日
 	birthday date not null,
 -- 注册时间
@@ -112,7 +112,7 @@ create table song(
 -- 下载次数
 	download_count int not null default 0,
 -- 歌曲虚拟路径
-	url varchar(50) not null,
+	url varchar(500) not null,
 -- 语种
 	language varchar(30) not null,
 -- 专辑id 

@@ -50,12 +50,20 @@ public class UserController {
     public int userRegister(User user,@RequestParam("img") MultipartFile img) throws IOException {
         System.out.println(user);
         int register=0;
+        File file=null;
         System.out.println(img.getOriginalFilename());
         String data=new Date().getTime()+img.getOriginalFilename();
-        //windows
-//        File file = new File("c:/music/headImg/"+data);
-        //linux
-        File file = new File("/data/music/headImg/"+data);
+        String os = System.getProperty("os.name");
+        //Windows操作系统
+        if (os != null && os.toLowerCase().startsWith("windows")) {
+            file = new File("c:/music/headImg/"+data);
+            System.out.println(String.format("当前系统版本是:%s", os));
+        } else if (os != null && os.toLowerCase().startsWith("linux")) {//Linux操作系统
+            file = new File("/data/music/headImg/"+data);
+            System.out.println(String.format("当前系统版本是:%s", os));
+        } else { //其它操作系统
+            System.out.println(String.format("当前系统版本是:%s", os));
+        }
         //复制文件 到指定的file对象
         img.transferTo(file);
         if (!"".equals(img.getOriginalFilename())){

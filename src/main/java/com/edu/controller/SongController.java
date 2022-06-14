@@ -48,13 +48,22 @@ public class SongController {
         System.out.println(songPath.getOriginalFilename());
         String result=null;
         int num=0;
+        File file=null;
         int i=songPath.getOriginalFilename().lastIndexOf("-");
         String data=songPath.getOriginalFilename().substring(i+1);
         System.out.println(data);
-        //windows
-//        File file = new File("c:/music/songs/"+data);
-        //linux
-        File file = new File("/data/music/songs/"+data);
+        String os = System.getProperty("os.name");
+        //Windows操作系统
+        if (os != null && os.toLowerCase().startsWith("windows")) {
+            file = new File("c:/music/songs/"+data);
+            System.out.println(String.format("当前系统版本是:%s", os));
+        } else if (os != null && os.toLowerCase().startsWith("linux")) {
+            //Linux操作系统
+            file = new File("/data/music/songs/"+data);
+            System.out.println(String.format("当前系统版本是:%s", os));
+        } else { //其它操作系统
+            System.out.println(String.format("当前系统版本是:%s", os));
+        }
 //        复制文件 到指定的file对象
         songPath.transferTo(file);
         if (!"".equals(songPath.getOriginalFilename())){

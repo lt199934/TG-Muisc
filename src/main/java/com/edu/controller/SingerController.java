@@ -47,12 +47,20 @@ public class SingerController {
     @ResponseBody
     public Object insertSinger(Singer singer, @Param("img") MultipartFile img)throws IOException {
         int i =0;
+        File file=null;
         System.out.println(singer);
         System.out.println(img.getOriginalFilename());
-        //windows
-//      File file = new File("c:/music/singer/"+img.getOriginalFilename());
-        //linux
-        File file = new File("/data/music/singer/"+img.getOriginalFilename());
+        String os = System.getProperty("os.name");
+        //Windows操作系统
+        if (os != null && os.toLowerCase().startsWith("windows")) {
+            file = new File("c:/music/singer/"+img.getOriginalFilename());
+            System.out.println(String.format("当前系统版本是:%s", os));
+        } else if (os != null && os.toLowerCase().startsWith("linux")) {//Linux操作系统
+            file = new File("/data/music/singer/"+img.getOriginalFilename());
+            System.out.println(String.format("当前系统版本是:%s", os));
+        } else { //其它操作系统
+            System.out.println(String.format("当前系统版本是:%s", os));
+        }
         //复制文件 到指定的file对象
         img.transferTo(file);
         if (!"".equals(img.getOriginalFilename())){
