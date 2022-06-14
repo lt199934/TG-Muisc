@@ -13,7 +13,7 @@ function getSongs(pageNum) {
         method: "post",
         data: data,
         success: function (data) {
-            $(".navigate").empty();
+            $(".pagination").empty();
             $("#music").empty();
             makePage(data);
             console.log("曲库信息",data);
