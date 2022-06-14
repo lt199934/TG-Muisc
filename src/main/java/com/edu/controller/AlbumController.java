@@ -33,10 +33,16 @@ public class AlbumController {
 //查询所有专辑
     @RequestMapping("/allAlbums")
     @ResponseBody
-    public Object selectAllAlbums(@RequestParam(value = "pageNum",defaultValue = "1",required = false) String pageNum, @RequestParam(value = "pageSize",required = false,defaultValue = "2")String pageSize){
+    public Object selectAllAlbumsByPage(@RequestParam(value = "pageNum",defaultValue = "1",required = false) String pageNum, @RequestParam(value = "pageSize",required = false,defaultValue = "3")String pageSize){
         System.out.println("pageNum:"+pageNum);
         System.out.println("pageSize"+pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum),Integer.parseInt(pageSize));
+        return albumService.selectAll().toPageInfo();
+    }
+//  后台在添加歌曲时动态加载所有专辑不分页
+    @RequestMapping("/allAlbum")
+    @ResponseBody
+    public Object selectAllAlbumsByNoPage(){
         return albumService.selectAll().toPageInfo();
     }
     //管理员通过id删除专辑
