@@ -13,7 +13,7 @@ public class Singer {
     private String sex;
 
     private String imgUrl;
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date birthday;
 
     private String intrduction;

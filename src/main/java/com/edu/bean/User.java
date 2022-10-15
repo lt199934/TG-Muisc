@@ -1,12 +1,15 @@
 package com.edu.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
 
 public class User {
     private Integer userId;
+
+    private String nickName;
 
     private String account;
 
@@ -25,7 +28,7 @@ public class User {
     private String type;
 
     private String personalSignature;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date birthday;
     //    一个用户可收藏多个歌曲 1对多
     private List<Song> songs;
@@ -37,7 +40,7 @@ public class User {
     private List<SongList> songlists1;
     //    一个用户可收藏多个歌单 1对多
     private List<SongList> songlists2;
-    @JsonFormat(locale = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date time;
 
     public Integer getUserId() {
@@ -46,6 +49,14 @@ public class User {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getAccount() {
@@ -180,6 +191,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "userId=" + userId +
+                ", nickName='" + nickName + '\'' +
                 ", account='" + account + '\'' +
                 ", pwd='" + pwd + '\'' +
                 ", phone='" + phone + '\'' +

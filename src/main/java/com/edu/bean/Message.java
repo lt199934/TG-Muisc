@@ -12,7 +12,7 @@ public class Message {
     private String content;
 
     private Integer replyUserId;
-    @JsonFormat(locale = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date time;
 
     public Integer getMessageId() {

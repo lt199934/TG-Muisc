@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>播放音乐</title>
+	<link rel="stylesheet" href="/music/client/play/css/player.css">
+	<script src="/music/client/common/js/jquery.min.js"></script>
+	<script src="/music/client/play/js/jquery.marquee.min.js"></script>
+	<script src="/music/client/common/js/util.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+<div id="QPlayer">
+	<div id="pContent">
+		<div id="player">
+			<span class="cover"></span>
+			<div class="ctrl">
+				<div class="musicTag marquee">
+					<strong>Title</strong>
+					<span> - </span>
+					<span class="artist">Artist</span>
+				</div>
+				<div class="progress">
+					<div class="timer left">0:00</div>
+					<div class="contr">
+						<div class="rewind icon"></div>
+						<div class="playback icon"></div>
+						<div class="fastforward icon"></div>
+					</div>
+					<div class="right">
+						<div class="liebiao icon"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ssBtn">
+			<div class="adf"></div>
+		</div>
+	</div>
+	<ol id="playlist"></ol>
+</div>
+<script>
+console.log(getUrlParam("temp"))
+var	playlist=[{}];
+if("song"===getUrlParam("temp")){
+	$.ajax({
+		url: "/playSong/" + getUrlParam("songId"),
+		method: "post",
+		async:false,
+		success: function (data) {
+			console.log(data);
+			var album = data.album;
+			var singer = data.singer;
+			console.log(album)
+			console.log(singer)
+			playlist[0] = {
+				index: 0,
+				title: data.song,
+				artist: singer.singerName,
+				mp3: data.url,
+				cover: album.albumImg,
+			};
+		},
+
+	});
+}else if("album"===getUrlParam("temp")){
+	$.ajax({
+		url: "/albums/" + getUrlParam("albumId"),
+		method: "post",
+		async:false,
+		success: function (data) {
+			console.log(data);
+			var album = data;
+			var singer = data.singer;
+			var songs=data.songs;
+			for (let i = 0; i <songs.length ; i++) {
+				playlist[i] = {
+					index: i,
+					title: songs[i].song,
+					artist: singer.singerName,
+					mp3: songs[i].url,
+					cover: album.albumImg,
+				};
+			}
+		}
+
+	});
+}else {
+	$.ajax({
+		url: "/songList/" + getUrlParam("songListId"),
+		method: "post",
+		async:false,
+		success: function (data) {
+			console.log(data);
+			var songDto=data.songDto;
+			for (var i = 0; i <songDto.length ; i++) {
+				playlist[i] = {
+					index: i,
+					title: songDto[i].song,
+					artist: songDto[i].singerName,
+					mp3: songDto[i].url,
+					cover: songDto[i].albumUrl,
+				};
+			}
+		}
+
+	});
+
+}
+
+	//播放列表
+		playlist1 = [
+		{title:"刚刚好",artist:"艾辰",mp3:"../music/艾辰 - 刚刚好.mp3",cover:"/album/%E5%B9%B2%E7%89%A9%E5%A5%B3.jfif",},
+	];
+	var isRotate = true;
+	var autoplay = true;
+</script>
+<script src="/music/client/play/js/player.js"></script>
+<script>
+
+	function bgChange(){
+		var lis= $('.lib');
+		for(var i=0; i<lis.length; i+=2)
+			lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+	}
+	window.onload = bgChange;
+</script>
+</body>
+</html>

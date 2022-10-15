@@ -5,9 +5,24 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <mvc:annotation-driven />
-    <mvc:view-controller path="/" view-name="/music/user/index.html"/>
     <mvc:resources mapping="/music/**" location="/music/"></mvc:resources>
-    <mvc:view-controller path="/login" view-name="/music/admin/adminLogin.html"/>
+    <mvc:view-controller path="/" view-name="/music/client/index.html"/>
+    <mvc:view-controller path="/index" view-name="/music/client/iframe/index.html"/>
+    <mvc:view-controller path="/login" view-name="/music/client/user/login.html"/>
+    <mvc:view-controller path="/register" view-name="/music/client/user/register.html"/>
+    <mvc:view-controller path="/musics" view-name="/music/client/song/songs.html"/>
+    <mvc:view-controller path="/songLists" view-name="/music/client/songList/songlists.html"/>
+    <mvc:view-controller path="/singers" view-name="/music/client/singer/singers.html"/>
+    <mvc:view-controller path="/albums" view-name="/music/client/album/albums.html"/>
+    <mvc:view-controller path="/albumDetail" view-name="/music/client/album/album.html"/>
+    <mvc:view-controller path="/singerDetail" view-name="/music/client/singer/singer.html"/>
+    <mvc:view-controller path="/songListDetail" view-name="/music/client/songList/songlist.html"/>
+    <mvc:view-controller path="/play" view-name="/music/client/play/player.html"/>
+    <mvc:view-controller path="/iframe/musics" view-name="/music/client/iframe/song/songs.html"/>
+    <mvc:view-controller path="/iframe/songLists" view-name="/music/client/iframe/songLists/songlists.html"/>
+    <mvc:view-controller path="/iframe/singers" view-name="/music/client/iframe/singers/singers.html"/>
+    <mvc:view-controller path="/iframe/albums" view-name="/music/client/iframe/album/albums.html"/>
+    <mvc:view-controller path="/admin" view-name="/music/admin/adminLogin.html"/>
    <mvc:default-servlet-handler></mvc:default-servlet-handler>
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
         <!--  设置编码格式       -->

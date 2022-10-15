@@ -52,7 +52,7 @@ public class UserController {
         int register=0;
         File file=null;
         System.out.println(img.getOriginalFilename());
-        String data=new Date().getTime()+img.getOriginalFilename();
+        String data=System.currentTimeMillis()+img.getOriginalFilename();
         String os = System.getProperty("os.name");
         //Windows操作系统
         if (os != null && os.toLowerCase().startsWith("windows")) {

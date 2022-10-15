@@ -14,7 +14,7 @@ public class SongList {
 
     private String imgUrl;
 
-    @JsonFormat(locale = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date time;
 
     private Integer userId;

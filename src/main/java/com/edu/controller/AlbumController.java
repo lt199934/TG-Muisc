@@ -24,9 +24,11 @@ public class AlbumController {
 //点击专辑查询所有专辑信息
     @RequestMapping("/albums/{albumId}")
     @ResponseBody
-    public Object selectAllAlbum(@PathVariable("albumId")String albumId){
+    public Object selectAllAlbum(@PathVariable("albumId")String albumId,@RequestParam(value = "pageNum",defaultValue = "1",required = false) String pageNum, @RequestParam(value = "pageSize",required = false,defaultValue = "1")String pageSize){
         System.out.println("albumId:"+albumId);
+
         Album album=albumService.selectAllByAlbumId(Integer.parseInt(albumId));
+        PageHelper.startPage(Integer.parseInt(pageNum),Integer.parseInt(pageSize));
         album.setCount(albumService.count(Integer.parseInt(albumId)));
         return album;
     }

@@ -21,7 +21,7 @@ public class Album {
     private Singer singer;
 //    一张专辑对应多首音乐 1对多
     private List<Song> songs;
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date time;
 //    用于封装歌曲数量
     private int count;

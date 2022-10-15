@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有歌单</title>
+    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
+    <link rel="stylesheet" href="/music/client/common/css/index.css">
+    <link rel="stylesheet" href="/music/client/common/css/common.css">
+    <link rel="stylesheet" href="/music/plugin/toastr/toastr.css" />
+    <link rel="stylesheet" type="text/css" href="/music/client/songList/css/demo.css">
+    <link rel="stylesheet" href="/music/client/songList/css/gedan.css">
+    <link rel="stylesheet" type="text/css" href="/music/client/album/css/zhuanjistyle.css">
+    <link rel="stylesheet" href="/music/client/album/css/wudengfen.css">
+    <link rel="stylesheet" href="/music/client/album/css/shoujigedan.css">
+    <link rel="stylesheet" type="text/css" href="/music/client/singer/css/singers.css">
+    <link rel="shortcut icon" href="#"/>
+    <link rel="stylesheet" type="text/css" href="/music/client/album/css/bootstrap-grid.min.css" />
+    <script src="/music/client/common/js/jquery.min.js"></script>
+    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body{
+            background-color:#FFFFFF;
+            background-image:
+                    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+                    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+        }
+        .navbar-default{
+            background-color: #84AF9B;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            box-shadow: 5px 5px 5px #000;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid ">
+    <!--  曲库-->
+    <div class="row">
+        <h2>所有歌单</h2>
+        <hr>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav simplefilter">
+                        <li class="active" data-filter="all">全部</li>
+                        <li data-filter="1">华语</li>
+                        <li data-filter="2">欧美</li>
+                        <li data-filter="3">流行</li>
+                        <li data-filter="4">电子</li>
+                        <li data-filter="5">治愈</li>
+                        <li data-filter="6">安静</li>
+                        <li data-filter="7">清新</li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="row search-row form-group">
+                            <input type="text" class="filtr-search form-control" name="filtr-search" data-search placeholder="关键字搜索">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+           <div id="songLists">
+
+           </div>
+
+        </div>
+    </div>
+    <!--        分页-->
+    <div class="row">
+        <nav aria-label="Page navigation " class="col-sm-12 col-xs-12 col-md-10 col-md-offset-1 col-xs-offset-3  col-sm-offset-2">
+            <ul class="pagination">
+
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+<script src="/music/plugin/toastr/toastr.min.js"></script>
+<script src="/music/client/common/js/util.js"></script>
+<!--<script src="/music/client/common/js/isLogin.js"></script>-->
+<script src="/music/client/iframe/songList/js/songlist.js"></script>
+<script src="/music/client/common/js/iframe.js"></script>
+</html>

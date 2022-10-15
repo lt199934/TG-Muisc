@@ -21,7 +21,7 @@ public class Song {
     private String language;
 
     private Integer albumId;
-    @JsonFormat(locale = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date time;
     //多首音乐被多个歌单收藏 多对多
     private List<SongList> songlists;

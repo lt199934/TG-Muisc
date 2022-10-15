@@ -21,6 +21,8 @@ create table user(
 	account varchar(100) unique not null,
 -- 密码
 	pwd varchar(100)  not null,
+-- 昵称
+	nick_name varchar(100),
 -- 手机
 	phone varchar(100) unique not null,
 -- 邮箱
@@ -40,7 +42,7 @@ create table user(
 -- 注册时间
 	time date not null
 );
-INSERT INTO `user` VALUES ('1', 'aaa', '123123', '15272330873', '123@123.com', '张三', '男', '/headImg/head.jpg', '普通用户', null, '2014-01-08', '2021-05-08');
+INSERT INTO `user` VALUES ('1', 'aaa', '123123','不靠谱先生', '15272330873', '123@123.com', '张三', '男', '/headImg/head.jpg', '普通用户', null, '2014-01-08', '2021-05-08');
 -- 用户创建歌单
 create table songlist(
 -- 歌单id 
@@ -57,10 +59,8 @@ create table songlist(
 	user_id int not null
 	
 );
-INSERT INTO `songlist` VALUES ('1', '古风歌单牵丝戏', '《牵丝戏》是由Vagary填词，银临、Aki阿杰演唱的古风单曲，于2015年推出。歌曲通过描绘傀儡翁与牵扯一生的傀儡之间的相伴、别离，来诉说一段牵恋。', '/singlistImg/牵丝戏.jpg', '2021-01-08', '1');
-INSERT INTO `songlist` VALUES ('2', '生活是自己的总是在忙着可爱', '心情不好吗就来听歌吧', '/singlistImg/生活.jpg', '2020-01-01', '1');
-
--- 歌手
+INSERT INTO `songlist` VALUES ('1', '古风歌单牵丝戏', '《牵丝戏》是由Vagary填词，银临、Aki阿杰演唱的古风单曲，于2015年推出。歌曲通过描绘傀儡翁与牵扯一生的傀儡之间的相伴、别离，来诉说一段牵恋。', '/songlistImg/牵丝戏.jpg', '2021-01-08', '1');
+INSERT INTO `songlist` VALUES ('2', '生活是自己的总是在忙着可爱', '心情不好吗就来听歌吧', '/songlistImg/生活.jpg', '2020-01-01', '1');
 create table singer(
 -- 歌手
 	singer_id int primary key auto_increment,
@@ -210,7 +210,7 @@ create table classic(
 	
 INSERT INTO `classic` VALUES ('1', '1', '1');
 INSERT INTO `classic` VALUES ('2', '1', '7');
-
+INSERT INTO `classic` VALUES ('3', '2', '8');
 -- 网站留言
 create table message(
 -- 留言id

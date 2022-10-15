@@ -3,6 +3,7 @@
 <mapper namespace="com.edu.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.edu.bean.User">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="pwd" jdbcType="VARCHAR" property="pwd" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
