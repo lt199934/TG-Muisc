@@ -1,12 +1,10 @@
 package com.edu.mapper;
 
 import com.edu.bean.Song;
-import com.edu.bean.User;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
-import java.util.List;
 
 public interface SongMapper {
     int deleteByPrimaryKey(Integer songId);
@@ -22,10 +20,13 @@ public interface SongMapper {
     Song selectAllBySongId(int songId);
 
     Page<Song> selectSongByExample(@Param("song") Song song, @Param("start") Date startDate, @Param("end") Date endDate);
+
     // 播放量 播放一次+1
     int updatePlayCount(int songId);
+
     // 下载量 下载一次+1
     int updateDownloadCount(int songId);
+
     //  播放排行榜
     Page<Song> selectSongsByList();
 }

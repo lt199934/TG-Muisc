@@ -5,34 +5,35 @@
     <title>歌单详情页面</title>
     <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
+    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"/>
     <link rel="stylesheet" href="/music/client/common/css/index.css">
     <link rel="stylesheet" href="/music/client/common/css/common.css">
-    <link rel="stylesheet"  href="/music/client/songList/css/demo.css">
-    <link rel="stylesheet" href="/music/plugin/toastr/toastr.css" />
-    <link rel="stylesheet"  href="/music/client/album/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/music/client/songList/css/demo.css">
+    <link rel="stylesheet" href="/music/plugin/toastr/toastr.css"/>
+    <link rel="stylesheet" href="/music/client/album/css/bootstrap-grid.min.css"/>
     <link rel="shortcut icon" href="#"/>
     <script src="/music/client/common/js/jquery.min.js"></script>
     <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
     <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
-        body{
-            background-color:#FFFFFF;
-            background-image:
-                    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-                    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-                    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+        body {
+            background-color: #FFFFFF;
+            background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
+            radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
+            radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px),
+            radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
             background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
             background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
         }
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             box-shadow: 5px 5px 5px #000;
         }
-        .pagination{
+
+        .pagination {
             margin-left: 30%;
         }
     </style>
@@ -47,7 +48,9 @@
         <div class="row">
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <dl class="col-md-12 col-xs-12 col-sm-12">
-                    <dt class="col-md-1 col-md-offset-1"><img  style="width: 300px;height: 300px;background-color: white;box-shadow: 1px 1px #eee;border-radius: 10px; padding: 20px;"  src=""  id="songListImg" class="pull-left"></dt>
+                    <dt class="col-md-1 col-md-offset-1"><img
+                            style="width: 300px;height: 300px;background-color: white;box-shadow: 1px 1px #eee;border-radius: 10px; padding: 20px;"
+                            src="" id="songListImg" class="pull-left"></dt>
                     <div class="col-md-6 col-md-offset-4 pull-left" style="margin-top: 20px;">
                         <dd><h3 class="songList__name">一秒倾心! </h3></dd>
                         <dd><p class="songList__number">7首歌</p></dd>
@@ -59,13 +62,17 @@
                         </dd>
                         <dd>
                             <h2 class="text-left">介绍：</h2>
-                            <p id="introduction"  class="text-left">
-                            一秒倾心！盘点那些流行于网络，超级好听的神仙翻唱。
+                            <p id="introduction" class="text-left">
+                                一秒倾心！盘点那些流行于网络，超级好听的神仙翻唱。
                             </p>
                         </dd>
                         <dd>
-                            <a id="playAll" target="play" href="javascript:void(0)"><button class="btn btn-default"><span class="glyphicon glyphicon-play"></span>播放全部</button></a>
-                            收藏：<span title="收藏歌单" style="width: 20px;height: 20px;" class="glyphicon glyphicon-heart-empty" id="collectSongList">
+                            <a id="playAll" target="play" href="javascript:void(0)">
+                                <button class="btn btn-default"><span class="glyphicon glyphicon-play"></span>播放全部
+                                </button>
+                            </a>
+                            收藏：<span title="收藏歌单" style="width: 20px;height: 20px;"
+                                       class="glyphicon glyphicon-heart-empty" id="collectSongList">
                         </dd>
                     </div>
 
@@ -100,19 +107,21 @@
             <nav aria-label="Page navigation " class="col-md-12 col-md-offset-1">
                 <ul class="pagination">
 
-            </ul>
-        </nav>
-    </div>
-    <!--    底部-->
-    <div class="row">
-        <div class="footer_copyright col-md-12 col-xs-12 col-sm-12">
-            <p class="text-center">
-                <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">音乐网站</a>powered by <a href="https://ltbk.net/">涛哥博客</a>
-            </p>
+                </ul>
+            </nav>
+        </div>
+        <!--    底部-->
+        <div class="row">
+            <div class="footer_copyright col-md-12 col-xs-12 col-sm-12">
+                <p class="text-center">
+                    <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">音乐网站</a>powered by <a
+                        href="https://ltbk.net/">涛哥博客</a>
+                </p>
+            </div>
         </div>
     </div>
-</div>
-    <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="280px" name="play" frameborder="0"></iframe>
+    <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="280px" name="play"
+            frameborder="0"></iframe>
 </body>
 <script src="/music/plugin/toastr/toastr.min.js"></script>
 <script src="/music/client/common/js/util.js"></script>

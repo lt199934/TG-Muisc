@@ -10,7 +10,7 @@
     <!-- 设置日志输出的级别-->
     <root level="INFO">
         <!-- 默认按照上述追加器 输出到指定位置-->
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </root>
 
     <!-- 单独为某一个包 某一个类设日志输出级别-->

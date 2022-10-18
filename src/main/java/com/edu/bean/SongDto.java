@@ -1,10 +1,6 @@
 package com.edu.bean;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import java.util.Date;
-
-public class SongDto extends SongList{
+public class SongDto extends SongList {
     private Integer songId;
 
     private String song;
@@ -139,20 +135,6 @@ public class SongDto extends SongList{
 
     @Override
     public String toString() {
-        return "SongDto{" +
-                "songId=" + songId +
-                ", song='" + song + '\'' +
-                ", url='" + url + '\'' +
-                ", singerId=" + singerId +
-                ", singerName='" + singerName + '\'' +
-                ", singerImg='" + singerImg + '\'' +
-                ", songList='" + songList + '\'' +
-                ", albumId=" + albumId +
-                ", albumName='" + albumName + '\'' +
-                ", albumUrl='" + albumUrl + '\'' +
-                ", downloadCount=" + downloadCount +
-                ", playCount=" + playCount +
-                ", language='" + language + '\'' +
-                '}';
+        return "SongDto{" + "songId=" + songId + ", song='" + song + '\'' + ", url='" + url + '\'' + ", singerId=" + singerId + ", singerName='" + singerName + '\'' + ", singerImg='" + singerImg + '\'' + ", songList='" + songList + '\'' + ", albumId=" + albumId + ", albumName='" + albumName + '\'' + ", albumUrl='" + albumUrl + '\'' + ", downloadCount=" + downloadCount + ", playCount=" + playCount + ", language='" + language + '\'' + '}';
     }
 }

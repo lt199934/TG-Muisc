@@ -1,6 +1,7 @@
 package com.edu.mapper;
 
 import com.edu.bean.Message;
+
 import java.util.List;
 
 public interface MessageMapper {

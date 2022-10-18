@@ -53,12 +53,6 @@ public class Admin {
 
     @Override
     public String toString() {
-        return "Admin{" +
-                "superId=" + superId +
-                ", userName='" + userName + '\'' +
-                ", account='" + account + '\'' +
-                ", pwd='" + pwd + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+        return "Admin{" + "superId=" + superId + ", userName='" + userName + '\'' + ", account='" + account + '\'' + ", pwd='" + pwd + '\'' + ", type='" + type + '\'' + '}';
     }
 }

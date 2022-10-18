@@ -98,16 +98,6 @@ public class Singer {
 
     @Override
     public String toString() {
-        return "Singer{" +
-                "singerId=" + singerId +
-                ", singerName='" + singerName + '\'' +
-                ", sex='" + sex + '\'' +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", birthday=" + birthday +
-                ", intrduction='" + intrduction + '\'' +
-                ", songs=" + songs +
-                ", albums=" + albums +
-                ", count=" + count +
-                '}';
+        return "Singer{" + "singerId=" + singerId + ", singerName='" + singerName + '\'' + ", sex='" + sex + '\'' + ", imgUrl='" + imgUrl + '\'' + ", birthday=" + birthday + ", intrduction='" + intrduction + '\'' + ", songs=" + songs + ", albums=" + albums + ", count=" + count + '}';
     }
 }

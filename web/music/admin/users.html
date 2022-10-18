@@ -1,247 +1,258 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
     <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
+    <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrapValidator.css"/>
     <link rel="stylesheet" href="/music/bootstrap-3.4.1-dist/css/bootstrap.min.css">
     <script src="/music/user/js/jquery.min.js"></script>
     <script src="/music/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
     <script src="/music/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <style>
+    <style>
         body {
             padding-top: 50px;
             padding-bottom: 20px;
         }
+
         .body-content {
-            margin-top:20px;
+            margin-top: 20px;
             padding-left: 15px;
             padding-right: 15px;
         }
-        li{
+
+        li {
             list-style: none;
         }
-      </style>
-   </head>
-   <body>
-     <div class="navbar navbar-default navbar-fixed-top">
-       <div class="container">
-         <div class="navbar-header">
-           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-           </button>
-           <a href="#" class="navbar-brand">管理后台</a>
-         </div>
- 
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">管理后台</a>
+        </div>
+
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/music/admin/users.html"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
                 <li><a href="/music/admin/singers.html"><span class="glyphicon glyphicon-lock"></span> 歌手管理</a></li>
                 <li><a href="/music/admin/songs.html"><span class="glyphicon glyphicon-music"></span> 歌曲管理</a></li>
                 <li><a href="/music/admin/albums.html"><span class="glyphicon glyphicon-cog"></span> 专辑管理</a></li>
-                <li><a href="/music/admin/songlists.html"><span class="glyphicon glyphicon-user"></span> 歌单管理</a></li>
+                <li><a href="/music/admin/songlists.html"><span class="glyphicon glyphicon-user"></span> 歌单管理</a>
+                </li>
             </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">
-                <span class="glyphicon glyphicon-cog"></span> Alexander
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="glyphicon glyphicon-log-out"></span> 退出
-              </a>
-            </li>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-cog"></span> Alexander
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-log-out"></span> 退出
+                    </a>
+                </li>
+            </ul>
         </div>
- 
-       </div>
-       <div class="container">
-       	<form action="" id="selectForm">
-        <div class="form-group col-xs-12 col-sm-3">
-          <label class="" for="userId">userId</label>
-          <input type="text" class="form-control " id="userId" placeholder="用户id
+
+    </div>
+    <div class="container">
+        <form action="" id="selectForm">
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="userId">userId</label>
+                <input type="text" class="form-control " id="userId" placeholder="用户id
           ">
-       </div>
-			<div class="form-group col-xs-12 col-sm-3">
-			    <label class="" for="name">账号</label>
-			    <input type="text" class="form-control " id="name" placeholder="请输入帐号">
-  	   </div>
-       <div class="form-group col-xs-12 col-sm-3">
-          <label class="" for="userphone">电话</label>
-          <input type="text" class="form-control " id="userphone" placeholder="请输入电话">
-       </div>
-       <div class="form-group col-xs-12 col-sm-3">
-          <label class="" for="useremail">邮箱</label>
-          <input type="text" class="form-control " id="useremail" placeholder="请输入邮箱">
-       </div>
-		 <div class="form-group col-xs-12 col-sm-3">
-			    <label class=""  for="sex">性别：</label>
-             <select name="" class="form-control" id="sex">
-			    	<option value="" selected="selected">不限</option>
-			    	<option value="男">男</option>
-			    	<option value="女">女</option>
-			    </select>
-  			</div>
-  			<div class="form-group col-xs-12 col-sm-3">
-			    <label class="" for="startDate">开始时间：</label>
-			    <input type="text" class="form-control " id="startDate" placeholder="请输入开始时间">
-  			</div>
-  			<div class="form-group col-xs-12 col-sm-3">
-			    <label class="" for="endDate">结束时间：</label>
-			    <input type="text" class="form-control " id="endDate" placeholder="请输入结束时间">
-  			</div>
-       	</form>
-       </div>
-  <div class="container">
-   		<div class="row"> 
-                <div class="col-md-12">
-              
-                        <!-- 按钮触发模态框 -->
-                        <button id="getInsertRows" type="button" class="btn btn-success"
-                        data-toggle="modal"  data-target="#userModal">添加</button>
-                         <table id="grid" data-ajax="true" data-selection="true" data-multi-select="true" data-url="UserSerlvt" data-toggle="bootgrid" class="table table-condensed table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th  data-align="left" >ID</th>
-                                    <th  >账号</th> 
-                                    <th >密码</th>
-                                    <th >手机号</th>
-                                    <th>邮箱</th>
-                                    <th >姓名</th>
-                                    <th >性别</th>
-                                    <th >头像</th>
-                                    <th >帐号类型</th>
-                                    <th>个性签名</th>
-                                    <th >生日</th>
-                                    <th >注册时间</th>
-                                    <th data-align="center">操作 </th>
-                                </tr>
-                            </thead>
-                            <tbody id="userBox">
-
-		                </tbody>
-		
-                        </table>
-                    <!--/div-->
-                </div>
             </div>
-				<label>
-                    每页
-                    <select id="pageSize"
-                            aria-controls="DataTables_Table_0" size="1" name="DataTables_Table_0_length">
-                        <option selected="selected" value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                     条记录
-                </label>
-<!--      分页-->
-                    <nav aria-label="Page navigation" class="col-md-12 col-md-offset-5 right" >
-                        <ul class="pagination">
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="name">账号</label>
+                <input type="text" class="form-control " id="name" placeholder="请输入帐号">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="userphone">电话</label>
+                <input type="text" class="form-control " id="userphone" placeholder="请输入电话">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="useremail">邮箱</label>
+                <input type="text" class="form-control " id="useremail" placeholder="请输入邮箱">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="sex">性别：</label>
+                <select name="" class="form-control" id="sex">
+                    <option value="" selected="selected">不限</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="startDate">开始时间：</label>
+                <input type="text" class="form-control " id="startDate" placeholder="请输入开始时间">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="endDate">结束时间：</label>
+                <input type="text" class="form-control " id="endDate" placeholder="请输入结束时间">
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-                        </ul>
-                    </nav>
-   </div>
-      <footer class="navbar navbar-fixed-bottom text-center bg-primary">
-        <p></p>
-      </footer>
+                <!-- 按钮触发模态框 -->
+                <button id="getInsertRows" type="button" class="btn btn-success"
+                        data-toggle="modal" data-target="#userModal">添加
+                </button>
+                <table id="grid" data-ajax="true" data-selection="true" data-multi-select="true" data-url="UserSerlvt"
+                       data-toggle="bootgrid" class="table table-condensed table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th data-align="left">ID</th>
+                        <th>账号</th>
+                        <th>密码</th>
+                        <th>手机号</th>
+                        <th>邮箱</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>头像</th>
+                        <th>帐号类型</th>
+                        <th>个性签名</th>
+                        <th>生日</th>
+                        <th>注册时间</th>
+                        <th data-align="center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="userBox">
 
-  </div>
+                    </tbody>
 
-   <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLoginLabel">添加歌手页面</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form  id="registerForm">
-                            <div class="form-group">
-                                <label for="account" class="control-label">用户名</label>
-                                <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="text"  class="form-control" name="account" id="account"  placeholder="请输入用户名">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="userName" class="control-label">姓名</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <input type="text"  class="form-control" name="userName" id="userName"  placeholder="请输入姓名">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd" class="control-label">密码</label>
-                                <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="text"  class="form-control" name="pwd" id="pwd"  placeholder="请输入用户密码">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" class="control-label">手机</label>
-                                <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="text"  class="form-control" name="phone" id="phone"  placeholder="请输入手机号">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="control-label">邮箱</label>
-                                <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="text"  class="form-control" name="email" id="email"  placeholder="请输入用户邮箱">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="personalSignature" class="control-label">个性签名</label>
-                                <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="text"  class="form-control" name="personalSignature" id="personalSignature"  placeholder="请输入个性签名">
-                                </div>
-                            </div>
-                          	 <div class="form-group">
-                                    <label for="sex" class="">性别</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                                    <select name="sex" class="form-control" id="sex">
-                                        <option value="" selected="selected">请选择性别</option>
-                                        <option value="男">男</option>
-                                        <option value="女">女</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="img" class="">用户头像</label>
-                                    <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
-                                    <input type="file" name="img" class="form-control"  id="img" placeholder="请上传图片">
-                                    </div>
-                            </div>
-                             <div class="form-group">
-                                    <label for="birthday" class="">生日</label>
-                                    <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                                    <input type="date" name="birthday" class="form-control" id="birthday" placeholder="请输入你的生日">
-                                    </div>
-                            </div>
-                        </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger"  data-dismiss="modal">取消</button>
-                        <input type="button" data-loading-text="添加..." value="添加" class="btn btn-primary" id="subBtn">
-                    </div>
-                </div>
+                </table>
+                <!--/div-->
             </div>
         </div>
+        <label>
+            每页
+            <select id="pageSize"
+                    aria-controls="DataTables_Table_0" size="1" name="DataTables_Table_0_length">
+                <option selected="selected" value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            条记录
+        </label>
+        <!--      分页-->
+        <nav aria-label="Page navigation" class="col-md-12 col-md-offset-5 right">
+            <ul class="pagination">
+
+            </ul>
+        </nav>
+    </div>
+    <footer class="navbar navbar-fixed-bottom text-center bg-primary">
+        <p></p>
+    </footer>
+
+</div>
+
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLoginLabel">添加歌手页面</h4>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="account" class="control-label">用户名</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" class="form-control" name="account" id="account"
+                                   placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userName" class="control-label">姓名</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" class="form-control" name="userName" id="userName"
+                                   placeholder="请输入姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd" class="control-label">密码</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" class="form-control" name="pwd" id="pwd" placeholder="请输入用户密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="control-label">手机</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入手机号">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">邮箱</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" class="form-control" name="email" id="email"
+                                   placeholder="请输入用户邮箱">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="personalSignature" class="control-label">个性签名</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input type="text" class="form-control" name="personalSignature" id="personalSignature"
+                                   placeholder="请输入个性签名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sex" class="">性别</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
+                            <select name="sex" class="form-control" id="sex">
+                                <option value="" selected="selected">请选择性别</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="img" class="">用户头像</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+                            <input type="file" name="img" class="form-control" id="img" placeholder="请上传图片">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday" class="">生日</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            <input type="date" name="birthday" class="form-control" id="birthday"
+                                   placeholder="请输入你的生日">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                <input type="button" data-loading-text="添加..." value="添加" class="btn btn-primary" id="subBtn">
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="/music/admin/js/isLogin.js"></script>
 <script>
@@ -255,91 +266,78 @@
         getUsers(1);
     });
 
-    function getUsers(pageNum){
+    function getUsers(pageNum) {
         $(".pagination").empty();
         $("#userBox").empty();
-        var url="/allUser";
-        var data={
-            "userId":$("#userId").val(),
-            "account":$("#name").val(),
-            "phone":$("#userphone").val(),
-            "email":$("#useremail").val(),
-            "sex":$("#sex").val(),
-            "startDate":$("#startDate").val(),
-            "endDate":$("#endDate").val(),
+        var url = "/allUser";
+        var data = {
+            "userId": $("#userId").val(),
+            "account": $("#name").val(),
+            "phone": $("#userphone").val(),
+            "email": $("#useremail").val(),
+            "sex": $("#sex").val(),
+            "startDate": $("#startDate").val(),
+            "endDate": $("#endDate").val(),
             "pageNum": pageNum,
-            "pageSize":$("#pageSize").val(),
+            "pageSize": $("#pageSize").val(),
         }
         console.log(data)
         $.ajax({
-            url:url,
-            method:"post",
-            data:data,
-            success:function(data) {
+            url: url,
+            method: "post",
+            data: data,
+            success: function (data) {
                 makePage(data);
                 console.log(data);
-                var users=data.list;
-                console.log("users",users.length)
-                for (var i=0;i<users.length;i++){
-                    var $tr=$("<tr>");
-                    var $usersid=$("<td>");
-                    var $account=$("<td>");
-                    var $pwd=$("<td>");
-                    var $phone=$("<td>");
-                    var $email=$("<td>");
-                    var $username=$("<td>");
-                    var $sex=$("<td>");
-                    var $headImg =$("<td>");
-                    var $type =$("<td>");
-                    var $personalSignature=$("<td>");
-                    var $birthday =$("<td>");
-                    var $time =$("<td>");
-                    var $upd =$("<td>");
-                    var $del =$("<td>");
+                var users = data.list;
+                console.log("users", users.length)
+                for (var i = 0; i < users.length; i++) {
+                    var $tr = $("<tr>");
+                    var $usersid = $("<td>");
+                    var $account = $("<td>");
+                    var $pwd = $("<td>");
+                    var $phone = $("<td>");
+                    var $email = $("<td>");
+                    var $username = $("<td>");
+                    var $sex = $("<td>");
+                    var $headImg = $("<td>");
+                    var $type = $("<td>");
+                    var $personalSignature = $("<td>");
+                    var $birthday = $("<td>");
+                    var $time = $("<td>");
+                    var $upd = $("<td>");
+                    var $del = $("<td>");
                     console.log(users[i].usersid);
-                    $tr.append($usersid.html(users[i].userId)).
-                    append($account.html(users[i].account)).
-                    append($pwd.html(users[i].pwd)).
-                    append($phone.html(users[i].phone)).
-                    append($email.html(users[i].email)).
-                    append($username.html(users[i].userName)).
-                    append($sex.html(users[i].sex)).
-                    append($headImg.html('<img src="'+users[i].headImg+'" style="width:50px;height:50px;border: 1px solid;">')).
-                    append($type.html(users[i].type)).
-                    append($personalSignature.html(users[i].personalSignature)).
-                    append($birthday.html(users[i].birthday)).
-                    append($time.html(users[i].time)).
-                    append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" data-target="#singerModal" onclick="upd('+users[i].userId+')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>')).
-                    append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del('+users[i].userId+')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
+                    $tr.append($usersid.html(users[i].userId)).append($account.html(users[i].account)).append($pwd.html(users[i].pwd)).append($phone.html(users[i].phone)).append($email.html(users[i].email)).append($username.html(users[i].userName)).append($sex.html(users[i].sex)).append($headImg.html('<img src="' + users[i].headImg + '" style="width:50px;height:50px;border: 1px solid;">')).append($type.html(users[i].type)).append($personalSignature.html(users[i].personalSignature)).append($birthday.html(users[i].birthday)).append($time.html(users[i].time)).append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" data-target="#singerModal" onclick="upd(' + users[i].userId + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>')).append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del(' + users[i].userId + ')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
                     $("#userBox").append($tr);
                 }
             }
         });
     }
 
-    $("#subBtn").click(function(){
-        var url="/userRegister";
+    $("#subBtn").click(function () {
+        var url = "/userRegister";
         var date = new Date();
-        var form=$("#registerForm")[0];
-        var time=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+        var form = $("#registerForm")[0];
+        var time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
         console.log(time);
-        var formData =new FormData(form);
-        formData.append("time",time);
+        var formData = new FormData(form);
+        formData.append("time", time);
         console.log(formData);
         // $('#registerForm').data('bootstrapValidator').validate();//手动开启验证
         // var flag = $('#registerForm').data('bootstrapValidator').isValid();
         // console.log(flag);
         $.ajax({
-            url:url,
-            method:"post",
-            data:formData,
+            url: url,
+            method: "post",
+            data: formData,
             dataType: 'JSON',
             cache: false,
             processData: false,
             contentType: false,
-            success:function(data) {
+            success: function (data) {
                 console.log(data);
-                if(data == 1){
+                if (data == 1) {
                     alert("添加成功");
                     $("#registerForm")[0].reset();
                     $("#userModal").modal("hide");
@@ -349,95 +347,97 @@
             }
         });
     });
-  function del(userId){
-      var url = "/delUser/"+userId;
-      $.ajax({
-          url:url,
-          method:"DELETE",
-          success:function(data){
-              if(data == 1){
-                  alert("删除成功");
-              }
-              getUsers();
-          }
-      });
-  }
-  function upd(userId){
-      if(userId==null){
 
-      }else{
-          var url = "/selectByUserId/"+userId;
-          $.ajax({
-              url:url,
-              method:"UPDATE",
-              success:function(data){
-                  if(data == 1){
-                      alert("删除成功");
-                  }
-                  getUsers(1);
-              }
-          });
-      }
-  }
+    function del(userId) {
+        var url = "/delUser/" + userId;
+        $.ajax({
+            url: url,
+            method: "DELETE",
+            success: function (data) {
+                if (data == 1) {
+                    alert("删除成功");
+                }
+                getUsers();
+            }
+        });
+    }
+
+    function upd(userId) {
+        if (userId == null) {
+
+        } else {
+            var url = "/selectByUserId/" + userId;
+            $.ajax({
+                url: url,
+                method: "UPDATE",
+                success: function (data) {
+                    if (data == 1) {
+                        alert("删除成功");
+                    }
+                    getUsers(1);
+                }
+            });
+        }
+    }
 
 
     //分页
-    function makePage(data){
+    function makePage(data) {
         console.log(data)
         if (data.list.length != 0) {
-        var pageNums=data.navigatepageNums;
-        if(data.pages==1){
-            return;
-        }else{
-            $li=$("<li></li>");
-            $btn=$("<a aria-label='Next' href='javascript:getUsers("+1+");'><span aria-hidden=\"true\">首页</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-        //是否由上一页
-        if(data.hasPreviousPage==true){
-            var pageNum=data.pageNum-1;
-            $li=$("<li></li>");
-            $btn=$("<a aria-label='Previous' href='javascript:getUsers("+pageNum+");'><span aria-hidden=\"true\">&laquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }else {
-            $li=$("<li class='disabled'></li>");
-            $btn=$("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-        // 页数
-        for(var i=0;i<pageNums.length;i++){
-            var pageNum=pageNums[i];
-            $li=$("<li></li>");
-            $btn=$("<a href='javascript:getUsers("+pageNum+");'>"+pageNum+"</a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-        if(data.hasNextPage==true){
-            var pageNum=data.pageNum+1;
-            $li=$("<li></li>");
-            $btn=$("<a aria-label='Next' href='javascript:getUsers("+pageNum+");'><span aria-hidden=\"true\">&raquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }else {
-            $li=$("<li class='disabled'></li>");
-            $btn=$("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
+            var pageNums = data.navigatepageNums;
+            if (data.pages == 1) {
+                return;
+            } else {
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Next' href='javascript:getUsers(" + 1 + ");'><span aria-hidden=\"true\">首页</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+            //是否由上一页
+            if (data.hasPreviousPage == true) {
+                var pageNum = data.pageNum - 1;
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Previous' href='javascript:getUsers(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            } else {
+                $li = $("<li class='disabled'></li>");
+                $btn = $("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+            // 页数
+            for (var i = 0; i < pageNums.length; i++) {
+                var pageNum = pageNums[i];
+                $li = $("<li></li>");
+                $btn = $("<a href='javascript:getUsers(" + pageNum + ");'>" + pageNum + "</a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+            if (data.hasNextPage == true) {
+                var pageNum = data.pageNum + 1;
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Next' href='javascript:getUsers(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            } else {
+                $li = $("<li class='disabled'></li>");
+                $btn = $("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
 
-        if(data.isLastPage!=true){
-            var pageNum=data.pages;
-            $li=$("<li></li>");
-            $btn=$("<a aria-label='Next' href='javascript:getUsers("+pageNum+");'><span aria-hidden=\"true\">尾页</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-         }
-    } else {
-        $(".pagination").empty();
-    }
+            if (data.isLastPage != true) {
+                var pageNum = data.pages;
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Next' href='javascript:getUsers(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+        } else {
+            $(".pagination").empty();
+        }
     }
 </script>
 <script src="/music/user/js/util.js"></script>

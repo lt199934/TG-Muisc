@@ -2,7 +2,6 @@ package com.edu.service.impl;
 
 import com.edu.bean.FenLei;
 import com.edu.bean.SongList;
-import com.edu.bean.SongDto;
 import com.edu.bean.SongListDto;
 import com.edu.mapper.SongListMapper;
 import com.edu.service.SongListService;
@@ -17,8 +16,9 @@ import java.util.List;
 public class SongListServiceImpl implements SongListService {
     @Autowired
     private SongListMapper songlistMapper;
+
     public Page<SongList> selectSongListByExample(SongList songlist, Date startDate, Date endDate) {
-        return songlistMapper.selectSongListByExample(songlist,startDate,endDate);
+        return songlistMapper.selectSongListByExample(songlist, startDate, endDate);
     }
 
     public SongList selectAllBySongListId(int songListId) {
@@ -41,7 +41,7 @@ public class SongListServiceImpl implements SongListService {
         return songlistMapper.selectFenArrayBySongListId(songListId);
     }
 
-    public Page<SongList> selectFenAll(int fenId){
+    public Page<SongList> selectFenAll(int fenId) {
         return songlistMapper.selectFenAll(fenId);
     }
 

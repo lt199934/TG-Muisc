@@ -22,9 +22,6 @@ public class FenLei {
 
     @Override
     public String toString() {
-        return "FenLei{" +
-                "fenId=" + fenId +
-                ", content='" + content + '\'' +
-                '}';
+        return "FenLei{" + "fenId=" + fenId + ", content='" + content + '\'' + '}';
     }
 }

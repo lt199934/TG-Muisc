@@ -28,7 +28,7 @@ public class SongList {
     private List<Singer> singers;
 
     private Integer count;
-//    歌单分类
+    //    歌单分类
     private List<FenLei> fenLeis;
 
     private List<SongDto> songDto;
@@ -139,20 +139,6 @@ public class SongList {
 
     @Override
     public String toString() {
-        return "SongList{" +
-                "songListId=" + songListId +
-                ", songList='" + songList + '\'' +
-                ", introduction='" + introduction + '\'' +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", time=" + time +
-                ", userId=" + userId +
-                ", createUser='" + createUser + '\'' +
-                ", songs=" + songs +
-                ", albums=" + albums +
-                ", singers=" + singers +
-                ", count=" + count +
-                ", fenLeis=" + fenLeis +
-                ", songDto=" + songDto +
-                '}';
+        return "SongList{" + "songListId=" + songListId + ", songList='" + songList + '\'' + ", introduction='" + introduction + '\'' + ", imgUrl='" + imgUrl + '\'' + ", time=" + time + ", userId=" + userId + ", createUser='" + createUser + '\'' + ", songs=" + songs + ", albums=" + albums + ", singers=" + singers + ", count=" + count + ", fenLeis=" + fenLeis + ", songDto=" + songDto + '}';
     }
 }

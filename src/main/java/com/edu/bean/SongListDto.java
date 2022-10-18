@@ -15,7 +15,7 @@ public class SongListDto {
     @JsonFormat(locale = "yyyy-MM-dd")
     private Date time;
 
-    private  int userId;
+    private int userId;
 
     public int getUserId() {
         return userId;
@@ -59,12 +59,6 @@ public class SongListDto {
 
     @Override
     public String toString() {
-        return "SongListDto{" +
-                "songList='" + songList + '\'' +
-                ", introduction='" + introduction + '\'' +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", time=" + time +
-                ", userId=" + userId +
-                '}';
+        return "SongListDto{" + "songList='" + songList + '\'' + ", introduction='" + introduction + '\'' + ", imgUrl='" + imgUrl + '\'' + ", time=" + time + ", userId=" + userId + '}';
     }
 }

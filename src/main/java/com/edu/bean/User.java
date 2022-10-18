@@ -1,7 +1,6 @@
 package com.edu.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -189,25 +188,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", nickName='" + nickName + '\'' +
-                ", account='" + account + '\'' +
-                ", pwd='" + pwd + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", userName='" + userName + '\'' +
-                ", sex='" + sex + '\'' +
-                ", headImg='" + headImg + '\'' +
-                ", type='" + type + '\'' +
-                ", personalSignature='" + personalSignature + '\'' +
-                ", birthday=" + birthday +
-                ", songs=" + songs +
-                ", singers=" + singers +
-                ", albums=" + albums +
-                ", songlists1=" + songlists1 +
-                ", songlists2=" + songlists2 +
-                ", time=" + time +
-                '}';
+        return "User{" + "userId=" + userId + ", nickName='" + nickName + '\'' + ", account='" + account + '\'' + ", pwd='" + pwd + '\'' + ", phone='" + phone + '\'' + ", email='" + email + '\'' + ", userName='" + userName + '\'' + ", sex='" + sex + '\'' + ", headImg='" + headImg + '\'' + ", type='" + type + '\'' + ", personalSignature='" + personalSignature + '\'' + ", birthday=" + birthday + ", songs=" + songs + ", singers=" + singers + ", albums=" + albums + ", songlists1=" + songlists1 + ", songlists2=" + songlists2 + ", time=" + time + '}';
     }
 }

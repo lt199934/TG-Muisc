@@ -17,13 +17,13 @@ public class Album {
     private String introduction;
 
     private String company;
-//   多张专辑对应一个歌手 多对-
+    //   多张专辑对应一个歌手 多对-
     private Singer singer;
-//    一张专辑对应多首音乐 1对多
+    //    一张专辑对应多首音乐 1对多
     private List<Song> songs;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date time;
-//    用于封装歌曲数量
+    //    用于封装歌曲数量
     private int count;
 
 
@@ -109,18 +109,7 @@ public class Album {
 
     @Override
     public String toString() {
-        return "Album{" +
-                "albumId=" + albumId +
-                ", album='" + album + '\'' +
-                ", singerId=" + singerId +
-                ", albumImg='" + albumImg + '\'' +
-                ", introduction='" + introduction + '\'' +
-                ", company='" + company + '\'' +
-                ", singer=" + singer +
-                ", songs=" + songs +
-                ", time=" + time +
-                ", count=" + count +
-                '}';
+        return "Album{" + "albumId=" + albumId + ", album='" + album + '\'' + ", singerId=" + singerId + ", albumImg='" + albumImg + '\'' + ", introduction='" + introduction + '\'' + ", company='" + company + '\'' + ", singer=" + singer + ", songs=" + songs + ", time=" + time + ", count=" + count + '}';
     }
 
 }

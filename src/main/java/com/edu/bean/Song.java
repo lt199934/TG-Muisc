@@ -128,19 +128,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
-                "songId=" + songId +
-                ", song='" + song + '\'' +
-                ", singerId=" + singerId +
-                ", playCount=" + playCount +
-                ", downloadCount=" + downloadCount +
-                ", url='" + url + '\'' +
-                ", language='" + language + '\'' +
-                ", albumId=" + albumId +
-                ", time=" + time +
-                ", songlists=" + songlists +
-                ", album=" + album +
-                ", singer=" + singer +
-                '}';
+        return "Song{" + "songId=" + songId + ", song='" + song + '\'' + ", singerId=" + singerId + ", playCount=" + playCount + ", downloadCount=" + downloadCount + ", url='" + url + '\'' + ", language='" + language + '\'' + ", albumId=" + albumId + ", time=" + time + ", songlists=" + songlists + ", album=" + album + ", singer=" + singer + '}';
     }
 }

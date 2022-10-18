@@ -5,29 +5,28 @@
     <title>所有歌手</title>
     <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"  />
-<!--    <link rel="stylesheet" href="/music/client/common/css/index.css">-->
+    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"/>
+    <!--    <link rel="stylesheet" href="/music/client/common/css/index.css">-->
     <link rel="stylesheet" href="/music/client/common/css/common.css">
-    <link rel="stylesheet" href="/music/plugin/toastr/toastr.css" />
-<!--    <link rel="stylesheet" href="/music/client/songList/css/gedan.css">-->
-<!--    <link rel="stylesheet" type="text/css" href="/music/client/album/css/zhuanjistyle.css">-->
-<!--    <link rel="stylesheet" href="/music/client/album/css/wudengfen.css">-->
-<!--    <link rel="stylesheet" href="/music/client/album/css/shoujigedan.css">-->
+    <link rel="stylesheet" href="/music/plugin/toastr/toastr.css"/>
+    <!--    <link rel="stylesheet" href="/music/client/songList/css/gedan.css">-->
+    <!--    <link rel="stylesheet" type="text/css" href="/music/client/album/css/zhuanjistyle.css">-->
+    <!--    <link rel="stylesheet" href="/music/client/album/css/wudengfen.css">-->
+    <!--    <link rel="stylesheet" href="/music/client/album/css/shoujigedan.css">-->
     <link rel="stylesheet" type="text/css" href="/music/client/singer/css/singers.css">
     <link rel="shortcut icon" href="#"/>
-    <link rel="stylesheet" type="text/css" href="/music/client/album/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" type="text/css" href="/music/client/album/css/bootstrap-grid.min.css"/>
     <script src="/music/client/common/js/jquery.min.js"></script>
     <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
     <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
-        body{
-            background-color:#FFFFFF;
-            background-image:
-                    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-                    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-                    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+        body {
+            background-color: #FFFFFF;
+            background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
+            radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
+            radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px),
+            radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
             background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
             background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
         }
@@ -38,7 +37,7 @@
 <div class="container ">
     <!--   header-->
     <div class="row">
-        <h1> <a href="/" >涛哥音乐</a></h1>
+        <h1><a href="/">涛哥音乐</a></h1>
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
@@ -57,7 +56,7 @@
                     <li><a href="/albums" target="content"> 专辑</a></li>
                     <li>
                         <form class="navbar-form navbar-link">
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <input type="text" class="form-control" id="searchbar" placeholder="搜索歌曲/歌手">
                             </div>
                             <button class="btn btn-primary ">搜索</button>
@@ -66,25 +65,29 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a id="register"  target="_blank" href="/register">
+                        <a id="register" target="_blank" href="/register">
                             <span class="glyphicon glyphicon-user"></span> 注册
                         </a>
                     </li>
                     <li>
-                        <a id="login" target="_blank" href="/login" >
+                        <a id="login" target="_blank" href="/login">
                             <span class="glyphicon glyphicon-log-in"></span> 登录</a>
                     </li>
                     <li class="dropdown" id="profile">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">
                             <div style="display: flex">
-                                <img src="" id="headimg" style="width: 30px;height: 30px;margin-right: 15px;margin-top:-5px;float: left"  class="img-responsive img-circle">
+                                <img src="" id="headimg"
+                                     style="width: 30px;height: 30px;margin-right: 15px;margin-top:-5px;float: left"
+                                     class="img-responsive img-circle">
                                 <div style="float: right">
-                                    <span id="uc" ></span><span class="caret"></span>
+                                    <span id="uc"></span><span class="caret"></span>
                                 </div>
                             </div>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" id="personalPage"><span class="glyphicon glyphicon-user"></span> 个人主页</a></li>
+                            <li><a href="#" id="personalPage"><span class="glyphicon glyphicon-user"></span>
+                                个人主页</a></li>
                             <li><a href="#" id="upPwd"><span class="glyphicon glyphicon-user"></span> 修改密码</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
@@ -146,10 +149,12 @@
     <div class="row">
         <div class="footer_copyright col-md-12 col-xs-12 col-sm-12" style="width: 100%;">
             <p class="text-center" style="color: white">
-                <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">涛哥音乐</a> powered by <a href="https://ltbk.net/" target="_blank">涛哥博客</a>
+                <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">涛哥音乐</a> powered by <a
+                    href="https://ltbk.net/" target="_blank">涛哥博客</a>
                 <br>
                 <span class="footer-icp">
-                        <img class="ipc-icon" src="https://ltbk.net/wp-content/themes/CorePress-Pro/static/img/icp.svg" alt="">
+                        <img class="ipc-icon" src="https://ltbk.net/wp-content/themes/CorePress-Pro/static/img/icp.svg"
+                             alt="">
                         <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2021029431号-2</a>
                     </span>
             </p>

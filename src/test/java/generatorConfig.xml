@@ -6,7 +6,7 @@
     <context id="dsql" targetRuntime="MyBatis3Simple">
 
         <commentGenerator>
-            <property name="suppressAllComments" value="true" />
+            <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库配置 驱动名 url-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -22,12 +22,12 @@
         <!-- 映射文件 地址-->
 
         <!-- 可以有多个节点 domainName和mapper 可以不写会用默认的命名规范-->
-        <table tableName="admin" />
-<!--        <table tableName="user" />-->
-        <table tableName="singer" />
-        <table tableName="song" />
-        <table tableName="songlist" />
-        <table tableName="message" />
-        <table tableName="album" />
+        <table tableName="admin"/>
+        <!--        <table tableName="user" />-->
+        <table tableName="singer"/>
+        <table tableName="song"/>
+        <table tableName="songlist"/>
+        <table tableName="message"/>
+        <table tableName="album"/>
     </context>
 </generatorConfiguration>

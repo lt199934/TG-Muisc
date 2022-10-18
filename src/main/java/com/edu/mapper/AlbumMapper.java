@@ -26,5 +26,5 @@ public interface AlbumMapper {
 
     List<Album> allAlbum();
 
-    Page<Album> singerIdAlbum(@Param("SingerId")int SingerId);
+    Page<Album> singerIdAlbum(@Param("SingerId") int SingerId);
 }

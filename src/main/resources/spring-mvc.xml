@@ -4,7 +4,7 @@
 
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
     <mvc:resources mapping="/music/**" location="/music/"></mvc:resources>
     <mvc:view-controller path="/" view-name="/music/client/index.html"/>
     <mvc:view-controller path="/index" view-name="/music/client/iframe/index.html"/>
@@ -23,7 +23,7 @@
     <mvc:view-controller path="/iframe/singers" view-name="/music/client/iframe/singers/singers.html"/>
     <mvc:view-controller path="/iframe/albums" view-name="/music/client/iframe/album/albums.html"/>
     <mvc:view-controller path="/admin" view-name="/music/admin/adminLogin.html"/>
-   <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
         <!--  设置编码格式       -->
         <property name="defaultEncoding" value="UTF-8"></property>
@@ -32,11 +32,11 @@
     </bean>
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
     <bean class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean" id="contentNegotiationManager">
-       <property name="mediaTypes">
-           <map>
-               <entry key="html" value="application/json;charset=UTF-8"></entry>
-           </map>
-       </property>
+        <property name="mediaTypes">
+            <map>
+                <entry key="html" value="application/json;charset=UTF-8"></entry>
+            </map>
+        </property>
     </bean>
 
     <mvc:annotation-driven>
@@ -71,7 +71,6 @@
         </property>
     </bean>
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
-
 
 
 </beans>

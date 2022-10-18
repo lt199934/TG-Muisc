@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminMapper adminMapper;
-//登录
+
+    //登录
     public Admin login(Admin admin) {
-        return adminMapper.selectByAccountAndPwd(admin.getAccount(),admin.getPwd());
+        return adminMapper.selectByAccountAndPwd(admin.getAccount(), admin.getPwd());
     }
+
     public int delAdmin(int superId) {
-        return  adminMapper.deleteByPrimaryKey(superId);
+        return adminMapper.deleteByPrimaryKey(superId);
     }
 
     public int updateAdmin(Admin admin) {

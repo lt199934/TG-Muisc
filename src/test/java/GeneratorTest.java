@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class GeneratorTest {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         ArrayList<String> warnings;
         warnings = new ArrayList<String>();
