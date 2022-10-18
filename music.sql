@@ -178,11 +178,11 @@ create table songCollect(
 -- 歌曲id
 	song_id int not null
 );
-INSERT INTO `songcollect` VALUES ('1', '1', '1');
-INSERT INTO `songcollect` VALUES ('2', '1', '3');
-INSERT INTO `songcollect` VALUES ('3', '2', '5');
-INSERT INTO `songcollect` VALUES ('4', '2', '4');
-INSERT INTO `songcollect` VALUES ('5', '2', '1');
+INSERT INTO `songCollect` VALUES ('1', '1', '1');
+INSERT INTO `songCollect` VALUES ('2', '1', '3');
+INSERT INTO `songCollect` VALUES ('3', '2', '5');
+INSERT INTO `songCollect` VALUES ('4', '2', '4');
+INSERT INTO `songCollect` VALUES ('5', '2', '1');
 
 -- 情感分类 
 create table fenlei(
