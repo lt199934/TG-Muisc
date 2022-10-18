@@ -76,7 +76,7 @@
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             user_id, account, pwd,
-            phone, email, user_name,
+            nick_name,phone, email, user_name,
             sex,
             <if test="headImg != null">
                 head_img,
@@ -91,6 +91,7 @@
             #{userId,jdbcType=INTEGER},
             #{account,jdbcType=VARCHAR},
             #{pwd,jdbcType=VARCHAR},
+            #{nickName,jdbcType=VARCHAR},
             #{phone,jdbcType=VARCHAR},
             #{email,jdbcType=VARCHAR},
             #{userName,jdbcType=VARCHAR},
@@ -114,6 +115,9 @@
             </if>
             <if test="pwd != null">
                 pwd = #{pwd,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
             </if>
             <if test="phone != null">
                 phone = #{phone,jdbcType=VARCHAR},
@@ -149,6 +153,7 @@
         select user_id,
                account,
                pwd,
+               nick_name,
                phone,
                email,
                user_name,
@@ -164,6 +169,7 @@
         select user_id,
                account,
                pwd,
+               nick_name,
                phone,
                email,
                user_name,
@@ -184,6 +190,9 @@
             </if>
             <if test="user.account != null and user.account !=''">
                 and account = #{user.account,jdbcType=VARCHAR}
+            </if>
+            <if test="user.nickName != null and user.nickName !=''">
+                and nick_name = #{user.nickName,jdbcType=VARCHAR}
             </if>
             <if test="user.pwd != null and user.pwd !=''">
                 and pwd = #{user.pwd,jdbcType=VARCHAR}
