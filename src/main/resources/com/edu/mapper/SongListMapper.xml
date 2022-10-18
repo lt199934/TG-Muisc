@@ -68,7 +68,7 @@
     <select id="selectAllBySongListId" resultMap="songListDto">
         select *
         from songlist a,
-             songcollect b,
+             songCollect b,
              song c,
              singer d,
              album e,
@@ -83,7 +83,7 @@
 
     <select id="count" resultType="java.lang.Integer">
         select count(1)
-        from songcollect a,
+        from songCollect a,
              songlist b
         where a.song_list_id = b.song_list_id
           and b.song_list_id = #{songListId,jdbcType=INTEGER}
