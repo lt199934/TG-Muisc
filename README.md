@@ -44,9 +44,9 @@ git clone https://gitee.com/lt199934/music-website.git
         6，分页和歌单分类查询
         7，音乐播放  
 人员分工:
-    1，组长刘涛：负责ssm框架搭建，前台后台bootsrap页面布局，数据库设计，前端网站开发
-    2，副组长杨开：后台管理系统开发
-    3，周乐智：音乐插件寻找
+    1，负责ssm框架搭建，前台后台bootsrap页面布局，数据库设计，前端网站开发
+    2，后台管理系统开发
+    3，音乐插件寻找
 
 后期调整整改的 计划和方案
     1，完善用户界面和未完成的功能增加对歌手专辑歌单评论
@@ -60,27 +60,22 @@ git clone https://gitee.com/lt199934/music-website.git
 ![](README.assets/播放.png)
 
 ![播放全部](README.assets/播放全部.png)
-
 ![登录](README.assets/登录.png)
 
-![歌单](README.assets/歌单.png)
+![注册](README.assets/注册.png)
 
 ![歌单详情](README.assets/歌单详情.png)
 
 ![歌手](README.assets/歌手.png)
 
 ![曲库](README.assets/曲库.png)
-
-![主页](README.assets/主页.png)
-
-![注册](README.assets/注册.png)
-
+![主页](README.assets/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-10-23%20160054.png)
 ![专辑](README.assets/专辑.png)
 
 ![专辑详情](README.assets/专辑详情.png)
 
 ### 后台管理系统
-![](README.assets/登录-1652701135932.png)
+![](README.assets/管理员登录.png)
 
 ![歌单管理](README.assets/歌单管理.png)
 
