@@ -34,8 +34,8 @@ function getSongList(pageNum) {
                 con += "<td>" + (i + 1) + "</td>";
                 con += "<td class='text-center'><img class='img-responsive center-block' src=" + songDto[i].albumUrl + " /></td>";
                 con += "<td>" + songDto[i].song + "</td>";
-                con += "<td><a href='/music/user/singer/singer.html?singerId=" + songDto[i].singerId + "'>" + songDto[i].singerName + "</a></td>";
-                con += "<td><a href='/music/user/album/album.html?albumId=" + songDto[i].albumId + "'>" + songDto[i].albumName + "</td>";
+                con += "<td><a href='/singerDetail?singerId=" + songDto[i].singerId + "'>" + songDto[i].singerName + "</a></td>";
+                con += "<td><a href='/albumDetail?albumId=" + songDto[i].albumId + "'>" + songDto[i].albumName + "</td>";
                 con += "<td><span title='收藏音乐' class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px'></span></td>";
                 con += "<td><a id='playOne' target='play' href=/play?temp=song&songId=" + songDto[i].songId + "><span id='play' title='播放音乐' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
                 con += "<input type='hidden' value=" + songDto[i].songId + ">"
