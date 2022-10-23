@@ -112,8 +112,9 @@ function getSongs(pageNum) {
         success: function (data) {
             var songs = data.list;
             console.log("新歌精选", data);
+            var content = "";
             for (var i = 0; i < songs.length; i++) {
-                content = "<tr>";
+                content += "<tr>";
                 content += "<td>" + (i + 1) + "</td>";
                 content += "<td><img src=" + songs[i].album.albumImg + " class='img-rounded'></td>";
                 content += "<td>" + songs[i].song + "</td>";
@@ -121,8 +122,8 @@ function getSongs(pageNum) {
                 content += "<td><span class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px'></span></td>";
                 content += "<td><a id='playOne' target='play' href=javascript:void(0);><span id='play' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
                 content += "<input type='hidden' id='songId' value=" + songs[i].songId + ">";
-                $("#music").append(content);
             }
+            $("#music").html(content);
             //收藏歌曲状态
             $(".collect").each(function (i,n){
                 $.ajax({
@@ -178,7 +179,7 @@ function getSingers(pageNum) {
 }
 
 //收藏歌曲
-$("#music").on("click", "#collect", function () {
+$("#music").on("click", ".collect", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     var className = $(this).attr("class");
     if (null != user) {
