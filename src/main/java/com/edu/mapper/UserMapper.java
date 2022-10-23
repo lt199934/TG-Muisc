@@ -12,6 +12,12 @@ public interface UserMapper {
 
     int insert(User record);
 
+    int selectAlbumStatus(@Param("userId") int userId, @Param("albumId") int albumId);
+
+    int selectSongListStatus(@Param("userId") int userId, @Param("songListId") int songListId);
+
+    int selectSongStatus(@Param("userId") int userId, @Param("songId") int songId);
+
     User selectByPrimaryKey(Integer userId);
 
     Page<User> selectAll();

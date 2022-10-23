@@ -40,6 +40,10 @@
         .pagination {
             margin-left: 30%;
         }
+
+        dd {
+            padding: 4px;
+        }
     </style>
 </head>
 <body>
@@ -51,32 +55,36 @@
         <div class="songList__bg"></div>
         <div class="row">
             <div class="col-md-12">
-                <dl class="col-md-12">
-                    <dt class="col-md-1 col-md-offset-1"><img
+                <dl class="col-md-12" style="padding-left: 0">
+                    <dt class="col-md-4" style="padding-left: 0"><img
                             style="width: 300px;height: 300px;background-color: white;box-shadow: 1px 1px #eee;border-radius: 10px; padding: 20px;"
                             src="" id="songListImg" class="pull-left"></dt>
-                    <div class="col-md-6 col-md-offset-4 pull-left" style="margin-top: 0px;">
+                    <div class="col-md-8 pull-left" style="margin-top: 0px;">
                         <dd><h3 class="songList__name">一秒倾心! </h3></dd>
-                        <dd>
-                            <span class="glyphicon glyphicon-time"></span>发行时间：<span id="time"></span>
-                        </dd>
                         <dd style="line-height: 40px;" class="singer">
                             歌手
                         </dd>
-                        <dd><h3 class="text-left">专辑介绍：</h3>
-                            <p id="introduction" class="text-left">
-                                一秒倾心！盘点那些流行于网络，超级好听的神仙翻唱。
-                            </p></dd>
                         <dd>
-                            <a id="playAll" target="play" href="#">
-                                <button class="btn btn-default"><span class="glyphicon glyphicon-play"></span>播放全部
+
+                        </dd>
+                        <dd><h3 class="text-left">专辑介绍：</h3>
+                            <p id="introduction" class="text-left" style="line-height: 30px">
+                                一秒倾心！盘点那些流行于网络，超级好听的神仙翻唱。
+                            </p>
+                        </dd>
+                        <dd></dd>
+                        <dd class="pull-left">
+                            <a id="playAll" target="play" title="播放全部" href="#">
+                                <button class="btn btn-success"><span class="glyphicon glyphicon-play"></span> 播放全部
                                 </button>
                             </a>
-                            收藏:<span title="收藏歌单"
-                                       style="width: 20px;height: 20px;font-size: 18px;line-height: 10px;"
-                                       class="glyphicon glyphicon-heart-empty" id="collectSongList"></span>
+                            <button class="btn btn-primary" id="collectAlbum">
+                                <span title="收藏歌单" class="glyphicon glyphicon-heart-empty"></span> 收藏
+                            </button>
                         </dd>
-                        <dd class="text-right">
+                        <dd class="pull-right text-right" style="margin-top: 10px">
+                            <span class="glyphicon glyphicon-time"></span>
+                            发行时间：<span id="time" style="margin-right: 80px"></span>
                             发行机构：<span id="company"></span>
                         </dd>
 
@@ -89,7 +97,7 @@
 
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row" style="height:374px">
         <h1>包含歌曲 <small class="songList__number"> 7首歌</small></h1>
         <table class="table table-hover">
             <thead>
@@ -101,14 +109,14 @@
             </tr>
 
             </thead>
-            <tbody class="text-left" id="albums" onLoad="this.height=100">
+            <tbody class="text-left" style="height:80px" id="songs">
 
             </tbody>
         </table>
     </div>
     <!--        分页-->
     <div class="row">
-        <nav aria-label="Page navigation " class="col-md-12 col-md-offset-1">
+        <nav aria-label="Page navigation " class=" col-md-offset-1">
             <ul class="pagination">
 
             </ul>
@@ -131,8 +139,8 @@
     </div>
 </div>
 <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="40%" name="play" frameborder="0"></iframe>
-</body>
 <script src="/music/plugin/toastr/toastr.min.js"></script>
 <script src="/music/client/common/js/util.js"></script>
 <script src="/music/client/album/js/album.js"></script>
+</body>
 </html>

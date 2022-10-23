@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/web/music/admin/users.html" value="file://$PROJECT_DIR$/web/music/admin" />
+        <entry key="file://$PROJECT_DIR$/web/music/client/songList/songlist.html" value="file://$PROJECT_DIR$/web/music/client/songList" />
       </map>
     </option>
   </component>

@@ -139,8 +139,8 @@ function makePage(data) {
         } else {
             $(".pagination").empty();
         }
-
 }
+
 $('.simplefilter').on("click","li",function () {
    var fenId=$(this).find("#fenId").val();
     getFenSongLists(1,fenId);

@@ -47,6 +47,12 @@ public interface UserService {
     // 所有收藏的专辑
     Page<User> selectAlbums(int userId);
 
+    int selectAlbumStatus(@Param("userId") int userId, @Param("albumId") int albumId);
+
+    int selectSongListStatus(@Param("userId") int userId, @Param("songListId") int songListId);
+
+    int selectSongStatus(@Param("userId") int userId, @Param("songId") int songId);
+
     // 收藏歌曲
     int insertSongsByCollected(@Param("userId") int userId, @Param("songId") int songId);
 

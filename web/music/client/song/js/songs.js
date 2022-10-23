@@ -24,11 +24,29 @@ function getSongs(pageNum) {
                 content+="<td><img src="+songs[i].album.albumImg+" class='img-responsive'></td>";
                 content+="<td>"+songs[i].song+"</td>";
                 content+="<td><a id='singer' href=javascript:void(0);>"+songs[i].singer.singerName+"</a><input type='hidden' id='singerId' value='"+songs[i].singer.singerId+"'></td>";
-                content+="<td><span id='collect' class='glyphicon glyphicon-heart-empty' style='font-size: 16px'></span></td>";
+                content+="<td><span class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px'></span></td>";
                 content+="<td><a id='playOne' target='play' href=javascript:void(0);><span id='play' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
                 content+="<input type='hidden' id='songId' value="+songs[i].songId+">";
                 $("#music").append(content);
             }
+            //收藏歌曲状态
+            $(".collect").each(function (i,n){
+                $.ajax({
+                    url: "/songStatus",
+                    method: "post",
+                    data: {
+                        "userId": user.userId,
+                        "songId": songs[i].songId
+                    }, success: function (data) {
+                        console.log(data);
+                        if (data === 1) {
+                            $(n).removeClass("glyphicon-heart-empty");
+                            $(n).css("color", "red");
+                            $(n).addClass("glyphicon glyphicon-heart");
+                        }
+                    }
+                });
+            });
         }
     });
 }
@@ -49,48 +67,50 @@ function delSong(songid) {
 }
 
 //收藏歌曲
-$("#music").on("click","#collect",function () {
-    var className=$(this).attr("class");
-    if (null!=user){
-        $(this).removeClass("glyphicon-heart glyphicon-heart-empty");
-        if(className=="glyphicon glyphicon-heart-empty"){
-            $(this).css("color","red");
-            $(this).addClass("glyphicon glyphicon-heart");
+$("#music").on("click", "。collect", function () {
+    var num = $(this).parent().parent().find("input[type='hidden']").val();
+    var className = $(this).attr("class");
+    if (null != user) {
+        $(this).removeClass("glyphicon-heart glyphicon-heart-empty collect");
+        if (className == "glyphicon glyphicon-heart-empty collect") {
+            console.log("你要收藏的歌曲id为" + num)
+            $(this).css("color", "red");
+            $(this).addClass("glyphicon glyphicon-heart collect");
             $.ajax({
                 url: "/collectSongs",
                 method: "post",
-                data:{"userId":user.userId,"songId":$("[type='hidden']").val()},
+                data: {"userId": user.userId, "songId": num},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
-                        alert("收藏成功");
+                        toastr.success("收藏成功！")
                     }
-
                 }
             });
-        }else {
-            $(this).css("color","");
-            $(this).addClass("glyphicon glyphicon-heart-empty");
+        } else {
+            console.log("你要取消收藏的歌曲id为" + num)
+            $(this).css("color", "");
+            $(this).addClass("glyphicon glyphicon-heart-empty collect");
             $.ajax({
                 url: "/delCollectedSongs",
                 method: "post",
-                data:{"userId":user.userId,"songId":$("[type='hidden']").val()},
+                data: {"userId": user.userId, "songId": num},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
-                        alert("取消收藏");
+                        toastr.info("取消收藏！")
                     }
 
                 }
             });
         }
-    }else {
-        alert("请先登录");
-        $("#myLoginModal").modal("show");
+    } else {
+        toastr.options.onHidden = function () {
+            location.href = "/login";
+        }
+        toastr.warning("请先登录！")
     }
-
 })
-
 
 
 //分页

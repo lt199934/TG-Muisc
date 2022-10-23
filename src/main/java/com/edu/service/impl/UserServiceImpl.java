@@ -87,6 +87,18 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectAlbums(userId);
     }
 
+    public int selectAlbumStatus(int userId, int albumId) {
+        return userMapper.selectAlbumStatus(userId,albumId);
+    }
+
+    public int selectSongListStatus(int userId, int songListId) {
+        return userMapper.selectSongListStatus(userId,songListId);
+    }
+
+    public int selectSongStatus(int userId, int songId) {
+        return userMapper.selectSongStatus(userId,songId);
+    }
+
     // 收藏歌曲
     public int insertSongsByCollected(int userId, int songId) {
         return userMapper.insertSongsByCollected(userId, songId);

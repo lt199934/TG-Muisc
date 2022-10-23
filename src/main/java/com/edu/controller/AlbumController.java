@@ -1,8 +1,10 @@
 package com.edu.controller;
 
 import com.edu.bean.Album;
+import com.edu.bean.Song;
 import com.edu.service.AlbumService;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +27,9 @@ public class AlbumController {
     @ResponseBody
     public Object selectAllAlbum(@PathVariable("albumId") String albumId, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
         System.out.println("albumId:" + albumId);
-
         Album album = albumService.selectAllByAlbumId(Integer.parseInt(albumId));
-        PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
         album.setCount(albumService.count(Integer.parseInt(albumId)));
+        PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
         return album;
     }
 

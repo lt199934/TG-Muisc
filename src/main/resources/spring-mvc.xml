@@ -8,6 +8,7 @@
     <mvc:resources mapping="/music/**" location="/music/"></mvc:resources>
     <mvc:view-controller path="/" view-name="/music/client/index.html"/>
     <mvc:view-controller path="/index" view-name="/music/client/iframe/index.html"/>
+    <mvc:view-controller path="/user" view-name="/music/client/user/home.html"/>
     <mvc:view-controller path="/login" view-name="/music/client/user/login.html"/>
     <mvc:view-controller path="/register" view-name="/music/client/user/register.html"/>
     <mvc:view-controller path="/musics" view-name="/music/client/song/songs.html"/>

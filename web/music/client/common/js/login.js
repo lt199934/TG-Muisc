@@ -58,27 +58,26 @@ function checkLoginForm(){
             }
         });
 }
-
 //提交登录信息
 $("#subBtn").click(function(){
     var user={"account":$("#account").val(),
         "pwd":$("#pwd").val()
     }
     $('#loginForm').data('bootstrapValidator').validate();//手动开启验证
-         var flag = $('#loginForm').data('bootstrapValidator').isValid();//
-         console.log(flag);
-         var isExited = true;
-         var userSession=JSON.parse(sessionStorage.getItem("user"));
-         console.log(userSession)
-         if(null == userSession){
-             isExited = false;
-         }else {
-             toastr.options.onHidden = function() {
-                 window.location.href="/";
-             }
-             toastr.warning('请勿重复登录！');
-         }
-         if(flag==true&&isExited==false){
+    var flag = $('#loginForm').data('bootstrapValidator').isValid();//
+    console.log(flag);
+    var isExited = true;
+    var userSession=JSON.parse(sessionStorage.getItem("user"));
+    console.log(userSession)
+    if(null == userSession){
+        isExited = false;
+    }else {
+        toastr.options.onHidden = function() {
+            window.location.href="/";
+        }
+        toastr.warning('请勿重复登录！');
+    }
+    if(flag==true&&isExited==false){
         $.ajax({
             "url": "/userLogin",
             method: "post",
@@ -89,7 +88,7 @@ $("#subBtn").click(function(){
                 if(null!=data&&""!=data){
                     sessionStorage.setItem("user",JSON.stringify(data));
                     toastr.options.onHidden = function() {
-                      window.location.href="/";
+                        window.location.href="/";
                     }
                     toastr.success('登录成功');
                 }else{
@@ -98,16 +97,14 @@ $("#subBtn").click(function(){
                     $("#loginForm").data('bootstrapValidator').resetForm();
                 }
             }
-
         });
-
     }
-
+});
+//回车登录
+$('#loginForm').bind('keydown', function(event) {
+    if (event.keyCode == "13") {
+        $('#subBtn').click();
+    }
 });
 
-//情况modal里的验证
-$("#myLoginModal").on("hide.bs.modal",function () {
-    $("#loginForm")[0].reset();
-    $("#loginForm").data('bootstrapValidator').resetForm();
-});
 

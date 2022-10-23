@@ -185,6 +185,7 @@ public class UserController {
         return userService.insertSongListsByCollected(Integer.parseInt(userId), Integer.parseInt(songListId));
     }
 
+
     //  取消收藏歌单
     @RequestMapping("/delCollectSongLists")
     @ResponseBody
@@ -211,7 +212,25 @@ public class UserController {
     @RequestMapping("/collectAlbums")
     @ResponseBody
     public Object collectAlbums(@RequestParam("userId") String userId, @RequestParam("albumId") String albumId, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        return userService.insertSongListsByCollected(Integer.parseInt(userId), Integer.parseInt(albumId));
+        return userService.insertAlbumsByCollected(Integer.parseInt(userId), Integer.parseInt(albumId));
+    }
+
+    @RequestMapping("/albumStatus")
+    @ResponseBody
+    public Object selectAlbumStatus(@RequestParam("userId") String userId, @RequestParam("albumId") String albumId) {
+        return userService.selectAlbumStatus(Integer.parseInt(userId), Integer.parseInt(albumId));
+    }
+
+    @RequestMapping("/songListStatus")
+    @ResponseBody
+    public Object selectSongListStatus(@RequestParam("userId") String userId, @RequestParam("songListId") String songListId) {
+        return userService.selectSongListStatus(Integer.parseInt(userId), Integer.parseInt(songListId));
+    }
+
+    @RequestMapping("/songStatus")
+    @ResponseBody
+    public Object selectSongStatus(@RequestParam("userId") String userId, @RequestParam("songId") String songId) {
+        return userService.selectSongStatus(Integer.parseInt(userId), Integer.parseInt(songId));
     }
 
     //  收藏专辑
