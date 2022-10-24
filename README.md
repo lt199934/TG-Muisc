@@ -69,13 +69,15 @@ git clone https://gitee.com/lt199934/music-website.git
 
 ![歌单详情](README.assets/歌单详情.png)
 
+![专辑详情](README.assets/专辑详情.png)
+
+![收藏成功](README.assets/收藏.png)
+
 ![歌手](README.assets/歌手.png)
 
 ![曲库](README.assets/曲库.png)
 
 ![专辑](README.assets/专辑.png)
-
-![专辑详情](README.assets/专辑详情.png)
 
 ### 后台管理系统
 ![](README.assets/管理员登录.png)
