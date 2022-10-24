@@ -67,6 +67,8 @@ git clone https://gitee.com/lt199934/music-website.git
 
 ![播放全部](README.assets/播放全部.png)
 
+![歌单](README.assets/歌单.png)
+
 ![歌单详情](README.assets/歌单详情.png)
 
 ![专辑详情](README.assets/专辑详情.png)
