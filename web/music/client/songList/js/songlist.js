@@ -27,7 +27,7 @@ function getSongList(pageNum) {
             for (var j = 0; j < data.fenLeis.length; j++) {
                 content += data.fenLeis[j].content + " ,";
             }
-            if(data.fenLeis.length != 0){
+            if(data.fenLeis.length !== 0){
                 $("#fenLei").append(content.substring(0, content.lastIndexOf(",")));
             }else{
                 $("#fenLei").html("未分类");
