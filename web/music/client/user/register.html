@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"/>
-    <link rel="stylesheet" href="/music/plugin/bootstrap-show-password/css/zzsc.css">
-    <link rel="stylesheet" href="/music/plugin/toastr/toastr.css"/>
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css" rel="stylesheet"/>
+    <link href="/music/plugin/bootstrap-show-password/css/zzsc.css" rel="stylesheet">
+    <link href="/music/plugin/toastr/toastr.css" rel="stylesheet"/>
     <script src="/music/client/common/js/jquery.min.js"></script>
     <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
     <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
@@ -18,95 +18,92 @@
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel" style="color: #337ab7;font-weight: bolder">用户注册</h4>
+            <h4 class="modal-title text-center" id="myModalLabel" style="color: #337ab7;font-weight: bolder">
+                用户注册</h4>
         </div>
         <div class="modal-body">
-            <form id="registerForm">
-                <label for="RegisterAccount" class="control-label">用户名</label>
+            <form class="form-horizontal" id="registerForm">
                 <div class="form-group">
-                    <div class="input-group">
-                                <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user"></span>
-                                </span>
-                        <input type="text" class="form-control" name="account" id="RegisterAccount"
-                               placeholder="请输入用户名">
+                    <label class="control-label col-sm-3" for="RegisterAccount">用户名</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        <input class="form-control" id="RegisterAccount" name="account" placeholder="请输入用户名"
+                               type="text">
                     </div>
 
                 </div>
                 <div class="form-group">
-                    <label for="RegisterPwd" class="control-label">密码</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="text" class="form-control" name="pwd" id="RegisterPwd" placeholder="请输入密码">
+                    <label class="control-label col-sm-3" for="RegisterPwd">密码</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <input class="form-control" id="RegisterPwd" name="pwd" placeholder="请输入密码" type="text">
                     </div>
                 </div>
 
                 <div class="form-group ">
-                    <label for="repwd" class="control-label">确认密码</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="text" name="repwd" class="form-control" id="repwd" placeholder="请再次输入密码">
+                    <label class="control-label col-sm-3" for="repwd">确认密码</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <input class="form-control" id="repwd" name="repwd" placeholder="请再次输入密码" type="text">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="">电话</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                        <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入电话号码">
+                    <label class="control-label col-sm-3" for="phone">电话</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                        <input class="form-control" id="phone" name="phone" placeholder="请输入电话号码" type="text">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="">邮箱</label>
-                    <div class="input-group">
-                        <span class="input-group-addon">@</span>
-                        <input type="text" name="email" class="form-control" id="email" placeholder="请输入邮箱地址">
-                        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                    <label class="control-label col-sm-3" for="email">邮箱</label>
+                    <div class="col-sm-8">
+                        <span class="form-control-feedback ">@</span>
+                        <input class="form-control" id="email" name="email" placeholder="请输入邮箱地址" type="text">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="userName" class="">姓名</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-king"></span></span>
-                        <input type="text" class="form-control" name="userName" id="userName" placeholder="请输入姓名">
+                    <label class="control-label col-sm-3" for="userName">姓名</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-king form-control-feedback"></span>
+                        <input class="form-control" id="userName" name="userName" placeholder="请输入姓名" type="text">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="sex" class="">性别</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                        <select name="sex" class="form-control" id="sex">
-                            <option value="" selected="selected">请选择性别</option>
+                    <label class="control-label col-sm-3" for="sex">性别</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-info-sign form-control-feedback"></span>
+                        <select class="form-control" id="sex" name="sex">
+                            <option selected="selected" value="">请选择性别</option>
                             <option value="男">男</option>
                             <option value="女">女</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="img" class="">头像</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
-                        <input type="file" name="img" class="form-control" id="img" placeholder="请上传头像">
+                    <label class="control-label col-sm-3" for="img">头像</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-picture form-control-feedback"></span>
+                        <input class="form-control" id="img" name="img" placeholder="请上传头像" type="file">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="birthday" class="">生日</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                        <input type="date" name="birthday" class="form-control" id="birthday"
-                               placeholder="请输入你的生日">
+                    <label class="control-label col-sm-3" for="birthday">生日</label>
+                    <div class="col-sm-8">
+                        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+                        <input class="form-control" id="birthday" name="birthday" placeholder="请输入你的生日"
+                               type="date">
                     </div>
                 </div>
-                <button type="reset" class="btn btn-danger">清空</button>
+                <button class="btn btn-danger" type="reset">清空</button>
                 <a href="/login" id="log" style="font-size: 18px;">已有帐号？登录</a>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
-            <input type="button" data-loading-text="注册中..." value="注册" class="btn btn-primary" id="regBtn">
+            <input class="btn btn-primary" data-loading-text="注册中..." id="regBtn" type="button" value="注册">
         </div>
     </div>
 </div>
-</body>
 <script src="/music/client/common/js/util.js"></script>
 <script src="/music/client/common/js/register.js"></script>
+</body>
 </html>

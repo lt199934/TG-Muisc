@@ -14,8 +14,8 @@ function checkLoginForm(){
         $('#loginForm').bootstrapValidator({
             message: 'This value is not valid',
             feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
+                valid: 'green',
+                invalid: 'red',
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {

@@ -1,103 +1,15 @@
 $(function(){
     checkRegisterForm();
-    checkLoginForm();
 });
 
-
-//校验登录信息
-function checkLoginForm(){
-        $('#loginForm').bootstrapValidator({
-            message: 'This value is not valid',
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                account: {
-                    message: '用户名验证失败',
-                    validators: {
-                        notEmpty: {
-                            message: '用户名不能为空！'
-                        },
-                        stringLength: {
-                            max: 6,
-                            message: '用户名长度不能超过6位！'
-                        },
-                        different: {
-                              field: 'pwd',
-                             message: '用户名不能和密码一样！'
-                        }
-                    }
-                },
-                pwd: {
-                      validators: {
-                     notEmpty: {
-                            message: '密码不能为空！'
-                        },
-                        stringLength: {
-                            min:6,
-                            max: 12,
-                            message: '密码长度必须为6-12位！！'
-                        },
-                        identical: {
-                                field: 'repwd',
-                                message: '两次输入的密码不相符'
-                         },
-                        different: {
-                             field: 'account',
-                             message: '密码不能和用户名一样！'
-                        }
-                    }
-                }
-
-            }
-        });
-}
-
-
-//提交登录信息
-$("#subBtn").click(function(){
-    // $("#myLoginModal").modal("show");
-    var user={"account":$("#account").val(),
-        "pwd":$("#pwd").val()
-    }
-    $('#loginForm').data('bootstrapValidator').validate();//手动开启验证
-         var flag = $('#loginForm').data('bootstrapValidator').isValid();//
-         console.log(flag);
-         if(flag==true){
-        $.ajax({
-            "url": "/userLogin",
-            method: "post",
-            data: user,
-            success: function (data) {
-                console.log(data);
-                var user =data;
-                if(null!=data&&""!=data){
-                    toastr.success('登录成功','title');
-                    sessionStorage.setItem("user",JSON.stringify(data));
-                    window.location.href="../../../..";
-                }else{
-                    alert("登录失败!该用户不存在");
-                    console.log("登录失败");
-
-
-                }
-            }
-
-        });
-
-    }
-
-});
 
 //校验注册信息
 function checkRegisterForm(){
     $('#registerForm').bootstrapValidator({
             message: 'This value is not valid',
             feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
+                valid: 'green',
+                invalid: 'red',
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
