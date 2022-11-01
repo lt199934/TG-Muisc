@@ -150,7 +150,7 @@ function getSongs(pageNum) {
 function getSingers(pageNum) {
     var data = {
         "pageNum": pageNum,
-        "pageSize": 4,
+        "pageSize": 3,
     }
     console.log(pageNum);
     $.ajax({

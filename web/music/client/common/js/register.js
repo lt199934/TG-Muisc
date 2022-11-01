@@ -174,33 +174,23 @@ $("#regBtn").click(function(){
             processData:false,
             success: function (data) {
                 console.log(data);
-                if(data==-1){
-                    alert("用户已存在！");
+                if (data == -1) {
+                    toastr.warning('用户已存在');
                     $("#registerForm")[0].reset();
                     $btn.button('reset');
-                }else if(data==1){
-                    alert("注册成功！");
+                } else if (data == 1) {
                     $("#registerForm")[0].reset();
-                    $("#myRegisterModal").modal("hide");
-                    $("#myLoginModal").modal("show");
-                    $btn.button('reset');
-                }else {
-                    alert("注册失败！");
+                    toastr.options.onHidden = function () {
+                        window.location.href = "/login";
+                    }
+                    toastr.success('注册成功');
+                } else {
+                    toastr.error('注册失败');
                     $("#registerForm")[0].reset();
-                    $btn.button('reset');
+                    $("#registerForm").data('bootstrapValidator').resetForm();
                 }
-
             }
         });
     }
 });
-//情况modal里的验证
-$("#myLoginModal").on("hide.bs.modal",function () {
-    $("#loginForm")[0].reset();
-    $("#loginForm").data('bootstrapValidator').resetForm();
-});
-$("#myRegisterModal").on("hide.bs.modal",function () {
-    $("#regBtn").button('reset');
-    $("#registerForm")[0].reset();
-    $("#registerForm").data('bootstrapValidator').resetForm();
-});
+

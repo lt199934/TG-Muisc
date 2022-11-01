@@ -1,3 +1,4 @@
+import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,11 @@ public class MyTest {
         } else { //其它操作系统
             System.out.println(String.format("当前系统版本是:%s", os));
         }
-
+        String filePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "data" + System.getProperty("file.separator") + "music"+ System.getProperty("file.separator") + "headImg" ;
+        System.out.println(filePath);
+        File file = new File(filePath);
+        if(!file.exists()){
+            file.mkdirs();
+        }
     }
 }

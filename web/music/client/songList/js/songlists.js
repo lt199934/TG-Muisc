@@ -6,7 +6,7 @@ $(function () {
 function getSongLists(pageNum){
     var data = {
         "pageNum": pageNum,
-        "pageSize": 1,
+        "pageSize": 12,
     }
     $.ajax({
         "url": "/allSongLists",
@@ -52,7 +52,7 @@ function getSongLists(pageNum){
     function getFenSongLists(pageNum, fenId) {
         var data = {
             "pageNum": pageNum,
-            "pageSize": $("#pageSize").val(),
+            "pageSize": 12,
             "fenId": fenId,
         }
         $.ajax({

@@ -5,7 +5,7 @@ $(function () {
 function getSingers(pageNum){
     var data= {
         "pageNum": pageNum,
-        "pageSize": 2,
+        "pageSize": 3,
     }
     console.log(pageNum);
     $.ajax({

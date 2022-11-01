@@ -41,7 +41,15 @@ public class UserController {
     }
 
 
-    //用户注册
+    /***
+     * @MethodName: userRegister
+     * @description: 用户注册
+     * @Author: LiuTao
+     * @Param: [user, img]
+     * @UpdateTime: 2022/11/1 14:50
+     * @Return: int
+     * @Throw: IOException
+     **/
     @RequestMapping("/userRegister")
     @ResponseBody
     public int userRegister(User user, @RequestParam("img") MultipartFile img) throws IOException {
@@ -51,11 +59,12 @@ public class UserController {
         System.out.println(img.getOriginalFilename());
         String data = System.currentTimeMillis() + img.getOriginalFilename();
         String os = System.getProperty("os.name");
-        //Windows操作系统
+            //Windows操作系统
         if (os != null && os.toLowerCase().startsWith("windows")) {
             file = new File("c:/music/headImg/" + data);
             System.out.printf("当前系统版本是:%s%n", os);
-        } else if (os != null && os.toLowerCase().startsWith("linux")) {//Linux操作系统
+            //Linux操作系统
+        } else if (os != null && os.toLowerCase().startsWith("linux")) {
             file = new File("/data/music/headImg/" + data);
             System.out.printf("当前系统版本是:%s%n", os);
         } else { //其它操作系统

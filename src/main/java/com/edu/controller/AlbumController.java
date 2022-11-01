@@ -29,7 +29,6 @@ public class AlbumController {
         System.out.println("albumId:" + albumId);
         Album album = albumService.selectAllByAlbumId(Integer.parseInt(albumId));
         album.setCount(albumService.count(Integer.parseInt(albumId)));
-        PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
         return album;
     }
 
