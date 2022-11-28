@@ -14,23 +14,24 @@ function getSongs(pageNum) {
         data: data,
         success: function (data) {
             $(".pagination").empty();
-            $("#music").empty();
             makePage(data);
-            console.log("曲库信息",data);
-            var songs=data.list;
-            for (var i = 0; i <songs.length; i++) {
-                content="<tr>";
-                content+="<td>"+(i+1)+"</td>";
-                content+="<td><img src="+songs[i].album.albumImg+" class='img-responsive'></td>";
-                content+="<td>"+songs[i].song+"</td>";
-                content+="<td><a id='singer' href=javascript:void(0);>"+songs[i].singer.singerName+"</a><input type='hidden' id='singerId' value='"+songs[i].singer.singerId+"'></td>";
-                content+="<td><span class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px'></span></td>";
-                content+="<td><a id='playOne' target='play' href=javascript:void(0);><span id='play' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
-                content+="<input type='hidden' id='songId' value="+songs[i].songId+">";
-                $("#music").append(content);
+            console.log("曲库信息", data);
+            var songs = data.list;
+            var content = "";
+            for (var i = 0; i < songs.length; i++) {
+                content += "<tr>";
+                content += "<td>" + songs[i].songId + "</td>";
+                content += "<td><img src=" + songs[i].album.albumImg + " class='img-responsive'></td>";
+                content += "<td>" + songs[i].song + "</td>";
+                content += "<td><a id='singer' href=javascript:void(0);>" + songs[i].singer.singerName + "</a><input type='hidden' id='singerId' value='" + songs[i].singer.singerId + "'></td>";
+                content += "<td><span class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px'></span></td>";
+                content += "<td><a id='playOne' target='play' href=javascript:void(0);><span id='play' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
+                content += "<input type='hidden' id='songId' value=" + songs[i].songId + ">";
+                content += "</tr>";
             }
+            $("#music").html(content);
             //收藏歌曲状态
-            $(".collect").each(function (i,n){
+            $(".collect").each(function (i, n) {
                 $.ajax({
                     url: "/songStatus",
                     method: "post",
@@ -48,17 +49,18 @@ function getSongs(pageNum) {
                 });
             });
         }
+
     });
 }
 
 //删除歌曲
 function delSong(songid) {
     $.ajax({
-        "url": "/delSong/"+songid,
+        "url": "/delSong/" + songid,
         method: "post",
         success: function (data) {
             console.log(data);
-            if (data==1){
+            if (data == 1) {
                 alert("删除成功！");
                 getSongs();
             }
@@ -66,8 +68,9 @@ function delSong(songid) {
     });
 }
 
+
 //收藏歌曲
-$("#music").on("click", "。collect", function () {
+$("#music").on("click", ".collect", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     var className = $(this).attr("class");
     if (null != user) {
@@ -111,7 +114,6 @@ $("#music").on("click", "。collect", function () {
         toastr.warning("请先登录！")
     }
 })
-
 
 //分页
 function makePage(data) {
