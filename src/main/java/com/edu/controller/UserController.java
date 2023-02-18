@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -26,18 +27,28 @@ public class UserController {
     //用户登录
     @RequestMapping("/userLogin")
     @ResponseBody
-    public User userLogin(User user) {
+    public String userLogin(User user, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
         System.out.println(user);
         User login = userService.login(user);
         System.out.println(login);
-        if (login == null) {
-            map.put("result", "登录失败");
-        } else {
-            map.put("result", "登录成功");
-            map.put("user", login);
+        if (login != null) {
+            session.setAttribute(Integer.toString(login.getUserId()),login);
         }
-        return login;
+        return login.getUserId().toString();
+    }
+    @RequestMapping("/getUserInfo/{userId}")
+    @ResponseBody
+    public User getUserLoginInfo(@PathVariable("userId")String userId,HttpSession session){
+        User user = (User)session.getAttribute(userId);
+        System.out.println("12121"+user);
+        return user;
+    }
+    @RequestMapping("/logout")
+    public String isLogout(String userId,HttpSession session){
+        session.removeAttribute(userId);
+        session.invalidate();
+        return "/login";
     }
 
 

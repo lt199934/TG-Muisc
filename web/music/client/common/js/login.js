@@ -1,7 +1,7 @@
 $(function(){
     checkLoginForm();
 });
-var userSession=JSON.parse(sessionStorage.getItem("user"));
+var userSession=JSON.parse(sessionStorage.getItem("userId"));
 console.log(userSession)
 if(null != userSession){
     toastr.options.onHidden = function() {
@@ -84,9 +84,8 @@ $("#subBtn").click(function(){
             data: user,
             success: function (data) {
                 console.log(data);
-                var user =data;
                 if(null!=data&&""!=data){
-                    sessionStorage.setItem("user",JSON.stringify(data));
+                    sessionStorage.setItem("userId",JSON.stringify(data));
                     toastr.options.onHidden = function() {
                         window.location.href="/";
                     }

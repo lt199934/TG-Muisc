@@ -1,8 +1,5 @@
-var user = JSON.parse(sessionStorage.getItem("user"));//获取用户信息
-var date = new Date();
-var time = date.getFullYear() + "‐" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-console.log(user);
-if (null == user) {
+var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
+if (null == userId) {
     $("#login").css("display", "block");
     $("#register").css("display", "block");
     $("#logout").css("display", "none");
@@ -11,25 +8,37 @@ if (null == user) {
     $("#profile").css("display", "none");
     $("#uc").html(" ");
 } else {
-    toastr.success("欢迎您" + user.nickName + "回来(*∩_∩*)")
-    console.log(user.headImg);
-    $("#login").css("display", "none");
-    $("#register").css("display", "none");
-    $("#logout").css("display", "block");
-    $("#personalPage").css("display", "block");
-    $("#headimg").css("display", "block");
-    $("#profile").css("display", "block");
-    $("#headimg").attr("src", user.headImg);
-    $("#uc").html(user.nickName);
+    $.ajax({
+        url: "/getUserInfo/"+userId,
+        method: "post",
+        success: function (data) {
+            console.log(data);
+            if(null != data){
+                toastr.success("欢迎您" + data.nickName + "回来(*∩_∩*)")
+                console.log(data.headImg);
+                $("#login").css("display", "none");
+                $("#register").css("display", "none");
+                $("#logout").css("display", "block");
+                $("#personalPage").css("display", "block");
+                $("#headimg").css("display", "block");
+                $("#profile").css("display", "block");
+                $("#headimg").attr("src", data.headImg);
+                $("#uc").html(data.nickName);
+            }
+
+        }
+    });
 }
+
+var date = new Date();
+var time = date.getFullYear() + "‐" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
 
 $("#logout").click(function () {
     var message = confirm("是否退出登录?");
     if (message == true) {
-        var logout = sessionStorage.removeItem("user");
-        var user = JSON.parse(sessionStorage.getItem("user"));
-        console.log(user);
-        location.replace("/login");
+        sessionStorage.removeItem("userId");
+        location.href="/logout";
     }
 });
 $(function () {
@@ -130,7 +139,7 @@ function getSongs(pageNum) {
                     url: "/songStatus",
                     method: "post",
                     data: {
-                        "userId": user.userId,
+                        "userId": userId,
                         "songId": songs[i].songId
                     }, success: function (data) {
                         console.log(data);

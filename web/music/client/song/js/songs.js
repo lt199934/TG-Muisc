@@ -1,7 +1,7 @@
 $(function () {
     getSongs(1);
 });
-
+var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
 function getSongs(pageNum) {
     var data = {
         "pageNum": pageNum,
@@ -36,7 +36,7 @@ function getSongs(pageNum) {
                     url: "/songStatus",
                     method: "post",
                     data: {
-                        "userId": user.userId,
+                        "userId": userId,
                         "songId": songs[i].songId
                     }, success: function (data) {
                         console.log(data);
@@ -73,7 +73,7 @@ function delSong(songid) {
 $("#music").on("click", ".collect", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     var className = $(this).attr("class");
-    if (null != user) {
+    if (null != userId) {
         $(this).removeClass("glyphicon-heart glyphicon-heart-empty collect");
         if (className == "glyphicon glyphicon-heart-empty collect") {
             console.log("你要收藏的歌曲id为" + num)
@@ -82,7 +82,7 @@ $("#music").on("click", ".collect", function () {
             $.ajax({
                 url: "/collectSongs",
                 method: "post",
-                data: {"userId": user.userId, "songId": num},
+                data: {"userId": userId, "songId": num},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {

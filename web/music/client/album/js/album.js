@@ -3,9 +3,9 @@ $(function () {
     isCollectedAlbum();
 });
 //判断登录状态
-var user = JSON.parse(sessionStorage.getItem("user"));//获取用户信息
-console.log(user)
-if (null == user) {
+var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
+console.log(userId)
+if (null == userId) {
     toastr.options.onHidden = function () {
         location.href = "/login";
     }
@@ -14,7 +14,8 @@ if (null == user) {
 //
 function getAlbum(pageNum) {
     var data = {
-        "pageNum": pageNum, "pageSize": 2,
+        "pageNum": pageNum,
+        "pageSize": 2,
     }
     $.ajax({
         "url": "/albums/" + getUrlParam("albumId"),
@@ -50,7 +51,7 @@ function getAlbum(pageNum) {
                     url: "/songStatus",
                     method: "post",
                     data: {
-                        "userId": user.userId,
+                        "userId": userId,
                         "songId": songs[i].songId
                     }, success: function (data) {
                         console.log(data);
@@ -70,7 +71,7 @@ function isCollectedAlbum() {
     $.ajax({
         url: "/albumStatus",
         method: "post",
-        data: {"userId": user.userId, "albumId": getUrlParam("albumId")},
+        data: {"userId": userId, "albumId": getUrlParam("albumId")},
         success: function (data) {
             console.log(data);
             if (data == 1) {
@@ -95,7 +96,7 @@ $("#collectAlbum").click(function () {
             $.ajax({
                 url: "/collectAlbums",
                 method: "post",
-                data: {"userId": user.userId, "albumId": getUrlParam("albumId")},
+                data: {"userId": userId, "albumId": getUrlParam("albumId")},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
@@ -111,7 +112,7 @@ $("#collectAlbum").click(function () {
             $.ajax({
                 url: "/delCollectAlbums",
                 method: "post",
-                data: {"userId": user.userId, "albumId": getUrlParam("albumId")},
+                data: {"userId": userId, "albumId": getUrlParam("albumId")},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
@@ -142,7 +143,7 @@ $("#songs").on("click", ".collect", function () {
             $.ajax({
                 url: "/collectSongs",
                 method: "post",
-                data: {"userId": user.userId, "songId": num},
+                data: {"userId": userId, "songId": num},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
@@ -159,7 +160,7 @@ $("#songs").on("click", ".collect", function () {
             $.ajax({
                 url: "/delCollectedSongs",
                 method: "post",
-                data: {"userId": user.userId, "songId": num},
+                data: {"userId": userId, "songId": num},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {

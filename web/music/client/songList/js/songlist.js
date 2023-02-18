@@ -2,7 +2,7 @@ $(function () {
     getSongList(1);
     isCollectedSongList();
 });
-
+var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
 function getSongList(pageNum) {
     var data = {
         "pageNum": pageNum,
@@ -52,7 +52,7 @@ function getSongList(pageNum) {
                     url: "/songStatus",
                     method: "post",
                     data: {
-                        "userId": user.userId,
+                        "userId": userId,
                         "songId": songDto[i].songId
                     }, success: function (data) {
                         console.log(data);
@@ -133,7 +133,7 @@ function isCollectedSongList() {
     $.ajax({
         url: "/songListStatus",
         method: "post",
-        data: {"userId": user.userId, "songListId": getUrlParam("songListId")},
+        data: {"userId": userId, "songListId": getUrlParam("songListId")},
         success: function (data) {
             console.log(data);
             if (data == 1) {
@@ -150,7 +150,7 @@ $("#collectSongList").click(function () {
     console.log("你要收藏的歌单id为" + getUrlParam("songListId"))
     var className = $(this).find("span").attr("class");
     console.log(className)
-    if (null != user) {
+    if (null != userId) {
         $(this).find("span").removeClass("glyphicon-heart glyphicon-heart-empty");
         if (className == "glyphicon glyphicon-heart-empty") {
             $(this).find("span").css("color", "red");
@@ -158,7 +158,7 @@ $("#collectSongList").click(function () {
             $.ajax({
                 url: "/collectSongLists",
                 method: "post",
-                data: {"userId": user.userId, "songListId": getUrlParam("songListId")},
+                data: {"userId": userId, "songListId": getUrlParam("songListId")},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
@@ -173,7 +173,7 @@ $("#collectSongList").click(function () {
             $.ajax({
                 url: "/delCollectSongLists",
                 method: "post",
-                data: {"userId": user.userId, "songListId": getUrlParam("songListId")},
+                data: {"userId": userId, "songListId": getUrlParam("songListId")},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
@@ -193,7 +193,7 @@ $("#collectSongList").click(function () {
 $("#songs").on("click", ".collect", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     var className = $(this).attr("class");
-    if (null != user) {
+    if (null != userId) {
         console.log(className)
         $(this).removeClass("glyphicon-heart glyphicon-heart-empty collect");
         if (className == "glyphicon glyphicon-heart-empty collect") {
@@ -203,7 +203,7 @@ $("#songs").on("click", ".collect", function () {
             $.ajax({
                 url: "/collectSongs",
                 method: "post",
-                data: {"userId": user.userId, "songId": num},
+                data: {"userId": userId, "songId": num},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
@@ -220,7 +220,7 @@ $("#songs").on("click", ".collect", function () {
             $.ajax({
                 url: "/delCollectedSongs",
                 method: "post",
-                data: {"userId": user.userId, "songId": num},
+                data: {"userId": userId, "songId": num},
                 success: function (data) {
                     console.log(data);
                     if (data == 1) {
