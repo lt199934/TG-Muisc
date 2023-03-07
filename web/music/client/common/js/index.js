@@ -1,47 +1,5 @@
-var userId = JSON.parse(localStorage.getItem("userId"));//获取用户信息
-if (null == userId) {
-    $("#login").css("display", "block");
-    $("#register").css("display", "block");
-    $("#logout").css("display", "none");
-    $("#personalPage").css("display", "none");
-    $("#headimg").css("display", "none");
-    $("#profile").css("display", "none");
-    $("#uc").html(" ");
-} else {
-    $.ajax({
-        url: "/getUserInfo/"+userId,
-        method: "post",
-        success: function (data) {
-            console.log(data);
-            if(null != data){
-                toastr.success("欢迎您" + data.nickName + "回来(*∩_∩*)")
-                console.log(data.headImg);
-                $("#login").css("display", "none");
-                $("#register").css("display", "none");
-                $("#logout").css("display", "block");
-                $("#personalPage").css("display", "block");
-                $("#headimg").css("display", "block");
-                $("#profile").css("display", "block");
-                $("#headimg").attr("src", data.headImg);
-                $("#uc").html(data.nickName);
-            }
-
-        }
-    });
-}
-
-var date = new Date();
-var time = date.getFullYear() + "‐" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
-
-$("#logout").click(function () {
-    var message = confirm("是否退出登录?");
-    if (message == true) {
-        sessionStorage.removeItem("userId");
-        location.href="/logout";
-    }
-});
 $(function () {
+    isFirst();
     getAlbums(1);
     getSongLists(1);
     getSongs(1);
@@ -53,14 +11,10 @@ console.log(col)
 //精选专辑
 function getAlbums(pageNum) {
     var data = {
-        "pageNum": pageNum,
-        "pageSize": 6,
+        "pageNum": pageNum, "pageSize": 6,
     }
     $.ajax({
-        "url": "/allAlbums",
-        method: "post",
-        data: data,
-        success: function (data) {
+        "url": "/allAlbums", method: "post", data: data, success: function (data) {
             $("#albums").empty();
             var albums = data.list;
             console.log("精选专辑", data);
@@ -85,14 +39,10 @@ function getAlbums(pageNum) {
 //精选歌单
 function getSongLists(pageNum) {
     var data = {
-        "pageNum": pageNum,
-        "pageSize": 4,
+        "pageNum": pageNum, "pageSize": 4,
     }
     $.ajax({
-        "url": "/allSongLists",
-        method: "post",
-        data: data,
-        success: function (data) {
+        "url": "/allSongLists", method: "post", data: data, success: function (data) {
             $("#songLists").empty();
             var songList = data.list;
             console.log("精选歌单", data);
@@ -111,14 +61,10 @@ function getSongLists(pageNum) {
 //新歌精选
 function getSongs(pageNum) {
     var data = {
-        "pageNum": pageNum,
-        "pageSize": 6,
+        "pageNum": pageNum, "pageSize": 6,
     }
     $.ajax({
-        "url": "/allSongs",
-        method: "post",
-        data: data,
-        success: function (data) {
+        "url": "/allSongs", method: "post", data: data, success: function (data) {
             var songs = data.list;
             console.log("新歌精选", data);
             var content = "";
@@ -134,23 +80,22 @@ function getSongs(pageNum) {
             }
             $("#music").html(content);
             //收藏歌曲状态
-            $(".collect").each(function (i,n){
-                $.ajax({
-                    url: "/songStatus",
-                    method: "post",
-                    data: {
-                        "userId": userId,
-                        "songId": songs[i].songId
-                    }, success: function (data) {
-                        console.log(data);
-                        if (data === 1) {
-                            $(n).removeClass("glyphicon-heart-empty");
-                            $(n).css("color", "red");
-                            $(n).addClass("glyphicon glyphicon-heart");
+            if (null != userId) {
+                $(".collect").each(function (i, n) {
+                    $.ajax({
+                        url: "/songStatus", method: "post", data: {
+                            "userId": userId, "songId": songs[i].songId
+                        }, success: function (data) {
+                            console.log(data);
+                            if (data === 1) {
+                                $(n).removeClass("glyphicon-heart-empty");
+                                $(n).css("color", "red");
+                                $(n).addClass("glyphicon glyphicon-heart");
+                            }
                         }
-                    }
+                    });
                 });
-            });
+            }
         }
     });
 }
@@ -158,15 +103,11 @@ function getSongs(pageNum) {
 //歌手
 function getSingers(pageNum) {
     var data = {
-        "pageNum": pageNum,
-        "pageSize": 3,
+        "pageNum": pageNum, "pageSize": 3,
     }
     console.log(pageNum);
     $.ajax({
-        "url": "/selectAllSingers",
-        method: "post",
-        data: data,
-        success: function (data) {
+        "url": "/selectAllSingers", method: "post", data: data, success: function (data) {
             console.log("歌手信息", data);
             var singers = data.list;
             for (var i = 0; i < singers.length; i++) {
@@ -237,9 +178,7 @@ $("#music").on("click", ".collect", function () {
 $("#music").on("click", "#playOne", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     $.ajax({
-        url: "/updatePlayCount/" + num,
-        method: "post",
-        success: function (data) {
+        url: "/updatePlayCount/" + num, method: "post", success: function (data) {
             console.log(data);
             if (data == 1) {
                 console.log("播放量加1");

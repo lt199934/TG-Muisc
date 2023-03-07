@@ -1,25 +1,24 @@
 $(function () {
     getSongList(1);
-    isCollectedSongList();
+    if (null != userId) {
+        isCollectedSongList();
+    }
 });
-var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
+
 function getSongList(pageNum) {
     var data = {
-        "pageNum": pageNum,
-        "pageSize": 2,
+        "pageNum": pageNum, "pageSize": 2,
     }
     console.log(getUrlParam("songListId"))
     $.ajax({
-        url: "/songList/" + getUrlParam("songListId"),
-        method: "post",
-        data: data, success: function (data) {
+        url: "/songList/" + getUrlParam("songListId"), method: "post", data: data, success: function (data) {
             $("#fenLei").empty();
             // $("#songs").empty();
             console.log("歌单详情", data);
             var songList = data;
             var songDto = data.songDto;
             $("#songListImg").attr("src", songList.imgUrl);
-            $(".songList__name").html(songList.songList+'<span class="badge" style="margin-top: -16px;">'+songDto.length+'</span>');
+            $(".songList__name").html(songList.songList + '<span class="badge" style="margin-top: -16px;">' + songDto.length + '</span>');
             $("#introduction").html(songList.introduction);
             $("#time").html(songList.time);
             $("#user").html("<a href=/user?userId=" + songList.userId + ">" + songList.createUser + "</a>");
@@ -27,12 +26,11 @@ function getSongList(pageNum) {
             for (var j = 0; j < data.fenLeis.length; j++) {
                 content += data.fenLeis[j].content + " ,";
             }
-            if(data.fenLeis.length != 0){
+            if (data.fenLeis.length != 0) {
                 $("#fenLei").append(content.substring(0, content.lastIndexOf(",")));
-            }else{
+            } else {
                 $("#fenLei").html("未分类");
             }
-
             var con = "";
             for (var i = 0; i < songDto.length; i++) {
                 con += "<tr class='song'>";
@@ -47,23 +45,22 @@ function getSongList(pageNum) {
                 con += "</tr>";
             }
             $("#songs").html(con);
-            $(".collect").each(function (i,n){
-                $.ajax({
-                    url: "/songStatus",
-                    method: "post",
-                    data: {
-                        "userId": userId,
-                        "songId": songDto[i].songId
-                    }, success: function (data) {
-                        console.log(data);
-                        if (data === 1) {
-                            $(n).removeClass("glyphicon-heart-empty");
-                            $(n).css("color", "red");
-                            $(n).addClass("glyphicon glyphicon-heart");
+            if (null != userId) {
+                $(".collect").each(function (i, n) {
+                    $.ajax({
+                        url: "/songStatus", method: "post", data: {
+                            "userId": userId, "songId": songDto[i].songId
+                        }, success: function (data) {
+                            console.log(data);
+                            if (data === 1) {
+                                $(n).removeClass("glyphicon-heart-empty");
+                                $(n).css("color", "red");
+                                $(n).addClass("glyphicon glyphicon-heart");
+                            }
                         }
-                    }
+                    });
                 });
-            });
+            }
         }
     });
 }
@@ -164,7 +161,6 @@ $("#collectSongList").click(function () {
                     if (data == 1) {
                         toastr.success("收藏成功")
                     }
-
                 }
             });
         } else {
@@ -184,9 +180,7 @@ $("#collectSongList").click(function () {
             });
         }
     } else {
-        alert("请先登录");
-        window.location.href = "/music/user/index.html";
-        $("#myLoginModal").modal("show");
+        isLogin();
     }
 })
 //收藏歌曲
@@ -209,7 +203,6 @@ $("#songs").on("click", ".collect", function () {
                     if (data == 1) {
                         toastr.success("收藏成功")
                     }
-
                 }
             });
         } else {
@@ -230,10 +223,7 @@ $("#songs").on("click", ".collect", function () {
             });
         }
     } else {
-        toastr.options.onHidden = function () {
-            location.href = "/login";
-        }
-        toastr.warning("请先登录！")
+        isLogin();
     }
 })
 

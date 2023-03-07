@@ -33,19 +33,26 @@ public class UserController {
         User login = userService.login(user);
         System.out.println(login);
         if (login != null) {
-            session.setAttribute(Integer.toString(login.getUserId()),login);
+            session.setAttribute(Integer.toString(login.getUserId()), login);
         }
         return login.getUserId().toString();
     }
+
     @RequestMapping("/getUserInfo/{userId}")
     @ResponseBody
-    public User getUserLoginInfo(@PathVariable("userId")String userId,HttpSession session){
-        User user = (User)session.getAttribute(userId);
-        System.out.println("12121"+user);
+    public Object getUserLoginInfo(@PathVariable("userId") String userId, HttpSession session) {
+        User user = (User) session.getAttribute(userId);
+        System.out.println("12121" + user);
+        if (null == user) {
+            return "                                                                                                                                                                                                                                                                                                                                                                user is not exited";
+        }
         return user;
     }
+
     @RequestMapping("/logout")
-    public String isLogout(String userId,HttpSession session){
+    @ResponseBody
+    public String isLogout(String userId, HttpSession session) {
+        System.out.println("清除用户：" + userId);
         session.removeAttribute(userId);
         session.invalidate();
         return "/login";
@@ -70,7 +77,7 @@ public class UserController {
         System.out.println(img.getOriginalFilename());
         String data = System.currentTimeMillis() + img.getOriginalFilename();
         String os = System.getProperty("os.name");
-            //Windows操作系统
+        //Windows操作系统
         if (os != null && os.toLowerCase().startsWith("windows")) {
             file = new File("c:/music/headImg/" + data);
             System.out.printf("当前系统版本是:%s%n", os);

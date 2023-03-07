@@ -1,18 +1,14 @@
 $(function () {
     getSongs(1);
 });
-var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
+
 function getSongs(pageNum) {
     var data = {
-        "pageNum": pageNum,
-        "pageSize": 4,
+        "pageNum": pageNum, "pageSize": 4,
     }
     console.log(pageNum);
     $.ajax({
-        "url": "/allSongs",
-        method: "post",
-        data: data,
-        success: function (data) {
+        "url": "/allSongs", method: "post", data: data, success: function (data) {
             $(".pagination").empty();
             makePage(data);
             console.log("曲库信息", data);
@@ -30,35 +26,31 @@ function getSongs(pageNum) {
                 content += "</tr>";
             }
             $("#music").html(content);
-            //收藏歌曲状态
-            $(".collect").each(function (i, n) {
-                $.ajax({
-                    url: "/songStatus",
-                    method: "post",
-                    data: {
-                        "userId": userId,
-                        "songId": songs[i].songId
-                    }, success: function (data) {
-                        console.log(data);
-                        if (data === 1) {
-                            $(n).removeClass("glyphicon-heart-empty");
-                            $(n).css("color", "red");
-                            $(n).addClass("glyphicon glyphicon-heart");
+            if (null != userId) {
+                //收藏歌曲状态
+                $(".collect").each(function (i, n) {
+                    $.ajax({
+                        url: "/songStatus", method: "post", data: {
+                            "userId": userId, "songId": songs[i].songId
+                        }, success: function (data) {
+                            console.log(data);
+                            if (data === 1) {
+                                $(n).removeClass("glyphicon-heart-empty");
+                                $(n).css("color", "red");
+                                $(n).addClass("glyphicon glyphicon-heart");
+                            }
                         }
-                    }
+                    });
                 });
-            });
+            }
         }
-
     });
 }
 
 //删除歌曲
 function delSong(songid) {
     $.ajax({
-        "url": "/delSong/" + songid,
-        method: "post",
-        success: function (data) {
+        "url": "/delSong/" + songid, method: "post", success: function (data) {
             console.log(data);
             if (data == 1) {
                 alert("删除成功！");
@@ -67,7 +59,6 @@ function delSong(songid) {
         }
     });
 }
-
 
 //收藏歌曲
 $("#music").on("click", ".collect", function () {
@@ -108,10 +99,7 @@ $("#music").on("click", ".collect", function () {
             });
         }
     } else {
-        toastr.options.onHidden = function () {
-            location.href = "/login";
-        }
-        toastr.warning("请先登录！")
+        isLogin();
     }
 })
 
@@ -172,6 +160,5 @@ function makePage(data) {
     } else {
         $(".pagination").empty();
     }
-
 }
 

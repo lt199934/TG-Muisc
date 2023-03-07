@@ -2,13 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <title>播放音乐</title>
-    <link rel="stylesheet" href="/music/client/play/css/player.css">
+    <link href="/music/client/play/css/player.css" rel="stylesheet">
     <script src="/music/client/common/js/jquery.min.js"></script>
     <script src="/music/client/play/js/jquery.marquee.min.js"></script>
+    <script src="/music/plugin/toastr/toastr.min.js"></script>
     <script src="/music/client/common/js/util.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
 <body>
 <div id="QPlayer">
@@ -40,6 +41,7 @@
     </div>
     <ol id="playlist"></ol>
 </div>
+<
 <script>
     console.log(getUrlParam("temp"))
     var playlist = [{}];

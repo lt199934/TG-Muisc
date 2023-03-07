@@ -1,34 +1,24 @@
 $(function () {
     getAlbum(1);
-    isCollectedAlbum();
-});
-//判断登录状态
-var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
-console.log(userId)
-if (null == userId) {
-    toastr.options.onHidden = function () {
-        location.href = "/login";
+    if (null != userId) {
+        isCollectedAlbum();
     }
-    toastr.warning("请先登录！")
-}
-//
+});
+
+//获取详细专辑信息
 function getAlbum(pageNum) {
     var data = {
-        "pageNum": pageNum,
-        "pageSize": 2,
+        "pageNum": pageNum, "pageSize": 2,
     }
     $.ajax({
-        "url": "/albums/" + getUrlParam("albumId"),
-        method: "post",
-        data: data,
-        success: function (data) {
+        "url": "/albums/" + getUrlParam("albumId"), method: "post", data: data, success: function (data) {
             // makePage(data);
             console.log("专辑详情", data);
             var album = data;
             var songs = data.songs;
             var singer = data.singer;
             $("#songListImg").attr("src", album.albumImg);
-            $(".songList__name").html('<span class="glyphicon glyphicon-cd"></span>'+album.album+'<span class="badge" style="margin-top: -16px;">'+songs.length+'</span>');
+            $(".songList__name").html('<span class="glyphicon glyphicon-cd"></span>' + album.album + '<span class="badge" style="margin-top: -16px;">' + songs.length + '</span>');
             $(".singer").html("歌手：<a href='/singerDetail?singerId=" + singer.singerId + "'>" + singer.singerName + "</a>");
             $(".songList__number").html(album.count + "首歌");
             $("#introduction").html(album.introduction);
@@ -45,27 +35,27 @@ function getAlbum(pageNum) {
                 content += "</tr>";
             }
             $("#songs").html(content);
-            //收藏歌曲状态
-            $(".collect").each(function (i,n){
-                $.ajax({
-                    url: "/songStatus",
-                    method: "post",
-                    data: {
-                        "userId": userId,
-                        "songId": songs[i].songId
-                    }, success: function (data) {
-                        console.log(data);
-                        if (data === 1) {
-                            $(n).removeClass("glyphicon-heart-empty");
-                            $(n).css("color", "red");
-                            $(n).addClass("glyphicon glyphicon-heart");
+            if (null != userId) {
+                //收藏歌曲状态
+                $(".collect").each(function (i, n) {
+                    $.ajax({
+                        url: "/songStatus", method: "post", data: {
+                            "userId": userId, "songId": songs[i].songId
+                        }, success: function (data) {
+                            console.log(data);
+                            if (data === 1) {
+                                $(n).removeClass("glyphicon-heart-empty");
+                                $(n).css("color", "red");
+                                $(n).addClass("glyphicon glyphicon-heart");
+                            }
                         }
-                    }
+                    });
                 });
-            });
+            }
         }
     });
 }
+
 //收藏专辑状态
 function isCollectedAlbum() {
     $.ajax({
@@ -74,8 +64,7 @@ function isCollectedAlbum() {
         data: {"userId": userId, "albumId": getUrlParam("albumId")},
         success: function (data) {
             console.log(data);
-            if (data == 1) {
-                var className = $("#collectAlbum").find("span").attr("class");
+            if (data === 1) {
                 $("#collectAlbum").find("span").removeClass("glyphicon-heart-empty");
                 $("#collectAlbum").find("span").css("color", "red");
                 $("#collectAlbum").find("span").addClass("glyphicon glyphicon-heart");
@@ -87,9 +76,9 @@ function isCollectedAlbum() {
 // 收藏歌单
 $("#collectAlbum").click(function () {
     var className = $(this).find("span").attr("class");
-    if (null != user) {
+    if (null != userId) {
         $(this).find("span").removeClass("glyphicon-heart glyphicon-heart-empty");
-        if (className == "glyphicon glyphicon-heart-empty") {
+        if (className === "glyphicon glyphicon-heart-empty") {
             console.log("你要收藏的专辑id为" + getUrlParam("albumId"));
             $(this).find("span").css("color", "red");
             $(this).find("span").addClass("glyphicon glyphicon-heart");
@@ -122,10 +111,7 @@ $("#collectAlbum").click(function () {
             });
         }
     } else {
-        toastr.options.onHidden = function () {
-            location.href = "/login";
-        }
-        toastr.warning("请先登录！")
+        isLogin();
     }
 });
 
@@ -133,7 +119,7 @@ $("#collectAlbum").click(function () {
 $("#songs").on("click", ".collect", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     var className = $(this).attr("class");
-    if (null != user) {
+    if (null != userId) {
         console.log(className)
         $(this).removeClass("glyphicon-heart glyphicon-heart-empty collect");
         if (className == "glyphicon glyphicon-heart-empty collect") {
@@ -149,7 +135,6 @@ $("#songs").on("click", ".collect", function () {
                     if (data == 1) {
                         toastr.success("收藏成功")
                     }
-
                 }
             });
         } else {
@@ -170,12 +155,8 @@ $("#songs").on("click", ".collect", function () {
             });
         }
     } else {
-        toastr.options.onHidden = function () {
-            location.href = "/login";
-        }
-        toastr.warning("请先登录！")
+        isLogin();
     }
-
 })
 //播放量
 $("#albums").on("click", "#playOne", function () {
