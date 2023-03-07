@@ -1,4 +1,4 @@
-var userId = JSON.parse(sessionStorage.getItem("userId"));//获取用户信息
+var userId = JSON.parse(localStorage.getItem("userId"));//获取用户信息
 if (null == userId) {
     $("#login").css("display", "block");
     $("#register").css("display", "block");
@@ -191,7 +191,8 @@ function getSingers(pageNum) {
 $("#music").on("click", ".collect", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     var className = $(this).attr("class");
-    if (null != user) {
+    console.log(userId)
+    if (null != userId) {
         $(this).removeClass("glyphicon-heart glyphicon-heart-empty collect");
         if (className == "glyphicon glyphicon-heart-empty collect") {
             console.log("你要收藏的歌曲id为" + num)

@@ -1,7 +1,7 @@
 $(function(){
     checkLoginForm();
 });
-var userSession=JSON.parse(sessionStorage.getItem("userId"));
+var userSession=JSON.parse(localStorage.getItem("userId"));
 console.log(userSession)
 if(null != userSession){
     toastr.options.onHidden = function() {
@@ -67,7 +67,6 @@ $("#subBtn").click(function(){
     var flag = $('#loginForm').data('bootstrapValidator').isValid();//
     console.log(flag);
     var isExited = true;
-    var userSession=JSON.parse(sessionStorage.getItem("user"));
     console.log(userSession)
     if(null == userSession){
         isExited = false;
@@ -85,7 +84,7 @@ $("#subBtn").click(function(){
             success: function (data) {
                 console.log(data);
                 if(null!=data&&""!=data){
-                    sessionStorage.setItem("userId",JSON.stringify(data));
+                    localStorage.setItem("userId",JSON.stringify(data));
                     toastr.options.onHidden = function() {
                         window.location.href="/";
                     }
