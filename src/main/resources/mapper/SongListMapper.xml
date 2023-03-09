@@ -37,7 +37,7 @@
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
-        from songlist
+            from songlist
         where song_list_id = #{songListId,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="net.ltbk.music.bean.SongList">
@@ -48,25 +48,74 @@
     </insert>
     <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.SongList">
         update songlist
-        set song_list    = #{songList,jdbcType=VARCHAR},
-            introduction = #{introduction,jdbcType=VARCHAR},
-            img_url      = #{imgUrl,jdbcType=VARCHAR},
-            time         = #{time,jdbcType=DATE},
-            user_id      = #{userId,jdbcType=INTEGER}
+            set song_list    = #{songList,jdbcType=VARCHAR},
+                introduction = #{introduction,jdbcType=VARCHAR},
+                img_url      = #{imgUrl,jdbcType=VARCHAR},
+                time         = #{time,jdbcType=DATE},
+                user_id      = #{userId,jdbcType=INTEGER}
         where song_list_id = #{songListId,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select song_list_id, song_list, introduction, img_url, time, user_id
+        select song_list_id,
+               song_list,
+               introduction,
+               img_url,
+               time,
+               user_id
         from songlist
         where song_list_id = #{songListId,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
-        select *
+        select song_list_id,
+               song_list,
+               introduction,
+               img_url,
+               time,
+               user_id
         from songlist
     </select>
 
     <select id="selectAllBySongListId" resultMap="songListDto">
-        select *
+        select a.song_list_id,
+               a.song_list,
+               a.introduction,
+               a.img_url,
+               a.time,
+               a.user_id,
+               c.song_id,
+               c.song,
+               c.singer_id,
+               c.play_count,
+               c.download_count,
+               c.url,
+               c.language,
+               c.album_id,
+               c.time,
+               d.singer_id,
+               d.singer_name,
+               d.sex,
+               d.img_url,
+               d.birthday,
+               d.intrduction,
+               e.album_id,
+               e.album,
+               e.singer_id,
+               e.album_img,
+               e.introduction,
+               e.company,
+               f.user_id,
+               f.account,
+               f.pwd,
+               f.nick_name,
+               f.phone,
+               f.email,
+               f.user_name,
+               f.sex,
+               f.head_img,
+               f.type,
+               f.Personal_signature,
+               f.birthday,
+               f.time
         from songlist a,
              songCollect b,
              song c,
@@ -90,12 +139,14 @@
     </select>
 
     <select id="fen" resultMap="fen">
-        select *
+        select fen_id,
+               content
         from fenlei
     </select>
 
     <select id="selectFenArrayBySongListId" resultMap="fen">
-        select c.*
+        select c.fen_id,
+               c.content
         from songlist a,
              classic b,
              fenlei c
@@ -105,7 +156,15 @@
     </select>
 
     <select id="selectFenAll" resultMap="sl">
-        select * from songlist a,classic b,fenlei c
+        select  a.song_list_id,
+                a.song_list,
+                a.introduction,
+                a.img_url,
+                a.time,
+                a.user_id,
+                c.fen_id,
+                c.content
+            from songlist a,classic b,fenlei c
         where a.song_list_id=b.song_list_id
         and b.fen_id=c.fen_id
         <if test="fenId!=0">
@@ -113,7 +172,8 @@
         </if>
     </select>
     <select id="selectSongListByExample" resultMap="BaseResultMap">
-        select * from songlist
+        select song_list, introduction,
+        img_url, time, user_id from songlist
         <where>
             <if test="songList.songList != null and songList.songList !=''">
                 song_list = #{songList.songList,jdbcType=INTEGER}

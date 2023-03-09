@@ -68,7 +68,10 @@
     </select>
 
     <select id="selectAllByAlbumId" resultMap="album">
-        select *
+        select
+            c.album_id, c.album, c.singer_id, c.album_img, c.introduction, c.company, c.time,
+            a.singer_id, a.singer_name, a.sex, a.img_url, a.birthday, a.intrduction,
+            b.song_id,b.song,b.singer_id,b.play_count,b.download_count,b.url, b.language, b.album_id, b.time
         from singer a,
              song b,
              album c

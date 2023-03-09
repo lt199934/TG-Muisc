@@ -233,20 +233,62 @@
     </select>
 
     <select id="selectByAccountAndPwd" resultMap="BaseResultMap">
-        select *
+        select user_id,
+               account,
+               pwd,
+               nick_name,
+               phone,
+               email,
+               user_name,
+               sex,
+               head_img,
+               type,
+               Personal_signature,
+               birthday,
+               time
         from user
         where account = #{account,jdbcType=VARCHAR}
           and pwd = #{pwd,jdbcType=VARCHAR}
     </select>
 
     <select id="selectByAccount" resultMap="BaseResultMap">
-        select *
+        select user_id,
+               account,
+               pwd,
+               nick_name,
+               phone,
+               email,
+               user_name,
+               sex,
+               head_img,
+               type,
+               Personal_signature,
+               birthday,
+               time
         from user
         where account = #{account,jdbcType=VARCHAR}
     </select>
 
     <select id="selectSongLists" resultMap="songLists">
-        select a.*, b.*
+        select a.user_id,
+               a.account,
+               a.pwd,
+               a.nick_name,
+               a.phone,
+               a.email,
+               a.user_name,
+               a.sex,
+               a.head_img,
+               a.type,
+               a.Personal_signature,
+               a.birthday,
+               a.time,
+               b.song_list_id,
+               b.song_list,
+               b.introduction,
+               b.img_url,
+               b.time,
+               b.user_id
         from user a,
              songlist b,
              usersonglists c
@@ -256,7 +298,25 @@
     </select>
 
     <select id="selectSongListByMe" resultMap="songListsByMe">
-        select *
+        select a.user_id,
+               a.account,
+               a.pwd,
+               a.nick_name,
+               a.phone,
+               a.email,
+               a.user_name,
+               a.sex,
+               a.head_img,
+               a.type,
+               a.Personal_signature,
+               a.birthday,
+               a.time,
+               b.song_list_id,
+               b.song_list,
+               b.introduction,
+               b.img_url,
+               b.time,
+               b.user_id
         from user a,
              songlist b
         where b.user_id = a.user_id
@@ -264,7 +324,25 @@
     </select>
 
     <select id="selectSingers" resultMap="singers">
-        select a.*, c.*
+        select a.user_id,
+               a.account,
+               a.pwd,
+               a.nick_name,
+               a.phone,
+               a.email,
+               a.user_name,
+               a.sex,
+               a.head_img,
+               a.type,
+               a.Personal_signature,
+               a.birthday,
+               a.time,
+               c.singer_id,
+               c.singer_name,
+               c.sex,
+               c.img_url,
+               c.birthday,
+               c.intrduction
         from user a,
              usersingers b,
              singer c
@@ -274,7 +352,25 @@
     </select>
 
     <select id="selectSongs" resultMap="songs">
-        select a.*, b.*
+        select a.user_id,
+               a.account,
+               a.pwd,
+               a.nick_name,
+               a.phone,
+               a.email,
+               a.user_name,
+               a.sex,
+               a.head_img,
+               a.type,
+               a.Personal_signature,
+               a.birthday,
+               a.time,
+               b.song_id,
+               b.song,
+               b.singer_id,
+               b.play_count,
+               b.download_count,
+               b.url, b.language, b.album_id, b.time
         from user a,
              song b,
              userSongs c
@@ -376,7 +472,19 @@
     </select>
 
     <select id="selAllUser" resultMap="BaseResultMap">
-        select *
+        select user_id,
+               account,
+               pwd,
+               nick_name,
+               phone,
+               email,
+               user_name,
+               sex,
+               head_img,
+               type,
+               Personal_signature,
+               birthday,
+               time
         from user
     </select>
 </mapper>

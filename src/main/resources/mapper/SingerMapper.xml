@@ -70,7 +70,7 @@
         from singer
     </select>
     <select id="selectAllBySingerId" resultMap="singer">
-        select *, count(*) as count
+        select singer_id, singer_name, sex, img_url, birthday, intrduction, count(*) as count
         from singer a, song b, album c
         where c.album_id=b.album_id
           and b.singer_id=a.singer_id
