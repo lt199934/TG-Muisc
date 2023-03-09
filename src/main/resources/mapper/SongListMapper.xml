@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.ltbk.music.mapper.SongListMapper">
+    <resultMap id="BaseResultMap" type="net.ltbk.music.bean.SongList">
+        <id column="song_list_id" jdbcType="INTEGER" property="songListId"/>
+        <result column="song_list" jdbcType="VARCHAR" property="songList"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+        <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+        <result column="time" jdbcType="DATE" property="time"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="account" jdbcType="VARCHAR" property="createUser"/>
+    </resultMap>
+
+    <resultMap id="songListDto" type="net.ltbk.music.bean.SongList" extends="BaseResultMap">
+        <collection property="songDto" ofType="net.ltbk.music.bean.SongDto">
+            <result column="song_id" jdbcType="INTEGER" property="songId"/>
+            <result column="song" jdbcType="VARCHAR" property="song"/>
+            <result column="url" jdbcType="VARCHAR" property="url"/>
+            <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
+            <result column="singer_name" jdbcType="VARCHAR" property="singerName"/>
+            <result column="img_url" jdbcType="VARCHAR" property="singerImg"/>
+            <result column="album_id" jdbcType="INTEGER" property="albumId"/>
+            <result column="album" jdbcType="VARCHAR" property="albumName"/>
+            <result column="album_img" jdbcType="VARCHAR" property="albumUrl"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="sl" type="net.ltbk.music.bean.SongList" extends="BaseResultMap">
+        <collection property="fenLeis" ofType="net.ltbk.music.bean.FenLei">
+            <id column="fen_id" jdbcType="INTEGER" property="fenId"/>
+            <result column="content" jdbcType="VARCHAR" property="content"/>
+        </collection>
+    </resultMap>
+    <resultMap id="fen" type="net.ltbk.music.bean.FenLei">
+        <id column="fen_id" jdbcType="INTEGER" property="fenId"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from songlist
+        where song_list_id = #{songListId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="net.ltbk.music.bean.SongList">
+        insert into songlist (song_list_id, song_list, introduction,
+                              img_url, time, user_id)
+        values (#{songListId,jdbcType=INTEGER}, #{songList,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR},
+                #{imgUrl,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{userId,jdbcType=INTEGER})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.SongList">
+        update songlist
+        set song_list    = #{songList,jdbcType=VARCHAR},
+            introduction = #{introduction,jdbcType=VARCHAR},
+            img_url      = #{imgUrl,jdbcType=VARCHAR},
+            time         = #{time,jdbcType=DATE},
+            user_id      = #{userId,jdbcType=INTEGER}
+        where song_list_id = #{songListId,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select song_list_id, song_list, introduction, img_url, time, user_id
+        from songlist
+        where song_list_id = #{songListId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select *
+        from songlist
+    </select>
+
+    <select id="selectAllBySongListId" resultMap="songListDto">
+        select *
+        from songlist a,
+             songCollect b,
+             song c,
+             singer d,
+             album e,
+             user f
+        where e.singer_id = d.singer_id
+          and d.singer_id = c.singer_id
+          and c.song_id = b.song_id
+          and b.song_list_id = a.song_list_id
+          and a.user_id = f.user_id
+          and a.song_list_id = #{songListId,jdbcType=INTEGER}
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(1)
+        from songCollect a,
+             songlist b
+        where a.song_list_id = b.song_list_id
+          and b.song_list_id = #{songListId,jdbcType=INTEGER}
+    </select>
+
+    <select id="fen" resultMap="fen">
+        select *
+        from fenlei
+    </select>
+
+    <select id="selectFenArrayBySongListId" resultMap="fen">
+        select c.*
+        from songlist a,
+             classic b,
+             fenlei c
+        where c.fen_id = b.fen_id
+          and b.song_list_id = a.song_list_id
+          and a.song_list_id = #{songListId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectFenAll" resultMap="sl">
+        select * from songlist a,classic b,fenlei c
+        where a.song_list_id=b.song_list_id
+        and b.fen_id=c.fen_id
+        <if test="fenId!=0">
+            and c.fen_id=#{fenId}
+        </if>
+    </select>
+    <select id="selectSongListByExample" resultMap="BaseResultMap">
+        select * from songlist
+        <where>
+            <if test="songList.songList != null and songList.songList !=''">
+                song_list = #{songList.songList,jdbcType=INTEGER}
+            </if>
+            <if test="start != null">
+                and time >= #{start}
+            </if>
+            <if test="end != null">
+                and time &lt;= #{end}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertSongList" parameterType="net.ltbk.music.bean.SongListDto">
+        insert into songlist (song_list, introduction,
+                              img_url, time, user_id)
+        values (#{songList,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR},
+                #{imgUrl,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{userId,jdbcType=INTEGER})
+    </insert>
+
+</mapper>

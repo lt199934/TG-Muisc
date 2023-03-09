@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.ltbk.music.mapper.AlbumMapper">
+
+    <resultMap id="BaseResultMap" type="net.ltbk.music.bean.Album">
+        <id column="album_id" jdbcType="INTEGER" property="albumId"/>
+        <result column="album" jdbcType="VARCHAR" property="album"/>
+        <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
+        <result column="album_img" jdbcType="VARCHAR" property="albumImg"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+        <result column="company" jdbcType="VARCHAR" property="company"/>
+        <result column="time" jdbcType="DATE" property="time"/>
+    </resultMap>
+
+    <resultMap id="album" type="net.ltbk.music.bean.Album" extends="BaseResultMap">
+        <association property="singer" javaType="net.ltbk.music.bean.Singer">
+            <id column="singer_id" jdbcType="INTEGER" property="singerId"/>
+            <result column="singer_name" jdbcType="VARCHAR" property="singerName"/>
+            <result column="sex" jdbcType="VARCHAR" property="sex"/>
+            <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+            <result column="birthday" jdbcType="DATE" property="birthday"/>
+            <result column="intrduction" jdbcType="VARCHAR" property="intrduction"/>
+        </association>
+        <collection property="songs" ofType="net.ltbk.music.bean.Song">
+            <id column="song_id" jdbcType="INTEGER" property="songId"/>
+            <result column="song" jdbcType="VARCHAR" property="song"/>
+            <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
+            <result column="play_count" jdbcType="INTEGER" property="playCount"/>
+            <result column="download_count" jdbcType="INTEGER" property="downloadCount"/>
+            <result column="url" jdbcType="VARCHAR" property="url"/>
+            <result column="language" jdbcType="VARCHAR" property="language"/>
+            <result column="album_id" jdbcType="INTEGER" property="albumId"/>
+            <result column="time" jdbcType="DATE" property="time"/>
+        </collection>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from album
+        where album_id = #{albumId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="net.ltbk.music.bean.Album">
+        insert into album (album, singer_id, album_img, introduction, company, time)
+        values (#{album,jdbcType=VARCHAR},
+                #{singerId,jdbcType=INTEGER},
+                #{albumImg,jdbcType=VARCHAR},
+                #{introduction,jdbcType=VARCHAR},
+                #{company,jdbcType=VARCHAR},
+                #{time,jdbcType=DATE})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.Album">
+        update album
+        set album        = #{album,jdbcType=VARCHAR},
+            singer_id    = #{singerId,jdbcType=INTEGER},
+            introduction = #{introduction,jdbcType=VARCHAR},
+            album_img    = #{albumImg,jdbcType=VARCHAR},
+            company      = #{company,jdbcType=VARCHAR},
+            time         = #{time,jdbcType=DATE}
+        where album_id = #{albumId,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select album_id, album, singer_id, album_img, introduction, company, time
+        from album
+        where album_id = #{albumId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select album_id, album, singer_id, album_img, introduction, company, time
+        from album
+    </select>
+
+    <select id="selectAllByAlbumId" resultMap="album">
+        select *
+        from singer a,
+             song b,
+             album c
+        where a.singer_id = b.singer_id
+          and b.album_id = c.album_id
+          and c.album_id = #{albumId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAlbumByExample" resultMap="BaseResultMap">
+        select * from album
+        <where>
+            <if test="album.albumId !=null and album.albumId !=''">
+                and album_id = #{album.albumId,jdbcType=VARCHAR}
+            </if>
+            <if test="album.album !=null and album.album !=''">
+                and album = #{album.album,jdbcType=VARCHAR}
+            </if>
+            <if test="album.singerId !=null and album.singerId !=''">
+                and singer_id = #{album.singerId,jdbcType=INTEGER}
+            </if>
+            <if test="album.albumImg !=null and album.albumImg !=''">
+                and album_img = #{album.albumImg,jdbcType=VARCHAR}
+            </if>
+            <if test="album.introduction !=null and album.introduction !=''">
+                and introduction = #{album.introduction,jdbcType=VARCHAR}
+            </if>
+            <if test="album.company !=null and album.company !=''">
+                and company = #{album.company,jdbcType=VARCHAR}
+            </if>
+            <if test="start != null">
+                and time >= #{start}
+            </if>
+            <if test="end != null">
+                and time &lt;= #{end}
+            </if>
+        </where>
+    </select>
+    <select id="count" resultType="int">
+        select count(1)
+        from album a,
+             song b
+        where b.album_id = a.album_id
+          and a.album_id = #{albumId,jdbcType=INTEGER}
+    </select>
+
+    <select id="allAlbum" resultMap="BaseResultMap">
+        select *
+        from album
+    </select>
+
+    <select id="singerIdAlbum" resultMap="BaseResultMap">
+        select *
+        from album
+        WHERE singer_id = #{SingerId}
+    </select>
+
+</mapper>

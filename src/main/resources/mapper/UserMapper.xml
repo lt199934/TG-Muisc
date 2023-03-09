@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.ltbk.music.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="net.ltbk.music.bean.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="account" jdbcType="VARCHAR" property="account"/>
+        <result column="pwd" jdbcType="VARCHAR" property="pwd"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="head_img" jdbcType="VARCHAR" property="headImg"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="Personal_signature" jdbcType="VARCHAR" property="personalSignature"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="time" jdbcType="DATE" property="time"/>
+    </resultMap>
+    <resultMap id="songListsByMe" type="net.ltbk.music.bean.User" extends="BaseResultMap">
+        <collection property="songlists1" ofType="net.ltbk.music.bean.SongList">
+            <id column="song_list_id" jdbcType="INTEGER" property="songListId"/>
+            <result column="song_list" jdbcType="VARCHAR" property="songList"/>
+            <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+            <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+            <result column="time" jdbcType="DATE" property="time"/>
+            <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        </collection>
+    </resultMap>
+    <resultMap id="songLists" type="net.ltbk.music.bean.User" extends="BaseResultMap">
+        <collection property="songlists2" ofType="net.ltbk.music.bean.SongList">
+            <id column="song_list_id" jdbcType="INTEGER" property="songListId"/>
+            <result column="song_list" jdbcType="VARCHAR" property="songList"/>
+            <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+            <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+            <result column="time" jdbcType="DATE" property="time"/>
+            <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        </collection>
+    </resultMap>
+    <resultMap id="singers" type="net.ltbk.music.bean.Singer" extends="BaseResultMap">
+        <id column="singer_id" jdbcType="INTEGER" property="singerId"/>
+        <result column="singer_name" jdbcType="VARCHAR" property="singerName"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="intrduction" jdbcType="VARCHAR" property="intrduction"/>
+    </resultMap>
+    <resultMap id="songs" type="net.ltbk.music.bean.User" extends="BaseResultMap">
+        <collection property="songs" ofType="net.ltbk.music.bean.Song">
+            <id column="song_id" jdbcType="INTEGER" property="songId"/>
+            <result column="song" jdbcType="VARCHAR" property="song"/>
+            <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
+            <result column="play_count" jdbcType="INTEGER" property="playCount"/>
+            <result column="download_count" jdbcType="INTEGER" property="downloadCount"/>
+            <result column="url" jdbcType="VARCHAR" property="url"/>
+            <result column="language" jdbcType="VARCHAR" property="language"/>
+            <result column="album_id" jdbcType="INTEGER" property="albumId"/>
+            <result column="time" jdbcType="DATE" property="time"/>
+        </collection>
+    </resultMap>
+    <resultMap id="albums" type="net.ltbk.music.bean.User" extends="BaseResultMap">
+        <collection property="albums" ofType="net.ltbk.music.bean.Album">
+            <id column="album_id" jdbcType="INTEGER" property="albumId"/>
+            <result column="album" jdbcType="VARCHAR" property="album"/>
+            <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
+            <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+            <result column="company" jdbcType="VARCHAR" property="company"/>
+            <result column="time" jdbcType="DATE" property="time"/>
+        </collection>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="net.ltbk.music.bean.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            user_id, account, pwd,
+            nick_name,phone, email, user_name,
+            sex,
+            <if test="headImg != null">
+                head_img,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            Personal_signature, birthday, time
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{userId,jdbcType=INTEGER},
+            #{account,jdbcType=VARCHAR},
+            #{pwd,jdbcType=VARCHAR},
+            #{nickName,jdbcType=VARCHAR},
+            #{phone,jdbcType=VARCHAR},
+            #{email,jdbcType=VARCHAR},
+            #{userName,jdbcType=VARCHAR},
+            #{sex,jdbcType=VARCHAR},
+            <if test="headImg != null">
+                #{headImg,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            #{personalSignature,jdbcType=VARCHAR},
+            #{birthday,jdbcType=DATE},
+            #{time,jdbcType=DATE}
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.User">
+        update user
+        <set>
+            <if test="account != null ">
+                account = #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="pwd != null">
+                pwd = #{pwd,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="headImg != null">
+                head_img = #{headImg,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="personalSignature != null">
+                Personal_signature = #{personalSignature,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday,jdbcType=TIMESTAMP},
+            </if>
+            <if test="time != null">
+                time = #{time,jdbcType=TIMESTAMP}
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select user_id,
+               account,
+               pwd,
+               nick_name,
+               phone,
+               email,
+               user_name,
+               sex,
+               head_img,
+               type,
+               Personal_signature,
+               birthday,
+               time
+        from user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select user_id,
+               account,
+               pwd,
+               nick_name,
+               phone,
+               email,
+               user_name,
+               sex,
+               head_img,
+               type,
+               Personal_signature,
+               birthday,
+               time
+        from user
+    </select>
+
+
+    <select id="selectUserByExample" resultMap="BaseResultMap">
+        select * from user
+        <where>
+            <if test="user.userId != null and user.userId !=''">
+                user_id = #{user.userId,jdbcType=INTEGER}
+            </if>
+            <if test="user.account != null and user.account !=''">
+                and account = #{user.account,jdbcType=VARCHAR}
+            </if>
+            <if test="user.nickName != null and user.nickName !=''">
+                and nick_name = #{user.nickName,jdbcType=VARCHAR}
+            </if>
+            <if test="user.pwd != null and user.pwd !=''">
+                and pwd = #{user.pwd,jdbcType=VARCHAR}
+            </if>
+            <if test="user.phone != null and user.phone !=''">
+                and phone = #{user.phone,jdbcType=VARCHAR}
+            </if>
+            <if test="user.email != null and user.email !=''">
+                and email = #{user.email,jdbcType=VARCHAR}
+            </if>
+            <if test="user.userName != null and user.userName !=''">
+                and user_name = #{user.userName,jdbcType=VARCHAR}
+            </if>
+            <if test="user.sex != null and user.sex !=''">
+                and sex = #{user.sex,jdbcType=VARCHAR}
+            </if>
+            <if test="user.headImg != null and user.headImg !=''">
+                and head_img = #{user.headImg,jdbcType=VARCHAR}
+            </if>
+            <if test="user.type != null and user.type !=''">
+                and type = #{user.type,jdbcType=VARCHAR}
+            </if>
+            <if test="user.personalSignature != null and user.personalSignature !=''">
+                and Personal_signature = #{user.personalSignature,jdbcType=VARCHAR}
+            </if>
+            <if test="start != null">
+                and birthday >= #{start}
+            </if>
+            <if test="end != null">
+                and birthday &lt;= #{end}
+            </if>
+            <if test="user.time != null">
+                and time = #{user.time,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByAccountAndPwd" resultMap="BaseResultMap">
+        select *
+        from user
+        where account = #{account,jdbcType=VARCHAR}
+          and pwd = #{pwd,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByAccount" resultMap="BaseResultMap">
+        select *
+        from user
+        where account = #{account,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectSongLists" resultMap="songLists">
+        select a.*, b.*
+        from user a,
+             songlist b,
+             usersonglists c
+        where b.song_list_id = c.song_list_id
+          and c.user_id = a.user_id
+          and a.user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectSongListByMe" resultMap="songListsByMe">
+        select *
+        from user a,
+             songlist b
+        where b.user_id = a.user_id
+          and a.user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectSingers" resultMap="singers">
+        select a.*, c.*
+        from user a,
+             usersingers b,
+             singer c
+        where c.singer_id = b.singer_id
+          and b.user_id = a.user_id
+          and a.user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectSongs" resultMap="songs">
+        select a.*, b.*
+        from user a,
+             song b,
+             userSongs c
+        where b.song_id = c.song_id
+          and c.user_id = a.user_id
+          and a.user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAlbumStatus" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(1)
+        from userAlbums
+        where user_id = #{userId,jdbcType=INTEGER}
+          and album_id = #{albumId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectSongListStatus" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(1)
+        from userSongLists
+        where user_id = #{userId,jdbcType=INTEGER}
+          and song_list_id = #{songListId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectSongStatus" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(1)
+        from userSongs
+        where user_id = #{userId,jdbcType=INTEGER}
+          and song_id = #{songId,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insertSongsByCollected" parameterType="java.lang.Integer">
+        insert into userSongs(user_id, song_id)
+        values (#{userId}, #{songId})
+    </insert>
+
+    <insert id="insertSingersByCollected" parameterType="java.lang.Integer">
+        insert into userSingers(user_id, singer_id)
+        values (#{userId}, #{singerId})
+    </insert>
+
+    <insert id="insertAlbumsByCollected" parameterType="java.lang.Integer">
+        insert into userAlbums(user_id, album_id)
+        values (#{userId}, #{albumId})
+    </insert>
+
+    <insert id="insertSongListsByCollected" parameterType="java.lang.Integer">
+        insert into userSongLists(user_id, song_list_id)
+        values (#{userId}, #{songListId})
+    </insert>
+
+    <insert id="addSongsToSongList" parameterType="java.lang.Integer">
+        insert into songCollect(song_list_id, song_id)
+        values (#{songListId}, #{songId})
+    </insert>
+
+    <delete id="delSongsByCollected">
+        delete
+        from userSongs
+        where user_id = #{userId}
+          and song_id = #{songId}
+    </delete>
+
+    <delete id="delSingersByCollected">
+        delete
+        from userSingers
+        where user_id = #{userId}
+          and singer_id = #{singerId}
+    </delete>
+
+    <delete id="delSongListsByCollected">
+        delete
+        from userSongLists
+        where user_id = #{userId}
+          and song_list_id = #{songListId}
+    </delete>
+
+    <delete id="delAlbumsByCollected">
+        delete
+        from userAlbums
+        where user_id = #{userId}
+          and album_id = #{albumId}
+    </delete>
+
+    <delete id="delSongsToSongList">
+        delete
+        from songCollect
+        where song_list_id = #{songListId}
+          and song_id = #{songId}
+    </delete>
+
+    <select id="selectAlbums">
+
+    </select>
+
+    <select id="selectIsCollectedSong" resultType="java.lang.Integer">
+        select count(1)
+        from userSongs
+        where user_id = #{userId}
+          and song_id = #{songId}
+    </select>
+
+    <select id="selAllUser" resultMap="BaseResultMap">
+        select *
+        from user
+    </select>
+</mapper>

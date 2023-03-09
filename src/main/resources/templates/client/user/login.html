@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css" rel="stylesheet"/>
+    <link href="/music/plugin/bootstrap-show-password/css/zzsc.css" rel="stylesheet">
+    <link href="/music/plugin/toastr/toastr.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="#"/>
+    <script src="/music/client/common/js/jquery.min.js"></script>
+    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
+    <script src="/music/plugin/toastr/toastr.min.js"></script>
+    <script src="/music/plugin/bootstrap-show-password/js/bootstrap-show-password.min.js"></script>
+</head>
+<body>
+<div class="modal-dialog" role="document" style="margin-top: 10%">
+    <div class="modal-content" style="width: 80%">
+        <div class="modal-header">
+            <h4 class="modal-title text-center" id="myModalLoginLabel" style="color: #337ab7;font-weight: bolder">用户登录</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" id="loginForm">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="account">用户名</label>
+                    <div class="col-sm-7">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        <input class="form-control col-sm-10" id="account" name="account" placeholder="请输入用户名" type="text">
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="pwd">密码</label>
+                    <div class="col-sm-7">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <input class="form-control" id="pwd" name="pwd" placeholder="请输入密码" type="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <button class="btn btn-danger" type="reset">清空</button>
+                    <a href="/register" id="reg" style="font-size: 18px;">没有帐号？注册</a>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <input class="btn btn-primary col-sm-6 col-sm-offset-3" id="subBtn" type="button" value="登录">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/music/client/common/js/util.js"></script>
+<script src="/music/client/common/js/login.js"></script>
+</body>
+</html>

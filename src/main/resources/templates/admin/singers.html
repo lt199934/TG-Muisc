@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>歌手管理</title>
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css" rel="stylesheet"/>
+    <script src="/music/client/common/js/jquery.min.js"></script>
+    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+
+        .body-content {
+            margin-top: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">管理后台</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/admin/users"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
+                <li><a href="/admin/singers"><span class="glyphicon glyphicon-lock"></span> 歌手管理</a></li>
+                <li><a href="/admin/songs"><span class="glyphicon glyphicon-music"></span> 歌曲管理</a></li>
+                <li><a href="/admin/albums"><span class="glyphicon glyphicon-cog"></span> 专辑管理</a></li>
+                <li><a href="/admin/songLists"><span class="glyphicon glyphicon-user"></span> 歌单管理</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-cog"></span> Alexander
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="logout">
+                        <span class="glyphicon glyphicon-log-out"></span> 退出
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="container">
+        <form action="" id="selectForm">
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="name">歌手姓名：</label>
+                <input class="form-control " id="name" placeholder="请输入名称" type="text">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="singerSex">性别：</label>
+                <select class="form-control" id="singerSex" name="">
+                    <option selected="selected" value="">不限</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="startDate">开始时间：</label>
+                <input class="form-control " id="startDate" placeholder="请输入开始时间" type="text">
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                <label class="" for="endDate">结束时间：</label>
+                <input class="form-control " id="endDate" placeholder="请输入结束时间" type="text">
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <!-- 按钮触发模态框 -->
+                <button class="btn btn-success" data-target="#singerModal" data-toggle="modal"
+                        id="getInsertRows" type="button">添加
+                </button>
+                <table class="table table-condensed table-hover table-striped" data-ajax="true" data-multi-select="true"
+                       data-selection="true" data-toggle="bootgrid"
+                       data-url="UserSerlvt" id="grid">
+                    <thead>
+                    <tr>
+                        <th data-align="left">ID</th>
+                        <th>歌手</th>
+                        <th>性别</th>
+                        <th>歌手图片</th>
+                        <th>生日</th>
+                        <th style="width: 487px;">详细信息</th>
+                        <th data-align="center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="singerTbody">
+
+                    </tbody>
+
+                </table>
+                <!--/div-->
+            </div>
+        </div>
+        <label>
+            每页
+            <select aria-controls="DataTables_Table_0"
+                    id="pageSize" name="DataTables_Table_0_length" size="1">
+                <option selected="selected" value="1">1</option>
+                <option value="2">2</option>
+                <option value="50">3</option>
+                <option value="100">4</option>
+            </select>
+            条记录
+        </label>
+        <!--        分页-->
+        <nav aria-label="Page navigation" class="col-md-12 col-md-offset-5 right">
+            <ul class="pagination">
+
+            </ul>
+        </nav>
+
+    </div>
+    <footer class="navbar navbar-fixed-bottom text-center bg-primary">
+        <p></p>
+    </footer>
+
+</div>
+
+<div aria-labelledby="myModalLoginLabel" class="modal fade" id="singerModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLoginLabel">添加歌手页面</h4>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label class="control-label" for="singerName">歌手：</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input class="form-control" id="singerName" name="singerName" placeholder="请输入歌手名称"
+                                   type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="sex">性别</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
+                            <select class="form-control" id="sex" name="sex">
+                                <option selected="selected" value="">请选择性别</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="img">歌手图片：</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+                            <input class="form-control" id="img" name="img" placeholder="请上传歌手图片" type="file">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="birthday">生日</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            <input class="form-control" id="birthday" name="birthday" placeholder="请输入你的生日"
+                                   type="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Intrduction">歌手介绍：</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <input class="form-control" id="Intrduction" name="Intrduction" placeholder="请输入歌手简介"
+                                   type="text">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal" type="button">取消</button>
+                <input class="btn btn-primary" data-loading-text="添加..." id="subBtn" type="button" value="添加">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/music/admin/js/isLogin.js"></script>
+<script>
+    $(function () {
+        getSingers(1);
+    });
+    $("#selectForm").change(function () {
+        getSingers(1);
+    });
+    $("#pageSize").change(function () {
+        getSingers(1);
+    });
+
+    function getSingers(pageNum) {
+        $("#singerTbody").empty();
+        var url = "/selectAllSingers";
+        var data = {
+            "singerName": $("#name").val(),
+            "sex": $("#singerSex").val(),
+            "startDate": $("#startDate").val(),
+            "endDate": $("#endDate").val(),
+            "pageNum": pageNum,
+            "pageSize": $("#pageSize").val(),
+        }
+
+        $.ajax({
+            url: url,
+            method: "post",
+            data: data,
+            success: function (data) {
+                $(".pagination").empty();
+                makePage(data);
+                console.log(data);
+                var singer = data.list;
+                for (var i = 0; i < singer.length; i++) {
+                    var $tr = $("<tr>");
+                    var $singerId = $("<td>");
+                    var $singerName = $("<td>");
+                    var $sex = $("<td>");
+                    var $imgUrl = $("<td>");
+                    var $birthday = $("<td>");
+                    var $intrduction = $("<td>");
+                    var $upd = $("<td>");
+                    var $del = $("<td>");
+                    console.log(singer[i].singerId);
+                    console.log(singer[i].imgUrl);
+                    $tr.append($singerId.html(singer[i].singerId)).append($singerName.html(singer[i].singerName)).append($sex.html(singer[i].sex)).append($imgUrl.html('<img src="' + singer[i].imgUrl + '" style="width:50px;height:50px;border: 1px solid;">')).append($birthday.html(singer[i].birthday)).append($intrduction.html(singer[i].intrduction)).append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" onclick="upd(' + singer[i].singerId + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>')).append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del(' + singer[i].singerId + ')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
+                    $("#singerTbody").append($tr);
+                }
+            }
+        });
+    }
+
+
+    $("#subBtn").click(function () {
+        var url = "/insertOneSinger";
+        var date = new Date();
+        var form = $("#registerForm")[0];
+        // var time=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+        // console.log(time);
+        var formData = new FormData(form);
+        // formData.append("time",time);
+        console.log(formData);
+        // $('#registerForm').data('bootstrapValidator').validate();//手动开启验证
+        // var flag = $('#registerForm').data('bootstrapValidator').isValid();//
+        // console.log(flag);
+        $.ajax({
+            url: url,
+            method: "post",
+            data: formData,
+            dataType: 'JSON',
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data);
+                if (data == 1) {
+                    alert("添加成功");
+                    $("#registerForm")[0].reset();
+                    $("#singerModal").modal("hide");
+                }
+                getSingers(1);
+            }
+        });
+    });
+
+
+    function del(singerId) {
+        var url = "/delSinger/" + singerId;
+        $.ajax({
+            url: url,
+            method: "post",
+            success: function (data) {
+                console.log(data);
+                if (data == 1) {
+                    alert("删除成功！");
+                    getUsers();
+                }
+            }
+        });
+    }
+
+    //分页
+    function makePage(data) {
+        if (data.list.length != 0) {
+            console.log(data)
+            var pageNums = data.navigatepageNums;
+            if (data.pages == 1) {
+                return;
+            } else {
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Next' href='javascript:getSingers(" + 1 + ");'><span aria-hidden=\"true\">首页</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+            //是否由上一页
+            if (data.hasPreviousPage == true) {
+                var pageNum = data.pageNum - 1;
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Previous' href='javascript:getSingers(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            } else {
+                $li = $("<li class='disabled'></li>");
+                $btn = $("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+            // 页数
+            for (var i = 0; i < pageNums.length; i++) {
+                var pageNum = pageNums[i];
+                $li = $("<li></li>");
+                $btn = $("<a href='javascript:getSingers(" + pageNum + ");'>" + pageNum + "</a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+            if (data.hasNextPage == true) {
+                var pageNum = data.pageNum + 1;
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Next' href='javascript:getSingers(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            } else {
+                $li = $("<li class='disabled'></li>");
+                $btn = $("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+
+            if (data.isLastPage != true) {
+                var pageNum = data.pages;
+                $li = $("<li></li>");
+                $btn = $("<a aria-label='Next' href='javascript:getSingers(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");
+                $li.append($btn);
+                $(".pagination").append($li);
+            }
+        } else {
+            $(".pagination").empty();
+        }
+
+    }
+
+    function upd(userId) {
+
+    }
+</script>
+</html>

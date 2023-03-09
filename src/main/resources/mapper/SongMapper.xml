@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.ltbk.music.mapper.SongMapper">
+    <resultMap id="BaseResultMap" type="net.ltbk.music.bean.Song">
+        <id column="song_id" jdbcType="INTEGER" property="songId"/>
+        <result column="song" jdbcType="VARCHAR" property="song"/>
+        <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
+        <result column="play_count" jdbcType="INTEGER" property="playCount"/>
+        <result column="download_count" jdbcType="INTEGER" property="downloadCount"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="language" jdbcType="VARCHAR" property="language"/>
+        <result column="album_id" jdbcType="INTEGER" property="albumId"/>
+        <result column="time" jdbcType="DATE" property="time"/>
+    </resultMap>
+
+    <resultMap id="song" type="net.ltbk.music.bean.Song" extends="BaseResultMap">
+        <association property="singer" javaType="net.ltbk.music.bean.Singer">
+            <id column="singer_id" jdbcType="INTEGER" property="singerId"/>
+            <result column="singer_name" jdbcType="VARCHAR" property="singerName"/>
+            <result column="sex" jdbcType="VARCHAR" property="sex"/>
+            <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+            <result column="birthday" jdbcType="DATE" property="birthday"/>
+            <result column="intrduction" jdbcType="VARCHAR" property="intrduction"/>
+        </association>
+        <association property="album" javaType="net.ltbk.music.bean.Album">
+            <id column="album_id" jdbcType="INTEGER" property="albumId"/>
+            <result column="album" jdbcType="VARCHAR" property="album"/>
+            <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
+            <result column="album_img" jdbcType="VARCHAR" property="albumImg"/>
+            <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+            <result column="company" jdbcType="VARCHAR" property="company"/>
+            <result column="time" jdbcType="DATE" property="time"/>
+        </association>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from song
+        where song_id = #{songId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="net.ltbk.music.bean.Song">
+        insert into song
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            song, singer_id,
+            <if test="playCount !=null">
+                play_count,
+            </if>
+            <if test="downloadCount !=null">
+                download_count,
+            </if>
+            url,
+            language,
+            album_id,
+            time
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{song,jdbcType=VARCHAR},
+            #{singerId,jdbcType=INTEGER},
+            <if test="playCount !=null">
+                #{playCount,jdbcType=INTEGER},
+            </if>
+            <if test="downloadCount !=null">
+                #{downloadCount,jdbcType=INTEGER},
+            </if>
+            #{url,jdbcType=VARCHAR},
+            #{language,jdbcType=VARCHAR},
+            #{albumId,jdbcType=INTEGER},
+            #{time,jdbcType=DATE}
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.Song">
+        update song
+        <set>
+            <if test="song !=null and song !=''">
+                song = #{song,jdbcType=VARCHAR},
+            </if>
+            <if test="singerId !=null and singerId !=''">
+                singer_id = #{singerId,jdbcType=INTEGER},
+            </if>
+            <if test="song.playCount !=null and song.playCount !=''">
+                play_count = #{playCount,jdbcType=INTEGER},
+            </if>
+            <if test="downloadCount !=null and downloadCount !=''">
+                download_count = #{downloadCount,jdbcType=INTEGER},
+            </if>
+            <if test="url !=null and url !=''">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="language !=null and language !=''">
+                language = #{language,jdbcType=VARCHAR},
+            </if>
+            <if test="albumId !=null and albumId !=''">
+                and album_id = #{albumId,jdbcType=INTEGER},
+            </if>
+            <if test="time != null">
+                time = #{time,jdbcType=DATE}
+            </if>
+        </set>
+        where song_id = #{songId,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select song_id,
+               song,
+               singer_id,
+               play_count,
+               download_count,
+               url, language, album_id, time
+        from song
+        where song_id = #{songId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="song">
+        select *
+        from singer a,
+             album b,
+             song c
+        where a.singer_id = b.singer_id
+          and b.singer_id = c.singer_id
+    </select>
+
+    <select id="selectAllBySongId" resultMap="song">
+        select *
+        from singer a,
+             album b,
+             song c
+        where a.singer_id = b.singer_id
+          and b.singer_id = c.singer_id
+          and c.song_id = #{songId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectSongByExample" resultMap="song">
+        select * from song a,singer b
+        <where>
+            b.singer_id = a.singer_id
+            <if test="song.songId !=null and song.songId !=''">
+                and a.song_id = #{song.songId,jdbcType=INTEGER}
+            </if>
+            <if test="song.song !=null and song.song !=''">
+                and a.song = #{song.song,jdbcType=VARCHAR}
+            </if>
+            <if test="song.singerId !=null and song.singerId !=''">
+                and a.singer_id = #{song.singerId,jdbcType=INTEGER}
+            </if>
+            <if test="song.playCount !=null and song.playCount !=''">
+                and a.play_count = #{song.playCount,jdbcType=INTEGER}
+            </if>
+            <if test="song.downloadCount !=null and song.downloadCount !=''">
+                and a.download_count = #{song.downloadCount,jdbcType=INTEGER}
+            </if>
+            <if test="song.url !=null and song.url !=''">
+                and a.url = #{song.url,jdbcType=VARCHAR}
+            </if>
+            <if test="song.language !=null and song.language !=''">
+                and a.language = #{song.language,jdbcType=VARCHAR}
+            </if>
+            <if test="song.albumId !=null and song.albumId !=''">
+                and a.album_id = #{song.albumId,jdbcType=INTEGER}
+            </if>
+            <if test="start != null">
+                and a.time >= #{start}
+            </if>
+            <if test="end != null">
+                and a.time &lt;= #{end}
+            </if>
+        </where>
+    </select>
+
+    <update id="updatePlayCount" parameterType="java.lang.Integer">
+        update song
+        set play_count =play_count + 1
+        where song_id = #{songId,jdbcType=INTEGER}
+    </update>
+    <update id="updateDownloadCount" parameterType="java.lang.Integer">
+        update song
+        set download_count =download_count + 1
+        where song_id = #{songId,jdbcType=INTEGER}
+    </update>
+    <select id="selectSongsByList" resultMap="BaseResultMap">
+        select *
+        from song
+        having play_count >= 10
+        order by play_count desc
+    </select>
+</mapper>
