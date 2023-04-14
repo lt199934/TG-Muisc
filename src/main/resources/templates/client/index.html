@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="/client/common/include::header('主页')"></div>
+<div th:replace="client/common/include::header('主页')"></div>
 <body>
 <div class="container">
     <div class="row clearfix">
         <!--   header-->
-        <header class="col-md-12 column" th:include="/client/common/header::head"></header>
+        <header class="col-md-12 column" th:include="client/common/header::head"></header>
         <!--    轮播图-->
-        <div class="col-md-12 column" style="padding-top: 0" th:include="/client/common/carousel::carousel"></div>
+        <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
     <!--  精选歌单-->
     <div class="row clearfix">
@@ -83,7 +83,7 @@
     </div>
     <!--    footer-->
     <div class="row clearfix">
-        <div class="col-md-12 column" th:include="/client/common/footer::footer"></div>
+        <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
     </div>
     <!--        <a class="back-to-top" href="#top" style="position: relative;left: 20px;"> <span class="glyphicon glyphicon-chevron-up"></span>返回 </a>-->
 
@@ -91,6 +91,6 @@
 <iframe frameborder="0" height="280px" id="player" name="play" src=""
         style="position: fixed;bottom: 150px;display: none" width="300px"></iframe>
 </body>
-<div th:include="/client/common/include::footer"></div>
+<div th:include="client/common/include::footer"></div>
 <script th:src="@{/music/client/common/js/index.js}"></script>
 </html>

@@ -5,9 +5,9 @@
 <div class="container">
     <div class="row clearfix">
         <!--   header-->
-        <header class="col-md-12 column" th:include="/client/common/header::head"></header>
+        <header class="col-md-12 column" th:include="client/common/header::head"></header>
         <!--    轮播图-->
-        <div class="col-md-12 column" style="padding-top: 0" th:include="/client/common/carousel::carousel"></div>
+        <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
     <!--  精选歌单-->
     <div class="row clearfix">
@@ -63,13 +63,13 @@
     </div>
     <div class="row clearfix">
         <!--分页-->
-        <div class="col-md-12 column" th:include="/client/common/page::page"></div>
+        <div class="col-md-12 column" th:include="client/common/page::page"></div>
         <!-- footer-->
-        <div class="col-md-12 column" th:include="/client/common/footer::footer"></div>
+        <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
     </div>
 </div>
 </body>
-<div th:include="/client/common/include::footer"></div>
+<div th:include="client/common/include::footer"></div>
 <script th:src="@{/music/client/songList/js/songlists.js}"></script>
 <script th:src="@{/music/client/songList/js/jquery.filterizr.min.js}"></script>
 <script th:src="@{/music/client/songList/js/controls.js}"></script>
