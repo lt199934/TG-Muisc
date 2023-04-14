@@ -45,7 +45,7 @@ $("#music").on("click", "#playOne", function () {
     // var url=window.location.href;
     // alert( url.substring(0,url.indexOf("/")+1))
     $("#player").css("display","block");
-    var songId = $(this).parent().parent().find("#songId").val();
+    var songId = $(this).parent().parent().parent().parent().find("#songId").val();
     $(this).attr("href", "/play?temp=song&songId=" + songId);
 });
 
