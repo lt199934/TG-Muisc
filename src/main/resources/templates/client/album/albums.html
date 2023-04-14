@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<div th:replace="/client/common/include::header('专辑页面')"></div>
+<div th:replace="client/common/include::header('专辑页面')"></div>
 <body>
 <div class="container ">
     <div class="row clearfix">
         <!--   header-->
-        <header class="col-md-12 column" th:include="/client/common/header::head"></header>
+        <header class="col-md-12 column" th:include="client/common/header::head"></header>
         <!--    轮播图-->
-        <div class="col-md-12 column" style="padding-top: 0" th:include="/client/common/carousel::carousel"></div>
+        <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
     <!-- 专辑 -->
     <div class="row clearfix">
@@ -29,12 +29,12 @@
     </div>
     <div class="row clearfix">
         <!--分页-->
-        <div class="col-md-12 column" th:include="/client/common/page::page"></div>
+        <div class="col-md-12 column" th:include="client/common/page::page"></div>
         <!-- footer-->
-        <div class="col-md-12 column" th:include="/client/common/footer::footer"></div>
+        <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
     </div>
 </div>
-<div th:include="/client/common/include::footer"></div>
+<div th:include="client/common/include::footer"></div>
 <script src="/music/client/album/js/albums.js"></script>
 </body>
 </html>
