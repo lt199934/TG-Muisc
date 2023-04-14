@@ -11,22 +11,27 @@ spring:
         password: 199934lt
     profiles:
         active: dev
-    resources:
-        static-locations: classpath:/static
+    devtools:
+        restart:
+            enabled: true
+            additional-paths: src/main
     thymeleaf:
+        prefix: classpath:/templates/
+        encoding: UTF-8
+        excluded-view-names: ''
+        suffix: .html
+        mode: LEGACYHTML5
+        content-type: text/html;charset=utf-8
         cache: false
         check-template: true
         check-template-location: true
-        content-type: text/html
         enabled: true
-        encoding: UTF-8
-        excluded-view-names: ''
-        mode: HTML5
-        prefix: classpath:/templates/
-        suffix: .html
+    resources:
+        static-locations: classpath:/static
     mvc:
         format:
             date-time: yyyy-MM-dd HH:mm:ss
+
 mybatis:
     type-aliases-package: net.ltbk.music.mapper
     mapper-locations: classpath:mapper/*xml

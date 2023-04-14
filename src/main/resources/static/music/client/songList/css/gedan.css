@@ -1,20 +1,9 @@
 .filtr-item {
     padding: 1rem;
 }
-.item-desc {
-    background-color: rgba(0,0,0,0.9);
-    color: #ffffff;
-    position: absolute;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 1rem;
-    z-index: 1;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-}
 
-/* Filter controls */
+
+ /*Filter controls*/
 .simplefilter li{
     color: white;
     cursor: pointer;

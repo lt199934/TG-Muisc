@@ -1,16 +1,12 @@
 package net.ltbk.music.config;
 
 import net.ltbk.music.formatter.StringToDateFormatter;
-import net.ltbk.music.utils.FileHandleUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.List;
 
 
@@ -26,17 +22,20 @@ import java.util.List;
 @Configuration
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
+    /**
+     * 绝对路径
+     **/
+    private static String absolutePath = "";
+    /**
+     * 静态目录
+     **/
+    private static String staticDir = "static";
+    /**
+     * 文件存放的目录
+     **/
+    private static String fileDir = "/upload/";
     @Autowired
     private StringToDateFormatter stringToDateFormatter;
-
-    /** 绝对路径 **/
-    private static String absolutePath = "";
-
-    /** 静态目录 **/
-    private static String staticDir = "static";
-
-    /** 文件存放的目录 **/
-    private static String fileDir = "/upload/";
 
     /***
      * @MethodName: addInterceptors
@@ -64,11 +63,23 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/music/**").addResourceLocations("classpath:/static/music/");
-        registry.addResourceHandler("/album/**").addResourceLocations("/upload/album/");
-        registry.addResourceHandler("/headImg/**").addResourceLocations("/upload/headImg/");
-        registry.addResourceHandler("/singer/**").addResourceLocations("/upload/singer/");
-        registry.addResourceHandler("/songListImg/**").addResourceLocations("/upload/songListImg/");
-        registry.addResourceHandler("/songs/**").addResourceLocations("/upload/songs/");
+//        开发环境
+        registry.addResourceHandler("/album/**").addResourceLocations("classpath:/static/upload/album/");
+        registry.addResourceHandler("/headImg/**").addResourceLocations("classpath:/static/upload/headImg/");
+        registry.addResourceHandler("/singer/**").addResourceLocations("classpath:/static/upload/singer/");
+        registry.addResourceHandler("/songListImg/**").addResourceLocations("classpath:/static/upload/songListImg/");
+        registry.addResourceHandler("/songs/**").addResourceLocations("classpath:/static/upload/songs/");
+//        生产环境
+//        registry.addResourceHandler("/album/**").addResourceLocations("/upload/album/");
+//        registry.addResourceHandler("/headImg/**").addResourceLocations("/upload/headImg/");
+//        registry.addResourceHandler("/singer/**").addResourceLocations("/upload/singer/");
+//        registry.addResourceHandler("/songListImg/**").addResourceLocations("/upload/songListImg/");
+//        registry.addResourceHandler("/songs/**").addResourceLocations("/upload/songs/");
+        registry.addResourceHandler("doc.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
@@ -111,6 +122,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/admin/songLists").setViewName("admin/songLists");
         registry.addViewController("/admin/singers").setViewName("admin/singers");
         registry.addViewController("/admin/albums").setViewName("admin/albums");
+        registry.addViewController("/user/index").setViewName("client/user/index");
     }
 
     @Override

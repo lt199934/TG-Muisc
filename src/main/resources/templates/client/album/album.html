@@ -1,51 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>专辑详情页面</title>
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"/>
-    <link rel="stylesheet" href="/music/client/common/css/index.css">
-    <link rel="stylesheet" href="/music/client/common/css/common.css">
-    <link rel="stylesheet" href="/music/client/songList/css/demo.css">
-    <link rel="stylesheet" href="/music/plugin/toastr/toastr.css"/>
-    <link rel="stylesheet" href="/music/client/album/css/bootstrap-grid.min.css"/>
-    <link rel="shortcut icon" href="#"/>
-    <script src="/music/client/common/js/jquery.min.js"></script>
-    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
-    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <style>
-        body {
-            background-color: #FFFFFF;
-            background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
-            radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
-            radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px),
-            radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
-            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-        }
-
-        .navbar-default {
-            background-color: #84AF9B;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            box-shadow: 5px 5px 5px #000;
-        }
-
-        .pagination {
-            margin-left: 30%;
-        }
-
-        dd {
-            padding: 4px;
-        }
-    </style>
-</head>
+<div th:replace="/client/common/include::header('专辑详情页面')"></div>
 <body>
 <div class="container" id="songList">
     <a href="/">
@@ -114,33 +69,13 @@
             </tbody>
         </table>
     </div>
-    <!--        分页-->
-    <div class="row">
-        <nav aria-label="Page navigation " class=" col-md-offset-1">
-            <ul class="pagination">
-
-            </ul>
-        </nav>
-    </div>
+    <!--分页-->
+    <div th:include="/client/common/page::page"></div>
     <!-- footer-->
-    <div class="row">
-        <div class="footer_copyright col-md-12 col-xs-12 col-sm-12" style="width: 100%;">
-            <p class="text-center" style="color: white">
-                <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">涛哥音乐</a> powered by <a
-                    href="https://ltbk.net/" target="_blank">涛哥博客</a>
-                <br>
-                <span class="footer-icp">
-                        <img class="ipc-icon" src="https://ltbk.net/wp-content/themes/CorePress-Pro/static/img/icp.svg"
-                             alt="">
-                        <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2021029431号-2</a>
-                    </span>
-            </p>
-        </div>
-    </div>
+    <div th:include="/client/common/footer::footer"></div>
 </div>
 <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="40%" name="play" frameborder="0"></iframe>
-<script src="/music/plugin/toastr/toastr.min.js"></script>
-<script src="/music/client/common/js/util.js"></script>
+<div th:include="/client/common/include::footer"></div>
 <script src="/music/client/album/js/album.js"></script>
 </body>
 </html>

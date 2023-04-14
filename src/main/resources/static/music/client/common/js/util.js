@@ -44,6 +44,7 @@ $("#music").on("click", "#playOne", function () {
     // alert(window.location.href);
     // var url=window.location.href;
     // alert( url.substring(0,url.indexOf("/")+1))
+    $("#player").css("display","block");
     var songId = $(this).parent().parent().find("#songId").val();
     $(this).attr("href", "/play?temp=song&songId=" + songId);
 });
@@ -71,8 +72,10 @@ function initNav() {
 initNav();
 
 // 登录以后
-function isLoginNav(data) {
-    toastr.success("欢迎您" + data.nickName + "回来(*∩_∩*)")
+function isLoginNav(data,num) {
+    if(num == 0){
+        toastr.success("欢迎您" + data.nickName + "回来(*∩_∩*)")
+    }
     $("#login").css("display", "none");
     $("#register").css("display", "none");
     $("#logout").css("display", "block");
@@ -94,16 +97,15 @@ function isLogin() {
 }
 
 // 首页不需要强制登录
-function isFirst() {
+function isFirst(num) {
     if (null == userId) {
         initNav();
     } else {
         $.ajax({
-            url: "/getUserInfo/" + userId, method: "get", success: function (data) {
+            url: "/user/getUserInfo/" + userId, method: "get", success: function (data) {
                 console.log(data)
                 if ("user is not exited" !== $.trim(data)) {
-                    console.log(typeof(data)=='string')
-                    isLoginNav(data);
+                    isLoginNav(data,num);
                 } else {
                     localStorage.removeItem("userId");
                     initNav();
@@ -118,11 +120,70 @@ $("#logout").click(function () {
     var message = confirm("是否退出登录?");
     if (message === true) {
         $.ajax({
-            url: "/logout", data: {"userId": userId}, method: "post", success: function (data) {
+            url: "/user/logout", data: {"userId": userId}, method: "post", success: function (data) {
                 location.href = data;
                 localStorage.removeItem("userId");
             }
         });
     }
 });
+
+//分页
+function makePage(data,type) {
+    if (data.list.length != 0) {
+        console.log(data)
+        var pageNums = data.navigatepageNums;
+        if (data.pages == 1) {
+            return;
+        } else {
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Next' href='javascript:"+type+"(" + 1 + ");'><span aria-hidden=\"true\">首页</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
+        }
+        //是否由上一页
+        if (data.hasPreviousPage == true) {
+            var pageNum = data.pageNum - 1;
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Previous' href='javascript:"+type+"(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
+        } else {
+            $li = $("<li class='disabled'></li>");
+            $btn = $("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
+        }
+        // 页数
+        for (var i = 0; i < pageNums.length; i++) {
+            var pageNum = pageNums[i];
+            $li = $("<li></li>");
+            $btn = $("<a href='javascript:"+type+"(" + pageNum + ");'>" + pageNum + "</a>");
+            $li.append($btn);
+            $(".pagination").append($li);
+        }
+        if (data.hasNextPage == true) {
+            var pageNum = data.pageNum + 1;
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Next' href='javascript:"+type+"(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
+        } else {
+            $li = $("<li class='disabled'></li>");
+            $btn = $("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
+        }
+
+        if (data.isLastPage != true) {
+            var pageNum = data.pages;
+            $li = $("<li></li>");
+            $btn = $("<a aria-label='Next' href='javascript:"+type+"(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");
+            $li.append($btn);
+            $(".pagination").append($li);
+        }
+    } else {
+        $(".pagination").empty();
+    }
+}
 

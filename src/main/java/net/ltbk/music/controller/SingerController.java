@@ -2,46 +2,45 @@ package net.ltbk.music.controller;
 
 import com.github.pagehelper.PageHelper;
 import net.ltbk.music.bean.Singer;
+import net.ltbk.music.common.Result;
 import net.ltbk.music.service.SingerService;
 import net.ltbk.music.utils.FileHandleUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Date;
-
-@Controller
+/**
+ * @author liutao
+ */
+@RequestMapping("/singer")
+@RestController
 public class SingerController {
+
     @Autowired
     private SingerService singerService;
 
     //多条件查询歌手
-    @RequestMapping("/selectAllSingers")
-    @ResponseBody
-    public Object selectAllSingers(Singer singer, Date startDate, Date endDate, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
+    @PostMapping("/page")
+    public Result<Singer> findPage(Singer singer, Date startDate, Date endDate, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
         System.out.println("pageNum:" + pageNum);
         System.out.println("pageSize" + pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
-        return singerService.selectSingerByExample(singer, startDate, endDate).toPageInfo();
+        return Result.success(singerService.selectSingerByExample(singer, startDate, endDate).toPageInfo());
     }
 
-    // 通过id查询歌手所有信息
+//    // 通过id查询歌手所有信息
 //    @RequestMapping("/singer/{singerId}")
-//    @ResponseBody
 //    public Singer selectAllBySingerId(@PathVariable("singerId") String singerId) {
 //        System.out.println(singerId);
 //        return singerService.selectAllBySingerId(Integer.parseInt(singerId.trim()));
 //    }
 
     //添加歌手
-    @RequestMapping("/insertOneSinger")
-    @ResponseBody
+    @PostMapping("/insertOneSinger")
     public Object insertSinger(Singer singer, @Param("img") MultipartFile img) throws IOException {
         int i = 0;
         System.out.println(singer);

@@ -1,11 +1,15 @@
 package net.ltbk.music.bean;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+@ApiModel("歌手")
+@TableName("singer")
 public class Singer implements Serializable {
     private Integer singerId;
 

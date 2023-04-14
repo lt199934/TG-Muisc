@@ -1,10 +1,13 @@
 package net.ltbk.music.bean;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
 
 import java.util.Date;
 import java.util.List;
-
+@ApiModel("专辑")
+@TableName("album")
 public class Album {
     private Integer albumId;
 

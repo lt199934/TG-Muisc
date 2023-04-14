@@ -1,5 +1,6 @@
 package net.ltbk.music.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import net.ltbk.music.bean.User;
 import net.ltbk.music.mapper.UserMapper;
 import net.ltbk.music.service.UserService;
@@ -11,7 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
+
     @Autowired
     private UserMapper userMapper;
 

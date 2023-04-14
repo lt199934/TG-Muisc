@@ -18,9 +18,10 @@ function getSongList(pageNum) {
             var songList = data;
             var songDto = data.songDto;
             $("#songListImg").attr("src", songList.imgUrl);
-            $(".songList__name").html(songList.songList + '<span class="badge" style="margin-top: -16px;">' + songDto.length + '</span>');
+            $(".songList__name").html(songList.songList + '<span class="badge" style="margin-top: -7px;">' + songDto.length + '</span>');
             $("#introduction").html(songList.introduction);
             $("#time").html(songList.time);
+            $(".songList__number").html(songList.songDto.length + "首歌");
             $("#user").html("<a href=/user?userId=" + songList.userId + ">" + songList.createUser + "</a>");
             var content = "";
             for (var j = 0; j < data.fenLeis.length; j++) {
@@ -35,7 +36,7 @@ function getSongList(pageNum) {
             for (var i = 0; i < songDto.length; i++) {
                 con += "<tr class='song'>";
                 con += "<td>" + (i + 1) + "</td>";
-                con += "<td class='text-center'><img class='img-responsive center-block' src=" + songDto[i].albumUrl + " /></td>";
+                con += "<td class='center-block'><img style='width: 64px;height: 64px' class='img-rounded' src=" + songDto[i].albumUrl + " /></td>";
                 con += "<td>" + songDto[i].song + "</td>";
                 con += "<td><a href='/music/user/singer/singer.html?singerId=" + songDto[i].singerId + "'>" + songDto[i].singerName + "</a></td>";
                 con += "<td><a href='/music/user/album/album.html?albumId=" + songDto[i].albumId + "'>" + songDto[i].albumName + "</td>";

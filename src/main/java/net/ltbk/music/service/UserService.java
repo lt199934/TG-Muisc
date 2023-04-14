@@ -1,13 +1,17 @@
 package net.ltbk.music.service;
 
-import net.ltbk.music.bean.User;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.pagehelper.Page;
+import net.ltbk.music.bean.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
 
-public interface UserService {
+/**
+ * @author liutao
+ */
+public interface UserService extends IService<User> {
     //登录
     User login(User user);
 

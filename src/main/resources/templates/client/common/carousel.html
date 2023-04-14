@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>轮播</title>
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap-3.4.1-dist/css/bootstrapValidator.css"/>
-    <link rel="stylesheet" href="/music/client/css/index.css">
-    <link rel="stylesheet" href="/music/client/css/common.css">
-    <link rel="stylesheet" type="text/css" href="/music/client/songList/css/demo.css">
-    <link rel="stylesheet" href="/music/client/songList/css/gedan.css">
-    <link rel="stylesheet" type="text/css" href="/music/client/albums/css/zhuanjistyle.css">
-    <link rel="stylesheet" href="/music/client/albums/css/wudengfen.css">
-    <link rel="stylesheet" href="/music/client/albums/css/shoujigedan.css">
-    <link rel="stylesheet" type="text/css" href="/music/client/singers/css/singers.css">
-    <link rel="shortcut icon" href="#"/>
-    <link rel="stylesheet" type="text/css" href="/music/client/albums/css/bootstrap-grid.min.css"/>
-    <script src="/music/client/js/jquery.min.js"></script>
-    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
-    <script src="/music/plugin/bootstrap-3.4.1-dist/js/bootstrapValidator.js"></script>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-
+<div th:fragment="carousel">
+    <!--轮播图-->
+    <div class="carousel slide" data-inteval="500" data-ride="carousel" id="myCarousel">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+            <li data-slide-to="1" data-target="#myCarousel"></li>
+            <li data-slide-to="2" data-target="#myCarousel"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img alt="First slide" class="img-responsive" src="/songs/1.jpg">
+            </div>
+            <div class="item">
+                <img alt="Second slide" class="img-responsive" src="/songs/2.jpg">
+            </div>
+            <div class="item">
+                <img alt="Third slide" class="img-responsive" src="/songs/3.jpg">
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button">
+            <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" data-slide="next" href="#myCarousel" role="button">
+            <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 $(function () {
-    isFirst();
+    isFirst(0);
     getAlbums(1);
     getSongLists(1);
     getSongs(1);
@@ -19,7 +19,7 @@ function getAlbums(pageNum) {
             var albums = data.list;
             console.log("精选专辑", data);
             for (var i = 0; i < albums.length; i++) {
-                var content = "<div class='col-xs-6 col-sm-6 col-md-2' >";
+                var content = "<div class='col-xs-4 col-sm-3 col-md-2' >";
                 content += "<div class='box'>";
                 content += "<div class='box-img'>";
                 content += "<img src='" + albums[i].albumImg + "' />";
@@ -45,15 +45,14 @@ function getSongLists(pageNum) {
         "url": "/allSongLists", method: "post", data: data, success: function (data) {
             $("#songLists").empty();
             var songList = data.list;
-            console.log("精选歌单", data);
             for (var i = 0; i < songList.length; i++) {
-                var content = "<div  class='col-xs-6 col-sm-6 col-md-2 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
-                content += "<a target='_blank' rel='opener'  href=javascript:void(0);><img class='img-responsive' src='" + songList[i].imgUrl + "' alt='sample image'></a>";
+                let content = "<div  class='col-xs-4 col-sm-4 col-md-3 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
+                content += "<a target='_blank' rel='opener'  href=javascript:void(0);><img class='img-responsive img-rounded' src='" + songList[i].imgUrl + "' alt='sample image'></a>";
                 content += "<a target='_blank' rel='opener' href=javascript:void(0);><span class='item-desc'>" + songList[i].songList + "</span></a>";
-                content += "<input type='hidden' id='songListId' value='" + songList[i].songListId + "'></div>";
+                content += "<input type='hidden' id='songListId' value='" + songList[i].songListId + "'>";
+                content += "</div>";
                 $("#songLists").append(content);
             }
-
         }
     });
 }
@@ -61,29 +60,34 @@ function getSongLists(pageNum) {
 //新歌精选
 function getSongs(pageNum) {
     var data = {
-        "pageNum": pageNum, "pageSize": 6,
+        "pageNum": pageNum, "pageSize": 4,
     }
     $.ajax({
         "url": "/allSongs", method: "post", data: data, success: function (data) {
+            $("#music").empty();
             var songs = data.list;
-            console.log("新歌精选", data);
-            var content = "";
             for (var i = 0; i < songs.length; i++) {
-                content += "<tr>";
-                content += "<td>" + (i + 1) + "</td>";
-                content += "<td><img src=" + songs[i].album.albumImg + " class='img-rounded'></td>";
-                content += "<td>" + songs[i].song + "</td>";
-                content += "<td><a target='_blank' rel='opener' id='singer' href=javascript:void(0);>" + songs[i].singer.singerName + "</a><input type='hidden' id='singerId' value='" + songs[i].singer.singerId + "'></td>";
-                content += "<td><span class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px'></span></td>";
-                content += "<td><a id='playOne' target='play' href=javascript:void(0);><span id='play' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
+                let content = "<div class='col-xs-6 col-sm-4 col-md-3  media' style='padding: 15px;padding-top: 0;'>";
+                content += "<a class='pull-left' href='#'><img alt='' class='media-object img-rounded' src='"+songs[i].album.albumImg+"' style='width: 64px;height: 64px;'></a>";
+                content += "<div style='padding: 10px;' class='media-body mx-auto'>";
+                content += "<div>";
+                content += "<h5 class='media-heading''>"+songs[i].song+"</h5>";
+                content += "<small class='text-muted'>"+songs[i].singer.singerName+"</small>";
+                content += "<div>";
+                content += "<a id='playOne' target='play' style='color:cyan;font-size: 16px;text-decoration: none' class='glyphicon glyphicon-play' href=javascript:void(0);></a>";
+                content += "<span class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px;margin-left: 5px;cursor: pointer'></span>";
+                content += "</div>'"
+                content += "</div>";
+                content += "</div>";
                 content += "<input type='hidden' id='songId' value=" + songs[i].songId + ">";
+                content += "</div>";
+                $("#music").append(content);
             }
-            $("#music").html(content);
             //收藏歌曲状态
             if (null != userId) {
                 $(".collect").each(function (i, n) {
                     $.ajax({
-                        url: "/songStatus", method: "post", data: {
+                        url: "/user/songStatus", method: "post", data: {
                             "userId": userId, "songId": songs[i].songId
                         }, success: function (data) {
                             console.log(data);
@@ -107,17 +111,17 @@ function getSingers(pageNum) {
     }
     console.log(pageNum);
     $.ajax({
-        "url": "/selectAllSingers", method: "post", data: data, success: function (data) {
+        "url": "/singer/page", method: "post", data: data, success: function (res) {
             console.log("歌手信息", data);
-            var singers = data.list;
+            var singers = res.data.list;
             for (var i = 0; i < singers.length; i++) {
-                var content = "<div class='col-sm-6 col-md-4'>";
-                content += "<div class='thumbnail'>"
-                content += "<img style='width: 350px;height: 350px'  src=" + singers[i].imgUrl + " alt=" + singers[i].singerName + ">";
+                let content = "<div class='col-xs-4 col-sm-4 col-md-3'>";
+                content += "<div class='thumbnail '>"
+                content += "<img style='height: 147px'  src=" + singers[i].imgUrl + " alt=" + singers[i].singerName + "/>";
                 content += "<div class='aption'>";
-                content += "<h3>" + singers[i].singerName + "</h3>";
+                content += "<h4>" + singers[i].singerName + "</h4>";
                 content += "<p style='overflow: hidden;white-space: nowrap;text-overflow: ellipsis'>" + singers[i].intrduction + "</p>";
-                content += "<p><a href='javascript:void(0);' id='home' class='btn btn-primary' role='button'>主页</a> <a href='#' class='btn btn-default' role='button'>Button</a></p>";
+                content += "<p><a href='javascript:void(0);' id='home' class='btn btn-primary' role='button'>主页</a></p>";
                 content += "</div>";
                 content += "</div>";
                 content += "<input type='hidden' id='singerId' value=" + singers[i].singerId + "></div>";
@@ -140,7 +144,7 @@ $("#music").on("click", ".collect", function () {
             $(this).css("color", "red");
             $(this).addClass("glyphicon glyphicon-heart collect");
             $.ajax({
-                url: "/collectSongs",
+                url: "/user/collectSongs",
                 method: "post",
                 data: {"userId": user.userId, "songId": num},
                 success: function (data) {
@@ -155,7 +159,7 @@ $("#music").on("click", ".collect", function () {
             $(this).css("color", "");
             $(this).addClass("glyphicon glyphicon-heart-empty collect");
             $.ajax({
-                url: "/delCollectedSongs",
+                url: "/user/delCollectedSongs",
                 method: "post",
                 data: {"userId": user.userId, "songId": num},
                 success: function (data) {

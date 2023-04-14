@@ -1,5 +1,6 @@
 package net.ltbk.music.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import net.ltbk.music.bean.User;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Param;
@@ -7,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.Date;
 import java.util.List;
 
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
     int deleteByPrimaryKey(Integer userId);
 
     int insert(User record);

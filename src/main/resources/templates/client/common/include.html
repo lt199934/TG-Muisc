@@ -1,0 +1,39 @@
+<!-- 通用CSS -->
+<head th:fragment=header(title)>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title th:text="${title}"></title>
+	<link th:href="@{#}" rel="shortcut icon"/>
+
+<!--	bootstrap样式-->
+	<link th:href="@{/music/plugin/bootstrap/css/bootstrap.css}" rel="stylesheet">
+	<link th:href="@{/music/plugin/bootstrap/css/bootstrap-theme.css}" rel="stylesheet">
+	<link th:href="@{/music/plugin/bootstrap/css/bootstrapValidator.css}" rel="stylesheet"/>
+<!--	提示插件-->
+	<link th:href="@{/music/plugin/toastr/toastr.css}" rel="stylesheet"/>
+	<link th:href="@{/music/client/common/css/common.css}" rel="stylesheet">
+	<link th:href="@{/music/client/songList/css/gedan.css}" rel="stylesheet">
+	<link th:href="@{/music/client/album/css/zhuanjistyle.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/music/client/album/css/bootstrap-grid.min.css}" rel="stylesheet" type="text/css"/>
+<!--	jquery-->
+	<script th:src="@{/music/client/common/js/jquery.min.js}"></script>
+<!--	bootstrap-->
+	<script th:src="@{/music/plugin/bootstrap/js/bootstrap.js}"></script>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
+
+<!-- 通用JS -->
+<div th:fragment=footer>
+	<script th:src="@{/music/plugin/toastr/toastr.min.js}"></script>
+	<script th:src="@{/music/client/common/js/util.js}"></script>
+</div>
+<!--表单校验插件-->
+<div th:fragment="bootstrapValidator">
+	<script th:src="@{/music/plugin/bootstrap/js/bootstrapValidator.js}"></script>
+</div>
+<!--提示插件-->
+<div th:fragment="toastr">
+	<script th:src="@{/music/plugin/toastr/toastr.min.js}"></script>
+</div>

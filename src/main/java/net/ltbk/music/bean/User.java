@@ -1,10 +1,13 @@
 package net.ltbk.music.bean;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
 
 import java.util.Date;
 import java.util.List;
-
+@ApiModel("用户")
+@TableName("user")
 public class User {
     private Integer userId;
 
