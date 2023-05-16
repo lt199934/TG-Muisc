@@ -35,12 +35,11 @@ $("#albums").on("click", "a", function () {
 
 $("#songLists").on("click", "a", function () {
     // alert(window.location.href);
-
     var songListId = $(this).parent().find("#songListId").val();
     $(this).attr("href", "/songListDetail?songListId=" + songListId);
 });
 
-$("#music").on("click", "#playOne", function () {
+$("#songs").on("click", "#playOne", function () {
     // alert(window.location.href);
     // var url=window.location.href;
     // alert( url.substring(0,url.indexOf("/")+1))
@@ -130,10 +129,9 @@ $("#logout").click(function () {
 
 //分页
 function makePage(data,type) {
-    if (data.list.length != 0) {
-        console.log(data)
+    if (data.list.length !== 0) {
         var pageNums = data.navigatepageNums;
-        if (data.pages == 1) {
+        if (data.pages === 1) {
             return;
         } else {
             $li = $("<li></li>");
@@ -142,7 +140,7 @@ function makePage(data,type) {
             $(".pagination").append($li);
         }
         //是否由上一页
-        if (data.hasPreviousPage == true) {
+        if (data.hasPreviousPage === true) {
             var pageNum = data.pageNum - 1;
             $li = $("<li></li>");
             $btn = $("<a aria-label='Previous' href='javascript:"+type+"(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
@@ -162,7 +160,7 @@ function makePage(data,type) {
             $li.append($btn);
             $(".pagination").append($li);
         }
-        if (data.hasNextPage == true) {
+        if (data.hasNextPage === true) {
             var pageNum = data.pageNum + 1;
             $li = $("<li></li>");
             $btn = $("<a aria-label='Next' href='javascript:"+type+"(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
@@ -175,7 +173,7 @@ function makePage(data,type) {
             $(".pagination").append($li);
         }
 
-        if (data.isLastPage != true) {
+        if (data.isLastPage !== true) {
             var pageNum = data.pages;
             $li = $("<li></li>");
             $btn = $("<a aria-label='Next' href='javascript:"+type+"(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");

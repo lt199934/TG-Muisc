@@ -2,15 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <title>用户管理</title>
-    <link rel="stylesheet" href="/music/plugin/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/music/plugin/bootstrap/css/bootstrapValidator.css"/>
+    <link href="/music/plugin/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/music/plugin/bootstrap/css/bootstrapValidator.css" rel="stylesheet"/>
     <script src="/music/client/common/js/jquery.min.js"></script>
     <script src="/music/plugin/bootstrap/js/bootstrap.js"></script>
     <script src="/music/plugin/bootstrap/js/bootstrapValidator.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <style>
         body {
             padding-top: 50px;
@@ -32,12 +32,12 @@
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">管理后台</a>
+            <a class="navbar-brand" href="#">管理后台</a>
         </div>
 
         <div class="navbar-collapse collapse">
@@ -68,36 +68,36 @@
         <form action="" id="selectForm">
             <div class="form-group col-xs-12 col-sm-3">
                 <label class="" for="userId">userId</label>
-                <input type="text" class="form-control " id="userId" placeholder="用户id
-          ">
+                <input class="form-control " id="userId" placeholder="用户id
+          " type="text">
             </div>
             <div class="form-group col-xs-12 col-sm-3">
                 <label class="" for="name">账号</label>
-                <input type="text" class="form-control " id="name" placeholder="请输入帐号">
+                <input class="form-control " id="name" placeholder="请输入帐号" type="text">
             </div>
             <div class="form-group col-xs-12 col-sm-3">
                 <label class="" for="userphone">电话</label>
-                <input type="text" class="form-control " id="userphone" placeholder="请输入电话">
+                <input class="form-control " id="userphone" placeholder="请输入电话" type="text">
             </div>
             <div class="form-group col-xs-12 col-sm-3">
                 <label class="" for="useremail">邮箱</label>
-                <input type="text" class="form-control " id="useremail" placeholder="请输入邮箱">
+                <input class="form-control " id="useremail" placeholder="请输入邮箱" type="text">
             </div>
             <div class="form-group col-xs-12 col-sm-3">
                 <label class="" for="sex">性别：</label>
-                <select name="" class="form-control" id="sex">
-                    <option value="" selected="selected">不限</option>
+                <select class="form-control" id="sex" name="">
+                    <option selected="selected" value="">不限</option>
                     <option value="男">男</option>
                     <option value="女">女</option>
                 </select>
             </div>
             <div class="form-group col-xs-12 col-sm-3">
                 <label class="" for="startDate">开始时间：</label>
-                <input type="text" class="form-control " id="startDate" placeholder="请输入开始时间">
+                <input class="form-control " id="startDate" placeholder="请输入开始时间" type="text">
             </div>
             <div class="form-group col-xs-12 col-sm-3">
                 <label class="" for="endDate">结束时间：</label>
-                <input type="text" class="form-control " id="endDate" placeholder="请输入结束时间">
+                <input class="form-control " id="endDate" placeholder="请输入结束时间" type="text">
             </div>
         </form>
     </div>
@@ -106,11 +106,12 @@
             <div class="col-md-12">
 
                 <!-- 按钮触发模态框 -->
-                <button id="getInsertRows" type="button" class="btn btn-success"
-                        data-toggle="modal" data-target="#userModal">添加
+                <button class="btn btn-success" data-target="#userModal" data-toggle="modal"
+                        id="getInsertRows" type="button">添加
                 </button>
-                <table id="grid" data-ajax="true" data-selection="true" data-multi-select="true" data-url="UserSerlvt"
-                       data-toggle="bootgrid" class="table table-condensed table-hover table-striped">
+                <table class="table table-condensed table-hover table-striped" data-ajax="true" data-multi-select="true"
+                       data-selection="true" data-toggle="bootgrid"
+                       data-url="UserSerlvt" id="grid">
                     <thead>
                     <tr>
                         <th data-align="left">ID</th>
@@ -139,12 +140,12 @@
         </div>
         <label>
             每页
-            <select id="pageSize"
-                    aria-controls="DataTables_Table_0" size="1" name="DataTables_Table_0_length">
-                <option selected="selected" value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+            <select aria-controls="DataTables_Table_0"
+                    id="pageSize" name="DataTables_Table_0_length" size="1">
+                <option selected="selected" value="3">3</option>
+                <option value="10">10</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
             </select>
             条记录
         </label>
@@ -161,102 +162,103 @@
 
 </div>
 
-<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLoginLabel">
+<div aria-labelledby="myModalLoginLabel" class="modal fade" id="userModal" role="dialog" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLoginLabel">添加歌手页面</h4>
+                <h4 class="modal-title" id="myModalLoginLabel">添加用户页面</h4>
             </div>
             <div class="modal-body">
                 <form id="registerForm">
                     <div class="form-group">
-                        <label for="account" class="control-label">用户名</label>
+                        <label class="control-label" for="account">用户名</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="account" id="account"
-                                   placeholder="请输入用户名">
+                            <input class="form-control" id="account" name="account" placeholder="请输入用户名"
+                                   type="text">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="userName" class="control-label">姓名</label>
+                        <label class="control-label" for="userName">姓名</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="userName" id="userName"
-                                   placeholder="请输入姓名">
+                            <input class="form-control" id="userName" name="userName" placeholder="请输入姓名"
+                                   type="text">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="pwd" class="control-label">密码</label>
+                        <label class="control-label" for="pwd">密码</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="pwd" id="pwd" placeholder="请输入用户密码">
+                            <input class="form-control" id="pwd" name="pwd" placeholder="请输入用户密码" type="text">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="phone" class="control-label">昵称</label>
+                        <label class="control-label" for="phone">昵称</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="nickName" id="nickName"
-                                   placeholder="请输入手机号">
+                            <input class="form-control" id="nickName" name="nickName" placeholder="请输入手机号"
+                                   type="text">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="phone" class="control-label">手机</label>
+                        <label class="control-label" for="phone">手机</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入手机号">
+                            <input class="form-control" id="phone" name="phone" placeholder="请输入手机号" type="text">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="control-label">邮箱</label>
+                        <label class="control-label" for="email">邮箱</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="email" id="email"
-                                   placeholder="请输入用户邮箱">
+                            <input class="form-control" id="email" name="email" placeholder="请输入用户邮箱"
+                                   type="text">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="personalSignature" class="control-label">个性签名</label>
+                        <label class="control-label" for="personalSignature">个性签名</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="personalSignature" id="personalSignature"
-                                   placeholder="请输入个性签名">
+                            <input class="form-control" id="personalSignature" name="personalSignature"
+                                   placeholder="请输入个性签名"
+                                   type="text">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="sex" class="">性别</label>
+                        <label class="" for="sex">性别</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                            <select name="sex" class="form-control" id="sex">
-                                <option value="" selected="selected">请选择性别</option>
+                            <select class="form-control" id="sexes" name="sex">
+                                <option selected="selected" value="">请选择性别</option>
                                 <option value="男">男</option>
                                 <option value="女">女</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="img" class="">用户头像</label>
+                        <label class="" for="img">用户头像</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
-                            <input type="file" name="img" class="form-control" id="img" placeholder="请上传图片">
+                            <input class="form-control" id="img" name="img" placeholder="请上传图片" type="file">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="birthday" class="">生日</label>
+                        <label class="" for="birthday">生日</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                            <input type="date" name="birthday" class="form-control" id="birthday"
-                                   placeholder="请输入你的生日">
+                            <input class="form-control" id="birthday" name="birthday" placeholder="请输入你的生日"
+                                   type="date">
                         </div>
                     </div>
                 </form>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
-                <input type="button" data-loading-text="添加..." value="添加" class="btn btn-primary" id="subBtn">
+                <button class="btn btn-danger" data-dismiss="modal" type="button">取消</button>
+                <input class="btn btn-primary" data-loading-text="添加..." id="subBtn" type="button" value="添加">
             </div>
         </div>
     </div>
@@ -277,7 +279,7 @@
     function getUsers(pageNum) {
         $(".pagination").empty();
         $("#userBox").empty();
-        var url = "/allUser";
+        var url = "/user/allUser";
         var data = {
             "userId": $("#userId").val(),
             "account": $("#name").val(),
@@ -286,19 +288,20 @@
             "sex": $("#sex").val(),
             "startDate": $("#startDate").val(),
             "endDate": $("#endDate").val(),
-            "pageNum": pageNum,
+            "pageNum": pageNum.toString(),
             "pageSize": $("#pageSize").val(),
         }
-        console.log(data)
         $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             url: url,
             method: "post",
-            data: data,
-            success: function (data) {
-                makePage(data);
-                console.log(data);
-                var users = data.list;
-                console.log("users", users.length)
+            data: JSON.stringify(data),
+            success: function (res) {
+                makePage(res.data, 'getUsers');
+                var users = res.data.list;
                 for (var i = 0; i < users.length; i++) {
                     var $tr = $("<tr>");
                     var $usersid = $("<td>");
@@ -316,8 +319,21 @@
                     var $time = $("<td>");
                     var $upd = $("<td>");
                     var $del = $("<td>");
-                    console.log(users[i].usersid);
-                    $tr.append($usersid.html(users[i].userId)).append($account.html(users[i].account)).append($pwd.html(users[i].pwd)).append($nickName.html(users[i].nickName)).append($phone.html(users[i].phone)).append($email.html(users[i].email)).append($username.html(users[i].userName)).append($sex.html(users[i].sex)).append($headImg.html('<img src="' + users[i].headImg + '" style="width:50px;height:50px;border: 1px solid;">')).append($type.html(users[i].type)).append($personalSignature.html(users[i].personalSignature)).append($birthday.html(users[i].birthday)).append($time.html(users[i].time)).append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" data-target="#singerModal" onclick="upd(' + users[i].userId + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>')).append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del(' + users[i].userId + ')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
+                    $tr.append($usersid.html(users[i].userId))
+                        .append($account.html(users[i].account))
+                        .append($pwd.html(users[i].pwd))
+                        .append($nickName.html(users[i].nickName))
+                        .append($phone.html(users[i].phone))
+                        .append($email.html(users[i].email))
+                        .append($username.html(users[i].userName))
+                        .append($sex.html(users[i].sex))
+                        .append($headImg.html('<img src="' + users[i].headImg + '" style="width:50px;height:50px;border: 1px solid;">'))
+                        .append($type.html(users[i].type))
+                        .append($personalSignature.html(users[i].personalSignature))
+                        .append($birthday.html(users[i].birthday))
+                        .append($time.html(users[i].time))
+                        .append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" data-target="#singerModal" onclick="upd(' + JSON.stringify(users[i]).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>'))
+                        .append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del(' + users[i].userId + ')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
                     $("#userBox").append($tr);
                 }
             }
@@ -325,7 +341,7 @@
     }
 
     $("#subBtn").click(function () {
-        var url = "/userRegister";
+        var url = "/user/userRegister";
         var date = new Date();
         var form = $("#registerForm")[0];
         var time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
@@ -358,7 +374,7 @@
     });
 
     function del(userId) {
-        var url = "/delUser/" + userId;
+        var url = "/user/delUser/" + userId;
         $.ajax({
             url: url,
             method: "DELETE",
@@ -371,11 +387,25 @@
         });
     }
 
-    function upd(userId) {
+    function upd(user) {
+        $("#account").val(user.account);
+        $("#userName").val(user.userName);
+        $("#pwd").val(user.pwd);
+        $("#nickName").val(user.nickName);
+        $("#phone").val(user.phone);
+        $("#email").val(user.email);
+        let sexes = document.getElementById("sexes");
+        for (var i = 0; i < sexes.length; i++) {
+            if (sexes[i].value === user.sex) {
+                sexes[i].selected = true;
+            }
+        }
+        $("#birthday").val(user.birthday);
+        $("#userModal").modal("show");
         if (userId == null) {
 
         } else {
-            var url = "/selectByUserId/" + userId;
+            var url = "/user/selectByUserId/" + userId;
             $.ajax({
                 url: url,
                 method: "UPDATE",
@@ -389,65 +419,6 @@
         }
     }
 
-
-    //分页
-    function makePage(data) {
-        console.log(data)
-        if (data.list.length != 0) {
-            var pageNums = data.navigatepageNums;
-            if (data.pages == 1) {
-                return;
-            } else {
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Next' href='javascript:getUsers(" + 1 + ");'><span aria-hidden=\"true\">首页</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-            //是否由上一页
-            if (data.hasPreviousPage == true) {
-                var pageNum = data.pageNum - 1;
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Previous' href='javascript:getUsers(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            } else {
-                $li = $("<li class='disabled'></li>");
-                $btn = $("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-            // 页数
-            for (var i = 0; i < pageNums.length; i++) {
-                var pageNum = pageNums[i];
-                $li = $("<li></li>");
-                $btn = $("<a href='javascript:getUsers(" + pageNum + ");'>" + pageNum + "</a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-            if (data.hasNextPage == true) {
-                var pageNum = data.pageNum + 1;
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Next' href='javascript:getUsers(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            } else {
-                $li = $("<li class='disabled'></li>");
-                $btn = $("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-
-            if (data.isLastPage != true) {
-                var pageNum = data.pages;
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Next' href='javascript:getUsers(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-        } else {
-            $(".pagination").empty();
-        }
-    }
 </script>
 <script src="/music/plugin/toastr/toastr.min.js"></script>
 <script src="/music/client/common/js/util.js"></script>

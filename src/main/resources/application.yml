@@ -20,17 +20,15 @@ spring:
         encoding: UTF-8
         excluded-view-names: ''
         suffix: .html
-        mode: LEGACYHTML5
+        mode: HTML
         content-type: text/html;charset=utf-8
         cache: false
-        check-template: true
-        check-template-location: true
-        enabled: true
-    resources:
-        static-locations: classpath:/static
     mvc:
         format:
             date-time: yyyy-MM-dd HH:mm:ss
+    web:
+        resources:
+            static-locations: classpath:/static
 
 mybatis:
     type-aliases-package: net.ltbk.music.mapper

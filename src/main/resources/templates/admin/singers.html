@@ -145,13 +145,13 @@
 
 </div>
 
-<div aria-labelledby="myModalLoginLabel" class="modal fade" id="singerModal" role="dialog" tabindex="-1">
+<div aria-labelledby="singerModalLabel" class="modal fade" id="singerModal" role="dialog" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLoginLabel">添加歌手页面</h4>
+                <h4 class="modal-title" id="singerModalLabel">添加歌手页面</h4>
             </div>
             <div class="modal-body">
                 <form id="registerForm">
@@ -193,8 +193,8 @@
                         <label class="control-label" for="Intrduction">歌手介绍：</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input class="form-control" id="Intrduction" name="Intrduction" placeholder="请输入歌手简介"
-                                   type="text">
+                            <textarea class="form-control" id="Intrduction" name="Intrduction" placeholder="请输入歌手简介"
+                            ></textarea>
                         </div>
                     </div>
                 </form>
@@ -222,7 +222,7 @@
 
     function getSingers(pageNum) {
         $("#singerTbody").empty();
-        var url = "/selectAllSingers";
+        var url = "/singer/page";
         var data = {
             "singerName": $("#name").val(),
             "sex": $("#singerSex").val(),
@@ -231,16 +231,18 @@
             "pageNum": pageNum,
             "pageSize": $("#pageSize").val(),
         }
-
         $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             url: url,
             method: "post",
-            data: data,
-            success: function (data) {
+            data: JSON.stringify(data),
+            success: function (res) {
                 $(".pagination").empty();
-                makePage(data);
-                console.log(data);
-                var singer = data.list;
+                makePage(res.data,'getSingers');
+                var singer = res.data.list;
                 for (var i = 0; i < singer.length; i++) {
                     var $tr = $("<tr>");
                     var $singerId = $("<td>");
@@ -253,7 +255,13 @@
                     var $del = $("<td>");
                     console.log(singer[i].singerId);
                     console.log(singer[i].imgUrl);
-                    $tr.append($singerId.html(singer[i].singerId)).append($singerName.html(singer[i].singerName)).append($sex.html(singer[i].sex)).append($imgUrl.html('<img src="' + singer[i].imgUrl + '" style="width:50px;height:50px;border: 1px solid;">')).append($birthday.html(singer[i].birthday)).append($intrduction.html(singer[i].intrduction)).append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" onclick="upd(' + singer[i].singerId + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>')).append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del(' + singer[i].singerId + ')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
+                    $tr.append($singerId.html(singer[i].singerId))
+                        .append($singerName.html(singer[i].singerName))
+                        .append($sex.html(singer[i].sex))
+                        .append($imgUrl.html('<img src="' + singer[i].imgUrl + '" style="width:50px;height:50px;border: 1px solid;">'))
+                        .append($birthday.html(singer[i].birthday)).append($intrduction.html(singer[i].intrduction))
+                        .append($upd.html('<button type="button" class="btn btn-default btn-success btn-sm" onclick="upd(' + JSON.stringify(singer[i]).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 编辑 </button>'))
+                        .append($del.html('<button type="button" class="btn btn-default btn-danger btn-sm" onclick="del(' + singer[i].singerId + ')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除 </button>'));
                     $("#singerTbody").append($tr);
                 }
             }
@@ -308,69 +316,22 @@
             }
         });
     }
-
-    //分页
-    function makePage(data) {
-        if (data.list.length != 0) {
-            console.log(data)
-            var pageNums = data.navigatepageNums;
-            if (data.pages == 1) {
-                return;
-            } else {
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Next' href='javascript:getSingers(" + 1 + ");'><span aria-hidden=\"true\">首页</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
+    function upd(singer) {
+        $("#singerName").val(singer.singerName);
+        $("#Intrduction").val(singer.intrduction);
+        $("#pwd").val(user.pwd);
+        $("#nickName").val(user.nickName);
+        $("#phone").val(user.phone);
+        $("#email").val(user.email);
+        let sexes = document.getElementById("sex");
+        for (var i = 0; i < sexes.length; i++) {
+            if (sexes[i].value === singer.sex) {
+                sexes[i].selected = true;
             }
-            //是否由上一页
-            if (data.hasPreviousPage == true) {
-                var pageNum = data.pageNum - 1;
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Previous' href='javascript:getSingers(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            } else {
-                $li = $("<li class='disabled'></li>");
-                $btn = $("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-            // 页数
-            for (var i = 0; i < pageNums.length; i++) {
-                var pageNum = pageNums[i];
-                $li = $("<li></li>");
-                $btn = $("<a href='javascript:getSingers(" + pageNum + ");'>" + pageNum + "</a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-            if (data.hasNextPage == true) {
-                var pageNum = data.pageNum + 1;
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Next' href='javascript:getSingers(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            } else {
-                $li = $("<li class='disabled'></li>");
-                $btn = $("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-
-            if (data.isLastPage != true) {
-                var pageNum = data.pages;
-                $li = $("<li></li>");
-                $btn = $("<a aria-label='Next' href='javascript:getSingers(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");
-                $li.append($btn);
-                $(".pagination").append($li);
-            }
-        } else {
-            $(".pagination").empty();
         }
-
-    }
-
-    function upd(userId) {
-
+        $("#singerModal").modal("show");
     }
 </script>
+<script src="/music/plugin/toastr/toastr.min.js"></script>
+<script src="/music/client/common/js/util.js"></script>
 </html>

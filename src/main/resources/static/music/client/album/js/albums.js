@@ -19,7 +19,7 @@ function getAlbums(pageNum) {
             makePage(data, 'getAlbums');
             var albums = data.list;
             for (var i = 0; i < albums.length; i++) {
-                var content = "<div class='col-xs-6 col-sm-6 col-md-2' >";
+                var content = "<div class='col-xs-6 col-sm-4 col-md-3' style='padding: 15px;padding-top: 0;'>";
                 content += "<div class='box'>";
                 content += "<div class='box-img'>";
                 content += "<img src=" + albums[i].albumImg + ">";

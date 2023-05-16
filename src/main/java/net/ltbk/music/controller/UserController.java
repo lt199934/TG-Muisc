@@ -3,6 +3,7 @@ package net.ltbk.music.controller;
 import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import net.ltbk.music.vo.UserVo;
 import net.ltbk.music.bean.User;
 import net.ltbk.music.common.Result;
 import net.ltbk.music.service.UserService;
@@ -13,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,13 +116,17 @@ public class UserController {
 
     //多条件显示所有用户
     @PostMapping("/allUser")
-    public Result<User> findAll(@RequestBody User user, Date startDate, Date endDate, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        System.out.println(user);
-        System.out.println("pageNum:" + pageNum);
-        System.out.println("pageSize" + pageSize);
-        System.out.println(startDate + "-" + endDate);
-        PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
-        return Result.success(userService.selectUserByExample(user, startDate, endDate).toPageInfo());
+    public Result<User> findAll(@RequestBody UserVo userVo) {
+        System.out.println("pageNum:" + userVo.getPageNum());
+        System.out.println("pageSize" + userVo.getPageSize());
+        User user = new User();
+        user.setUserId(userVo.getUserId());
+        user.setAccount(userVo.getAccount());
+        user.setPhone(userVo.getPhone());
+        user.setEmail(userVo.getEmail());
+        user.setSex(userVo.getSex());
+        PageHelper.startPage(userVo.getPageNum(), userVo.getPageSize());
+        return Result.success(userService.selectUserByExample(user, userVo.getStartDate(), userVo.getEndDate()).toPageInfo());
     }
 
     //  通过id查询自己创建的歌单
@@ -179,7 +183,6 @@ public class UserController {
 
     //  收藏歌单
     @RequestMapping("/collectSongLists")
-    @ResponseBody
     public Object collectSongLists(@RequestParam("userId") String userId, @RequestParam("songListId") String songListId, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
         return userService.insertSongListsByCollected(Integer.parseInt(userId), Integer.parseInt(songListId));
     }

@@ -4,11 +4,12 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 @ApiModel("用户")
 @TableName("user")
-public class User {
+public class User implements Serializable {
     private Integer userId;
 
     private String nickName;

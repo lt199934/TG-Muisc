@@ -15,6 +15,7 @@ function getSongList(pageNum) {
             $("#fenLei").empty();
             // $("#songs").empty();
             console.log("歌单详情", data);
+            // makePage(data,'getSongList');
             var songList = data;
             var songDto = data.songDto;
             $("#songListImg").attr("src", songList.imgUrl);
@@ -41,15 +42,15 @@ function getSongList(pageNum) {
                 con += "<td><a href='/music/user/singer/singer.html?singerId=" + songDto[i].singerId + "'>" + songDto[i].singerName + "</a></td>";
                 con += "<td><a href='/music/user/album/album.html?albumId=" + songDto[i].albumId + "'>" + songDto[i].albumName + "</td>";
                 con += "<td><span title='收藏音乐' class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px'></span></td>";
-                con += "<td><a id='playOne' target='play' href=/play?temp=song&songId=" + songDto[i].songId + "><span id='play' title='播放音乐' class='glyphicon glyphicon-play' style='color:cyan;font-size: 18px' ></span></a></td>";
+                con += "<td><a id='playOne' class='glyphicon glyphicon-play' target='play' style='color:cyan;font-size: 18px' title='播放音乐' href=javascript:void(0);></a></td>";
                 con += "<input type='hidden' value=" + songDto[i].songId + ">"
                 con += "</tr>";
             }
-            $("#songs").html(con);
+            $("#music").html(con);
             if (null != userId) {
                 $(".collect").each(function (i, n) {
                     $.ajax({
-                        url: "/songStatus", method: "post", data: {
+                        url: "/user/songStatus", method: "post", data: {
                             "userId": userId, "songId": songDto[i].songId
                         }, success: function (data) {
                             console.log(data);
@@ -66,75 +67,15 @@ function getSongList(pageNum) {
     });
 }
 
-//分页
-function makePage(data) {
-    if (data.list.length != 0) {
-        console.log(data)
-        var pageNums = data.navigatepageNums;
-        if (data.pages == 1) {
-            return;
-        } else {
-            $li = $("<li></li>");
-            $btn = $("<a aria-label='Next' href='javascript:getSongList(" + 1 + ");'><span aria-hidden=\"true\">首页</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-        //是否由上一页
-        if (data.hasPreviousPage == true) {
-            var pageNum = data.pageNum - 1;
-            $li = $("<li></li>");
-            $btn = $("<a aria-label='Previous' href='javascript:getSongList(" + pageNum + ");'><span aria-hidden=\"true\">&laquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        } else {
-            $li = $("<li class='disabled'></li>");
-            $btn = $("<a aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-        // 页数
-        for (var i = 0; i < pageNums.length; i++) {
-            var pageNum = pageNums[i];
-            $li = $("<li></li>");
-            $btn = $("<a href='javascript:getSongList(" + pageNum + ");'>" + pageNum + "</a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-        if (data.hasNextPage == true) {
-            var pageNum = data.pageNum + 1;
-            $li = $("<li></li>");
-            $btn = $("<a aria-label='Next' href='javascript:getSongList(" + pageNum + ");'><span aria-hidden=\"true\">&raquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        } else {
-            $li = $("<li class='disabled'></li>");
-            $btn = $("<a aria-label='Next'><span aria-hidden=\"true\">&raquo;</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-
-        if (data.isLastPage != true) {
-            var pageNum = data.pages;
-            $li = $("<li></li>");
-            $btn = $("<a aria-label='Next' href='javascript:getSongList(" + pageNum + ");'><span aria-hidden=\"true\">尾页</span></a>");
-            $li.append($btn);
-            $(".pagination").append($li);
-        }
-    } else {
-        $(".pagination").empty();
-    }
-
-}
-
 //收藏歌单状态
 function isCollectedSongList() {
     $.ajax({
-        url: "/songListStatus",
+        url: "/user/songListStatus",
         method: "post",
         data: {"userId": userId, "songListId": getUrlParam("songListId")},
         success: function (data) {
             console.log(data);
-            if (data == 1) {
+            if (data === 1) {
                 $("#collectSongList").find("span").removeClass("glyphicon-heart-empty");
                 $("#collectSongList").find("span").css("color", "red");
                 $("#collectSongList").find("span").addClass("glyphicon glyphicon-heart");
@@ -150,11 +91,11 @@ $("#collectSongList").click(function () {
     console.log(className)
     if (null != userId) {
         $(this).find("span").removeClass("glyphicon-heart glyphicon-heart-empty");
-        if (className == "glyphicon glyphicon-heart-empty") {
+        if (className === "glyphicon glyphicon-heart-empty") {
             $(this).find("span").css("color", "red");
             $(this).find("span").addClass("glyphicon glyphicon-heart");
             $.ajax({
-                url: "/collectSongLists",
+                url: "/user/collectSongLists",
                 method: "post",
                 data: {"userId": userId, "songListId": getUrlParam("songListId")},
                 success: function (data) {
@@ -168,7 +109,7 @@ $("#collectSongList").click(function () {
             $(this).find("span").css("color", "");
             $(this).find("span").addClass("glyphicon glyphicon-heart-empty");
             $.ajax({
-                url: "/delCollectSongLists",
+                url: "/user/delCollectSongLists",
                 method: "post",
                 data: {"userId": userId, "songListId": getUrlParam("songListId")},
                 success: function (data) {
@@ -185,7 +126,7 @@ $("#collectSongList").click(function () {
     }
 })
 //收藏歌曲
-$("#songs").on("click", ".collect", function () {
+$("#music").on("click", ".collect", function () {
     var num = $(this).parent().parent().find("input[type='hidden']").val();
     var className = $(this).attr("class");
     if (null != userId) {
@@ -196,7 +137,7 @@ $("#songs").on("click", ".collect", function () {
             $(this).css("color", "red");
             $(this).addClass("glyphicon glyphicon-heart collect");
             $.ajax({
-                url: "/collectSongs",
+                url: "/user/collectSongs",
                 method: "post",
                 data: {"userId": userId, "songId": num},
                 success: function (data) {
@@ -212,7 +153,7 @@ $("#songs").on("click", ".collect", function () {
             $(this).css("color", "");
             $(this).addClass("glyphicon glyphicon-heart-empty collect");
             $.ajax({
-                url: "/delCollectedSongs",
+                url: "/user/delCollectedSongs",
                 method: "post",
                 data: {"userId": userId, "songId": num},
                 success: function (data) {
@@ -229,10 +170,13 @@ $("#songs").on("click", ".collect", function () {
 })
 
 //播放量
-$("#song").on("click", "#playOne", function () {
-    var num = $(this).parent().parent().find("input[type='hidden']").val();
+$("#music").on("click", "#playOne", function () {
+    $("#player").css("display","block");
+    var songId = $(this).parent().parent().find("input[type='hidden']").val();
+    console.log(songId);
+    $(this).attr("href", "/play?temp=song&songId=" + songId);
     $.ajax({
-        url: "/updatePlayCount/" + num, method: "post", success: function (data) {
+        url: "/updatePlayCount/" + songId, method: "post", success: function (data) {
             console.log(data);
             if (data == 1) {
                 console.log("播放量加1");
@@ -243,5 +187,6 @@ $("#song").on("click", "#playOne", function () {
 
 //播放全部
 $("#playAll").click(function () {
+    $("#player").css("display","block");
     $(this).attr("href", "/play?temp=songList&songListId=" + getUrlParam("songListId"));
 })

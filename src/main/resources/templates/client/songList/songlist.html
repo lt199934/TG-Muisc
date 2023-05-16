@@ -1,25 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>歌单详情页面</title>
-    <link href="/music/plugin/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="/music/plugin/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-    <link href="/music/plugin/bootstrap/css/bootstrapValidator.css" rel="stylesheet"/>
-    <link href="/music/client/common/css/common.css" rel="stylesheet">
-    <link href="/music/plugin/toastr/toastr.css" rel="stylesheet"/>
-    <link href="/music/client/album/css/bootstrap-grid.min.css" rel="stylesheet"/>
-    <link href="#" rel="shortcut icon"/>
-    <script src="/music/client/common/js/jquery.min.js"></script>
-    <script src="/music/plugin/bootstrap/js/bootstrap.js"></script>
-    <script src="/music/plugin/bootstrap/js/bootstrapValidator.js"></script>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <style>
-        .table > tbody > tr > td{
-            line-height: 10rem;
-        }
-    </style>
-</head>
+<div th:replace="/client/common/include::header('歌单详情页面')"></div>
 <body>
 <div class="container" id="songList">
     <a href="/">
@@ -75,7 +56,7 @@
                     <td>操作</td>
                 </tr>
                 </thead>
-                <tbody class="text-left" id="songs" style="height:80px">
+                <tbody class="text-left" id="music" style="height:80px">
 
 
                 </tbody>

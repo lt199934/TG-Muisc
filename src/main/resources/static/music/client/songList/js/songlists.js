@@ -64,7 +64,7 @@ function getFenSongLists(pageNum, fenId) {
         success: function (data) {
             $(".pagination").empty();
             $("#songLists").empty();
-            makePage(data);
+            makePage(data,'getSongLists');
             console.log(data);
             var songList = data.list;
             if (0 == songList.length) {

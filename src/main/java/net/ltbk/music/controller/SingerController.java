@@ -5,6 +5,7 @@ import net.ltbk.music.bean.Singer;
 import net.ltbk.music.common.Result;
 import net.ltbk.music.service.SingerService;
 import net.ltbk.music.utils.FileHandleUtil;
+import net.ltbk.music.vo.SingerVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,11 +26,12 @@ public class SingerController {
 
     //多条件查询歌手
     @PostMapping("/page")
-    public Result<Singer> findPage(Singer singer, Date startDate, Date endDate, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        System.out.println("pageNum:" + pageNum);
-        System.out.println("pageSize" + pageSize);
-        PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
-        return Result.success(singerService.selectSingerByExample(singer, startDate, endDate).toPageInfo());
+    public Result<Singer> findPage(@RequestBody SingerVo singerVo) {
+        PageHelper.startPage(singerVo.getPageNum(), singerVo.getPageSize());
+        Singer singer = new Singer();
+        singer.setSingerName(singerVo.getSingerName());
+        singer.setSex(singerVo.getSex());
+        return Result.success(singerService.selectSingerByExample(singer, singerVo.getStartDate(), singerVo.getEndDate()).toPageInfo());
     }
 
 //    // 通过id查询歌手所有信息
