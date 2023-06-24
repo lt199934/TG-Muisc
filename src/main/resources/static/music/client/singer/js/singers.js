@@ -8,11 +8,15 @@ function getSingers(pageNum){
         "pageNum": pageNum,
         "pageSize": 3,
     }
-    console.log(pageNum);
+    // console.log(pageNum);
     $.ajax({
-        "url": "/singer/page",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        url: "/singer/page",
         method: "post",
-        data:data,
+        data: JSON.stringify(data),
         success: function (res) {
             $(".pagination").empty();
             $("#singerList").empty();

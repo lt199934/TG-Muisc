@@ -1,6 +1,7 @@
 package net.ltbk.music.controller;
 
 import com.github.pagehelper.PageHelper;
+import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.Album;
 import net.ltbk.music.service.AlbumService;
 import net.ltbk.music.utils.FileHandleUtil;
@@ -16,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
+@Slf4j
 @Controller
 public class AlbumController {
     @Autowired
@@ -25,7 +27,7 @@ public class AlbumController {
     @RequestMapping("/albums/{albumId}")
     @ResponseBody
     public Object selectAllAlbum(@PathVariable("albumId") String albumId, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        System.out.println("albumId:" + albumId);
+        log.info("albumId:" + albumId);
         Album album = albumService.selectAllByAlbumId(Integer.parseInt(albumId));
         album.setCount(albumService.count(Integer.parseInt(albumId)));
         return album;
@@ -35,8 +37,7 @@ public class AlbumController {
     @RequestMapping("/allAlbums")
     @ResponseBody
     public Object selectAllAlbumsByPage(@RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "3") String pageSize) {
-        System.out.println("pageNum:" + pageNum);
-        System.out.println("pageSize" + pageSize);
+       log.info("pageNum:{} pageSize：{}" , pageNum,pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
         return albumService.selectAll().toPageInfo();
     }
@@ -45,7 +46,7 @@ public class AlbumController {
     @RequestMapping("/allAlbum")
     @ResponseBody
     public Object selectAllAlbumsByNoPage() {
-        return albumService.selectAll().toPageInfo();
+        return albumService.selectAll();
     }
 
     //管理员通过id删除专辑

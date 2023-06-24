@@ -4,11 +4,12 @@ import net.ltbk.music.bean.FenLei;
 import net.ltbk.music.bean.SongList;
 import net.ltbk.music.bean.SongListDto;
 import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
-
+@Mapper
 public interface SongListMapper {
     int deleteByPrimaryKey(Integer songListId);
 

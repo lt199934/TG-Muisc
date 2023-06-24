@@ -3,11 +3,12 @@ package net.ltbk.music.controller;
 import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import net.ltbk.music.vo.UserVo;
+import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.User;
 import net.ltbk.music.common.Result;
 import net.ltbk.music.service.UserService;
 import net.ltbk.music.utils.FileHandleUtil;
+import net.ltbk.music.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,13 +18,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Api(tags = "用户接口")
 @RequestMapping("/user")
 @RestController
 public class UserController {
     @Autowired
     private UserService userService;
-    
+
     @ApiOperation("用户登录")
     @PostMapping("/userLogin")
     public Result<User> userLogin(User user, HttpSession session) {
@@ -38,10 +40,39 @@ public class UserController {
         return Result.error("用户名或密码错误");
     }
 
+
+    /***
+     * @MethodName: userRegister
+     * @description: 用户注册
+     * @Author: LiuTao
+     * @Param: [user, img]
+     * @UpdateTime: 2022/11/1 14:50
+     * @Return: int
+     * @Throw: IOException
+     **/
+    @PostMapping("/userRegister")
+    public int userRegister(User user, @RequestParam("img") MultipartFile img) {
+        int register = 0;
+        log.info(img.getOriginalFilename());
+        String fileURL = null;
+        try {
+            fileURL = FileHandleUtil.upload(img.getInputStream(), "headImg/", img.getOriginalFilename());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(fileURL);
+        if (!"".equals(img.getOriginalFilename())) {
+            user.setHeadImg("/headImg/" + img.getOriginalFilename());
+        }
+        log.info("注册用户：" + user);
+        register = userService.register(user);
+        return register;
+    }
+
     @GetMapping("/getUserInfo/{userId}")
     public Object getUserLoginInfo(@PathVariable("userId") String userId, HttpSession session) {
         User user = (User) session.getAttribute(userId);
-        System.out.println("12121" + user);
+        log.info("当前用户：" + user);
         if (null == user) {
             return "                                                                                                                                                                                                                                                                                                                                                                user is not exited";
         }
@@ -56,32 +87,16 @@ public class UserController {
         return "/login";
     }
 
-
-    /***
-     * @MethodName: userRegister
-     * @description: 用户注册
+    /**
+     * @MethodName: checkAccount
+     * @description: 用户重复
      * @Author: LiuTao
-     * @Param: [user, img]
-     * @UpdateTime: 2022/11/1 14:50
-     * @Return: int
-     * @Throw: IOException
+     * @Param: [user]
+     * @UpdateTime: 2023/6/22 19:50
+     * @Return: java.util.Map<java.lang.String, java.lang.Boolean>
+     * @Throw:
      **/
-    @PostMapping("/userRegister")
-    public int userRegister(User user, @RequestParam("img") MultipartFile img) throws IOException {
-        int register = 0;
-        System.out.println(img.getOriginalFilename());
-        String fileURL = FileHandleUtil.upload(img.getInputStream(), "headImg/", img.getOriginalFilename());
-        System.out.println(fileURL);
-        if (!"".equals(img.getOriginalFilename())) {
-            user.setHeadImg("/headImg/" + img.getOriginalFilename());
-        }
-        System.out.println(user);
-        register = userService.register(user);
-        return register;
-    }
-
-    //用户重复
-    @GetMapping("/checkAccount")
+    @PostMapping("/checkAccount")
     public Map<String, Boolean> checkAccount(User user) {
         System.out.println(user);
         User login = userService.selectByAccount(user.getAccount());
@@ -96,13 +111,13 @@ public class UserController {
         return map;
     }
 
-    /*管理员通过id删除用户*/
+    /**管理员通过id删除用户**/
     @GetMapping("/delUser/{userId}")
     public int delUser(@PathVariable("userId") String userId) {
         return userService.delUser(Integer.parseInt(userId));
     }
 
-    //管理员和用户根据指定模版进行用户信息修改
+    /**管理员和用户根据指定模版进行用户信息修改**/
     @PostMapping("/updateUser")
     public int updateUser(User user) {
         return userService.updateUser(user);

@@ -85,7 +85,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     /***
      * @MethodName: addViewControllers
-     * @description: 试图控制器
+     * @description: 视图控制器
      * @Author: LiuTao
      * @Param: [registry]
      * @UpdateTime: 2023/3/9 20:04

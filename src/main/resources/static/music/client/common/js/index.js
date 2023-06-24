@@ -7,45 +7,17 @@ $(function () {
 });
 var col = document.getElementById("collect");
 
-//精选专辑
-function getAlbums(pageNum) {
-    var data = {
-        "pageNum": pageNum, "pageSize": 6,
-    }
-    $.ajax({
-        "url": "/allAlbums", method: "post", data: data, success: function (data) {
-            $("#albums").empty();
-            var albums = data.list;
-            // console.log("精选专辑", data);
-            for (var i = 0; i < albums.length; i++) {
-                var content = "<div class='col-xs-4 col-sm-3 col-md-2' >";
-                content += "<div class='box'>";
-                content += "<div class='box-img'>";
-                content += "<img src='" + albums[i].albumImg + "' />";
-                content += "</div>";
-                content += "<div class='box-content'>";
-                content += "<a target='_blank' rel='opener' href=javascript:void(0);><h4 class='title'>" + albums[i].album + "</h4></a>";
-                content += "</div>";
-                content += "</div>";
-                content += "<input type='hidden' id='albumId' value='" + albums[i].albumId + "'/></div>";
-                $("#albums").append(content);
-            }
-
-        }
-    });
-}
-
 //精选歌单
 function getSongLists(pageNum) {
     var data = {
-        "pageNum": pageNum, "pageSize": 4,
+        "pageNum": pageNum, "pageSize": 4,"fenId": 0,
     }
     $.ajax({
-        "url": "/allSongLists", method: "post", data: data, success: function (data) {
+        "url": "/songList/all", method: "post", data: data, success: function (data) {
             $("#songLists").empty();
             var songList = data.list;
             for (var i = 0; i < songList.length; i++) {
-                let content = "<div  class='col-xs-4 col-sm-4 col-md-3 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
+                let content = "<div  class='col-xs-6 col-sm-6 col-md-3 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
                 content += "<a target='_blank' rel='opener'  href=javascript:void(0);><img class='img-responsive img-rounded' src='" + songList[i].imgUrl + "' alt='sample image'></a>";
                 content += "<a target='_blank' rel='opener' href=javascript:void(0);><span class='item-desc'>" + songList[i].songList + "</span></a>";
                 content += "<input type='hidden' id='songListId' value='" + songList[i].songListId + "'>";
@@ -99,6 +71,34 @@ function getSongs(pageNum) {
                     });
                 });
             }
+        }
+    });
+}
+
+//精选专辑
+function getAlbums(pageNum) {
+    var data = {
+        "pageNum": pageNum, "pageSize": 6,
+    }
+    $.ajax({
+        "url": "/allAlbums", method: "post", data: data, success: function (data) {
+            $("#albums").empty();
+            var albums = data.list;
+            // console.log("精选专辑", data);
+            for (var i = 0; i < albums.length; i++) {
+                var content = "<div class='col-xs-6 col-sm-6 col-md-3' >";
+                content += "<div class='box'>";
+                content += "<div class='box-img'>";
+                content += "<img src='" + albums[i].albumImg + "' />";
+                content += "</div>";
+                content += "<div class='box-content'>";
+                content += "<a target='_blank' rel='opener' href=javascript:void(0);><h4 class='title'>" + albums[i].album + "</h4></a>";
+                content += "</div>";
+                content += "</div>";
+                content += "<input type='hidden' id='albumId' value='" + albums[i].albumId + "'/></div>";
+                $("#albums").append(content);
+            }
+
         }
     });
 }

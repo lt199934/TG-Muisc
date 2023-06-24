@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="client/common/include::header('主页')"></div>
 <body>
-<div class="container">
+<div class="container" style="position: relative">
     <div class="row clearfix">
         <!--   header-->
-        <header class="col-md-12 column" th:include="client/common/header::head"></header>
+        <header class="col-md-12 column"  th:include="client/common/header::head"></header>
         <!--    轮播图-->
         <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
@@ -20,25 +20,7 @@
             <hr class="hx">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <div class="row" id="songLists" style="padding-left: 20px;padding-right: 20px">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--新歌精选-->
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="recom__title">
-                <h2>新歌精选</h2>
-                <a href="/musics">
-                    <span class="recom__more">更多&gt;&gt;</span></a>
-            </div>
-            <hr class="hx">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <div class="row" id="songs" style="padding-left: 20px;padding-right: 20px">
+                    <div class="row" id="songLists" style="display:flex;padding-left: 20px;padding-right: 20px">
 
                     </div>
                 </div>
@@ -57,6 +39,24 @@
             <div class="row clearfix">
                 <div class="col-md-12 column">
                     <div class="row" id="albums" style="padding-left: 20px;padding-right: 20px">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--新歌精选-->
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="recom__title">
+                <h2>新歌精选</h2>
+                <a href="/musics">
+                    <span class="recom__more">更多&gt;&gt;</span></a>
+            </div>
+            <hr class="hx">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row" id="songs" style="padding-left: 20px;padding-right: 20px">
 
                     </div>
                 </div>
@@ -85,9 +85,9 @@
     <div class="row clearfix">
         <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
     </div>
-    <!--        <a class="back-to-top" href="#top" style="position: relative;left: 20px;"> <span class="glyphicon glyphicon-chevron-up"></span>返回 </a>-->
-
 </div>
+<a class="back-to-top" href="#top" style="float:right;position: fixed;bottom:10vh;right:10vw;padding: 20px;background-color: rgb(100, 211, 255);border-radius: 20%"> <span style="color: white;font-size: 25px" class="glyphicon glyphicon-chevron-up"></span></a>
+
 <iframe frameborder="0" height="280px" id="player" name="play" src=""
         style="position: fixed;bottom: 150px;display: none" width="300px"></iframe>
 </body>

@@ -14,7 +14,8 @@
 }
 .box .box-img img{
     width: 100%;
-    height: 155px;
+    height: 190px;
+    box-shadow: 5px 5px 5px #000;
 }
 .box .box-content{
     width: 100%;

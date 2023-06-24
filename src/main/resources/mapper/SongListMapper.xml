@@ -167,7 +167,7 @@
             from songlist a,classic b,fenlei c
         where a.song_list_id=b.song_list_id
         and b.fen_id=c.fen_id
-        <if test="fenId!=0">
+        <if test="fenId != 0">
             and c.fen_id=#{fenId}
         </if>
     </select>

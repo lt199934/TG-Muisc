@@ -25,7 +25,7 @@ function checkRegisterForm(){
                         },
                         threshold: 2,//有2字符以上才发送ajax请求
                             remote: {//ajax验证。server result:{"valid",true or false}
-                                 url: "/checkAccount",
+                                 url: "/user/checkAccount",
                              message: '用户名已存在,请重新输入！',
                                delay: 1000,//ajax刷新的时间是1秒一次
                                 type: 'POST',
