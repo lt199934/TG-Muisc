@@ -14,7 +14,7 @@
         <result column="type" jdbcType="VARCHAR" property="type"/>
         <result column="Personal_signature" jdbcType="VARCHAR" property="personalSignature"/>
         <result column="birthday" jdbcType="DATE" property="birthday"/>
-        <result column="time" jdbcType="DATE" property="time"/>
+        <result column="time" jdbcType="TIMESTAMP" property="time"/>
     </resultMap>
     <resultMap id="songListsByMe" type="net.ltbk.music.bean.User" extends="BaseResultMap">
         <collection property="songlists1" ofType="net.ltbk.music.bean.SongList">
@@ -42,7 +42,7 @@
         <result column="sex" jdbcType="VARCHAR" property="sex"/>
         <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
         <result column="birthday" jdbcType="DATE" property="birthday"/>
-        <result column="intrduction" jdbcType="VARCHAR" property="intrduction"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
     </resultMap>
     <resultMap id="songs" type="net.ltbk.music.bean.User" extends="BaseResultMap">
         <collection property="songs" ofType="net.ltbk.music.bean.Song">
@@ -64,13 +64,21 @@
             <result column="singer_id" jdbcType="INTEGER" property="singerId"/>
             <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
             <result column="company" jdbcType="VARCHAR" property="company"/>
-            <result column="time" jdbcType="DATE" property="time"/>
+            <result column="time" jdbcType="TIMESTAMP" property="time"/>
         </collection>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
         from user
         where user_id = #{userId,jdbcType=INTEGER}
+    </delete>
+    <delete id="delBatchByIds">
+        delete
+        from user
+        where user_id in
+              <foreach collection="list" item="id" separator="," open="(" close=")">
+                  #{id,jdbcType=INTEGER}
+              </foreach>
     </delete>
     <insert id="insert" parameterType="net.ltbk.music.bean.User">
         insert into user
@@ -84,7 +92,8 @@
             <if test="type != null">
                 type,
             </if>
-            Personal_signature, birthday, time
+            Personal_signature,
+            birthday
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -103,8 +112,7 @@
                 #{type,jdbcType=VARCHAR},
             </if>
             #{personalSignature,jdbcType=VARCHAR},
-            #{birthday,jdbcType=DATE},
-            #{time,jdbcType=DATE}
+            #{birthday,jdbcType=DATE}
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.User">
@@ -150,42 +158,58 @@
         where user_id = #{userId,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select user_id,
-               account,
-               pwd,
-               nick_name,
-               phone,
-               email,
-               user_name,
-               sex,
-               head_img,
-               type,
-               Personal_signature,
-               birthday,
-               time
+        select
+            user_id,
+            account,
+            pwd,
+            nick_name,
+            phone,
+            email,
+            user_name,
+            sex,
+            head_img,
+            type,
+            Personal_signature,
+            birthday,
+            time
         from user
         where user_id = #{userId,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
-        select user_id,
-               account,
-               pwd,
-               nick_name,
-               phone,
-               email,
-               user_name,
-               sex,
-               head_img,
-               type,
-               Personal_signature,
-               birthday,
-               time
+        select
+            user_id,
+            account,
+            pwd,
+            nick_name,
+            phone,
+            email,
+            user_name,
+            sex,
+            head_img,
+            type,
+            Personal_signature,
+            birthday,
+            time
         from user
     </select>
 
 
     <select id="selectUserByExample" resultMap="BaseResultMap">
-        select * from user
+        select
+            user_id,
+            account,
+            pwd,
+            nick_name,
+            phone,
+            email,
+            user_name,
+            sex,
+            head_img,
+            type,
+            Personal_signature,
+            birthday,
+            time
+        from user
         <where>
             <if test="user.userId != null and user.userId !=''">
                 user_id = #{user.userId,jdbcType=INTEGER}
@@ -342,7 +366,7 @@
                c.sex,
                c.img_url,
                c.birthday,
-               c.intrduction
+               c.intorduction
         from user a,
              usersingers b,
              singer c

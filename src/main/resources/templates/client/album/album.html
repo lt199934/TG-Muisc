@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<div th:replace="/client/common/include::header('专辑详情页面')"></div>
+<div th:replace="client/common/include::header('专辑详情页面')"></div>
 <body>
 <div class="container" id="songList">
     <a href="/">
@@ -70,12 +70,12 @@
         </table>
     </div>
     <!--分页-->
-    <div th:include="/client/common/page::page"></div>
+    <div th:include="client/common/page::page"></div>
     <!-- footer-->
-    <div th:include="/client/common/footer::footer"></div>
+    <div th:include="client/common/footer::footer"></div>
 </div>
 <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="40%" name="play" frameborder="0"></iframe>
-<div th:include="/client/common/include::footer"></div>
-<script src="/music/client/album/js/album.js"></script>
+<div th:include="client/common/include::footer"></div>
+<script th:src="@{/music/client/album/js/album.js}"></script>
 </body>
 </html>

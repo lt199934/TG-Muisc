@@ -18,10 +18,10 @@ public class Singer implements Serializable {
     private String sex;
 
     private String imgUrl;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date birthday;
 
-    private String intrduction;
+    private String introduction;
     //    一个歌手有多首歌曲 1对多
     private List<Song> songs;
     //    一一个歌手有多张专辑 1对多
@@ -69,12 +69,12 @@ public class Singer implements Serializable {
         this.birthday = birthday;
     }
 
-    public String getIntrduction() {
-        return intrduction;
+    public String getIntroduction() {
+        return introduction;
     }
 
-    public void setIntrduction(String intrduction) {
-        this.intrduction = intrduction;
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     public List<Song> getSongs() {
@@ -103,6 +103,6 @@ public class Singer implements Serializable {
 
     @Override
     public String toString() {
-        return "Singer{" + "singerId=" + singerId + ", singerName='" + singerName + '\'' + ", sex='" + sex + '\'' + ", imgUrl='" + imgUrl + '\'' + ", birthday=" + birthday + ", intrduction='" + intrduction + '\'' + ", songs=" + songs + ", albums=" + albums + ", count=" + count + '}';
+        return "Singer{" + "singerId=" + singerId + ", singerName='" + singerName + '\'' + ", sex='" + sex + '\'' + ", imgUrl='" + imgUrl + '\'' + ", birthday=" + birthday + ", intrduction='" + introduction + '\'' + ", songs=" + songs + ", albums=" + albums + ", count=" + count + '}';
     }
 }

@@ -1,6 +1,7 @@
 package net.ltbk.music.controller;
 
 import net.ltbk.music.bean.Admin;
+import net.ltbk.music.common.Result;
 import net.ltbk.music.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,17 +19,14 @@ public class AdminController {
     //管理员登录
     @RequestMapping("/adminLogin")
     @ResponseBody
-    public Admin userLogin(Admin admin) {
-        Map<String, Object> map = new HashMap<String, Object>();
+    public Result<Admin> userLogin(Admin admin) {
         System.out.println(admin);
         Admin login = adminService.login(admin);
         System.out.println(login);
         if (login == null) {
-            map.put("result", "登录失败");
+            return Result.error("用户名或密码错误");
         } else {
-            map.put("result", "登录成功");
-            map.put("user", login);
+            return Result.success("登录成功",login);
         }
-        return login;
     }
 }

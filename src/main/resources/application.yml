@@ -6,7 +6,7 @@ spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://localhost:3306/music?serverTimezone=UTC
+        url: jdbc:mysql://localhost:3306/music?serverTimezone=GMT%2B8
         username: root
         password: 199934lt
     profiles:
@@ -23,18 +23,32 @@ spring:
         mode: HTML
         content-type: text/html;charset=utf-8
         cache: false
+    jackson:
+        default-property-inclusion: non_null
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
     mvc:
         format:
+            date: yyyy-MM-dd
             date-time: yyyy-MM-dd HH:mm:ss
+            time: HH:mm:ss
     web:
         resources:
             static-locations: classpath:/static
 
+# mybatis配置
 mybatis:
     type-aliases-package: net.ltbk.music.mapper
     mapper-locations: classpath:mapper/*xml
     config-location: classpath:mybatis-config.xml
+# mybatis-plus配置
+mybatis-plus:
+    mapper-locations: classpath:mapper/*xml
+    type-aliases-package: com.tg.admin.entity
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 logging:
-    config: classpath:logback.xml
     file:
-        path: /log
+        path: music.log
+file:
+    uploadPath: F:/软件开发/项目/SpringBoot+Thymeleaf/music/static/upload/

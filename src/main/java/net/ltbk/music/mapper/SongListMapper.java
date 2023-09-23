@@ -2,7 +2,7 @@ package net.ltbk.music.mapper;
 
 import net.ltbk.music.bean.FenLei;
 import net.ltbk.music.bean.SongList;
-import net.ltbk.music.bean.SongListDto;
+import net.ltbk.music.bean.dto.SongListDto;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

@@ -18,8 +18,12 @@ function getSongLists(pageNum) {
             var songList = data.list;
             for (var i = 0; i < songList.length; i++) {
                 let content = "<div  class='col-xs-6 col-sm-6 col-md-3 filtr-item' data-category='2, 3' data-sort='欧美/流行'>";
-                content += "<a target='_blank' rel='opener'  href=javascript:void(0);><img class='img-responsive img-rounded' src='" + songList[i].imgUrl + "' alt='sample image'></a>";
-                content += "<a target='_blank' rel='opener' href=javascript:void(0);><span class='item-desc'>" + songList[i].songList + "</span></a>";
+                content += "<a target='_blank' rel='opener'  href=javascript:void(0);>";
+                content +=    "<img class='img-responsive img-rounded' src='" + songList[i].imgUrl + "' alt='sample image'>";
+                content += "</a>";
+                content += "<a target='_blank' rel='opener' href=javascript:void(0);>";
+                content +=    "<span class='item-desc'>" + songList[i].songList + "</span>";
+                content += "</a>";
                 content += "<input type='hidden' id='songListId' value='" + songList[i].songListId + "'>";
                 content += "</div>";
                 $("#songLists").append(content);
@@ -38,24 +42,28 @@ function getSongs(pageNum) {
             $("#songs").empty();
             var songs = data.list;
             for (var i = 0; i < songs.length; i++) {
-                let content = "<div class='col-xs-6 col-sm-4 col-md-3  media' style='padding: 15px;padding-top: 0;'>";
-                content += "<a class='pull-left' href='#'><img alt='' class='media-object img-rounded' src='" + songs[i].album.albumImg + "' style='width: 64px;height: 64px;'></a>";
-                content += "<div style='padding: 10px;' class='media-body mx-auto'>";
-                content += "<div>";
-                content += "<h5 class='media-heading''>" + songs[i].song + "</h5>";
-                content += "<small class='text-muted'>" + songs[i].singer.singerName + "</small>";
-                content += "<div>";
-                content += "<a id='playOne' target='play' style='color:cyan;font-size: 16px;text-decoration: none' class='glyphicon glyphicon-play' href=javascript:void(0);></a>";
-                content += "<span class='glyphicon glyphicon-heart-empty collect' style='font-size: 16px;margin-left: 5px;cursor: pointer'></span>";
-                content += "</div>'"
-                content += "</div>";
+                let content = "<div class='panel panel-default col-xs-6 col-sm-4 col-md-3' style='box-shadow: 5px 5px 5px #eee'>";
+                content += "<div class='panel-body media ' style='padding: 0 0 15px;'>";
+                content += "<a style='padding: 15px;' class='pull-left' href='#' >";
+                content +="    <img alt='' class='media-object img-rounded' src='" + songs[i].album.albumImg + "' style='width: 94px;height: 94px;'>" ;
+                content +="</a>";
+                content += "<div style='padding: 15px;' class='media-body mx-auto'>";
+                content +=  "<div>";
+                content +=      "<h4 class='media-heading''>" + songs[i].song + "</h4>";
+                content +=      "<small class='text-muted'>" + songs[i].singer.singerName + "</small>";
+                content +=  "<div style='margin-top: 10px'>";
+                content +=  "<a id='playOne' target='play' style='color:cyan;font-size: 18px;text-decoration: none' class='glyphicon glyphicon-play' href=javascript:void(0);></a>";
+                content +=  "<span class='glyphicon glyphicon-heart-empty collect' style='font-size: 18px;margin-left: 5px;cursor: pointer'></span>";
+                content +=  "</div>'"
+                content +=  "</div>";
                 content += "</div>";
                 content += "<input type='hidden' id='songId' value=" + songs[i].songId + ">";
+                content += "</div>";
                 content += "</div>";
                 $("#songs").append(content);
             }
             //收藏歌曲状态
-            if (null != userId) {
+            if (null !== userId) {
                 $(".collect").each(function (i, n) {
                     $.ajax({
                         url: "/user/songStatus", method: "post", data: {
@@ -138,13 +146,15 @@ function getSingers(pageNum) {
 }
 
 //收藏歌曲
-$("#music").on("click", ".collect", function () {
-    var num = $(this).parent().parent().find("input[type='hidden']").val();
+$("#songs").on("click", ".collect", function () {
+    alert("Collect")
+    var num = $(this).parent().parent().parent().find("input[type='hidden']").val();
+
     var className = $(this).attr("class");
     console.log(userId)
     if (null != userId) {
         $(this).removeClass("glyphicon-heart glyphicon-heart-empty collect");
-        if (className == "glyphicon glyphicon-heart-empty collect") {
+        if (className === "glyphicon glyphicon-heart-empty collect") {
             // console.log("你要收藏的歌曲id为" + num)
             $(this).css("color", "red");
             $(this).addClass("glyphicon glyphicon-heart collect");
@@ -154,7 +164,7 @@ $("#music").on("click", ".collect", function () {
                 data: {"userId": user.userId, "songId": num},
                 success: function (data) {
                     console.log(data);
-                    if (data == 1) {
+                    if (data === 1) {
                         toastr.success("收藏成功！")
                     }
                 }
@@ -169,7 +179,7 @@ $("#music").on("click", ".collect", function () {
                 data: {"userId": user.userId, "songId": num},
                 success: function (data) {
                     console.log(data);
-                    if (data == 1) {
+                    if (data === 1) {
                         toastr.info("取消收藏！")
                     }
 
@@ -184,12 +194,12 @@ $("#music").on("click", ".collect", function () {
     }
 })
 //播放量
-$("#music").on("click", "#playOne", function () {
+$("#songs").on("click", "#playOne", function () {
     var num = $(this).parent().parent().parent().parent().find("input[type='hidden']").val();
     $.ajax({
         url: "/updatePlayCount/" + num, method: "post", success: function (data) {
             console.log(data);
-            if (data == 1) {
+            if (data === 1) {
                 console.log("播放量加1");
             }
         }

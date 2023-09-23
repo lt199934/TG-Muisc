@@ -1,9 +1,9 @@
 package net.ltbk.music.service.impl;
 
+import com.github.pagehelper.Page;
 import net.ltbk.music.bean.Song;
 import net.ltbk.music.mapper.SongMapper;
 import net.ltbk.music.service.SongService;
-import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +20,12 @@ public class SongServiceImpl implements SongService {
     }
 
     //后台上传歌曲
-    public int uploadSong(Song song) {
-        return songMapper.insert(song);
+    public int save(Song song) {
+        if (song.getSongId() == null) {
+            return songMapper.insert(song);
+        } else {
+            return songMapper.updateByPrimaryKey(song);
+        }
     }
 
     //后台删除歌曲

@@ -6,13 +6,13 @@
         <result column="song_list" jdbcType="VARCHAR" property="songList"/>
         <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
         <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
-        <result column="time" jdbcType="DATE" property="time"/>
+        <result column="time" jdbcType="TIMESTAMP" property="time"/>
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="account" jdbcType="VARCHAR" property="createUser"/>
     </resultMap>
 
     <resultMap id="songListDto" type="net.ltbk.music.bean.SongList" extends="BaseResultMap">
-        <collection property="songDto" ofType="net.ltbk.music.bean.SongDto">
+        <collection property="songDto" ofType="net.ltbk.music.bean.dto.SongDto">
             <result column="song_id" jdbcType="INTEGER" property="songId"/>
             <result column="song" jdbcType="VARCHAR" property="song"/>
             <result column="url" jdbcType="VARCHAR" property="url"/>
@@ -37,7 +37,7 @@
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
-            from songlist
+        from songlist
         where song_list_id = #{songListId,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="net.ltbk.music.bean.SongList">
@@ -48,11 +48,11 @@
     </insert>
     <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.SongList">
         update songlist
-            set song_list    = #{songList,jdbcType=VARCHAR},
-                introduction = #{introduction,jdbcType=VARCHAR},
-                img_url      = #{imgUrl,jdbcType=VARCHAR},
-                time         = #{time,jdbcType=DATE},
-                user_id      = #{userId,jdbcType=INTEGER}
+        set song_list    = #{songList,jdbcType=VARCHAR},
+            introduction = #{introduction,jdbcType=VARCHAR},
+            img_url      = #{imgUrl,jdbcType=VARCHAR},
+            time         = #{time,jdbcType=DATE},
+            user_id      = #{userId,jdbcType=INTEGER}
         where song_list_id = #{songListId,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -76,46 +76,47 @@
     </select>
 
     <select id="selectAllBySongListId" resultMap="songListDto">
-        select a.song_list_id,
-               a.song_list,
-               a.introduction,
-               a.img_url,
-               a.time,
-               a.user_id,
-               c.song_id,
-               c.song,
-               c.singer_id,
-               c.play_count,
-               c.download_count,
-               c.url,
-               c.language,
-               c.album_id,
-               c.time,
-               d.singer_id,
-               d.singer_name,
-               d.sex,
-               d.img_url,
-               d.birthday,
-               d.intrduction,
-               e.album_id,
-               e.album,
-               e.singer_id,
-               e.album_img,
-               e.introduction,
-               e.company,
-               f.user_id,
-               f.account,
-               f.pwd,
-               f.nick_name,
-               f.phone,
-               f.email,
-               f.user_name,
-               f.sex,
-               f.head_img,
-               f.type,
-               f.Personal_signature,
-               f.birthday,
-               f.time
+        select
+            a.song_list_id,
+            a.song_list,
+            a.introduction,
+            a.img_url,
+            a.time,
+            a.user_id,
+            c.song_id,
+            c.song,
+            c.singer_id,
+            c.play_count,
+            c.download_count,
+            c.url,
+            c.language,
+            c.album_id,
+            c.time,
+            d.singer_id,
+            d.singer_name,
+            d.sex,
+            d.img_url,
+            d.birthday,
+            d.intrduction,
+            e.album_id,
+            e.album,
+            e.singer_id,
+            e.album_img,
+            e.introduction,
+            e.company,
+            f.user_id,
+            f.account,
+            f.pwd,
+            f.nick_name,
+            f.phone,
+            f.email,
+            f.user_name,
+            f.sex,
+            f.head_img,
+            f.type,
+            f.Personal_signature,
+            f.birthday,
+            f.time
         from songlist a,
              songCollect b,
              song c,
@@ -131,7 +132,8 @@
     </select>
 
     <select id="count" resultType="java.lang.Integer">
-        select count(1)
+        select
+            count(1)
         from songCollect a,
              songlist b
         where a.song_list_id = b.song_list_id
@@ -145,8 +147,9 @@
     </select>
 
     <select id="selectFenArrayBySongListId" resultMap="fen">
-        select c.fen_id,
-               c.content
+        select
+            c.fen_id,
+            c.content
         from songlist a,
              classic b,
              fenlei c
@@ -156,15 +159,16 @@
     </select>
 
     <select id="selectFenAll" resultMap="sl">
-        select  a.song_list_id,
-                a.song_list,
-                a.introduction,
-                a.img_url,
-                a.time,
-                a.user_id,
-                c.fen_id,
-                c.content
-            from songlist a,classic b,fenlei c
+        select
+            a.song_list_id,
+            a.song_list,
+            a.introduction,
+            a.img_url,
+            a.time,
+            a.user_id,
+            c.fen_id,
+            c.content
+        from songlist a,classic b,fenlei c
         where a.song_list_id=b.song_list_id
         and b.fen_id=c.fen_id
         <if test="fenId != 0">
@@ -172,11 +176,28 @@
         </if>
     </select>
     <select id="selectSongListByExample" resultMap="BaseResultMap">
-        select song_list, introduction,
-        img_url, time, user_id from songlist
+        select
+            a.song_list_id,
+            a.song_list,
+            a.introduction,
+            a.img_url,
+            a.time,
+            a.user_id,
+            b.account
+        from songlist a,user b
         <where>
+            a.user_id = b.user_id
             <if test="songList.songList != null and songList.songList !=''">
-                song_list = #{songList.songList,jdbcType=INTEGER}
+                and song_list_id = #{songList.songListId,jdbcType=INTEGER}
+            </if>
+            <if test="songList.songList != null and songList.songList !=''">
+                and song_list = #{songList.songList,jdbcType=VARCHAR}
+            </if>
+            <if test="songList.introduction != null and songList.introduction !=''">
+                and introduction = #{songList.introduction,jdbcType=VARBINARY}
+            </if>
+            <if test="songList.imgUrl != null and songList.imgUrl !=''">
+                and img_url = #{songList.imgUrl,jdbcType=VARCHAR}
             </if>
             <if test="start != null">
                 and time >= #{start}
@@ -187,7 +208,7 @@
         </where>
     </select>
 
-    <insert id="insertSongList" parameterType="net.ltbk.music.bean.SongListDto">
+    <insert id="insertSongList" parameterType="net.ltbk.music.bean.dto.SongListDto">
         insert into songlist (song_list, introduction,
                               img_url, time, user_id)
         values (#{songList,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR},

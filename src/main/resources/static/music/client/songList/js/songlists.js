@@ -1,13 +1,21 @@
 $(function () {
+    $('.simplefilter').on("click", "li", function () {
+        var fenId = $(this).find("#fenId").val();
+        getSongLists(1, fenId);
+        $('.simplefilter li').removeClass('active');
+        $(this).addClass('active');
+    });
     isFirst(1);
     getSongLists(1, 0);
     getFenLei();
+    $('.filtr-container').filterizr();
+
 });
 
 function getSongLists(pageNum, fenId) {
     var data = {
         "pageNum": pageNum,
-        "pageSize": 12,
+        "pageSize": 1,
         "fenId": fenId ? fenId : 0,
     }
     $.ajax({
@@ -55,10 +63,4 @@ function getFenLei() {
     });
 }
 
-$('.simplefilter').on("click", "li", function () {
-    var fenId = $(this).find("#fenId").val();
-    getSongLists(1, fenId);
-    $('.simplefilter li').removeClass('active');
-    $(this).addClass('active');
-});
 

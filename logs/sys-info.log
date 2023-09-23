@@ -1,0 +1,19 @@
+2023-09-22 17:53:24.178 [Thread-129] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2023-09-22 17:53:24.235 [Thread-129] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2023-09-22 17:53:24.246 [Thread-129] INFO  o.a.c.c.C.[Tomcat-4].[localhost].[/] - [log,173] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-22 17:53:24.261 [Thread-129] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2023-09-22 17:53:24.266 [Thread-129] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2023-09-22 17:53:24.277 [Thread-129] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-27} closing ...
+2023-09-22 17:53:24.280 [Thread-129] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-27} closed
+2023-09-22 17:53:25.178 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 16440 (F:\软件开发\项目\SpringBoot+Thymeleaf\music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\music)
+2023-09-22 17:53:25.178 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,651] - The following 1 profile is active: "dev"
+2023-09-22 17:53:26.121 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2023-09-22 17:53:26.122 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2023-09-22 17:53:26.122 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-09-22 17:53:26.364 [restartedMain] INFO  o.a.c.c.C.[Tomcat-4].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2023-09-22 17:53:26.386 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2023-09-22 17:53:26.395 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-28} inited
+2023-09-22 17:53:27.106 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2023-09-22 17:53:28.704 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 3.592 seconds (JVM running for 113711.724)
+2023-09-22 18:14:52.878 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-28} closing ...
+2023-09-22 18:14:52.882 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-28} closed

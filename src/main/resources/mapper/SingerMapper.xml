@@ -7,7 +7,7 @@
         <result column="sex" jdbcType="VARCHAR" property="sex"/>
         <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
         <result column="birthday" jdbcType="DATE" property="birthday"/>
-        <result column="intrduction" jdbcType="VARCHAR" property="intrduction"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
     </resultMap>
 
     <resultMap id="singer" type="net.ltbk.music.bean.Singer" extends="BaseResultMap">
@@ -32,61 +32,65 @@
             <result column="time" jdbcType="DATE" property="time"/>
         </collection>
     </resultMap>
+    <insert id="add" parameterType="net.ltbk.music.bean.Singer">
+        insert into singer (singer_name, sex,
+                            img_url, birthday, introduction)
+        values (#{singerName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
+                #{imgUrl,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{introduction,jdbcType=VARCHAR})
+    </insert>
     <!--根据歌手id，进行删除-->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <delete id="del" parameterType="java.lang.Integer">
         delete
         from singer
         where singer_id = #{singerId,jdbcType=INTEGER}
     </delete>
 
-    <update id="updateByExampleAnSingerId" parameterType="net.ltbk.music.bean.Singer">
+    <update id="update" parameterType="net.ltbk.music.bean.Singer">
         update singer
-        set
-        <if test="singer.singerName != null and singer.singerName !=''">
-            and singer_name = #{singer.singerName,jdbcType=VARCHAR},
-        </if>
-        <if test="singer.sex != null and singer.sex !=''">
-            and sex = #{singer.sex,jdbcType=VARCHAR},
-        </if>
-        <if test="singer.imgUrl != null and singer.imgUrl !=''">
-            and img_url = #{singer.imgUrl,jdbcType=VARCHAR},
-        </if>
-        <if test="singer.intrduction != null and singer.intrduction !=''">
-            and intrduction = #{singer.intrduction,jdbcType=VARCHAR},
-        </if>
-        <if test="singer.birthday != null">
-            and birthday = #{birthday,jdbcType=DATE},
-        </if>
+        <set>
+            <if test="singer.singerName != null and singer.singerName !=''">
+                singer_name = #{singer.singerName,jdbcType=VARCHAR},
+            </if>
+            <if test="singer.sex != null and singer.sex !=''">
+                sex = #{singer.sex,jdbcType=VARCHAR},
+            </if>
+            <if test="singer.imgUrl != null and singer.imgUrl !=''">
+                img_url = #{singer.imgUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="singer.intrduction != null and singer.intrduction !=''">
+                introduction = #{singer.introduction,jdbcType=VARCHAR},
+            </if>
+            <if test="singer.birthday != null">
+                birthday = #{singer.birthday,jdbcType=DATE},
+            </if>
+        </set>
         where singer_id = #{singer.singerId,jdbcType=INTEGER}
     </update>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select singer_id, singer_name, sex, img_url, birthday, intrduction
+        select singer_id, singer_name, sex, img_url, birthday, introduction
         from singer
         where singer_id = #{singerId,jdbcType=INTEGER}
     </select>
-    <select id="selectAll" resultMap="BaseResultMap">
-        select singer_id, singer_name, sex, img_url, birthday, intrduction
+
+    <select id="list" resultMap="BaseResultMap">
+        select singer_id, singer_name, sex, img_url, birthday, introduction
         from singer
     </select>
+
     <select id="selectAllBySingerId" resultMap="singer">
-        select singer_id, singer_name, sex, img_url, birthday, intrduction, count(*) as count
-        from singer a, song b, album c
-        where c.album_id=b.album_id
-          and b.singer_id=a.singer_id
-          and a.singer_id=#{singerId,jdbcType=INTEGER}
+        select singer_id, singer_name, sex, img_url, birthday, introduction, count(*) as count
+        from singer a,
+             song b,
+             album c
+        where c.album_id = b.album_id
+          and b.singer_id = a.singer_id
+          and a.singer_id = #{singerId,jdbcType=INTEGER}
     </select>
 
-    <insert id="insertSinger" parameterType="net.ltbk.music.bean.Singer">
-        insert into singer (singer_name, sex,
-                            img_url, birthday, intrduction)
-        values (#{singerName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
-                #{imgUrl,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{intrduction,jdbcType=VARCHAR})
-    </insert>
-
-    <select id="selectSingerByExample" resultMap="BaseResultMap">
+    <select id="page" resultMap="BaseResultMap">
         select
-            singer_id, singer_name, sex, img_url, birthday, intrduction
+        singer_id, singer_name, sex, img_url, birthday, introduction
         from singer
         <where>
             <if test="singer.singerId != null and singer.singerId !=''">
@@ -101,8 +105,8 @@
             <if test="singer.imgUrl != null and singer.imgUrl !=''">
                 and img_url = #{singer.imgUrl,jdbcType=VARCHAR}
             </if>
-            <if test="singer.intrduction != null and singer.intrduction !=''">
-                and intrduction = #{singer.intrduction,jdbcType=VARCHAR}
+            <if test="singer.introduction != null and singer.introduction !=''">
+                and introduction = #{singer.introduction,jdbcType=VARCHAR}
             </if>
             <if test="start != null">
                 and birthday >= #{start}
@@ -113,9 +117,4 @@
         </where>
     </select>
 
-
-    <select id="AllSinger" resultMap="BaseResultMap">
-        select singer_id, singer_name, sex, img_url, birthday, intrduction
-        from singer
-    </select>
 </mapper>

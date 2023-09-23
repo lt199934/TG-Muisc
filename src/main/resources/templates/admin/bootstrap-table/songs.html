@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="client/common/include::admin_header('歌曲管理')"></div>
+<body>
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/header::head"></header>
+<div class="container-fluid">
+    <aside class="col-md-1" th:include="admin/layout/aside::aside"></aside>
+    <main class="col-md-11">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="/admin/index">Home</a></li>
+                    <li class="active">歌曲管理</li>
+                </ol>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" id="selectForm">
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="id" for="id">songId</label>
+                                <input class="form-control" id="id" placeholder="歌曲id" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2">
+                                <label class="" for="name">歌曲名：</label>
+                                <input class="form-control " id="name" placeholder="请输入名称" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2">
+                                <label class="" for="singer">歌手</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
+                                    <select class="form-control singerName" id="singer" name="singer">
+                                        <option selected="selected" value="">请选择歌手</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-groupcol-xs-12 col-sm-2 col-md-3 col-lg-2">
+                                <label class="" for="language1">语种</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
+                                    <select class="form-control" id="language1" name="language ">
+                                        <option selected="selected" value="">不限</option>
+                                        <option value="中文">中文</option>
+                                        <option value="日文">日文</option>
+                                        <option value="英语">英语</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-1">
+                                <label class="" for="playCount">播放次数</label>
+                                <input class="form-control " id="play_count" placeholder="请输入名称" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-1">
+                                <label class="" for="downloadCount">下载次数</label>
+                                <input class="form-control " id="download_count" placeholder="请输入名称" type="text">
+                            </div>
+                            <div class="form-group form-group col-xs-12 col-sm-2 col-md-3 col-lg-1">
+                                <label class="" for="startDate">开始时间</label>
+                                <input class="form-control " id="startDate" placeholder="请输入开始时间"
+                                       type="datetime-local">
+                            </div>
+                            <div class="form-group form-group col-xs-12 col-sm-2 col-md-3 col-lg-1">
+                                <label class="" for="endDate">结束时间</label>
+                                <input class="form-control " id="endDate" placeholder="请输入结束时间"
+                                       type="datetime-local">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">歌曲信息</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div id="toolbar">
+                                <!-- 按钮触发模态框 -->
+                                <button class="btn btn-primary"
+                                        data-target="#songModal"
+                                        data-toggle="modal"
+                                        id="getInsertRows"
+                                        onclick="init()"
+                                        type="button"><i class="glyphicon glyphicon-plus"></i> 添加
+                                </button>
+                                <button class="btn btn-warning"
+                                        id="reset"
+                                        onclick="resetForm()"
+                                        type="button">重置
+                                </button>
+                            </div>
+                            <table id="dataTable" class="table table-hover table-striped table-bordered"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<footer class="navbar navbar-fixed-bottom text-center bg-primary">
+    <p>
+        <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">涛哥音乐</a> powered by <a
+            href="https://ltbk.net/" target="_blank">涛哥博客</a>
+    </p>
+</footer>
+<!--dialog-->
+<div aria-labelledby="songModalLabel" class="modal fade" id="songModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="songModalLabel">添加歌曲页面</h4>
+            </div>
+            <div class="modal-body">
+                <form id="uploadSongForm">
+                    <div class="row">
+                        <div class="form-group songId col-md-4">
+                            <label class="control-label" for="songId">ID</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control" id="songId" name="songId" placeholder="请输入用户ID"
+                                       readonly
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="song">歌曲名</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control" id="song" name="song" placeholder="请输入歌曲名称"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="singerName">歌手</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-info-sign"></span></span>
+                                <select class="form-control singerName" id="singerName" name="singerId">
+                                    <option selected="selected" value="">请选择歌手</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="albumName">专辑</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-cd"></span></span>
+                                <select class="form-control" id="albumName" name="albumId">
+                                    <option selected="selected" value="">请选择专辑</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="language">语种</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-info-sign"></span></span>
+                                <select class="form-control" id="language" name="language">
+                                    <option selected="selected" value="">请选择语种</option>
+                                    <option value="汉语古风">汉语古风</option>
+                                    <option value="汉语流行">汉语流行</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="url">播放路径</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-paperclip"></span></span>
+                                <input class="form-control" id="url" name="url" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="songPath">歌曲文件</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+                                <input class="form-control" id="songPath" name="songPath" placeholder="请选择上传的歌曲"
+                                       type="file">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="playCount">播放数量</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-play"></span></span>
+                                <input class="form-control" id="playCount" name="playCount" placeholder="请输入播放量"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="songPath">下载数量</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-download"></span></span>
+                                <input class="form-control" id="downloadCount" name="downloadCount" placeholder="请输入下载量"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="" for="time">发布时间</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                                <input class="form-control" id="time" name="time" placeholder="请输入你的生日"
+                                       type="datetime-local">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal" type="button">取消</button>
+                <input class="btn btn-primary" data-loading-text="添加..." id="subBtn" type="button" value="添加">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<div th:include="client/common/include::footer"></div>
+<script src="/music/admin/js/isLogin.js"></script>
+<script>
+    let albums = document.getElementById("albumName");
+    let singers = document.getElementById("singerName");
+    let $uploadSongForm = $("#uploadSongForm");
+    let $url = $("#url");
+    let $songModal= $("#songModal");
+    let $songModalLabel= $("#songModalLabel");
+    $("#dataTable").bootstrapTable({
+        url: "/selectSongByExample",   //请求后台的URL（*）
+        method: 'get',  //请求方式（*）
+        dataType: "json",
+        toolbar: '#toolbar', //
+        striped: true, // 是否显示行间隔色
+        cache: false,   // 是否缓存
+        sortable: true, // 是否启用排序
+        sortOrder: "asc", // 排序方式
+        search: false, // 是否显示搜索
+        sidePagination: "server",
+        pagination: true,
+        showPaginationSwitch: true, //显示切换分页
+        pageNumber: 1,
+        pageSize: 2,
+        pageList: [1, 2, 3],
+        showFullscreen: true, //显示全屏
+        showHeader: true, //显示头部，默认显示
+        showExport: true, //显示导出
+        showColumns: true, //是否显示所有的列
+        showRefresh: true, //是否显示刷新按钮
+        minimumCountColumns: 2,             //最少允许的列数
+        clickToSelect: true,                //是否启用点击选中行
+        //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+        showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+        cardView: false,                    //是否显示详细视图
+        detailView: false,                  //是否显示父子表
+        queryParams: function (params) {
+            return {
+                "songId": $("#id").val(),
+                "song": $("#name").val(),
+                "sex": $("#singerSex").val(),
+                "company": $("#album_company").val(),
+                "startDate": $("#startDate").val(),
+                "endDate": $("#endDate").val(),
+                "pageNum": (params.offset / params.limit) + 1,
+                "pageSize": params.limit
+            }
+        },
+        onLoadSuccess: function (res) {
+            // console.log(res)
+        },
+        onLoadError: function () {
+            showTips("数据加载失败！");
+        },
+        responseHandler: function (res) {
+            console.log(res)
+            return {
+                total: res.data.total,
+                rows: res.data.list
+            }
+        },
+        columns: [
+            {checkbox: true},
+            {title: 'ID', field: 'songId'},
+            // {
+            //     title: '歌曲图片', field: 'imgUrl', formatter(value) {
+            //         return "<img src='" + value + "' alt='加载中。。。' style='width:50px;height:50px;border: 1px solid;'>";
+            //     }
+            // },
+            {title: '歌曲', field: 'song'},
+            {title: '创建人',field: 'singer.singerName'},
+            {title: '播放量',field: 'playCount'},
+            {title: '下载量',field: 'downloadCount'},
+            {title: '播放地址',field: 'url'},
+            {title: '专辑',field: 'album.album'},
+            {title: '语种',field: 'language'},
+            {title: '发布时间',field: 'time'},
+            {
+                title: '操作', formatter: function (value, row, index) {
+                    // console.log(row)
+                    let res = "<button class='btn btn-sm btn-info' onclick='showDetailModal(" + row + ")' >详情</button>&nbsp;";
+                    res += "<button class='btn btn-sm btn-primary' onclick='edit(" + JSON.stringify(row).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ")'>修改</button>&nbsp;";
+                    res += "<button class='btn btn-sm btn-danger' onclick='del(" + index + ")'>删除</button>";
+                    return res;
+                }
+            }],
+
+    })
+    $(function () {
+        allSingers();
+        allAlbums();
+        $("#selectForm").change(function () {
+            $("#dataTable").bootstrapTable('refresh');
+        });
+    });
+
+    const init = () => {
+        $("#myModalLoginLabel").html("songModalLabel");
+        $("#subBtn").val("添加");
+        $(".songId").css('display', 'none');
+        $("#url").parent().parent().css('display', 'none');
+        $("#songPath").parent().parent().css('display', 'block');
+        $uploadSongForm[0].reset();
+        $uploadSongForm.data('bootstrapValidator').destroy();
+        $uploadSongForm.data('bootstrapValidator', null);
+
+    };
+
+    const resetForm = () => {
+        $("#selectForm")[0].reset();
+        $("#dataTable").bootstrapTable('refresh');
+    };
+
+
+    function allSingers() {
+        $.ajax({
+            url: "/singer/all",
+            method: "post",
+            success: function (data) {
+                console.log("歌手", data);
+                for (var i = 0; i < data.length; i++) {
+                    var $singer = $("<option value=" + data[i].singerId + ">" + data[i].singerName + "</option>");
+                    $(".singerName").append($singer)
+                }
+            }
+        });
+    };
+
+    function allAlbums() {
+        $("#albumName").empty();
+        $.ajax({
+            url: "/allAlbum",
+            method: "post",
+            success: function (data) {
+                console.log("专辑", data);
+                var albums = data
+                for (var i = 0; i < albums.length; i++) {
+                    var $album = $("<option value=" + albums[i].albumId + ">" + albums[i].album + "</option>");
+                    $("#albumName").append($album);
+                }
+            }
+        });
+    }
+    // 根据歌手动态改变专辑
+    $("#singerName").change(function () {
+        $("#albumName").empty();
+        var singerId = $("#singerName").val();
+        if (singerId === "") {
+            allAlbums();
+            return;
+        }
+        $.ajax({
+            url: "/SelAlbum/" + singerId,
+            method: "post",
+            success: function (data) {
+                console.log("改变", data);
+                for (var i = 0; i < data.list.length; i++) {
+                    var $album = $("<option value=" + data.list[i].albumId + ">" + data.list[i].album + "</option>");
+                    $("#albumName").append($album);
+                }
+            }
+        });
+    });
+
+    $("#subBtn").click(function () {
+        var url = "/uploadSong";
+        var date = new Date();
+        var form = $uploadSongForm[0];
+        var time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+        console.log(time);
+        var formData = new FormData(form);
+        formData.append("time", time);
+        console.log(formData);
+        // $('#registerForm').data('bootstrapValidator').validate();//手动开启验证
+        // var flag = $('#registerForm').data('bootstrapValidator').isValid();//
+        // console.log(flag);
+        $.ajax({
+            url: url,
+            method: "post",
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data);
+                if (data.code === 200) {
+                    $("#songModal").modal("hide");
+                    toastr.success(data.msg, null, {positionClass: "toast-top-center"});
+                }else {
+                    toastr.error(data.msg, null, {positionClass: "toast-top-center"});
+                }
+                getSongs(1);
+                $uploadSongForm[0].reset();
+                $uploadSongForm.data('bootstrapValidator').resetForm();
+            }
+        });
+    });
+
+    function del(songId) {
+        alert(songId)
+        $.ajax({
+            url: "/delSong/" + songId,
+            method: "post",
+            success: function (data) {
+                console.log(data);
+                if (data == 1) {
+                    alert("删除成功！");
+                    getSongs();
+                }
+            }
+        });
+    }
+
+    const edit = (song) => {
+        $(".songId").css('display', 'block')
+        $("#songId").val(song.songId);
+        $("#songPath").parent().parent().css('display', 'none');
+        $url.parent().parent().css('display', 'block');
+        $songModalLabel.val("修改歌曲页面");
+        $("#subBtn").val("更新");
+        $("#song").val(song.song);
+        $("#playCount").val(song.playCount);
+        $("#downloadCount").val(song.downloadCount);
+        for (var i = 0; i < singers.length; i++) {
+            if (singers[i].value === song.singer.singerId.toString()) {
+                singers[i].selected = true;
+            }
+        }
+        let languages = document.getElementById("language");
+        for (var i = 0; i < languages.length; i++) {
+            if (languages[i].value === song.language) {
+                languages[i].selected = true;
+            }
+        }
+        for (var i = 0; i < albums.length; i++) {
+            if (albums[i].value === song.album.albumId.toString()) {
+                console.log(albums[i].value)
+                albums[i].selected = true;
+            }
+        }
+        $url.val(song.url);
+        $("#time").val(song.time);
+        $songModal.modal('show');
+
+    }
+</script>
+</html>

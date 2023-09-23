@@ -1,0 +1,482 @@
+2023-09-20 09:46:12.866 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 09:46:12.870 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 09:46:12.870 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 09:46:20.599 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:46:20.600 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:47:44.690 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:47:44.690 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:47:46.118 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:47:46.118 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:47:46.287 [http-nio-8081-exec-6] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:47:46.287 [http-nio-8081-exec-6] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:47:46.463 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:47:46.463 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:47:46.840 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:47:46.841 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:49:29.964 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:49:29.964 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:50:51.056 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:50:51.056 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:50:51.733 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:50:51.734 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:54:04.254 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:54:04.256 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:54:48.423 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:54:48.424 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:54:48.954 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 09:54:48.955 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 09:55:42.458 [http-nio-8081-exec-5] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 09:56:45.700 [http-nio-8081-exec-7] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 09:57:29.655 [http-nio-8081-exec-9] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:00:38.642 [http-nio-8081-exec-1] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:01:16.801 [http-nio-8081-exec-8] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:01:44.555 [http-nio-8081-exec-6] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:01:48.309 [http-nio-8081-exec-4] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:01:50.293 [http-nio-8081-exec-3] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:01:50.294 [http-nio-8081-exec-3] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:01:50.294 [http-nio-8081-exec-3] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:01:51.459 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:01:51.459 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:01:51.459 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:01:53.656 [http-nio-8081-exec-8] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:01:56.362 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:01:56.362 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:01:56.362 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:01:57.306 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:01:57.306 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:01:57.306 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:02:43.170 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:02:43.170 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:02:43.171 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:02:43.370 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:02:43.371 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:02:43.371 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:02:47.272 [http-nio-8081-exec-5] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:02:49.850 [http-nio-8081-exec-6] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:09:15.470 [http-nio-8081-exec-5] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:09:42.854 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:09:42.854 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:09:42.854 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:09:57.131 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:09:57.132 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:09:57.132 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:10:16.513 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:10:16.514 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:10:16.514 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:10:19.167 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:10:19.167 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:10:19.167 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:10:19.549 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:10:19.592 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:10:19.592 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:10:35.219 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:10:35.220 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:10:35.220 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:10:39.006 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 10:10:39.006 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 10:10:42.758 [http-nio-8081-exec-4] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:13:16.646 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-70} closing ...
+2023-09-20 10:13:16.646 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-70} closed
+2023-09-20 10:13:22.596 [background-preinit] INFO  o.h.validator.internal.util.Version - [<clinit>,27] - HV000001: Hibernate Validator 5.1.2.Final
+2023-09-20 10:13:22.622 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 15684 (F:\软件开发\项目\SpringBoot+Thymeleaf\music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\music)
+2023-09-20 10:13:22.623 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,651] - The following 1 profile is active: "dev"
+2023-09-20 10:13:25.238 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2023-09-20 10:13:25.239 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2023-09-20 10:13:25.239 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-09-20 10:13:25.324 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2023-09-20 10:13:25.492 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2023-09-20 10:13:25.640 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-1} inited
+2023-09-20 10:13:27.587 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2023-09-20 10:13:29.438 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 7.471 seconds (JVM running for 9.379)
+2023-09-20 10:13:31.320 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-20 10:13:40.637 [http-nio-8081-exec-6] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:14:00.728 [http-nio-8081-exec-8] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:14:14.786 [http-nio-8081-exec-5] INFO  n.l.music.controller.UserController - [findPage,147] - pageNum：1 pageSize：6
+2023-09-20 10:14:28.734 [http-nio-8081-exec-2] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:14:28.736 [http-nio-8081-exec-2] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:14:28.737 [http-nio-8081-exec-2] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:14:34.742 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:14:34.743 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:14:34.743 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:14:36.279 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 10:14:36.279 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 10:14:39.672 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:14:39.672 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:14:39.672 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:17:27.730 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:17:27.731 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:17:27.731 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:17:54.950 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:17:54.951 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:17:54.951 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:19:29.610 [http-nio-8081-exec-2] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=8, downloadCount=null, url='null', language='汉语古风', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:19:29.610 [http-nio-8081-exec-2] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:19:29.610 [http-nio-8081-exec-2] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:19:32.627 [http-nio-8081-exec-3] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='汉语古风', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:19:32.638 [http-nio-8081-exec-3] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:19:32.638 [http-nio-8081-exec-3] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:26.945 [http-nio-8081-exec-6] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:20:26.945 [http-nio-8081-exec-6] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:20:26.945 [http-nio-8081-exec-6] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:30.427 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:20:30.428 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:20:30.428 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:34.362 [http-nio-8081-exec-10] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=0, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:20:34.362 [http-nio-8081-exec-10] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:20:34.362 [http-nio-8081-exec-10] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:36.346 [http-nio-8081-exec-5] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:20:36.347 [http-nio-8081-exec-5] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:20:36.347 [http-nio-8081-exec-5] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:39.131 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=6, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:20:39.131 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:20:39.131 [http-nio-8081-exec-4] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:41.038 [http-nio-8081-exec-6] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:20:41.038 [http-nio-8081-exec-6] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:20:41.038 [http-nio-8081-exec-6] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:42.615 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:20:42.615 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:20:42.616 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:20:59.517 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:20:59.517 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:20:59.518 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:21:11.584 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:21:11.585 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:21:11.585 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:21:50.787 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:21:50.787 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:21:50.788 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:21:50.965 [http-nio-8081-exec-5] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:21:50.965 [http-nio-8081-exec-5] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:21:50.966 [http-nio-8081-exec-5] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:22:16.350 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:22:16.351 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:22:16.351 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:24:07.056 [http-nio-8081-exec-8] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:24:07.056 [http-nio-8081-exec-8] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:24:07.056 [http-nio-8081-exec-8] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:24:12.566 [http-nio-8081-exec-10] INFO  n.l.music.controller.SongController - [selectSongByExample,31] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null, songlists=null, album=null, singer=null}
+2023-09-20 10:24:12.566 [http-nio-8081-exec-10] INFO  n.l.music.controller.SongController - [selectSongByExample,32] - null-null
+2023-09-20 10:24:12.566 [http-nio-8081-exec-10] INFO  n.l.music.controller.SongController - [selectSongByExample,33] - pageNum：1 pageSize：6
+2023-09-20 10:24:13.283 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 10:24:13.283 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 10:24:13.283 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 10:24:14.032 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 10:24:14.032 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 11:38:54.737 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 11:38:54.740 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 11:38:54.740 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 11:52:56.183 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 11:52:56.183 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 11:52:56.184 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:01:44.486 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:01:44.486 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:01:44.487 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:05:14.623 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-1} closing ...
+2023-09-20 12:05:14.627 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-1} closed
+2023-09-20 12:05:20.877 [background-preinit] INFO  o.h.validator.internal.util.Version - [<clinit>,27] - HV000001: Hibernate Validator 5.1.2.Final
+2023-09-20 12:05:20.888 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 20532 (F:\软件开发\项目\SpringBoot+Thymeleaf\music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\music)
+2023-09-20 12:05:20.889 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,651] - The following 1 profile is active: "dev"
+2023-09-20 12:05:22.998 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2023-09-20 12:05:22.999 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2023-09-20 12:05:22.999 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-09-20 12:05:23.133 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2023-09-20 12:05:23.296 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2023-09-20 12:05:23.374 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-1} inited
+2023-09-20 12:05:25.226 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2023-09-20 12:05:27.609 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 7.131 seconds (JVM running for 9.66)
+2023-09-20 12:10:58.438 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-20 12:10:59.108 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:10:59.110 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:10:59.110 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:11:15.782 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:11:15.783 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:11:15.783 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:37:58.412 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [allSongLists,43] - pageNum：1 pageSize：1
+2023-09-20 12:37:58.413 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [allSongLists,45] - 0
+2023-09-20 12:48:07.290 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:48:07.290 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:48:07.290 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:48:12.546 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:48:12.546 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:48:12.546 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:48:13.126 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 12:48:13.126 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 12:48:15.348 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:48:15.348 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:48:15.348 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:48:16.223 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 12:48:16.223 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 12:49:25.485 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 12:49:25.485 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 12:49:31.202 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:49:31.202 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:49:31.203 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:49:34.029 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=2, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:49:34.029 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:49:34.030 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:49:39.844 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=3, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:49:39.845 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:49:39.845 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:49:41.319 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:49:41.319 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:49:41.319 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:49:44.260 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=1, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:49:44.260 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:49:44.262 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:49:47.701 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=3, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:49:47.701 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:49:47.701 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:49:48.836 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:49:48.837 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:49:48.837 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:50:21.000 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=1, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 12:50:21.000 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 12:50:21.001 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 12:51:23.755 [Thread-12] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2023-09-20 12:51:23.756 [Thread-12] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2023-09-20 12:51:23.757 [Thread-12] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-20 12:51:23.758 [Thread-12] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2023-09-20 12:51:23.761 [Thread-12] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2023-09-20 12:51:23.764 [Thread-12] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-1} closing ...
+2023-09-20 12:51:23.765 [Thread-12] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-1} closed
+2023-09-20 12:51:23.933 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 20532 (F:\软件开发\项目\SpringBoot+Thymeleaf\music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\music)
+2023-09-20 12:51:23.933 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,651] - The following 1 profile is active: "dev"
+2023-09-20 12:51:24.199 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2023-09-20 12:51:24.199 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2023-09-20 12:51:24.199 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-09-20 12:51:24.209 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2023-09-20 12:51:24.257 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2023-09-20 12:51:24.266 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-2} inited
+2023-09-20 12:51:24.867 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2023-09-20 12:51:26.353 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 2.449 seconds (JVM running for 2768.405)
+2023-09-20 20:18:11.098 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-20 20:18:11.317 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 20:18:11.317 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 20:18:11.318 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 20:39:56.477 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 20:39:56.478 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 20:39:56.478 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 20:40:03.248 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 20:40:03.248 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 20:40:03.248 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 20:40:05.078 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 20:40:05.079 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 20:40:07.462 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 20:40:07.462 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 20:40:07.463 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 20:40:17.178 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 20:40:17.178 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 20:57:18.758 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 20:57:18.759 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 20:57:19.412 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 20:57:19.412 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 20:57:19.757 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 20:57:19.758 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 20:57:21.444 [http-nio-8081-exec-6] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 20:57:21.444 [http-nio-8081-exec-6] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 21:21:29.608 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,62] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2023-09-20 21:21:29.609 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [selectSongListByExample,63] - 0
+2023-09-20 21:21:30.579 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:21:30.580 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:21:30.581 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:21:37.520 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:21:37.521 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:21:37.521 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:22:27.256 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:22:27.256 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:22:27.256 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:23:06.043 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:23:06.043 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:23:06.044 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:23:36.196 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:23:36.197 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:23:36.197 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:24:05.920 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:24:05.921 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:24:05.921 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:25:56.542 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:25:56.542 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:25:56.542 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:26:46.195 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:26:46.196 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:26:46.196 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:26:46.204 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:26:46.205 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:26:46.205 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:29:10.125 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:29:10.125 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:29:10.126 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:29:10.184 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:29:10.184 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:29:10.185 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:30:28.739 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:28.739 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:28.739 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:30:28.768 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:28.768 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:28.769 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:30:44.586 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:44.586 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:44.586 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:30:44.606 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:44.606 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:44.607 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:30:45.476 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:45.477 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:45.477 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:30:45.502 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:45.502 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:45.503 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:30:45.832 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:45.833 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:45.833 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:30:45.857 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:45.858 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:45.858 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:30:55.499 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:55.499 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:55.499 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:30:55.512 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:30:55.512 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:30:55.512 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:34:27.341 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:34:27.342 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:34:27.342 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:34:27.350 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:34:27.350 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:34:27.351 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:34:28.111 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:34:28.111 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:34:28.112 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:34:28.126 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:34:28.126 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:34:28.127 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:34:43.351 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:34:43.351 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:34:43.351 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:34:43.369 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:34:43.370 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:34:43.370 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:36:50.995 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:36:50.996 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:36:50.996 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:36:51.022 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:36:51.022 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:36:51.023 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:36:56.937 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:36:56.937 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:36:56.937 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:37:01.881 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:37:01.881 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:37:01.881 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:37:02.939 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:37:02.939 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:37:02.939 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:37:02.951 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:37:02.951 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:37:02.951 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:37:54.263 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:37:54.263 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:37:54.263 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:37:54.275 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:37:54.276 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:37:54.276 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:37:55.174 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:37:55.174 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:37:55.174 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:37:55.180 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:37:55.180 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:37:55.180 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:38:48.143 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:38:48.144 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:38:48.144 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：6
+2023-09-20 21:38:48.953 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:38:48.953 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:38:48.954 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:38:56.817 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:38:56.817 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:38:56.817 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:49:07.146 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:49:07.147 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:49:07.147 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:49:51.248 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:49:51.248 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:49:51.249 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:51:05.302 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:51:05.302 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:51:05.303 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:51:48.111 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:51:48.112 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:51:48.112 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:52:14.191 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:52:14.191 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:52:14.191 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:52:31.160 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:52:31.161 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:52:31.161 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:52:46.977 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:52:46.977 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:52:46.977 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:53:04.044 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:53:04.045 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:53:04.045 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:53:26.931 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:53:26.932 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:53:26.932 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 21:53:33.765 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 21:53:33.765 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 21:53:33.766 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:19:39.535 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:19:39.536 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:19:39.536 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:23:29.017 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:23:29.017 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:23:29.018 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:24:12.925 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:24:12.925 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:24:12.925 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:30:45.909 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:30:45.910 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:30:45.910 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:31:43.115 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:31:43.116 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:31:43.117 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:33:03.865 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:33:03.865 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:33:03.865 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:34:12.624 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:34:12.624 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:34:12.624 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:35:02.723 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:35:02.723 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:35:02.723 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:36:56.086 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:36:56.087 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:36:56.087 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:37:37.563 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:37:37.563 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:37:37.563 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:40:18.755 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:40:18.755 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:40:18.755 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:41:42.191 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:41:42.191 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:41:42.191 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:42:42.316 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:42:42.317 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:42:42.317 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:45:53.647 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:45:53.648 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:45:53.648 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:46:13.214 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:46:13.215 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:46:13.215 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：1 pageSize：1
+2023-09-20 23:47:08.158 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:47:08.158 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:47:08.159 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：2 pageSize：0
+2023-09-20 23:47:48.149 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:47:48.150 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:47:48.150 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：2 pageSize：0
+2023-09-20 23:55:35.298 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,64] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2023-09-20 23:55:35.299 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,65] - null-null
+2023-09-20 23:55:35.299 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [selectAlbum,66] - pageNum：2 pageSize：0

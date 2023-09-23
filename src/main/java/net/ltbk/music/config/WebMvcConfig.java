@@ -106,22 +106,22 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/singers").setViewName("client/singer/singers");
         registry.addViewController("/albums").setViewName("client/album/albums");
         registry.addViewController("/albumDetail").setViewName("client/album/album");
-        registry.addViewController("singerDetail").setViewName("client/singer/singer");
+        registry.addViewController("/singerDetail").setViewName("client/singer/singer");
         registry.addViewController("/songListDetail").setViewName("client/songList/songlist");
         registry.addViewController("/login").setViewName("client/user/login");
         registry.addViewController("/play").setViewName("client/play/player");
+        registry.addViewController("/rankingList").setViewName("client/rankingList/rankingLists");
         registry.addViewController("/iframe/musics").setViewName("client/iframe/song/songs");
         registry.addViewController("/iframe/songLists").setViewName("client/iframe/songList/songlists");
         registry.addViewController("/iframe/singers").setViewName("client/iframe/singer/singers");
         registry.addViewController("/iframe/albums").setViewName("client/iframe/album/albums");
         registry.addViewController("/admin").setViewName("admin/adminLogin");
-        registry.addViewController("/admin/users").setViewName("admin/users");
-        registry.addViewController("/admin").setViewName("admin/adminLogin");
-        registry.addViewController("/admin/users").setViewName("admin/users");
-        registry.addViewController("/admin/songs").setViewName("admin/songs");
-        registry.addViewController("/admin/songLists").setViewName("admin/songLists");
-        registry.addViewController("/admin/singers").setViewName("admin/singers");
-        registry.addViewController("/admin/albums").setViewName("admin/albums");
+        registry.addViewController("/admin/index").setViewName("admin/index");
+        registry.addViewController("/admin/users").setViewName("admin/bootstrap-table/users");
+        registry.addViewController("/admin/songs").setViewName("admin/bootstrap-table/songs");
+        registry.addViewController("/admin/songLists").setViewName("admin/bootstrap-table/songLists");
+        registry.addViewController("/admin/singers").setViewName("admin/bootstrap-table/singers");
+        registry.addViewController("/admin/albums").setViewName("admin/bootstrap-table/albums");
         registry.addViewController("/user/index").setViewName("client/user/index");
     }
 

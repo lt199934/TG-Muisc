@@ -1,18 +1,26 @@
 package net.ltbk.music.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.Page;
+import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.User;
+import net.ltbk.music.common.Constants;
+import net.ltbk.music.common.Result;
+import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.mapper.UserMapper;
 import net.ltbk.music.service.UserService;
-import com.github.pagehelper.Page;
+import org.apache.commons.collections4.queue.CircularFifoQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.SQLNonTransientException;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -22,11 +30,32 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
         return userMapper.selectByAccountAndPwd(user.getAccount(), user.getPwd());
     }
 
+    @Override
+    public boolean saveUser(User user) {
+        int i = 0;
+        if (user.getUserId() == null) {
+            User newuser = userMapper.selectByAccount(user.getAccount());
+            log.info("数据库用户：{}",newuser);
+            if (newuser == null) {
+                try {
+                    i = userMapper.insert(user);
+                }catch (Exception e) {
+                    throw new ServiceException(Constants.CODE_ERROR,"业务异常");
+                }
+            }else {
+                throw new ServiceException(Constants.CODE_ERROR,"用户重复");
+            }
+        } else {
+            i = userMapper.updateByPrimaryKey(user);
+        }
+        return i != 0;
+    }
+
     //注册
     public int register(User user) {
         int insert = 0;
         User newuser = userMapper.selectByAccount(user.getAccount());
-        System.out.println(newuser);
+        log.info("数据库用户：{}", newuser);
         if (newuser == null) {
             insert = userMapper.insert(user);
         } else {
@@ -40,9 +69,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
         return userMapper.deleteByPrimaryKey(userid);
     }
 
-    //按照指定模版修改用户信息
-    public int updateUser(User user) {
-        return userMapper.updateByPrimaryKey(user);
+    @Override
+    public Boolean delBatch(List<Integer> ids) {
+        return userMapper.delBatchByIds(ids) == 1 ? true : false;
     }
 
     //通过id查询个人信息
@@ -90,15 +119,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     }
 
     public int selectAlbumStatus(int userId, int albumId) {
-        return userMapper.selectAlbumStatus(userId,albumId);
+        return userMapper.selectAlbumStatus(userId, albumId);
     }
 
     public int selectSongListStatus(int userId, int songListId) {
-        return userMapper.selectSongListStatus(userId,songListId);
+        return userMapper.selectSongListStatus(userId, songListId);
     }
 
     public int selectSongStatus(int userId, int songId) {
-        return userMapper.selectSongStatus(userId,songId);
+        return userMapper.selectSongStatus(userId, songId);
     }
 
     // 收藏歌曲
@@ -153,6 +182,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     public List<User> selAllUser() {
         return userMapper.selAllUser();
     }
-
 
 }

@@ -10,7 +10,7 @@ public interface SongService {
     Page<Song> selectAll();
 
     // 后台管理添加音乐
-    int uploadSong(Song song);
+    int save(Song song);
 
     //后台听过歌曲id删除
     int deleteSongById(int songId);

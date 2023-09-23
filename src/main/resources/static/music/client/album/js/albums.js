@@ -6,7 +6,7 @@ $(function () {
 function getAlbums(pageNum) {
     var data = {
         "pageNum": pageNum,
-        "pageSize": 12,
+        "pageSize": 1,
     }
     $.ajax({
         "url": "/allAlbums",

@@ -10,7 +10,7 @@
         <result column="url" jdbcType="VARCHAR" property="url"/>
         <result column="language" jdbcType="VARCHAR" property="language"/>
         <result column="album_id" jdbcType="INTEGER" property="albumId"/>
-        <result column="time" jdbcType="DATE" property="time"/>
+        <result column="time" jdbcType="TIMESTAMP" property="time"/>
     </resultMap>
 
     <resultMap id="song" type="net.ltbk.music.bean.Song" extends="BaseResultMap">
@@ -20,7 +20,7 @@
             <result column="sex" jdbcType="VARCHAR" property="sex"/>
             <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
             <result column="birthday" jdbcType="DATE" property="birthday"/>
-            <result column="intrduction" jdbcType="VARCHAR" property="intrduction"/>
+            <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
         </association>
         <association property="album" javaType="net.ltbk.music.bean.Album">
             <id column="album_id" jdbcType="INTEGER" property="albumId"/>
@@ -32,11 +32,6 @@
             <result column="time" jdbcType="DATE" property="time"/>
         </association>
     </resultMap>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete
-        from song
-        where song_id = #{songId,jdbcType=INTEGER}
-    </delete>
     <insert id="insert" parameterType="net.ltbk.music.bean.Song">
         insert into song
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -68,6 +63,19 @@
             #{time,jdbcType=DATE}
         </trim>
     </insert>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from song
+        where song_id = #{songId,jdbcType=INTEGER}
+    </delete>
+    <delete id="delBatchByIds">
+        delete
+        from user
+        where user_id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id,jdbcType=INTEGER}
+        </foreach>
+    </delete>
     <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.Song">
         update song
         <set>
@@ -77,7 +85,7 @@
             <if test="singerId !=null and singerId !=''">
                 singer_id = #{singerId,jdbcType=INTEGER},
             </if>
-            <if test="song.playCount !=null and song.playCount !=''">
+            <if test="playCount !=null and playCount !=''">
                 play_count = #{playCount,jdbcType=INTEGER},
             </if>
             <if test="downloadCount !=null and downloadCount !=''">
@@ -90,7 +98,7 @@
                 language = #{language,jdbcType=VARCHAR},
             </if>
             <if test="albumId !=null and albumId !=''">
-                and album_id = #{albumId,jdbcType=INTEGER},
+                album_id = #{albumId,jdbcType=INTEGER},
             </if>
             <if test="time != null">
                 time = #{time,jdbcType=DATE}
@@ -126,7 +134,7 @@
                a.sex,
                a.img_url,
                a.birthday,
-               a.intrduction,
+               a.introduction,
                b.album_id,
                b.album,
                b.singer_id,
@@ -156,7 +164,7 @@
                a.sex,
                a.img_url,
                a.birthday,
-               a.intrduction,
+               a.introduction,
                b.album_id,
                b.album,
                b.singer_id,
@@ -174,24 +182,26 @@
     </select>
 
     <select id="selectSongByExample" resultMap="song">
-        select  a.song_id,
-                a.song,
-                a.singer_id,
-                a.play_count,
-                a.download_count,
-                a.url,
-                a.language,
-                a.album_id,
-                a.time,
-                b.singer_id,
-                b.singer_name,
-                b.sex,
-                b.img_url,
-                b.birthday,
-                b.intrduction
-        from song a,singer b
+        select a.song_id,
+        a.song,
+        a.singer_id,
+        a.play_count,
+        a.download_count,
+        a.url,
+        a.language,
+        a.album_id,
+        a.time,
+        b.singer_id,
+        b.singer_name,
+        b.sex,
+        b.img_url,
+        b.birthday,
+        b.introduction,
+        c.album
+        from song a,singer b,album c
         <where>
-            b.singer_id = a.singer_id
+            c.singer_id = b.singer_id
+            and b.singer_id = a.singer_id
             <if test="song.songId !=null and song.songId !=''">
                 and a.song_id = #{song.songId,jdbcType=INTEGER}
             </if>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<div th:replace="/client/common/include::header('歌单详情页面')"></div>
+<div th:replace="client/common/include::header('歌单详情页面')"></div>
 <body>
 <div class="container" id="songList">
     <a href="/">
@@ -21,7 +21,7 @@
                     <div class="media-left col-xs-12 col-sm-6 col-md-6">
                         <h3 class="media-middle songList__name">Media heading</h3>
                         <br><br>
-                        <p >分类：<span id="fenLei"></span></p>
+                        <p>分类：<span id="fenLei"></span></p>
                         <p><span class="glyphicon glyphicon-user"></span>创建人：<span id="user"></span></p>
                         <p> 创建时间：<span class="glyphicon glyphicon-time"></span><span id="time"></span></p>
                         <br>
@@ -63,35 +63,14 @@
             </table>
         </div>
     </div>
-
     <!--分页-->
-    <div class="row">
-        <nav aria-label="Page navigation" class="text-center">
-            <ul class="pagination pagination-centered">
-
-            </ul>
-        </nav>
-    </div>
-    <!--    底部-->
-    <div class="row">
-        <div class="footer_copyright col-md-12 col-xs-12 col-sm-12" style="width: 100%;">
-            <p class="text-center" style="color: white">
-                <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">涛哥音乐</a> powered by <a
-                    href="https://ltbk.net/" target="_blank">涛哥博客</a>
-                <br>
-                <span class="footer-icp">
-                        <img alt="" class="ipc-icon"
-                             src="https://ltbk.net/wp-content/themes/CorePress-Pro/static/img/icp.svg">
-                        <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2021029431号-2</a>
-                    </span>
-            </p>
-        </div>
-    </div>
+    <div th:include="client/common/page::page"></div>
 </div>
+<!-- footer-->
+<footer class="footer_copyright col-md-12 col-xs-12 col-sm-12" th:include="client/common/footer::footer"></footer>
 <iframe frameborder="0" height="280px" id="player" name="play" src=""
         style="position: fixed;bottom: 150px;display: none" width="300px"></iframe>
-<script src="/music/plugin/toastr/toastr.min.js"></script>
-<script src="/music/client/common/js/util.js"></script>
-<script src="/music/client/songList/js/songlist.js"></script>
+<div th:include="client/common/include::footer"></div>
+<script th:src="@{/music/client/songList/js/songlist.js}"></script>
 </body>
 </html>

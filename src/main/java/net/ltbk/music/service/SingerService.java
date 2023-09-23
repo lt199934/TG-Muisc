@@ -11,14 +11,14 @@ public interface SingerService {
     Singer selectAllBySingerId(Integer singerId);
 
     //多条件查询歌手
-    Page<Singer> selectSingerByExample(Singer singer, Date startDate, Date endDate);
+    Page<Singer> page(Singer singer, Date startDate, Date endDate);
 
     //添加歌手
-    int insertSinger(Singer singer);
+    int save(Singer singer);
 
     //删除歌手
     int delSinger(int SingerId);
 
     //无条件查询歌手（不分页）
-    List<Singer> AllSinger();
+    List<Singer> list();
 }

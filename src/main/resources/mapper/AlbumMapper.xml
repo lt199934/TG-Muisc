@@ -19,7 +19,7 @@
             <result column="sex" jdbcType="VARCHAR" property="sex"/>
             <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
             <result column="birthday" jdbcType="DATE" property="birthday"/>
-            <result column="intrduction" jdbcType="VARCHAR" property="intrduction"/>
+            <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
         </association>
         <collection property="songs" ofType="net.ltbk.music.bean.Song">
             <id column="song_id" jdbcType="INTEGER" property="songId"/>
@@ -57,7 +57,7 @@
             time         = #{time,jdbcType=DATE}
         where album_id = #{albumId,jdbcType=INTEGER}
     </update>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="album">
         select album_id, album, singer_id, album_img, introduction, company, time
         from album
         where album_id = #{albumId,jdbcType=INTEGER}
@@ -80,32 +80,36 @@
           and c.album_id = #{albumId,jdbcType=INTEGER}
     </select>
 
-    <select id="selectAlbumByExample" resultMap="BaseResultMap">
-        select * from album
+    <select id="selectAlbumByExample" resultMap="album">
+        select
+        a.album_id, a.album, a.singer_id, a.album_img, a.introduction, a.company, a.time,
+        b.singer_id, b.singer_name
+        from album a, singer b
         <where>
+            b.singer_id = a.singer_id
             <if test="album.albumId !=null and album.albumId !=''">
-                and album_id = #{album.albumId,jdbcType=VARCHAR}
+                and a.album_id = #{album.albumId,jdbcType=VARCHAR}
             </if>
             <if test="album.album !=null and album.album !=''">
-                and album = #{album.album,jdbcType=VARCHAR}
+                and a.album = #{album.album,jdbcType=VARCHAR}
             </if>
             <if test="album.singerId !=null and album.singerId !=''">
-                and singer_id = #{album.singerId,jdbcType=INTEGER}
+                and a.singer_id = #{album.singerId,jdbcType=INTEGER}
             </if>
             <if test="album.albumImg !=null and album.albumImg !=''">
-                and album_img = #{album.albumImg,jdbcType=VARCHAR}
+                and a.album_img = #{album.albumImg,jdbcType=VARCHAR}
             </if>
             <if test="album.introduction !=null and album.introduction !=''">
-                and introduction = #{album.introduction,jdbcType=VARCHAR}
+                and a.introduction = #{album.introduction,jdbcType=VARCHAR}
             </if>
             <if test="album.company !=null and album.company !=''">
-                and company = #{album.company,jdbcType=VARCHAR}
+                and a.company = #{album.company,jdbcType=VARCHAR}
             </if>
             <if test="start != null">
-                and time >= #{start}
+                and a.time >= #{start}
             </if>
             <if test="end != null">
-                and time &lt;= #{end}
+                and a.time &lt;= #{end}
             </if>
         </where>
     </select>

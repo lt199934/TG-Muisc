@@ -22,26 +22,40 @@ import lombok.NoArgsConstructor;
 @ApiModel("统一返回结果")
 public class Result<T> {
     @ApiModelProperty("状态码")
-    private String code;
+    private Integer code;
     @ApiModelProperty("提示信息")
     private String msg;
     @ApiModelProperty("返回结果")
-    private Object data;
+    private T data;
 
     public static<T> Result<T> success(){
         return new Result<T>(Constants.CODE_SUCCESS,"",null);
     }
+    public static<T> Result<T> success(String msg){
+        return new Result<T>(Constants.CODE_SUCCESS,msg,null);
+    }
 
-    public static<T> Result<T> success(Object data){
+    public static<T> Result<T> success(T data){
         return new Result<T>(Constants.CODE_SUCCESS,"",data);
+    }
+
+    public static<T> Result<T> success(String msg,T data){
+        return new Result<T>(Constants.CODE_SUCCESS,msg,data);
     }
 
     public static<T> Result<T> error(){
         return new Result<T>(Constants.CODE_ERROR,"",null);
     }
 
+    public static <T> Result<T> error(Integer code, String msg) {
+        return new Result<T>(code, msg, null);
+    }
+
     public static<T> Result<T> error(String msg){
         return new Result<T>(Constants.CODE_ERROR,msg,null);
     }
 
+    public static<T> Result<T> error(String msg,T data){
+        return new Result<T>(Constants.CODE_ERROR,msg,data);
+    }
 }

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="client/common/include::admin_header('用户管理')"></div>
+<body>
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/header::head"></header>
+<div class="container-fluid">
+    <aside class="col-md-1" th:include="admin/layout/aside::aside"></aside>
+    <main class="col-md-11">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="/admin/index">Home</a></li>
+                    <li class="active">用户管理</li>
+                </ol>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" id="selectForm">
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="id">userId</label>
+                                <input class="form-control" id="id" placeholder="用户id" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="name">账号</label>
+                                <input class="form-control " id="name" placeholder="请输入帐号" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="userphone">电话</label>
+                                <input class="form-control " id="userphone" placeholder="请输入电话" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="useremail">邮箱</label>
+                                <input class="form-control " id="useremail" placeholder="请输入邮箱" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="sex">性别</label>
+                                <select class="form-control" id="sex" name="">
+                                    <option selected="selected" value="">不限</option>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-1" style="padding-right: 5px">
+                                <label class="" for="startDate">开始时间</label>
+                                <input class="form-control " id="startDate" placeholder="请输入开始时间" type="date">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-1" style="padding-right: 5px">
+                                <label class="" for="endDate">结束时间</label>
+                                <input class="form-control " id="endDate" placeholder="请输入结束时间" type="date">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- 示例 -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">用户信息</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div id="toolbar">
+                                <!-- 按钮触发模态框 -->
+                                <button class="btn btn-success"
+                                        data-target="#userModal"
+                                        data-toggle="modal"
+                                        id="getInsertRows"
+                                        onclick="init()"
+                                        type="button">
+                                    <i class="glyphicon glyphicon-plus"></i> 添加
+                                </button>
+                                <button class="btn btn-danger"
+                                        onclick="delBatch()">
+                                    <i class="glyphicon glyphicon-remove"></i>批量删除
+                                </button>
+                                <button class="btn btn-warning"
+                                        id="reset"
+                                        onclick="resetForm()"
+                                        type="button">重置
+                                </button>
+                            </div>
+                            <table class="table table-hover table-striped table-bordered" id="dataTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!--dialog-->
+<div aria-labelledby="userModalLabel" class="modal fade" id="userModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="userModalLabel">用户详情页面</h4>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <div class="row">
+                        <div class="form-group userId col-md-4">
+                            <label class="control-label" for="account">用户ID</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control" id="userId" name="userId" placeholder="请输入用户ID"
+                                       readonly
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="account">用户名</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control" id="account" name="account" placeholder="请输入用户名"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="pwd">密码</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input class="form-control" id="pwd" name="pwd" placeholder="请输入用户密码"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="phone">昵称</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control" id="nickName" name="nickName" placeholder="请输入昵称"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="userName">姓名</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control" id="userName" name="userName" placeholder="请输入姓名"
+                                       type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label class="" for="sex">性别</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </span>
+                                <select class="form-control" id="sexes" name="sex">
+                                    <option selected="selected" value="">请选择性别</option>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label class="" for="img">用户头像</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+                                <img alt="加载失败" class="img-responsive" id="imgSrc" src=""/>
+                                <input class="form-control" id="img" name="img" placeholder="请上传图片" type="file">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label" for="phone">手机</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                                <input class="form-control" id="phone" name="phone" placeholder="请输入手机号"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label" for="email">邮箱</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-envelope"></span></span>
+                                <input class="form-control" id="email" name="email" placeholder="请输入用户邮箱"
+                                       type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="birthday">生日</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            <input class="form-control" id="birthday" name="birthday" placeholder="请输入你的生日"
+                                   type="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="personalSignature">个性签名</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+                            <textarea class="form-control" id="personalSignature" name="personalSignature"
+                                      placeholder="请输入个性签名"
+                                      rows="6" type="text"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal" type="button">取消</button>
+                <input class="btn btn-primary" data-loading-text="添加..." id="subBtn" onclick="save()" type="button"
+                       value="添加">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 删除提示框 -->
+<div class="modal fade" id="delcfmModel">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <h4 class="modal-title">确认信息</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>            </div>
+            <div class="modal-body">
+                <p id="delcfmMsg"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>您确认要删除吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a class="btn btn-success" data-dismiss="modal" id="btnOkDelete" >确定</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<footer class="navbar navbar-fixed-bottom text-center bg-primary">
+    <p>
+        <a href="/" rel="noopener noreferrer" target="_blank" title="音乐网站">涛哥音乐</a> powered by <a
+            href="https://ltbk.net/" target="_blank">涛哥博客</a>
+    </p>
+</footer>
+</body>
+<div th:include="client/common/include::footer"></div>
+<script src="/music/admin/js/isLogin.js"></script>
+<script>
+    let url = "/user";
+    let saveURL = "/user/save";
+    let deleteURL = "/user/delUser/";
+    let $imgSrc = $("#imgSrc");
+    let $userForm = $("#userForm");
+    let $userModal = $("#userModal");
+    let $userModalLabel = $("#userModalLabel");
+    $("#dataTable").bootstrapTable({
+        url: url + "/page", //请求后台的URL（*）
+        method: 'post',     //请求方式（*）
+        dataType: "json",   //服务器返回的数据类型
+        toolbar: '#toolbar', //
+        striped: true,      //是否显示行间隔色
+        cache: false,       //是否使用AJAX数据缓存
+        sortable: true,     //是否启用排序
+        ordering: true, //是
+        sortOrder: "asc",   //排序方式
+        search: false,      //是否显示搜索
+        sidePagination: "server", //设置在哪里进行分页，可选值为 ‘client’ 或者 ‘server’。设置 ‘server’时，必须设置 服务器数据地址（url）或者重写ajax方法
+        pagination: true,   //是否显示分页组件
+        showPaginationSwitch: true, //显示切换分页
+        pageNumber: 1,      //第一页页数
+        pageSize: 5,        //第一页条数
+        pageList: [5, 10, 20, 50, 100], //每页显示多少条
+        showFullscreen: true, //显示全屏
+        showHeader: true,   //显示头部，默认显示
+        showExport: true,   //显示导出
+        showColumns: true,  //是否显示所有的列
+        showRefresh: true, //是否显示刷新按钮
+        showFooter: false, //是否显示底部
+        minimumCountColumns: 2,  //最少允许的列数
+        clickToSelect: true,   //是否启用点击选中行
+        //height: 500,         //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "ID",        //每一行的唯一标识，一般为主键列
+        showToggle: true,     //是否显示详细视图和列表视图的切换按钮
+        cardView: false,      //是否显示详细视图
+        detailView: false,    //是否显示父子表
+        queryParams: function (params) {
+            return {
+                "userId": $("#id").val(),
+                "account": $("#name").val(),
+                "phone": $("#user_phone").val(),
+                "email": $("#user_email").val(),
+                "sex": $("#sex").val(),
+                "startDate": $("#startDate").val(),
+                "endDate": $("#endDate").val(),
+                "pageNum": (params.offset / params.limit) + 1,
+                "pageSize": params.limit
+            }
+        },
+        onLoadSuccess: function (res) {
+            // console.log(res)
+        },
+        onLoadError: function () {
+            showTips("数据加载失败！");
+        },
+        responseHandler: function (res) {
+            console.log(res)
+            return {
+                total: res.data.total,
+                rows: res.data.list
+            }
+        },
+        columns: [
+            {checkbox: true},
+            {title: 'ID', field: 'userId'},
+            {
+                title: '头像', field: 'headImg', formatter(value) {
+                    return "<img src='" + value + "' alt='加载中。。。' style='width:50px;height:50px;border: 1px solid;'>";
+                }
+            },
+            {title: '用户名', field: 'account',sortable: true},
+            {title: '密码', field: 'pwd'},
+            {title: '昵称', field: 'nickName'},
+            {title: '姓名', field: 'userName'},
+            {title: '性别', field: 'sex'},
+            {title: '手机号码', field: 'phone'},
+            {title: '邮箱地址', field: 'email'},
+            {title: '用户类型', field: 'type'},
+            {title: '个性签名', field: 'personalSignature'},
+            {title: '生日', field: 'birthday'},
+            {title: '注册时间', field: 'time'},
+            {
+                title: '操作', formatter: function (value, row, index) {
+                    // console.log(row)
+                    let res = "<button class='btn btn-sm btn-info' onclick='showDetailModal(" + row + ")' >详情</button>&nbsp;";
+                    res += "<button class='btn btn-sm btn-primary' onclick='edit(" + JSON.stringify(row).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ")'>修改</button>&nbsp;";
+                    res += "<button class='btn btn-sm btn-danger' onclick='del(" + row.userId + ")'>删除</button>";
+                    return res;
+                }
+            }],
+
+    })
+    $("#selectForm").change(function () {
+        $("#dataTable").bootstrapTable('refresh');
+    });
+
+    const init = () => {
+        $userModalLabel.html("添加用户");
+        $("#subBtn").val("添加");
+        $(".userId").css('display', 'none');
+        $imgSrc.css('display', 'none');
+        $userForm[0].reset();
+        $userForm.data('bootstrapValidator').destroy();
+        $userForm.data('bootstrapValidator', null);
+
+    };
+    const resetForm = () => {
+        $("#selectForm")[0].reset();
+        $("#dataTable").bootstrapTable('refresh');
+    };
+
+    const edit = (user) => {
+        $(".userId").css('display', 'block');
+        $imgSrc.css('display', 'block');
+        $("#myModalLoginLabel").html("修改用户信息");
+        $("#subBtn").val("更新");
+        $("#userId").val(user.userId);
+        $("#account").val(user.account);
+        $("#userName").val(user.userName);
+        $("#pwd").val(user.pwd);
+        $("#nickName").val(user.nickName);
+        $("#phone").val(user.phone);
+        $("#email").val(user.email);
+        $imgSrc.attr("src", user.headImg);
+        let sexes = document.getElementById("sexes");
+        for (var i = 0; i < sexes.length; i++) {
+            if (sexes[i].value === user.sex) {
+                sexes[i].selected = true;
+            }
+        }
+        $("#birthday").val(user.birthday);
+        $("#personalSignature").val(user.personalSignature);
+        $userModal.modal("show");
+    }
+    const save = () => {
+        // console.log($(this).val())
+        checkRegisterForm();
+        var form = $userForm[0];
+        var formData = new FormData(form);
+        // $userForm.data('bootstrapValidator').validate();//手动开启验证
+        // var flag = $userForm.data('bootstrapValidator').isValid();
+        // console.log(flag);
+        // if (flag) {
+        $.ajax({
+            url: saveURL,
+            method: "post",
+            data: formData,
+            dataType: 'JSON',
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data);
+                if (data.code === 200) {
+                    if (data.code === 200) {
+                        toastr.success(data.msg, null, {positionClass: "toast-top-center"});
+                        $userForm[0].reset();
+                        // $userForm.data('bootstrapValidator').resetForm(true);
+                        $userModal.modal("hide");
+                    } else {
+                        toastr.error(data.msg, null, {positionClass: "toast-top-center"});
+                    }
+                    $("#dataTable").bootstrapTable('refresh');
+                }
+            }
+        });
+        // }
+
+    }
+
+    const del = (userId) => {
+        console.log(userId)
+        deleteURL = deleteURL + userId;
+        // $.ajax({
+        //     url: deleteURL, method: "DELETE", success: function (data) {
+        //         if (data === 1) {
+        //             alert("删除成功");
+        //         }
+        //         $("#dataTable").bootstrapTable('refresh');
+        //     }
+        // });
+    }
+
+    const delBatch = () => {
+        let selections = $("#dataTable").bootstrapTable("getSelections");
+        if (selections.length === 0) {
+            toastr.warning("请先选择要批量删除的内容", null, {positionClass: "toast-top-center"});
+            return;
+        }
+        let ids = selections.map(item => item.userId);
+        if(ids.length !== 0) {
+            //弹出提示框
+            $('#delcfmModel').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#btnOkDelete', function() {
+                    deleteURL = deleteURL + "/batch";
+                    $.ajax({
+                        url: deleteURL, method: "DELETE", success: function (data) {
+                            if (data === 1) {
+                                alert("删除成功");
+                            }
+                            $("#dataTable").bootstrapTable('refresh');
+                        }
+                    });
+                });
+        }
+        // console.log(ids)
+        // console.log(selections)
+        // console.log(userId)
+
+    }
+
+</script>
+</html>

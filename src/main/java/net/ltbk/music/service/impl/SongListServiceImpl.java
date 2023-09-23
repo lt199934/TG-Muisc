@@ -2,7 +2,7 @@ package net.ltbk.music.service.impl;
 
 import net.ltbk.music.bean.FenLei;
 import net.ltbk.music.bean.SongList;
-import net.ltbk.music.bean.SongListDto;
+import net.ltbk.music.bean.dto.SongListDto;
 import net.ltbk.music.mapper.SongListMapper;
 import net.ltbk.music.service.SongListService;
 import com.github.pagehelper.Page;

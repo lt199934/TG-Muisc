@@ -5,8 +5,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+
 @ApiModel("用户")
 @TableName("user")
 public class User implements Serializable {
@@ -31,8 +33,11 @@ public class User implements Serializable {
     private String type;
 
     private String personalSignature;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date birthday;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Timestamp time;
     //    一个用户可收藏多个歌曲 1对多
     private List<Song> songs;
     //    一个用户可收藏多个歌手 1对多
@@ -43,8 +48,7 @@ public class User implements Serializable {
     private List<SongList> songlists1;
     //    一个用户可收藏多个歌单 1对多
     private List<SongList> songlists2;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date time;
+
 
     public Integer getUserId() {
         return userId;
@@ -182,11 +186,11 @@ public class User implements Serializable {
         this.songlists2 = songlists2;
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

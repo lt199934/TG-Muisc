@@ -61,10 +61,9 @@ public class AlbumController {
     @RequestMapping("/selectAlbumByExample")
     @ResponseBody
     public Object selectAlbum(Album album, Date startDate, Date endDate, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        System.out.println(album);
-        System.out.println(startDate + "-" + endDate);
-        System.out.println("pageNum:" + pageNum);
-        System.out.println("pageSize" + pageSize);
+        log.info("{}",album);
+        log.info(startDate + "-" + endDate);
+        log.info("pageNum：{} pageSize：{}" ,pageNum,pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
         return albumService.selectAlbumByExample(album, startDate, endDate).toPageInfo();
     }

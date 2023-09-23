@@ -1,14 +1,15 @@
 package net.ltbk.music.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.User;
+import net.ltbk.music.bean.vo.UserVo;
 import net.ltbk.music.common.Result;
 import net.ltbk.music.service.UserService;
 import net.ltbk.music.utils.FileHandleUtil;
-import net.ltbk.music.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -28,14 +30,13 @@ public class UserController {
 
     @ApiOperation("用户登录")
     @PostMapping("/userLogin")
-    public Result<User> userLogin(User user, HttpSession session) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        System.out.println(user);
+    public Result<Integer> userLogin(User user, HttpSession session) {
+        log.info("登录用户：{}", user);
         User login = userService.login(user);
         System.out.println(login);
         if (login != null) {
             session.setAttribute(Integer.toString(login.getUserId()), login);
-            return Result.success(login.getUserId().toString());
+            return Result.success(login.getUserId());
         }
         return Result.error("用户名或密码错误");
     }
@@ -50,23 +51,30 @@ public class UserController {
      * @Return: int
      * @Throw: IOException
      **/
-    @PostMapping("/userRegister")
-    public int userRegister(User user, @RequestParam("img") MultipartFile img) {
-        int register = 0;
-        log.info(img.getOriginalFilename());
-        String fileURL = null;
-        try {
-            fileURL = FileHandleUtil.upload(img.getInputStream(), "headImg/", img.getOriginalFilename());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    @PostMapping("/save")
+    public Result<Boolean> save(User user, @RequestParam("img") MultipartFile img) {
+        String msg = "";
+        if (user == null) {
+            return Result.error("注册失败");
         }
-        System.out.println(fileURL);
         if (!"".equals(img.getOriginalFilename())) {
+            log.info(img.getOriginalFilename());
+            String fileURL = null;
+            try {
+                fileURL = FileHandleUtil.upload(img.getInputStream(), "headImg/", img.getOriginalFilename());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            log.info("上传地址：{}", fileURL);
             user.setHeadImg("/headImg/" + img.getOriginalFilename());
         }
-        log.info("注册用户：" + user);
-        register = userService.register(user);
-        return register;
+        log.info("更新用户：{}", user);
+        if (user.getUserId() == null) {
+            msg = "添加成功";
+        } else {
+            msg = "修改成功";
+        }
+        return Result.success(msg, userService.saveUser(user));
     }
 
     @GetMapping("/getUserInfo/{userId}")
@@ -74,7 +82,7 @@ public class UserController {
         User user = (User) session.getAttribute(userId);
         log.info("当前用户：" + user);
         if (null == user) {
-            return "                                                                                                                                                                                                                                                                                                                                                                user is not exited";
+            return "user is not exited";
         }
         return user;
     }
@@ -111,16 +119,25 @@ public class UserController {
         return map;
     }
 
-    /**管理员通过id删除用户**/
-    @GetMapping("/delUser/{userId}")
+    /**
+     * 管理员通过id删除用户
+     **/
+    @DeleteMapping("/del/{userId}")
     public int delUser(@PathVariable("userId") String userId) {
         return userService.delUser(Integer.parseInt(userId));
     }
+    @DeleteMapping("/del/batch")
+    public Result<Boolean> delBatch(@RequestBody List<Integer> ids) {
+        return Result.success(userService.delBatch(ids));
+    }
 
-    /**管理员和用户根据指定模版进行用户信息修改**/
+
+    /**
+     * 管理员和用户根据指定模版进行用户信息修改
+     **/
     @PostMapping("/updateUser")
-    public int updateUser(User user) {
-        return userService.updateUser(user);
+    public Result<Boolean> updateUser(User user) {
+        return Result.success(userService.saveUser(user));
     }
 
     //通过用户id显示需要修改的用户信息
@@ -130,10 +147,9 @@ public class UserController {
     }
 
     //多条件显示所有用户
-    @PostMapping("/allUser")
-    public Result<User> findAll(@RequestBody UserVo userVo) {
-        System.out.println("pageNum:" + userVo.getPageNum());
-        System.out.println("pageSize" + userVo.getPageSize());
+    @PostMapping("/page")
+    public Result<PageInfo<User>> findPage(@RequestBody UserVo userVo) {
+        log.info("pageNum：{} pageSize：{}", userVo.getPageNum(), userVo.getPageSize());
         User user = new User();
         user.setUserId(userVo.getUserId());
         user.setAccount(userVo.getAccount());
@@ -267,7 +283,7 @@ public class UserController {
 
     //查询所有用户
     @GetMapping("/allUsers")
-    public Result<User> selAllUser() {
+    public Result<List<User>> selAllUser() {
         return Result.success(userService.selAllUser());
     }
 

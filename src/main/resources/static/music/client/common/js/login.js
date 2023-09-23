@@ -1,7 +1,7 @@
 $(function () {
     checkLoginForm();
 });
-var userSession = JSON.parse(localStorage.getItem("userId"));
+let userSession = JSON.parse(localStorage.getItem("userId"));
 console.log(userSession)
 if (null != userSession) {
     toastr.options.onHidden = function () {
@@ -86,7 +86,7 @@ $("#subBtn").click(function () {
             data: user,
             success: function (res) {
                 console.log(res.data);
-                if (res.code === "200") {
+                if (res.code === 200) {
                     localStorage.setItem("userId", JSON.stringify(res.data));
                     toastr.options.onHidden = function () {
                         window.location.href = "/";

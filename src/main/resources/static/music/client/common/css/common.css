@@ -9,6 +9,10 @@ body {
     /*background-color: #FFFFFF;*/
 }
 
+.media:first-child {
+    margin-top: 15px !important;
+}
+
 img {
     width: 100%;
     height: 100%;
@@ -57,17 +61,19 @@ img {
 }
 
 .footer_copyright{
-    padding-bottom: 30px;
-    background-color:#191d20;
+    height: 12%;
     position: absolute;
+    text-align: center;
+    background: #191d20;
 }
 .footer_copyright p{
     height: auto;
     vertical-align: middle!important;
     text-align: center;
-    position: relative;
     color: white;
-    top: 30px;
+    position: relative;
+    top: 0;
+    padding-top: 20px;
 }
 .footer-icp {
     display: inline-block;

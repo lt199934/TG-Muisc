@@ -2,16 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="client/common/include::header('歌单页面')"></div>
 <body>
-<div class="container">
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="client/common/header::head"></header>
+<!--main-->
+<main class="container">
     <div class="row clearfix">
-        <!--   header-->
-        <header class="col-md-12 column" th:include="client/common/header::head"></header>
         <!--    轮播图-->
         <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
     <!--  精选歌单-->
     <div class="row clearfix">
-        <div class="col-md-12 column col">
+        <div class="col-md-12 column">
             <div class="recom__title">
                 <h1>歌单 <small>全部（<span class="num"></span>）</small></h1>
             </div>
@@ -52,30 +53,23 @@
                     </div>
                 </div>
             </nav>
-            <div class="row clearfix">
+            <div class="row">
                 <div class="col-md-12 column">
-                    <div class="row" style="padding-left: 10px" id="songLists">
+                    <div class="row" id="songLists" style="padding-left: 10px">
 
                     </div>
                 </div>
+                <!--分页-->
+                <div class="col-md-12 column" th:include="client/common/page::page"></div>
             </div>
         </div>
     </div>
-    <div class="row clearfix">
-        <!--分页-->
-        <div class="col-md-12 column" th:include="client/common/page::page"></div>
-        <!-- footer-->
-        <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
-    </div>
-</div>
+</main>
+<!--footer-->
+<footer class="footer_copyright col-md-12 col-xs-12 col-sm-12" th:include="client/common/footer::footer"></footer>
 </body>
 <div th:include="client/common/include::footer"></div>
 <script th:src="@{/music/client/songList/js/songlists.js}"></script>
 <script th:src="@{/music/client/songList/js/jquery.filterizr.min.js}"></script>
 <script th:src="@{/music/client/songList/js/controls.js}"></script>
-<script type="text/javascript">
-    $(function () {
-        $('.filtr-container').filterizr();
-    });
-</script>
 </html>

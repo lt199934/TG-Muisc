@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="client/common/include::header('歌手页面')"></div>
 <body>
-<div class="container">
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="client/common/header::head"></header>
+<main class="container">
     <div class="row clearfix">
-        <!--   header-->
-        <header class="col-md-12 column" th:include="client/common/header::head"></header>
         <!--    轮播图-->
         <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
@@ -22,16 +22,15 @@
 
                     </div>
                 </div>
+                <!--分页-->
+                <div class="col-md-12 column" th:include="client/common/page::page"></div>
             </div>
         </div>
     </div>
-    <div class="row clearfix">
-        <!--分页-->
-        <div class="col-md-12 column" th:include="client/common/page::page"></div>
-        <!-- footer-->
-        <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
-    </div>
-</div>
+</main>
+
+<!--footer-->
+<footer class="footer_copyright col-md-12 col-xs-12 col-sm-12" th:include="client/common/footer::footer"></footer>
 </body>
 <div th:include="client/common/include::footer"></div>
 <script th:src="@{/music/client/singer/js/singers.js}"></script>

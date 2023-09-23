@@ -19,7 +19,7 @@ import java.io.InputStream;
 public class FileHandleUtil {
 
     /** 绝对路径 **/
-    private static String absolutePath = "";
+    private static String absolutePath = "F:/软件开发/项目/SpringBoot+Thymeleaf/music/src/main/resources/";
 
     /** 静态目录 **/
     private static String staticDir = "static";
@@ -40,11 +40,14 @@ public class FileHandleUtil {
     public static String upload(InputStream inputStream, String path, String filename) {
         //第一次会创建文件夹
         createDirIfNotExists();
-
-        String resultPath = fileDir + path + filename;
-
+        String filePath = fileDir + path + filename;
+        String resultPath = '/' + path + filename;
         //存文件
-        File uploadFile = new File(absolutePath, staticDir + resultPath);
+        File uploadFile = new File(absolutePath, staticDir + filePath);
+        System.out.println(uploadFile.exists());
+        if (uploadFile.exists()) {
+          return resultPath;
+        }
         try {
             FileUtils.copyInputStreamToFile(inputStream, uploadFile);
         } catch (IOException e) {
@@ -82,7 +85,7 @@ public class FileHandleUtil {
 
     /**
      * 删除文件
-     * @param path 文件访问的路径upload开始 如： /upload/image/test.jpg
+     * @param path 文件访问的路径upload开始 如： /image/test.jpg
      * @return true 删除成功； false 删除失败
      */
     public static boolean delete(String path) {

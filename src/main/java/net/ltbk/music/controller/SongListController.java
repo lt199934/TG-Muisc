@@ -3,7 +3,7 @@ package net.ltbk.music.controller;
 
 import com.github.pagehelper.PageHelper;
 import net.ltbk.music.bean.SongList;
-import net.ltbk.music.bean.SongListDto;
+import net.ltbk.music.bean.dto.SongListDto;
 import net.ltbk.music.service.SongListService;
 import net.ltbk.music.utils.FileHandleUtil;
 import org.apache.ibatis.annotations.Param;
@@ -42,6 +42,7 @@ public class SongListController {
                                @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
         log.info("pageNum：{} pageSize：{}", pageNum, pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+        log.info(fenId);
         if (Objects.equals(fenId, "0")) {
             return songListService.selectAll().toPageInfo();
         }
@@ -49,14 +50,23 @@ public class SongListController {
     }
 
 
-    // 后台多条件查询
+    /*后台多条件查询*/
     @RequestMapping("/selectSongListByExample")
     @ResponseBody
-    public Object selectSongListByExample(SongList songlist, Date startDate, Date endDate, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        System.out.println(songlist);
+    public Object selectSongListByExample(SongList songlist,
+                                          Date startDate,
+                                          Date endDate,
+                                          @RequestParam(value = "fenId") String fenId,
+                                          @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum,
+                                          @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
+        log.info("{}", songlist);
+        log.info(fenId);
         System.out.println("pageNum:" + pageNum);
         System.out.println("pageSize" + pageSize);
         PageHelper.startPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+        if (!Objects.equals(fenId, "0")) {
+            return songListService.selectFenAll(Integer.parseInt(fenId)).toPageInfo();
+        }
         return songListService.selectSongListByExample(songlist, startDate, endDate).toPageInfo();
     }
 
@@ -76,22 +86,23 @@ public class SongListController {
         return songListService.fen();
     }
 
-    //删除歌单
+    /*删除歌单*/
     @RequestMapping("/delSongList/{songListId}")
     @ResponseBody
     public Object delSongList(@PathVariable("songListId") String songListId) {
         return songListService.delSongList(Integer.parseInt(songListId));
     }
 
-    //添加歌单
+    /*添加歌单*/
     @RequestMapping("/insertSongList")
     @ResponseBody
     public Object insertSongList(SongListDto songList, @Param("img") MultipartFile img) throws IOException {
         int num = 0;
         System.out.println(songList);
-        String fileURL = FileHandleUtil.upload(img.getInputStream(), "songListImg/", img.getOriginalFilename());
-        System.out.println(fileURL);
         if (!"".equals(img.getOriginalFilename())) {
+            String fileURL = FileHandleUtil.upload(img.getInputStream(), "songListImg/", img.getOriginalFilename());
+            System.out.println(fileURL);
+
             songList.setImgUrl("/songListImg/" + img.getOriginalFilename());
         }
         System.out.println(songList);

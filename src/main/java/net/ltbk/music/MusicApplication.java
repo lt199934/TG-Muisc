@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("net.ltbk.music.*")
 @SpringBootApplication
 public class MusicApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(MusicApplication.class, args);
     }

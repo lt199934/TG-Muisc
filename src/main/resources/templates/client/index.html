@@ -2,10 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="client/common/include::header('主页')"></div>
 <body>
-<div class="container" style="position: relative">
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="client/common/header::head"></header>
+<!--main-->
+<main class="container">
     <div class="row clearfix">
-        <!--   header-->
-        <header class="col-md-12 column"  th:include="client/common/header::head"></header>
         <!--    轮播图-->
         <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
@@ -81,11 +82,9 @@
             </div>
         </div>
     </div>
-    <!--    footer-->
-    <div class="row clearfix">
-        <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
-    </div>
-</div>
+</main>
+<!--footer-->
+<footer class="footer_copyright col-md-12 col-xs-12 col-sm-12" th:include="client/common/footer::footer"></footer>
 <a class="back-to-top" href="#top" style="float:right;position: fixed;bottom:10vh;right:10vw;padding: 20px;background-color: rgb(100, 211, 255);border-radius: 20%"> <span style="color: white;font-size: 25px" class="glyphicon glyphicon-chevron-up"></span></a>
 
 <iframe frameborder="0" height="280px" id="player" name="play" src=""

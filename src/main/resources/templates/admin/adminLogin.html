@@ -1,16 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>管理员登录</title>
-    <link href="/music/admin/css/dlzc.css" rel="stylesheet"/>
-    <link href="/music/plugin/bootstrap-show-password/css/zzsc.css" rel="stylesheet">
-    <script src="/music/client/common/js/jquery.min.js"></script>
-    <script src="/music/plugin/bootstrap/js/bootstrap.js"></script>
-    <script src="/music/plugin/bootstrap/js/bootstrapValidator.js"></script>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="client/common/include::header('主页')"></div>
+<div th:include="client/common/include::admin"></div>
 <body>
 <div class="login-page" id="wrapper">
     <div class="form" id="login_form">
@@ -22,6 +13,7 @@
     </div>
 </div>
 </body>
+<div th:include="client/common/include::footer"></div>
 <script type="text/javascript">
     function check_login() {
         var url = "/adminLogin";
@@ -36,15 +28,14 @@
             dataType: 'JSON',
             success: function (data) {
                 console.log(data);
-                var admin = data;
-                if (null != data && "" != data) {
-                    alert("登录成功");
-                    console.log("登录成功");
+                if (data.code === 200) {
                     sessionStorage.setItem("admin", JSON.stringify(data));
-                    window.location.href = "/admin/users";
+                    toastr.options.onHidden = function () {
+                        window.location.href = "/admin/users";
+                    }
+                    toastr.success(data.msg);
                 } else {
-                    alert("登录失败");
-                    console.log("登录失败");
+                    toastr.error(data.msg);
                     $("#login_form").removeClass('shake_effect');
                     setTimeout(function () {
                         $("#login_form").addClass('shake_effect')

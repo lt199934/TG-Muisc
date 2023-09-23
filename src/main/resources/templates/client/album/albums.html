@@ -2,14 +2,15 @@
 <html lang="en">
 <div th:replace="client/common/include::header('专辑页面')"></div>
 <body>
-<div class="container ">
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="client/common/header::head"></header>
+<!--main-->
+<main class="container">
     <div class="row clearfix">
-        <!--   header-->
-        <header class="col-md-12 column" th:include="client/common/header::head"></header>
         <!--    轮播图-->
         <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
     </div>
-    <!-- 专辑 -->
+    <!--  精选歌单-->
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="col-md-12">
@@ -23,17 +24,19 @@
 
                         </div>
                     </div>
+                    <!--分页-->
+                    <div class="col-md-12 column" th:include="client/common/page::page"></div>
                 </div>
             </div>
+
         </div>
     </div>
-    <div class="row clearfix">
-        <!--分页-->
-        <div class="col-md-12 column" th:include="client/common/page::page"></div>
-        <!-- footer-->
-        <div class="col-md-12 column" th:include="client/common/footer::footer"></div>
+    <div class="row ">
+
     </div>
-</div>
+</main>
+<!--footer-->
+<footer class="footer_copyright col-md-12 col-xs-12 col-sm-12" th:include="client/common/footer::footer"></footer>
 <div th:include="client/common/include::footer"></div>
 <script th:src="@{/music/client/album/js/albums.js}"></script>
 </body>

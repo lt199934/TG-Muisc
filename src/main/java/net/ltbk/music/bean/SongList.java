@@ -1,6 +1,7 @@
 package net.ltbk.music.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import net.ltbk.music.bean.dto.SongDto;
 
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,6 @@ public class SongList {
     private Date time;
 
     private Integer userId;
-
     private String createUser;
     //一个歌单包含多个歌曲 多对多
     private List<Song> songs;

@@ -21,23 +21,26 @@ public class SingerServiceImpl implements SingerService {
     }
 
     //多条件查询歌手
-    public Page<Singer> selectSingerByExample(Singer singer, Date startDate, Date endDate) {
-        return singerMapper.selectSingerByExample(singer, startDate, endDate);
+    public Page<Singer> page(Singer singer, Date startDate, Date endDate) {
+        return singerMapper.page(singer, startDate, endDate);
     }
 
     //添加歌手
-    public int insertSinger(Singer singer) {
-
-        return singerMapper.insertSinger(singer);
+    public int save(Singer singer) {
+		if (singer.getSingerId() == null) {
+            return singerMapper.add(singer);
+        }else {
+            return singerMapper.update(singer);
+        }
     }
 
     //通过歌手删除歌手
     public int delSinger(int SingerId) {
-        return singerMapper.deleteByPrimaryKey(SingerId);
+        return singerMapper.del(SingerId);
     }
 
-    public List<Singer> AllSinger() {
-        return singerMapper.AllSinger();
+    public List<Singer> list() {
+        return singerMapper.list();
     }
 
 }

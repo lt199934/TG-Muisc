@@ -11,6 +11,8 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<User> {
     int deleteByPrimaryKey(Integer userId);
 
+    int delBatchByIds(List<Integer> ids);
+
     int insert(User record);
 
     int selectAlbumStatus(@Param("userId") int userId, @Param("albumId") int albumId);
@@ -81,5 +83,4 @@ public interface UserMapper extends BaseMapper<User> {
 
     //查询所有用户
     List<User> selAllUser();
-
 }
