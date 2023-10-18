@@ -36,7 +36,7 @@ public class UserController {
         System.out.println(login);
         if (login != null) {
             session.setAttribute(Integer.toString(login.getUserId()), login);
-            return Result.success(login.getUserId());
+            return Result.success("登录成功", login.getUserId());
         }
         return Result.error("用户名或密码错误");
     }
@@ -126,6 +126,7 @@ public class UserController {
     public int delUser(@PathVariable("userId") String userId) {
         return userService.delUser(Integer.parseInt(userId));
     }
+
     @DeleteMapping("/del/batch")
     public Result<Boolean> delBatch(@RequestBody List<Integer> ids) {
         return Result.success(userService.delBatch(ids));
@@ -265,20 +266,25 @@ public class UserController {
 
     //  收藏专辑
     @PostMapping("/delCollectAlbums")
-    public Object delCollectAlbums(@RequestParam("userId") String userId, @RequestParam("albumId") String albumId, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
+    public Object delCollectAlbums(@RequestParam("userId") String userId, @RequestParam("albumId") String albumId) {
         return userService.delAlbumsByCollected(Integer.parseInt(userId), Integer.parseInt(albumId));
     }
 
     //  添加歌曲到自己创建的歌单
-    @PostMapping("/addSongsToSongList")
-    public Object addSongsToSongList(@RequestParam("songListId") String songListId, @RequestParam("songId") String songId, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        return userService.addSongsToSongList(Integer.parseInt(songListId), Integer.parseInt(songId));
+    @PostMapping("/addSongsToSongList/{songListId}")
+    public Result<String> addSongsToSongList(@PathVariable String songListId, @RequestParam("songId") String songId) {
+        log.info("歌单id：{} 歌曲id：{}", songListId, songId);
+        int added = userService.addSongsToSongList(Integer.parseInt(songListId), Integer.parseInt(songId));
+        return added == -1 ? Result.error("该歌曲已存在！") : (added == 0 ? Result.error("添加失败") : Result.success("添加成功"));
     }
 
-    //  添加歌曲到自己创建的歌单
+    /**
+     * 删除歌曲到自己创建的歌单
+     **/
     @PostMapping("/delSongsToSongList")
-    public Object delSongsToSongList(@RequestParam("songListId") String songListId, @RequestParam("songId") String songId, @RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
-        return userService.delSongsToSongList(Integer.parseInt(songListId), Integer.parseInt(songId));
+    public Result<String> delSongsToSongList(@RequestParam String songListId, @RequestParam String songId) {
+        log.info(songListId);
+        return userService.delSongsToSongList(Integer.parseInt(songListId), Integer.parseInt(songId)) == 0 ? Result.error("删除失败") : Result.success("删除成功");
     }
 
     //查询所有用户

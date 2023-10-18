@@ -120,6 +120,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/admin/users").setViewName("admin/bootstrap-table/users");
         registry.addViewController("/admin/songs").setViewName("admin/bootstrap-table/songs");
         registry.addViewController("/admin/songLists").setViewName("admin/bootstrap-table/songLists");
+        registry.addViewController("/admin/songListsData").setViewName("admin/bootstrap-table/songListsData");
         registry.addViewController("/admin/singers").setViewName("admin/bootstrap-table/singers");
         registry.addViewController("/admin/albums").setViewName("admin/bootstrap-table/albums");
         registry.addViewController("/user/index").setViewName("client/user/index");

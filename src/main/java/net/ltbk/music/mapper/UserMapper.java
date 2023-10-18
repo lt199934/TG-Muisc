@@ -23,6 +23,8 @@ public interface UserMapper extends BaseMapper<User> {
 
     User selectByPrimaryKey(Integer userId);
 
+    int selectSongIsAddToSongList(@Param("songListId") int songListId, @Param("songId") int songId);
+
     Page<User> selectAll();
 
     int updateByPrimaryKey(User record);

@@ -5,16 +5,12 @@ import com.github.pagehelper.Page;
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.User;
 import net.ltbk.music.common.Constants;
-import net.ltbk.music.common.Result;
 import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.mapper.UserMapper;
 import net.ltbk.music.service.UserService;
-import org.apache.commons.collections4.queue.CircularFifoQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.sql.SQLNonTransientException;
 import java.util.Date;
 import java.util.List;
 
@@ -35,15 +31,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         int i = 0;
         if (user.getUserId() == null) {
             User newuser = userMapper.selectByAccount(user.getAccount());
-            log.info("数据库用户：{}",newuser);
+            log.info("数据库用户：{}", newuser);
             if (newuser == null) {
                 try {
                     i = userMapper.insert(user);
-                }catch (Exception e) {
-                    throw new ServiceException(Constants.CODE_ERROR,"业务异常");
+                } catch (Exception e) {
+                    throw new ServiceException(Constants.CODE_ERROR, "业务异常");
                 }
-            }else {
-                throw new ServiceException(Constants.CODE_ERROR,"用户重复");
+            } else {
+                throw new ServiceException(Constants.CODE_ERROR, "用户重复");
             }
         } else {
             i = userMapper.updateByPrimaryKey(user);
@@ -152,7 +148,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     // 给创建的歌歌单添加歌曲
     public int addSongsToSongList(int songListId, int songId) {
-        return userMapper.addSongsToSongList(songListId, songId);
+        return userMapper.selectSongIsAddToSongList(songListId, songId) == 0 ? userMapper.addSongsToSongList(songListId, songId) : -1;
     }
 
     public int delSongsByCollected(int userId, int songId) {
