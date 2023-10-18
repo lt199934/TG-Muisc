@@ -16,7 +16,7 @@
 <div th:include="client/common/include::footer"></div>
 <script type="text/javascript">
     function check_login() {
-        var url = "/adminLogin";
+        let url = "/user/userLogin";
         var admin = {
             "account": $("#account").val(),
             "pwd": $("#pwd").val(),
@@ -26,16 +26,16 @@
             method: "post",
             data: admin,
             dataType: 'JSON',
-            success: function (data) {
-                console.log(data);
-                if (data.code === 200) {
-                    sessionStorage.setItem("admin", JSON.stringify(data));
+            success: function (res) {
+                console.log(res);
+                if (res.code === 200) {
+                    sessionStorage.setItem("admin", JSON.stringify(res.data));
                     toastr.options.onHidden = function () {
                         window.location.href = "/admin/users";
                     }
-                    toastr.success(data.msg);
+                    toastr.success(res.msg);
                 } else {
-                    toastr.error(data.msg);
+                    toastr.error(res.msg);
                     $("#login_form").removeClass('shake_effect');
                     setTimeout(function () {
                         $("#login_form").addClass('shake_effect')
