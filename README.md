@@ -102,3 +102,8 @@ git clone https://gitee.com/lt199934/music-website.git
 
 ![歌单管理](README.assets/歌单管理.png)
 
+![歌单数据管理](README.assets/歌单数据管理.png)
+
+![添加歌单数据](README.assets/添加歌单数据.png)
+
+
