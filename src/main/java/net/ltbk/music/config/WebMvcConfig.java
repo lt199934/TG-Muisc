@@ -1,5 +1,6 @@
 package net.ltbk.music.config;
 
+import net.ltbk.music.common.LoginInterceptor;
 import net.ltbk.music.formatter.StringToDateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +19,6 @@ import java.util.List;
  * @Create: 2023-03-09 13:50
  * @Version 1.0
  **/
-
 @Configuration
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -48,7 +48,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
      **/
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        WebMvcConfigurer.super.addInterceptors(registry);
+        registry.addInterceptor(new LoginInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/music/**","/headImg/**","/album/**","/singer/**","/songs/**","/songListImg/**")
+                .excludePathPatterns("/","/login","/adminLogin","/register","/isLogin","/admin/**","/user/**","/songList/**","/song/**")
+                .excludePathPatterns("/songList/fenLei","/song/all","/albums/**","/play")
+                .excludePathPatterns("/albumDetail","/songListDetail","/singerDetail")
+                .excludePathPatterns("/rankingList","/musics","/singers","/songs","/songLists","/albums")
+                .excludePathPatterns("/doc.html","/webjars/**","/swagger-resources","/v2/api-docs");
     }
 
     /***
@@ -60,6 +67,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * @Return: void
      * @Throw:
      **/
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/music/**").addResourceLocations("classpath:/static/music/");
