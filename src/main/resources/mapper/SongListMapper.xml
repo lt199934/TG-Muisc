@@ -40,19 +40,28 @@
         from songlist
         where song_list_id = #{songListId,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="net.ltbk.music.bean.SongList">
-        insert into songlist (song_list_id, song_list, introduction,
+    <insert id="insertSongList" parameterType="net.ltbk.music.bean.dto.SongListDto">
+        insert into songlist (song_list, introduction,
                               img_url, time, user_id)
-        values (#{songListId,jdbcType=INTEGER}, #{songList,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR},
+        values (#{songList,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR},
                 #{imgUrl,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{userId,jdbcType=INTEGER})
     </insert>
-    <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.SongList">
+    <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.dto.SongListDto">
         update songlist
-        set song_list    = #{songList,jdbcType=VARCHAR},
-            introduction = #{introduction,jdbcType=VARCHAR},
-            img_url      = #{imgUrl,jdbcType=VARCHAR},
-            time         = #{time,jdbcType=DATE},
-            user_id      = #{userId,jdbcType=INTEGER}
+        <set>
+            <if test="songList != null and songList != ''">
+                song_list = #{songList,jdbcType=VARCHAR},
+            </if>
+            <if test="imgUrl != null and imgUrl != ''">
+                img_url = #{imgUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="introduction != null and introduction != ''">
+                introduction = #{introduction,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null and userId != 0">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+        </set>
         where song_list_id = #{songListId,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -97,7 +106,7 @@
             d.sex,
             d.img_url,
             d.birthday,
-            d.intrduction,
+            d.introduction,
             e.album_id,
             e.album,
             e.singer_id,
@@ -208,11 +217,5 @@
         </where>
     </select>
 
-    <insert id="insertSongList" parameterType="net.ltbk.music.bean.dto.SongListDto">
-        insert into songlist (song_list, introduction,
-                              img_url, time, user_id)
-        values (#{songList,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR},
-                #{imgUrl,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{userId,jdbcType=INTEGER})
-    </insert>
 
 </mapper>

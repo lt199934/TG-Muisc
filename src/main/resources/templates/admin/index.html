@@ -3,9 +3,9 @@
 <div th:replace="client/common/include::admin_header('首页')"></div>
 <body>
 <!--   header-->
-<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/header::head"></header>
+<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/include::head"></header>
 <div class="container-fluid">
-    <aside class="col-md-1" th:include="admin/layout/aside::aside"></aside>
+    <aside class="col-md-1" th:include="admin/layout/include::aside(active='index.html')"></aside>
     <main class="col-md-11">
         <div class="row">
             <div class="col-md-12">

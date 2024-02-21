@@ -44,36 +44,34 @@
                         </dd>
 
                     </div>
-
                 </dl>
             </div>
         </div>
     </div>
+    <div class="row" style="height:414px">
+        <div class="col-md-12">
+            <h1>包含歌曲 <small class="songList__number"> 7首歌</small></h1>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td>序号</td>
+                    <td>歌曲标题</td>
+                    <td>收藏</td>
+                    <td>操作</td>
+                </tr>
 
-</div>
-<div class="container">
-    <div class="row" style="height:374px">
-        <h1>包含歌曲 <small class="songList__number"> 7首歌</small></h1>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <td>序号</td>
-                <td>歌曲标题</td>
-                <td>收藏</td>
-                <td>操作</td>
-            </tr>
+                </thead>
+                <tbody class="text-left" id="albums" style="height:80px">
 
-            </thead>
-            <tbody class="text-left" style="height:80px" id="albums">
-
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!--分页-->
     <div th:include="client/common/page::page"></div>
-    <!-- footer-->
-    <div th:include="client/common/footer::footer"></div>
 </div>
+<!--footer-->
+<footer class="footer_copyright col-md-12 col-xs-12 col-sm-12" th:include="client/common/footer::footer"></footer>
 <iframe src="" style="position: fixed;bottom: 150px;" width="300px" height="40%" name="play" frameborder="0"></iframe>
 <div th:include="client/common/include::footer"></div>
 <script th:src="@{/music/client/album/js/album.js}"></script>

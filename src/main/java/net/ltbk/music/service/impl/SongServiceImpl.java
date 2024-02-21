@@ -2,6 +2,7 @@ package net.ltbk.music.service.impl;
 
 import com.github.pagehelper.Page;
 import net.ltbk.music.bean.Song;
+import net.ltbk.music.bean.vo.SongVo;
 import net.ltbk.music.mapper.SongMapper;
 import net.ltbk.music.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class SongServiceImpl implements SongService {
     private SongMapper songMapper;
 
     //查询所有歌曲显示曲库
-    public Page<Song> selectAll() {
+    public Page<SongVo> selectAll() {
         return songMapper.selectAll();
     }
 
@@ -34,12 +35,12 @@ public class SongServiceImpl implements SongService {
     }
 
     // 播放音乐
-    public Song selectSongById(int songId) {
+    public SongVo selectSongById(int songId) {
         return songMapper.selectAllBySongId(songId);
     }
 
     //
-    public Page<Song> selectSongByExample(Song song, Date startDate, Date endDate) {
+    public Page<SongVo> selectSongByExample(Song song, Date startDate, Date endDate) {
         return songMapper.selectSongByExample(song, startDate, endDate);
     }
 

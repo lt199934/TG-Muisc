@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -45,7 +45,7 @@
     var playlist = [{}];
     if ("song" === getUrlParam("temp")) {
         $.ajax({
-            url: "/playSong/" + getUrlParam("songId"),
+            url: "/song/playSong/" + getUrlParam("songId"),
             method: "post",
             async: false,
             success: function (data) {
@@ -62,9 +62,10 @@
             },
         });
     } else if ("album" === getUrlParam("temp")) {
+        console.log(getUrlParam("albumId"))
         $.ajax({
             url: "/albums/" + getUrlParam("albumId"),
-            method: "post",
+            method: "get",
             async: false,
             success: function (data) {
                 var album = data;
@@ -84,7 +85,7 @@
     } else {
         $.ajax({
             url: "/songList/" + getUrlParam("songListId"),
-            method: "post",
+            method: "get",
             async: false,
             success: function (data) {
                 var songDto = data.songDto;

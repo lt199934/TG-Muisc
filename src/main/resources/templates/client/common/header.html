@@ -17,11 +17,17 @@
             </div>
             <div class="collapse navbar-collapse" id="menu" style="margin-top: 10px">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="/rankingList" style="color: #0f0f0f"> 排行榜</a></li>
-                    <li><a href="/musics" style="color: #0f0f0f"> 曲库</a></li>
-                    <li><a href="/songLists" style="color: #0f0f0f"> 歌单</a></li>
-                    <li><a href="/singers" style="color: #0f0f0f"> 歌手</a></li>
-                    <li><a href="/albums" style="color: #0f0f0f"> 专辑</a></li>
+                    <li th:class="${active=='index'}?'active':''"><a href="/" style="color: #0f0f0f"> 首页</a></li>
+                    <li th:class="${active=='rankingList'}?'active':''"><a href="/rankingList" style="color: #0f0f0f">
+                        排行榜</a></li>
+                    <li th:class="${active=='musics'}?'active':''"><a href="/musics" style="color: #0f0f0f"> 曲库</a>
+                    </li>
+                    <li th:class="${active=='songLists'}?'active':''"><a href="/songLists" style="color: #0f0f0f">
+                        歌单</a></li>
+                    <li th:class="${active=='singers'}?'active':''"><a href="/singers" style="color: #0f0f0f"> 歌手</a>
+                    </li>
+                    <li th:class="${active=='albums'}?'active':''"><a href="/albums" style="color: #0f0f0f"> 专辑</a>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-left" style="margin-top: 10px">
                     <div class="form-group input-group input-group-sm">

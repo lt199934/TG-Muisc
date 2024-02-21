@@ -1,9 +1,10 @@
-package net.ltbk.music.bean.dto;
+package net.ltbk.music.bean.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
-public class SongListDto {
+
+public class SongListVo {
 
     private Integer songListId;
 
@@ -16,7 +17,8 @@ public class SongListDto {
     @JsonFormat(locale = "yyyy-MM-dd")
     private Date time;
 
-    private Integer userId;
+    private int userId;
+
 
     public Integer getSongListId() {
         return songListId;
@@ -58,11 +60,11 @@ public class SongListDto {
         this.time = time;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

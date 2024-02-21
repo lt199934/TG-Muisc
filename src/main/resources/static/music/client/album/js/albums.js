@@ -9,8 +9,8 @@ function getAlbums(pageNum) {
         "pageSize": 1,
     }
     $.ajax({
-        "url": "/allAlbums",
-        method: "post",
+        "url": "/albums/page",
+        method: "get",
         data: data,
         success: function (data) {
             $(".pagination").empty();

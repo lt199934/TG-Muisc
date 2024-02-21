@@ -1,6 +1,7 @@
 package net.ltbk.music.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.github.pagehelper.Page;
 import net.ltbk.music.bean.dto.SongDto;
 
 import java.util.Date;
@@ -20,7 +21,9 @@ public class SongList {
 
     private Integer userId;
     private String createUser;
-    //一个歌单包含多个歌曲 多对多
+    /**
+     * 一个歌单包含多个歌曲 多对多
+     **/
     private List<Song> songs;
 
     private List<Album> albums;
@@ -28,10 +31,10 @@ public class SongList {
     private List<Singer> singers;
 
     private Integer count;
-    //    歌单分类
+    /**歌单分类**/
     private List<FenLei> fenLeis;
 
-    private List<SongDto> songDto;
+    private Page<SongDto> songDto;
 
     public Integer getSongListId() {
         return songListId;
@@ -129,11 +132,11 @@ public class SongList {
         this.createUser = createUser;
     }
 
-    public List<SongDto> getSongDto() {
+    public Page<SongDto> getSongDto() {
         return songDto;
     }
 
-    public void setSongDto(List<SongDto> songDto) {
+    public void setSongDto(Page<SongDto> songDto) {
         this.songDto = songDto;
     }
 

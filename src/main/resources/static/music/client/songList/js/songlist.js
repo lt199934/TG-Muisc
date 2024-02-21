@@ -7,7 +7,7 @@ $(function () {
 
 function getSongList(pageNum) {
     var data = {
-        "pageNum": pageNum, "pageSize": 2,
+        "pageNum": pageNum, "pageSize": 5,
     }
     console.log(getUrlParam("songListId"))
     $.ajax({
@@ -132,7 +132,7 @@ $("#music").on("click", ".collect", function () {
     if (null != userId) {
         console.log(className)
         $(this).removeClass("glyphicon-heart glyphicon-heart-empty collect");
-        if (className == "glyphicon glyphicon-heart-empty collect") {
+        if (className === "glyphicon glyphicon-heart-empty collect") {
             console.log("你要收藏的歌曲id为" + num)
             $(this).css("color", "red");
             $(this).addClass("glyphicon glyphicon-heart collect");
@@ -142,7 +142,7 @@ $("#music").on("click", ".collect", function () {
                 data: {"userId": userId, "songId": num},
                 success: function (data) {
                     console.log(data);
-                    if (data == 1) {
+                    if (data === 1) {
                         toastr.success("收藏成功")
                     }
                 }
@@ -158,7 +158,7 @@ $("#music").on("click", ".collect", function () {
                 data: {"userId": userId, "songId": num},
                 success: function (data) {
                     console.log(data);
-                    if (data == 1) {
+                    if (data === 1) {
                         toastr.info("取消收藏")
                     }
                 }
@@ -176,9 +176,9 @@ $("#music").on("click", "#playOne", function () {
     console.log(songId);
     $(this).attr("href", "/play?temp=song&songId=" + songId);
     $.ajax({
-        url: "/updatePlayCount/" + songId, method: "post", success: function (data) {
+        url: "/song/updatePlayCount/" + songId, method: "post", success: function (data) {
             console.log(data);
-            if (data == 1) {
+            if (data === 1) {
                 console.log("播放量加1");
             }
         }

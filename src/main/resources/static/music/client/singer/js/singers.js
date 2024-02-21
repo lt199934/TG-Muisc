@@ -15,8 +15,8 @@ function getSingers(pageNum){
             'Content-Type': 'application/json'
         },
         url: "/singer/page",
-        method: "post",
-        data: JSON.stringify(data),
+        method: "get",
+        data: data,
         success: function (res) {
             $(".pagination").empty();
             $("#singerList").empty();
@@ -30,7 +30,7 @@ function getSingers(pageNum){
                 content += "<img style='height: 147px'  src=" + singers[i].imgUrl + " alt=" + singers[i].singerName + ">";
                 content += "<div class='aption'>";
                 content += "<h4>" + singers[i].singerName + "</h4>";
-                content += "<p style='overflow: hidden;white-space: nowrap;text-overflow: ellipsis'>" + singers[i].intrduction + "</p>";
+                content += "<p style='overflow: hidden;white-space: nowrap;text-overflow: ellipsis'>" + singers[i].introduction + "</p>";
                 content += "<p><a href='javascript:void(0);' id='home' class='btn btn-primary' role='button'>主页</a> <a href='#' class='btn btn-default' role='button'>Button</a></p>";
                 content += "</div>";
                 content += "</div>";

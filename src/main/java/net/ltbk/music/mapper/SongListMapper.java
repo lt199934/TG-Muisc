@@ -1,9 +1,9 @@
 package net.ltbk.music.mapper;
 
+import com.github.pagehelper.Page;
 import net.ltbk.music.bean.FenLei;
 import net.ltbk.music.bean.SongList;
 import net.ltbk.music.bean.dto.SongListDto;
-import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,13 +13,11 @@ import java.util.List;
 public interface SongListMapper {
     int deleteByPrimaryKey(Integer songListId);
 
-    int insert(SongList record);
-
     SongList selectByPrimaryKey(Integer songListId);
 
     Page<SongList> selectAll();
 
-    int updateByPrimaryKey(SongList record);
+    int updateByPrimaryKey(SongListDto record);
 
     Page<SongList> selectSongListByExample(@Param("songList") SongList songlist, @Param("start") Date startDate, @Param("end") Date endDate);
 
@@ -30,7 +28,7 @@ public interface SongListMapper {
 
     List<FenLei> fen();
 
-    List<FenLei> selectFenArrayBySongListId(int songListId);
+    Page<FenLei> selectFenArrayBySongListId(int songListId);
 
     Page<SongList> selectFenAll(int fenId);
 

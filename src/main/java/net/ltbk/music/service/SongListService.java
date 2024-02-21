@@ -1,9 +1,9 @@
 package net.ltbk.music.service;
 
+import com.github.pagehelper.Page;
 import net.ltbk.music.bean.FenLei;
 import net.ltbk.music.bean.SongList;
 import net.ltbk.music.bean.dto.SongListDto;
-import com.github.pagehelper.Page;
 
 import java.util.Date;
 import java.util.List;
@@ -19,11 +19,11 @@ public interface SongListService {
 
     List<FenLei> fen();
 
-    List<FenLei> selectFenArrayBySongListId(int songListId);
+    Page<FenLei> selectFenArrayBySongListId(int songListId);
 
     Page<SongList> selectFenAll(int fenId);
 
     int delSongList(int songListId);
 
-    int insertSongList(SongListDto songList);
+    int save(SongListDto songList);
 }

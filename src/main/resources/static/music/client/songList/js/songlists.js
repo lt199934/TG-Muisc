@@ -19,7 +19,7 @@ function getSongLists(pageNum, fenId) {
         "fenId": fenId ? fenId : 0,
     }
     $.ajax({
-        "url": "/songList/all",
+        "url": "/songList/page",
         method: "post",
         data: data,
         success: function (data) {
@@ -49,7 +49,7 @@ function getSongLists(pageNum, fenId) {
 function getFenLei() {
     $(".simplefilter").empty();
     $.ajax({
-        "url": "/fenLei",
+        "url": "/songList/fenLei",
         method: "post",
         success: function (data) {
             // console.log(data);

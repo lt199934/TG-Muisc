@@ -3,9 +3,9 @@
 <div th:replace="client/common/include::admin_header('歌手管理')"></div>
 <body>
 <!--   header-->
-<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/header::head"></header>
+<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/include::head"></header>
 <div class="container-fluid">
-    <aside class="col-md-1" th:include="admin/layout/aside::aside"></aside>
+    <aside class="col-md-1" th:include="admin/layout/include::aside(active='singers.html')"></aside>
     <main class="col-md-11">
         <div class="row">
             <div class="col-md-12">
@@ -68,7 +68,7 @@
                                         type="button">重置
                                 </button>
                             </div>
-                            <table id="dataTable" class="table table-hover table-striped table-bordered"></table>
+                            <table class="table table-hover table-striped table-bordered" id="dataTable"></table>
                         </div>
                     </div>
                 </div>
@@ -83,12 +83,12 @@
             <div class="modal-header">
                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLoginLabel">歌手详情页面</h4>
+                <h4 class="modal-title" id="singerModalLabel">歌手详情页面</h4>
             </div>
             <div class="modal-body">
                 <form id="singerForm">
                     <div class="row">
-                        <div class="form-group userId col-md-4">
+                        <div class="form-group singerId col-md-4">
                             <label class="control-label" for="singerId">歌手ID</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
@@ -121,7 +121,7 @@
                             <label class="" for="img">歌手图片：</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
-                                <img class="img-responsive" id="imgSrc" src="" alt="加载失败" />
+                                <img alt="加载失败" class="img-responsive" id="imgSrc" src=""/>
                                 <input class="form-control" id="img" name="img" placeholder="请上传歌手图片"
                                        type="file">
                             </div>
@@ -163,10 +163,12 @@
 <div th:include="client/common/include::footer"></div>
 <script src="/music/admin/js/isLogin.js"></script>
 <script>
+    let baseUrl = "/singer"
+    let $imgSrc = $("#imgSrc");
     let $singerForm = $("#singerForm");
     $("#dataTable").bootstrapTable({
-        url: "/singer/page",   //请求后台的URL（*）
-        method: 'post',  //请求方式（*）
+        url: baseUrl + "/page",   //请求后台的URL（*）
+        method: 'get',  //请求方式（*）
         dataType: "json",
         toolbar: '#toolbar', //
         striped: true, // 是否显示行间隔色
@@ -221,19 +223,18 @@
             {checkbox: true},
             {title: 'ID', field: 'singerId'},
             {
-                title: '歌手图片', field: 'imgUrl', formatter(value) {
+                title: '歌手图片', field: 'imgUrl', align: 'center', width: 100, formatter(value) {
                     return "<img src='" + value + "' alt='加载中。。。' style='width:50px;height:50px;border: 1px solid;'>";
                 }
             },
-            {title: '歌手', field: 'singerName'},
+            {title: '歌手', field: 'singerName', align: 'center'},
             {title: '性别', field: 'sex'},
-            {title: '歌手简介',field: 'introduction', width: 800},
-            {title: '生日',field: 'birthday'},
+            {title: '歌手简介', field: 'introduction', width: 800},
+            {title: '生日', field: 'birthday'},
             {
-                title: '操作', formatter: function (value, row, index) {
+                title: '操作', align: 'center', formatter: function (value, row, index) {
                     // console.log(row)
-                    let res = "<button class='btn btn-sm btn-info' onclick='showDetailModal(" + row + ")' >详情</button>&nbsp;";
-                    res += "<button class='btn btn-sm btn-primary' onclick='edit(" + JSON.stringify(row).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ")'>修改</button>&nbsp;";
+                    let res = "<button class='btn btn-sm btn-primary' onclick='edit(" + JSON.stringify(row).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ")'>修改</button>&nbsp;";
                     res += "<button class='btn btn-sm btn-danger' onclick='del(" + index + ")'>删除</button>";
                     return res;
                 }
@@ -249,10 +250,10 @@
     });
 
     const init = () => {
-        $("#myModalLoginLabel").html("添加歌手");
+        $("#singerModalLabel").html("添加歌手");
         $("#subBtn").val("添加");
         $(".singerId").css('display', 'none');
-        $("#imgSrc").css('display','none');
+        $imgSrc.css('display', 'none');
         $singerForm[0].reset();
         $singerForm.data('bootstrapValidator').destroy();
         $singerForm.data('bootstrapValidator', null);
@@ -271,7 +272,7 @@
         var time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
         // console.log(time);
         var formData = new FormData(form);
-        formData.append("time",time);
+        formData.append("time", time);
         console.log(formData);
         $singerForm.data('bootstrapValidator').validate();//手动开启验证
         var flag = $singerForm.data('bootstrapValidator').isValid();
@@ -288,11 +289,10 @@
                     toastr.success(data.msg, null, {positionClass: "toast-top-center"});
                     $singerForm[0].reset();
                     $("#singerModal").modal("hide");
+                    $("#dataTable").bootstrapTable('refresh');
                 } else {
                     toastr.warning(data.msg, null, {positionClass: "toast-top-center"});
                 }
-
-                getSingers(1);
             }
         });
     });
@@ -315,12 +315,14 @@
 
     function edit(singer) {
         $("#subBtn").val("更新");
+        $("#singerModalLabel").html("歌手详情");
         $("#singerId").val(singer.singerId);
         $("#singerName").val(singer.singerName);
         $("#introduction").val(singer.introduction);
         $("#birthday").val(singer.birthday);
-        $("#imgSrc").css("display",'block');
-        $("#imgSrc").attr("src",singer.imgUrl)
+        $(".singerId").css('display', 'block');
+        $imgSrc.css("display", 'block');
+        $imgSrc.attr("src", singer.imgUrl)
         console.log(singer.birthday)
         let sexes = document.getElementById("sex");
         for (var i = 0; i < sexes.length; i++) {

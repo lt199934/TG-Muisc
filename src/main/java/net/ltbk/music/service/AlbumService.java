@@ -1,17 +1,16 @@
 package net.ltbk.music.service;
 
-import net.ltbk.music.bean.Album;
 import com.github.pagehelper.Page;
+import net.ltbk.music.bean.Album;
 
 import java.util.Date;
-import java.util.List;
 
 public interface AlbumService {
     //查询所有专辑（要分页）
-    Page<Album> selectAll();
+    Page<Album> findAll();
 
     //
-    Album selectAllByAlbumId(int albumId);
+    Album findById(int albumId);
 
     //通过iD删除专辑
     int delAlbumById(int albumId);
@@ -22,12 +21,11 @@ public interface AlbumService {
     //通过AlbumId查询专辑所有信息
     int count(int albumId);
 
-    //无条件查询所有专辑
-    List<Album> allAlbum();
-
     //通过歌手ID查询专辑
-    Page<Album> singerIdAlbum(int SingerId);
+    Page<Album> findBySingerId(int SingerId);
 
-    //添加专辑
-    int insertAlbum(Album album);
+    /**
+     * 更新专辑
+     **/
+    int save(Album album);
 }

@@ -9,7 +9,7 @@ function getSongs(pageNum) {
     }
     console.log(pageNum);
     $.ajax({
-        "url": "/allSongs", method: "post", data: data, success: function (data) {
+        "url": "/song/all", method: "post", data: data, success: function (data) {
             $(".pagination").empty();
             $("#music").empty();
             $(".num").html(data.total);

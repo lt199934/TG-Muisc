@@ -1,11 +1,11 @@
 package net.ltbk.music.service.impl;
 
+import com.github.pagehelper.Page;
 import net.ltbk.music.bean.FenLei;
 import net.ltbk.music.bean.SongList;
 import net.ltbk.music.bean.dto.SongListDto;
 import net.ltbk.music.mapper.SongListMapper;
 import net.ltbk.music.service.SongListService;
-import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +37,7 @@ public class SongListServiceImpl implements SongListService {
         return songlistMapper.fen();
     }
 
-    public List<FenLei> selectFenArrayBySongListId(int songListId) {
+    public Page<FenLei> selectFenArrayBySongListId(int songListId) {
         return songlistMapper.selectFenArrayBySongListId(songListId);
     }
 
@@ -49,7 +49,13 @@ public class SongListServiceImpl implements SongListService {
         return songlistMapper.deleteByPrimaryKey(songListId);
     }
 
-    public int insertSongList(SongListDto songList) {
-        return songlistMapper.insertSongList(songList);
+    public int save(SongListDto songList) {
+        if (songList.getSongListId() == null) {
+            return songlistMapper.insertSongList(songList);
+        } else {
+            return songlistMapper.updateByPrimaryKey(songList);
+
+        }
+
     }
 }

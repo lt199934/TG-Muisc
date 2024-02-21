@@ -11,7 +11,7 @@ function getAlbum(pageNum) {
         "pageNum": pageNum, "pageSize": 2,
     }
     $.ajax({
-        "url": "/albums/" + getUrlParam("albumId"), method: "post", data: data, success: function (data) {
+        "url": "/albums/" + getUrlParam("albumId"), method: "get", data: data, success: function (data) {
             // makePage(data);
             console.log("专辑详情", data);
             var album = data;
@@ -167,7 +167,7 @@ $("#albums").on("click", "#playOne", function () {
     $.ajax({
         url: "/updatePlayCount/" + songId, method: "post", success: function (data) {
             console.log(data);
-            if (data == 1) {
+            if (data === 1) {
                 console.log("播放量加1");
             }
         }
@@ -176,6 +176,7 @@ $("#albums").on("click", "#playOne", function () {
 
 //播放全部
 $("#playAll").click(function () {
+    $("#player").css("display", "block");
     $(this).attr("href", "/play?temp=album&albumId=" + getUrlParam("albumId"));
 })
 

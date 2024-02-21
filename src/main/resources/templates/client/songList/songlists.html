@@ -3,7 +3,8 @@
 <div th:replace="client/common/include::header('歌单页面')"></div>
 <body>
 <!--   header-->
-<header class="col-md-12 column" style="padding: 0" th:include="client/common/header::head"></header>
+<header class="col-md-12 column" style="padding: 0"
+        th:include="client/common/header::head(active='songLists')"></header>
 <!--main-->
 <main class="container">
     <div class="row clearfix">

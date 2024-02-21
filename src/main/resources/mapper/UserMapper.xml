@@ -17,7 +17,7 @@
         <result column="time" jdbcType="TIMESTAMP" property="time"/>
     </resultMap>
     <resultMap id="songListsByMe" type="net.ltbk.music.bean.User" extends="BaseResultMap">
-        <collection property="songlists1" ofType="net.ltbk.music.bean.SongList">
+        <collection property="createdList" ofType="net.ltbk.music.bean.SongList">
             <id column="song_list_id" jdbcType="INTEGER" property="songListId"/>
             <result column="song_list" jdbcType="VARCHAR" property="songList"/>
             <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
@@ -27,7 +27,7 @@
         </collection>
     </resultMap>
     <resultMap id="songLists" type="net.ltbk.music.bean.User" extends="BaseResultMap">
-        <collection property="songlists2" ofType="net.ltbk.music.bean.SongList">
+        <collection property="colList" ofType="net.ltbk.music.bean.SongList">
             <id column="song_list_id" jdbcType="INTEGER" property="songListId"/>
             <result column="song_list" jdbcType="VARCHAR" property="songList"/>
             <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
@@ -67,6 +67,21 @@
             <result column="time" jdbcType="TIMESTAMP" property="time"/>
         </collection>
     </resultMap>
+    <sql id="Base_Column_List">
+        user_id,
+        account,
+        pwd,
+        nick_name,
+        phone,
+        email,
+        user_name,
+        sex,
+        head_img,
+        type,
+        Personal_signature,
+        birthday,
+        time
+    </sql>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
         from user
@@ -76,9 +91,9 @@
         delete
         from user
         where user_id in
-              <foreach collection="list" item="id" separator="," open="(" close=")">
-                  #{id,jdbcType=INTEGER}
-              </foreach>
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id,jdbcType=INTEGER}
+        </foreach>
     </delete>
     <insert id="insert" parameterType="net.ltbk.music.bean.User">
         insert into user
@@ -159,56 +174,20 @@
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
-            user_id,
-            account,
-            pwd,
-            nick_name,
-            phone,
-            email,
-            user_name,
-            sex,
-            head_img,
-            type,
-            Personal_signature,
-            birthday,
-            time
+        <include refid="Base_Column_List"/>
         from user
         where user_id = #{userId,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
         select
-            user_id,
-            account,
-            pwd,
-            nick_name,
-            phone,
-            email,
-            user_name,
-            sex,
-            head_img,
-            type,
-            Personal_signature,
-            birthday,
-            time
+        <include refid="Base_Column_List"/>
         from user
     </select>
 
 
     <select id="selectUserByExample" resultMap="BaseResultMap">
         select
-            user_id,
-            account,
-            pwd,
-            nick_name,
-            phone,
-            email,
-            user_name,
-            sex,
-            head_img,
-            type,
-            Personal_signature,
-            birthday,
-            time
+        <include refid="Base_Column_List"/>
         from user
         <where>
             <if test="user.userId != null and user.userId !=''">
@@ -257,38 +236,16 @@
     </select>
 
     <select id="selectByAccountAndPwd" resultMap="BaseResultMap">
-        select user_id,
-               account,
-               pwd,
-               nick_name,
-               phone,
-               email,
-               user_name,
-               sex,
-               head_img,
-               type,
-               Personal_signature,
-               birthday,
-               time
+        select
+        <include refid="Base_Column_List"/>
         from user
         where account = #{account,jdbcType=VARCHAR}
-          and pwd = #{pwd,jdbcType=VARCHAR}
+        and pwd = #{pwd,jdbcType=VARCHAR}
     </select>
 
     <select id="selectByAccount" resultMap="BaseResultMap">
-        select user_id,
-               account,
-               pwd,
-               nick_name,
-               phone,
-               email,
-               user_name,
-               sex,
-               head_img,
-               type,
-               Personal_signature,
-               birthday,
-               time
+        select
+        <include refid="Base_Column_List"/>
         from user
         where account = #{account,jdbcType=VARCHAR}
     </select>
@@ -394,7 +351,10 @@
                b.singer_id,
                b.play_count,
                b.download_count,
-               b.url, b.language, b.album_id, b.time
+               b.url,
+               b.language,
+               b.album_id,
+               b.time
         from user a,
              song b,
              userSongs c
@@ -425,11 +385,10 @@
     </select>
 
     <select id="selectSongIsAddToSongList" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-        select
-           count(1)
+        select count(1)
         from songcollect
         where song_list_id = #{songListId,jdbcType=INTEGER}
-        and song_id = #{songId,jdbcType=INTEGER}
+          and song_id = #{songId,jdbcType=INTEGER}
 
     </select>
 
@@ -505,19 +464,8 @@
     </select>
 
     <select id="selAllUser" resultMap="BaseResultMap">
-        select user_id,
-               account,
-               pwd,
-               nick_name,
-               phone,
-               email,
-               user_name,
-               sex,
-               head_img,
-               type,
-               Personal_signature,
-               birthday,
-               time
+        select
+        <include refid="Base_Column_List"/>
         from user
     </select>
 </mapper>

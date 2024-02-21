@@ -13,7 +13,7 @@
         <result column="time" jdbcType="TIMESTAMP" property="time"/>
     </resultMap>
 
-    <resultMap id="song" type="net.ltbk.music.bean.Song" extends="BaseResultMap">
+    <resultMap id="song" type="net.ltbk.music.bean.vo.SongVo" extends="BaseResultMap">
         <association property="singer" javaType="net.ltbk.music.bean.Singer">
             <id column="singer_id" jdbcType="INTEGER" property="singerId"/>
             <result column="singer_name" jdbcType="VARCHAR" property="singerName"/>

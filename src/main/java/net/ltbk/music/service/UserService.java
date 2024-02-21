@@ -2,8 +2,8 @@ package net.ltbk.music.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.pagehelper.Page;
+import net.ltbk.music.bean.Admin;
 import net.ltbk.music.bean.User;
-import net.ltbk.music.common.Result;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -13,17 +13,26 @@ import java.util.List;
  * @author liutao
  */
 public interface UserService extends IService<User> {
-    /**登录**/
+    /**
+     * 登录
+     **/
     User login(User user);
-    /**注册和更新**/
+
+    /**
+     * 注册和更新
+     **/
     boolean saveUser(User user);
 
-    /**管理员通过用户id删除指定用户**/
+    /**
+     * 管理员通过用户id删除指定用户
+     **/
     int delUser(int userid);
 
     Boolean delBatch(List<Integer> ids);
 
-    /**点击显示个人信息等待修改**/
+    /**
+     * 点击显示个人信息等待修改
+     **/
     User selectByUserId(int userid);
 
     //  查询所有用户
@@ -93,4 +102,5 @@ public interface UserService extends IService<User> {
     List<User> selAllUser();
 
 
+    Admin admin(Admin admin);
 }

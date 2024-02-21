@@ -1,13 +1,17 @@
 package net.ltbk.music.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import net.ltbk.music.bean.User;
 import com.github.pagehelper.Page;
+import net.ltbk.music.bean.Admin;
+import net.ltbk.music.bean.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.Date;
 import java.util.List;
 
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
     int deleteByPrimaryKey(Integer userId);
 
@@ -85,4 +89,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     //查询所有用户
     List<User> selAllUser();
+
+    @Select("SELECT * FROM admin WHERE user_name=#{userName}")
+    Admin admin(Admin user);
 }

@@ -3,6 +3,7 @@ package net.ltbk.music.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.Page;
 import lombok.extern.slf4j.Slf4j;
+import net.ltbk.music.bean.Admin;
 import net.ltbk.music.bean.User;
 import net.ltbk.music.common.Constants;
 import net.ltbk.music.common.exception.ServiceException;
@@ -21,9 +22,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     private UserMapper userMapper;
 
-    //登录
     public User login(User user) {
-        return userMapper.selectByAccountAndPwd(user.getAccount(), user.getPwd());
+        return userMapper.selectByAccount(user.getAccount());
     }
 
     @Override
@@ -177,6 +177,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     public List<User> selAllUser() {
         return userMapper.selAllUser();
+    }
+
+    @Override
+    public Admin admin(Admin admin) {
+        return userMapper.admin(admin);
     }
 
 }

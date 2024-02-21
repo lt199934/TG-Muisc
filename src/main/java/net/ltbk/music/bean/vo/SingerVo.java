@@ -20,6 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SingerVo implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Integer singerId;
     private String singerName;
     private String sex;

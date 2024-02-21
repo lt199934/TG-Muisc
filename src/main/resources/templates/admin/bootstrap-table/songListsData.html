@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="client/common/include::admin_header('歌单数据')"></div>
+<body>
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/include::head"></header>
+<div class="container-fluid">
+    <aside class="col-md-1" th:include="admin/layout/include::aside"></aside>
+    <main class="col-md-11">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="/admin/index">Home</a></li>
+                    <li><a href="/admin/songLists">歌单管理</a></li>
+                    <li class="active">歌曲数据</li>
+                </ol>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" id="selectForm">
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="name">歌单名</label>
+                                <input class="form-control " id="name" placeholder="请输入名称" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="startDate">开始时间：</label>
+                                <input class="form-control " id="startDate" placeholder="请输入开始时间" type="text">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2" style="padding-right: 5px">
+                                <label class="" for="endDate">结束时间：</label>
+                                <input class="form-control " id="endDate" placeholder="请输入结束时间" type="text">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- 示例 -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">歌曲信息</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div id="toolbar">
+                                <!-- 按钮触发模态框 -->
+                                <button class="btn btn-success"
+                                        data-target="#songListDataModal"
+                                        data-toggle="modal"
+                                        id="getInsertRows"
+                                        onclick="init()"
+                                        type="button"><i class="glyphicon glyphicon-plus"></i> 添加
+                                </button>
+                                <button class="btn btn-warning"
+                                        id="reset"
+                                        onclick="resetForm()"
+                                        type="button">重置
+                                </button>
+                            </div>
+                            <table class="table table-hover table-striped table-bordered" id="dataTable"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div aria-labelledby="myModalLoginLabel" class="modal fade" id="songListDataModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLoginLabel">添加数据</h4>
+            </div>
+            <div class="modal-body">
+                <form id="songListForm">
+                    <div class="form-group">
+                        <label class="" for="songId">歌曲数据</label>
+                        <div class="input-group">
+                                        <span class="input-group-addon"><span
+                                                class="glyphicon glyphicon-info-sign"></span></span>
+                            <select class="form-control songId" id="songId" name="songId">
+                                <option selected="selected" value="">请选择歌曲</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal" type="button">取消</button>
+                <input class="btn btn-primary" data-loading-text="添加..." id="subBtn" type="button"
+                       value="添加">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 删除提示框 -->
+<div class="modal fade" id="delcfmModel">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <h4 class="modal-title">确认信息</h4>
+
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="delcfmMsg"><span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span>您确认要删除吗？
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+                <a class="btn btn-success" data-dismiss="modal" id="btnOkDelete">确定</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+<div th:include="client/common/include::footer"></div>
+<script src="/music/admin/js/isLogin.js"></script>
+<script>
+    $("#dataTable").bootstrapTable({
+        url: "/songList/" + getUrlParam("songListId"), //请求后台的URL（*）
+        method: 'get',     //请求方式（*）
+        dataType: "json",   //服务器返回的数据类型
+        toolbar: '#toolbar', //
+        striped: true,      //是否显示行间隔色
+        cache: false,       //是否使用AJAX数据缓存
+        sortable: true,     //是否启用排序
+        ordering: true, //是
+        sortOrder: "asc",   //排序方式
+        search: false,      //是否显示搜索
+        sidePagination: "server", //设置在哪里进行分页，可选值为 ‘client’ 或者 ‘server’。设置 ‘server’时，必须设置 服务器数据地址（url）或者重写ajax方法
+        pagination: true,   //是否显示分页组件
+        showPaginationSwitch: true, //显示切换分页
+        pageNumber: 1,      //第一页页数
+        pageSize: 5,        //第一页条数
+        pageList: [5, 10, 20, 50, 100], //每页显示多少条
+        showFullscreen: true, //显示全屏
+        showHeader: true,   //显示头部，默认显示
+        showExport: true,   //显示导出
+        showColumns: true,  //是否显示所有的列
+        showRefresh: true, //是否显示刷新按钮
+        showFooter: false, //是否显示底部
+        minimumCountColumns: 2,  //最少允许的列数
+        clickToSelect: true,   //是否启用点击选中行
+        //height: 500,         //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "ID",        //每一行的唯一标识，一般为主键列
+        showToggle: true,     //是否显示详细视图和列表视图的切换按钮
+        cardView: false,      //是否显示详细视图
+        detailView: false,    //是否显示父子表
+        queryParams: function (params) {
+            return {
+                "pageNum": (params.offset / params.limit) + 1,
+                "pageSize": params.limit
+            }
+        },
+        onLoadSuccess: function (res) {
+            // console.log(res)
+        },
+        onLoadError: function () {
+            showTips("数据加载失败！");
+        },
+        responseHandler: function (res) {
+            console.log(res)
+            return {
+                total: res.songDto.length,
+                rows: res.songDto
+            }
+        },
+        columns: [
+            {checkbox: true},
+            {title: 'ID', field: 'songId'},
+            {
+                title: '封面', field: 'albumUrl', formatter(value) {
+                    return "<img src='" + value + "' alt='加载中。。。' style='width:50px;height:50px;border: 1px solid;'>";
+                }
+            },
+            {title: '歌曲', field: 'song'},
+            {title: '歌手', field: 'singerName'},
+            {
+                title: '操作', formatter: function (value, row, index) {
+                    // console.log(row)
+                    let res = "<button class='btn btn-sm btn-info' onclick='listenTo(" + row.songId + ")' >试听</button>&nbsp;";
+                    res += "<button class='btn btn-sm btn-danger' onclick='del(" + row.songId + ")'>删除</button>";
+                    return res;
+                }
+            }],
+
+    })
+
+    $(function () {
+        getSongs();
+    });
+    $("#selectForm").change(function () {
+        $("#dataTable").bootstrapTable('refresh');
+    });
+    $("#pageSize").change(function () {
+        $("#dataTable").bootstrapTable('refresh');
+    });
+
+    function getSongs() {
+        var data = {}
+        $.ajax({
+            "url": "/song/all",
+            method: "get",
+            data: data,
+            success: function (data) {
+                var songs = data.list;
+                console.log("曲库信息", songs);
+                for (var i = 0; i < songs.length; i++) {
+                    var $song = $("<option value=" + songs[i].songId + ">" + songs[i].song + " - " + songs[i].singer.singerName + "</option>");
+                    $(".songId").append($song)
+                }
+            }
+        });
+    }
+
+    const listenTo = (songId) => {
+        window.location.href = "/play?temp=song&songId=" + songId
+    }
+
+    const init = () => {
+
+    }
+    const edit = () => {
+
+    }
+
+
+    const page = () => {
+
+    }
+
+
+    $("#subBtn").click(function () {
+        var url = "/user/addSongsToSongList/" + getUrlParam("songListId");
+        var form = $("#songListForm")[0];
+        var formData = new FormData(form);
+        console.log(formData);
+        $.ajax({
+            url: url,
+            method: "post",
+            data: formData,
+            dataType: 'JSON',
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                console.log(res);
+                if (res.code === 200) {
+                    toastr.success(res.msg, null, {positionClass: "toast-top-center"});
+                    $("#songListForm")[0].reset();
+                } else {
+                    toastr.error(res.msg, null, {positionClass: "toast-top-center"});
+                }
+                $("#songListDataModal").modal("hide");
+                $("#dataTable").bootstrapTable('refresh');
+            }
+        });
+    });
+
+
+    function del(songId) {
+        $('#delcfmModel').modal({backdrop: 'static', keyboard: false})
+            .one('click', '#btnOkDelete', function () {
+                let url = "/user/delSongsToSongList";
+                $.ajax({
+                    url: url,
+                    data: {songListId: getUrlParam("songListId"), songId: songId},
+                    method: "post",
+                    success: function (res) {
+                        if (res.code === 200) {
+                            toastr.success(res.msg, null, {positionClass: "toast-top-center"});
+                        } else {
+                            toastr.error(res.msg, null, {positionClass: "toast-top-center"});
+                        }
+                        $("#dataTable").bootstrapTable('refresh');
+                    }
+                });
+            });
+
+    }
+</script>
+</html>

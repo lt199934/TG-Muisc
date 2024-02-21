@@ -33,6 +33,9 @@
             <result column="time" jdbcType="DATE" property="time"/>
         </collection>
     </resultMap>
+    <sql id="Base_Column_List">
+        album_id, album, singer_id, album_img, introduction, company, time
+    </sql>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
         from album
@@ -49,16 +52,31 @@
     </insert>
     <update id="updateByPrimaryKey" parameterType="net.ltbk.music.bean.Album">
         update album
-        set album        = #{album,jdbcType=VARCHAR},
-            singer_id    = #{singerId,jdbcType=INTEGER},
-            introduction = #{introduction,jdbcType=VARCHAR},
-            album_img    = #{albumImg,jdbcType=VARCHAR},
-            company      = #{company,jdbcType=VARCHAR},
-            time         = #{time,jdbcType=DATE}
+        <set>
+            <if test="album !=null and album !=''">
+                album = #{album,jdbcType=VARCHAR},
+            </if>
+            <if test="singerId !=null and singerId !=''">
+                singer_id = #{singerId,jdbcType=INTEGER},
+            </if>
+            <if test="introduction !=null and introduction !=''">
+                introduction = #{introduction,jdbcType=VARCHAR},
+            </if>
+            <if test="albumImg !=null and albumImg !=''">
+                album_img = #{albumImg,jdbcType=INTEGER},
+            </if>
+            <if test="company !=null and company !=''">
+                company = #{company,jdbcType=VARCHAR},
+            </if>
+            <if test="time != null">
+                time = #{time,jdbcType=DATE}
+            </if>
+        </set>
         where album_id = #{albumId,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="album">
-        select album_id, album, singer_id, album_img, introduction, company, time
+        select
+        <include refid="Base_Column_List"/>
         from album
         where album_id = #{albumId,jdbcType=INTEGER}
     </select>
@@ -70,7 +88,12 @@
     <select id="selectAllByAlbumId" resultMap="album">
         select
             c.album_id, c.album, c.singer_id, c.album_img, c.introduction, c.company, c.time,
-            a.singer_id, a.singer_name, a.sex, a.img_url, a.birthday, a.intrduction,
+            a.singer_id,
+            a.singer_name,
+            a.sex,
+            a.img_url,
+            a.birthday,
+            a.introduction,
             b.song_id,b.song,b.singer_id,b.play_count,b.download_count,b.url, b.language, b.album_id, b.time
         from singer a,
              song b,
@@ -121,13 +144,15 @@
           and a.album_id = #{albumId,jdbcType=INTEGER}
     </select>
 
-    <select id="allAlbum" resultMap="BaseResultMap">
-        select *
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
         from album
     </select>
 
     <select id="singerIdAlbum" resultMap="BaseResultMap">
-        select *
+        select
+        <include refid="Base_Column_List"/>
         from album
         WHERE singer_id = #{SingerId}
     </select>

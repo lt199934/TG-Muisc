@@ -3,9 +3,9 @@
 <div th:replace="client/common/include::admin_header('歌曲管理')"></div>
 <body>
 <!--   header-->
-<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/header::head"></header>
+<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/include::head"></header>
 <div class="container-fluid">
-    <aside class="col-md-1" th:include="admin/layout/aside::aside"></aside>
+    <aside class="col-md-1" th:include="admin/layout/include::aside(active='songs.html')"></aside>
     <main class="col-md-11">
         <div class="row">
             <div class="col-md-12">
@@ -33,11 +33,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-groupcol-xs-12 col-sm-2 col-md-3 col-lg-2">
-                                <label class="" for="language1">语种</label>
+                            <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2">
+                                <label class="" for="lang">语种</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign"></span></span>
-                                    <select class="form-control" id="language1" name="language ">
+                                    <select class="form-control" id="lang" name="language ">
                                         <option selected="selected" value="">不限</option>
                                         <option value="中文">中文</option>
                                         <option value="日文">日文</option>
@@ -111,7 +111,7 @@
             <div class="modal-header">
                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="songModalLabel">添加歌曲页面</h4>
+                <h4 class="modal-title" id="songModalLabel">添加歌曲</h4>
             </div>
             <div class="modal-body">
                 <form id="uploadSongForm">
@@ -230,7 +230,7 @@
     let $songModal= $("#songModal");
     let $songModalLabel= $("#songModalLabel");
     $("#dataTable").bootstrapTable({
-        url: "/selectSongByExample",   //请求后台的URL（*）
+        url: "/song/page",   //请求后台的URL（*）
         method: 'get',  //请求方式（*）
         dataType: "json",
         toolbar: '#toolbar', //
@@ -261,8 +261,10 @@
             return {
                 "songId": $("#id").val(),
                 "song": $("#name").val(),
-                "sex": $("#singerSex").val(),
-                "company": $("#album_company").val(),
+                "singerId": $("#singer").val(),
+                "language": $("#lang").val(),
+                "playCount": $("#play_count").val(),
+                "downloadCount": $("#download_count").val(),
                 "startDate": $("#startDate").val(),
                 "endDate": $("#endDate").val(),
                 "pageNum": (params.offset / params.limit) + 1,
@@ -286,12 +288,12 @@
             {checkbox: true},
             {title: 'ID', field: 'songId'},
             // {
-            //     title: '歌曲图片', field: 'imgUrl', formatter(value) {
+            //     title: '歌曲图片', field: 'imgUrl',align: 'center',width:100, formatter(value) {
             //         return "<img src='" + value + "' alt='加载中。。。' style='width:50px;height:50px;border: 1px solid;'>";
             //     }
             // },
             {title: '歌曲', field: 'song'},
-            {title: '创建人',field: 'singer.singerName'},
+            {title: '歌手', field: 'singer.singerName'},
             {title: '播放量',field: 'playCount'},
             {title: '下载量',field: 'downloadCount'},
             {title: '播放地址',field: 'url'},
@@ -299,11 +301,11 @@
             {title: '语种',field: 'language'},
             {title: '发布时间',field: 'time'},
             {
-                title: '操作', formatter: function (value, row, index) {
+                title: '操作', align: 'center', formatter: function (value, row, index) {
                     // console.log(row)
-                    let res = "<button class='btn btn-sm btn-info' onclick='showDetailModal(" + row + ")' >详情</button>&nbsp;";
-                    res += "<button class='btn btn-sm btn-primary' onclick='edit(" + JSON.stringify(row).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ")'>修改</button>&nbsp;";
-                    res += "<button class='btn btn-sm btn-danger' onclick='del(" + index + ")'>删除</button>";
+                    let res = "<button class='btn btn-sm btn-primary' onclick='edit(" + JSON.stringify(row).replace(/\"/g, "&quot;").replace(/\'/g, "\\\'") + ")'>修改</button>&nbsp;";
+                    res += "<button class='btn btn-sm btn-info' onclick='listenTo(" + row.songId + ")'>试听</button>&nbsp;";
+                    res += "<button class='btn btn-sm btn-danger' onclick='del(" + row.songId + ")'>删除</button>";
                     return res;
                 }
             }],
@@ -318,7 +320,7 @@
     });
 
     const init = () => {
-        $("#myModalLoginLabel").html("songModalLabel");
+        $songModalLabel.html("添加歌曲");
         $("#subBtn").val("添加");
         $(".songId").css('display', 'none');
         $("#url").parent().parent().css('display', 'none');
@@ -352,8 +354,8 @@
     function allAlbums() {
         $("#albumName").empty();
         $.ajax({
-            url: "/allAlbum",
-            method: "post",
+            url: "/albums/all",
+            method: "get",
             success: function (data) {
                 console.log("专辑", data);
                 var albums = data
@@ -373,8 +375,8 @@
             return;
         }
         $.ajax({
-            url: "/SelAlbum/" + singerId,
-            method: "post",
+            url: "/album/s/" + singerId,
+            method: "get",
             success: function (data) {
                 console.log("改变", data);
                 for (var i = 0; i < data.list.length; i++) {
@@ -386,7 +388,7 @@
     });
 
     $("#subBtn").click(function () {
-        var url = "/uploadSong";
+        var url = "/song/save";
         var date = new Date();
         var form = $uploadSongForm[0];
         var time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
@@ -439,7 +441,7 @@
         $("#songId").val(song.songId);
         $("#songPath").parent().parent().css('display', 'none');
         $url.parent().parent().css('display', 'block');
-        $songModalLabel.val("修改歌曲页面");
+        $songModalLabel.html("歌曲详情");
         $("#subBtn").val("更新");
         $("#song").val(song.song);
         $("#playCount").val(song.playCount);
@@ -465,6 +467,10 @@
         $("#time").val(song.time);
         $songModal.modal('show');
 
+    }
+
+    const listenTo = (songId) => {
+        window.location.href = "/play?temp=song&songId=" + songId
     }
 </script>
 </html>

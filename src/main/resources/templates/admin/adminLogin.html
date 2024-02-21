@@ -5,7 +5,8 @@
 <body>
 <div class="login-page" id="wrapper">
     <div class="form" id="login_form">
-        <form class="login-form" id="adminfrom">
+        <form class="login-form" id="adminForm">
+            <label for="account">用户名</label>
             <input id="account" placeholder="用户名" type="text"/>
             <input id="pwd" placeholder="密码" type="password"/>
             <button id="login">登　录</button>
@@ -16,9 +17,9 @@
 <div th:include="client/common/include::footer"></div>
 <script type="text/javascript">
     function check_login() {
-        let url = "/user/userLogin";
+        let url = "/admin/login";
         var admin = {
-            "account": $("#account").val(),
+            "userName": $("#account").val(),
             "pwd": $("#pwd").val(),
         }
         $.ajax({
@@ -29,7 +30,7 @@
             success: function (res) {
                 console.log(res);
                 if (res.code === 200) {
-                    sessionStorage.setItem("admin", JSON.stringify(res.data));
+                    localStorage.setItem("admin", JSON.stringify(res.data));
                     toastr.options.onHidden = function () {
                         window.location.href = "/admin/users";
                     }

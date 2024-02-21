@@ -64,7 +64,8 @@ function checkLoginForm() {
 $("#subBtn").click(function () {
     const user = {
         "account": $("#account").val(),
-        "pwd": $("#pwd").val()
+        "pwd": $("#pwd").val(),
+        "type": "普通用户"
     }
     $('#loginForm').data('bootstrapValidator').validate();//手动开启验证
     var flag = $('#loginForm').data('bootstrapValidator').isValid();//
@@ -87,13 +88,14 @@ $("#subBtn").click(function () {
             success: function (res) {
                 console.log(res.data);
                 if (res.code === 200) {
+                    console.log(res.data)
                     localStorage.setItem("userId", JSON.stringify(res.data));
                     toastr.options.onHidden = function () {
                         window.location.href = "/";
                     }
-                    toastr.success('登录成功');
+                    toastr.success(res.msg);
                 } else {
-                    toastr.error('登录失败');
+                    toastr.error(res.msg);
                     $("#loginForm")[0].reset();
                     $("#loginForm").data('bootstrapValidator').resetForm();
                 }

@@ -1,9 +1,9 @@
 package net.ltbk.music.service.impl;
 
+import com.github.pagehelper.Page;
 import net.ltbk.music.bean.Album;
 import net.ltbk.music.mapper.AlbumMapper;
 import net.ltbk.music.service.AlbumService;
-import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +16,12 @@ public class AlbumServiceImpl implements AlbumService {
     private AlbumMapper albumMapper;
 
     // 查询所有专辑
-    public Page<Album> selectAll() {
+    public Page<Album> findAll() {
         return albumMapper.selectAll();
     }
 
     //   点击专辑通过id查询并显示专辑的所有信息
-    public Album selectAllByAlbumId(int albumId) {
+    public Album findById(int albumId) {
         return albumMapper.selectAllByAlbumId(albumId);
     }
 
@@ -41,16 +41,25 @@ public class AlbumServiceImpl implements AlbumService {
 
     //查询所有专辑
     public List<Album> allAlbum() {
-        return albumMapper.allAlbum();
+        return albumMapper.findAll();
     }
 
     //通过歌手Id查询专辑
-    public Page<Album> singerIdAlbum(int SingerId) {
-        return albumMapper.singerIdAlbum(SingerId);
+    public Page<Album> findBySingerId(int singerId) {
+        return albumMapper.singerIdAlbum(singerId);
     }
 
-    public int insertAlbum(Album album) {
+    public int add(Album album) {
         return albumMapper.insert(album);
+    }
+
+    @Override
+    public int save(Album album) {
+        if (album.getAlbumId() == null) {
+            return albumMapper.insert(album);
+        } else {
+            return albumMapper.updateByPrimaryKey(album);
+        }
     }
 
 

@@ -32,6 +32,10 @@
             <result column="time" jdbcType="DATE" property="time"/>
         </collection>
     </resultMap>
+
+    <sql id="basic">
+        singer_id, singer_name, sex, img_url, birthday, introduction
+    </sql>
     <insert id="add" parameterType="net.ltbk.music.bean.Singer">
         insert into singer (singer_name, sex,
                             img_url, birthday, introduction)
@@ -57,7 +61,7 @@
             <if test="singer.imgUrl != null and singer.imgUrl !=''">
                 img_url = #{singer.imgUrl,jdbcType=VARCHAR},
             </if>
-            <if test="singer.intrduction != null and singer.intrduction !=''">
+            <if test="singer.introduction != null and singer.introduction !=''">
                 introduction = #{singer.introduction,jdbcType=VARCHAR},
             </if>
             <if test="singer.birthday != null">
@@ -68,18 +72,22 @@
     </update>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select singer_id, singer_name, sex, img_url, birthday, introduction
+        select
+        <include refid="basic"/>
         from singer
         where singer_id = #{singerId,jdbcType=INTEGER}
     </select>
 
     <select id="list" resultMap="BaseResultMap">
-        select singer_id, singer_name, sex, img_url, birthday, introduction
+        select
+        <include refid="basic"/>
         from singer
     </select>
 
     <select id="selectAllBySingerId" resultMap="singer">
-        select singer_id, singer_name, sex, img_url, birthday, introduction, count(*) as count
+        select
+        <include refid="basic"/>,
+        count(*) as count
         from singer a,
              song b,
              album c
@@ -90,7 +98,7 @@
 
     <select id="page" resultMap="BaseResultMap">
         select
-        singer_id, singer_name, sex, img_url, birthday, introduction
+        <include refid="basic"/>
         from singer
         <where>
             <if test="singer.singerId != null and singer.singerId !=''">

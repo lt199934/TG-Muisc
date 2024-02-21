@@ -52,7 +52,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/music/**","/headImg/**","/album/**","/singer/**","/songs/**","/songListImg/**")
                 .excludePathPatterns("/","/login","/adminLogin","/register","/isLogin","/admin/**","/user/**","/songList/**","/song/**")
-                .excludePathPatterns("/songList/fenLei","/song/all","/albums/**","/play")
+                .excludePathPatterns("/songList/fenLei", "/song/all", "/albums/**", "/play", "/updatePlayCount/**")
                 .excludePathPatterns("/albumDetail","/songListDetail","/singerDetail")
                 .excludePathPatterns("/rankingList","/musics","/singers","/songs","/songLists","/albums")
                 .excludePathPatterns("/doc.html","/webjars/**","/swagger-resources","/v2/api-docs");

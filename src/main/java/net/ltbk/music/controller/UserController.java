@@ -7,7 +7,9 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.User;
 import net.ltbk.music.bean.vo.UserVo;
+import net.ltbk.music.common.Constants;
 import net.ltbk.music.common.Result;
+import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.service.UserService;
 import net.ltbk.music.utils.FileHandleUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +18,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @Api(tags = "用户接口")
 @RequestMapping("/user")
 @RestController
 public class UserController {
+    private final Map<String, HttpSession> sessionMap = new HashMap<>();
     @Autowired
     private UserService userService;
 
@@ -33,12 +34,26 @@ public class UserController {
     public Result<Integer> userLogin(User user, HttpSession session) {
         log.info("登录用户：{}", user);
         User login = userService.login(user);
-        System.out.println(login);
-        if (login != null) {
-            session.setAttribute(Integer.toString(login.getUserId()), login);
-            return Result.success("登录成功", login.getUserId());
+        if (login == null || !user.getPwd().equals(login.getPwd())) {
+            return Result.error("用户名或密码错误");
         }
-        return Result.error("用户名或密码错误");
+        if (Objects.equals("普通用户", user.getType()) && !Objects.equals(user.getType(), login.getType())) {
+            return Result.error("该角色不存在！");
+        }
+        // 存储会话
+        if (!sessionMap.isEmpty()) {
+            // 判断是否登录过
+            if (sessionMap.containsKey(login.getUserId().toString())) {
+                // 过期上一个session
+                sessionMap.get(login.getUserId().toString()).invalidate();
+                sessionMap.remove(login.getAccount());
+            }
+        }
+        session.setMaxInactiveInterval(30 * 60);
+        session.setAttribute("user", login);
+        session.setAttribute(login.getUserId().toString(), login);
+        sessionMap.put(login.getUserId().toString(), session);
+        return Result.success("登录成功", login.getUserId());
     }
 
 
@@ -77,17 +92,24 @@ public class UserController {
         return Result.success(msg, userService.saveUser(user));
     }
 
-    @GetMapping("/getUserInfo/{userId}")
-    public Object getUserLoginInfo(@PathVariable("userId") String userId, HttpSession session) {
-        User user = (User) session.getAttribute(userId);
-        log.info("当前用户：" + user);
-        if (null == user) {
-            return "user is not exited";
-        }
-        return user;
+    @GetMapping("/isLogin")
+    public Boolean isLogin(String userId) {
+        return sessionMap.containsKey(userId);
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/getUserInfo/{userId}")
+    public Object getUserLoginInfo(@PathVariable("userId") String userId) {
+        HttpSession session = sessionMap.get(userId);
+        try {
+            User user = (User) session.getAttribute(userId);
+            log.info("当前用户：" + user);
+            return user;
+        } catch (NullPointerException e) {
+            throw new ServiceException(Constants.CODE_NOT_FORBIDDEN, "登录失效");
+        }
+    }
+
+    @PostMapping("/logout")
     public String isLogout(String userId, HttpSession session) {
         System.out.println("清除用户：" + userId);
         session.removeAttribute(userId);
@@ -147,7 +169,9 @@ public class UserController {
         return userService.selectByUserId(Integer.parseInt(userId));
     }
 
-    //多条件显示所有用户
+    /**
+     * 多条件显示所有用户
+     **/
     @PostMapping("/page")
     public Result<PageInfo<User>> findPage(@RequestBody UserVo userVo) {
         log.info("pageNum：{} pageSize：{}", userVo.getPageNum(), userVo.getPageSize());
@@ -157,7 +181,9 @@ public class UserController {
         user.setPhone(userVo.getPhone());
         user.setEmail(userVo.getEmail());
         user.setSex(userVo.getSex());
-        PageHelper.startPage(userVo.getPageNum(), userVo.getPageSize());
+        if (Optional.ofNullable(userVo.getPageNum()).orElse(0) != 0 && Optional.ofNullable(userVo.getPageSize()).orElse(0) != 0) {
+            PageHelper.startPage(userVo.getPageNum(), userVo.getPageSize());
+        }
         return Result.success(userService.selectUserByExample(user, userVo.getStartDate(), userVo.getEndDate()).toPageInfo());
     }
 
@@ -293,7 +319,4 @@ public class UserController {
         return Result.success(userService.selAllUser());
     }
 
-    public UserService getUserService() {
-        return userService;
-    }
 }

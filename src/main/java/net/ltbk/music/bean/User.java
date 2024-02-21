@@ -1,6 +1,5 @@
 package net.ltbk.music.bean;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 
@@ -10,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 @ApiModel("用户")
-@TableName("user")
 public class User implements Serializable {
     private Integer userId;
 
@@ -38,16 +36,26 @@ public class User implements Serializable {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Timestamp time;
-    //    一个用户可收藏多个歌曲 1对多
+    /**
+     * 一个用户可收藏多个歌曲 1对多
+     **/
     private List<Song> songs;
-    //    一个用户可收藏多个歌手 1对多
+    /**
+     * 一个用户可收藏多个歌手 1对多
+     **/
     private List<Singer> singers;
-    //    一个用户可收藏多个专辑 1对多
+    /**
+     * 一个用户可收藏多个专辑 1对多
+     **/
     private List<Album> albums;
-    //    一个用户可创建多个歌单 1对多
-    private List<SongList> songlists1;
-    //    一个用户可收藏多个歌单 1对多
-    private List<SongList> songlists2;
+    /**
+     * 一个用户可创建多个歌单 1对多
+     **/
+    private List<SongList> createdList;
+    /**
+     * 一个用户可收藏多个歌单 1对多
+     **/
+    private List<SongList> colList;
 
 
     public Integer getUserId() {
@@ -170,20 +178,20 @@ public class User implements Serializable {
         this.albums = albums;
     }
 
-    public List<SongList> getSonglists1() {
-        return songlists1;
+    public List<SongList> getCreatedList() {
+        return createdList;
     }
 
-    public void setSonglists1(List<SongList> songlists1) {
-        this.songlists1 = songlists1;
+    public void setCreatedList(List<SongList> createdList) {
+        this.createdList = createdList;
     }
 
-    public List<SongList> getSonglists2() {
-        return songlists2;
+    public List<SongList> getColList() {
+        return colList;
     }
 
-    public void setSonglists2(List<SongList> songlists2) {
-        this.songlists2 = songlists2;
+    public void setColList(List<SongList> colList) {
+        this.colList = colList;
     }
 
     public Timestamp getTime() {
@@ -196,6 +204,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "userId=" + userId + ", nickName='" + nickName + '\'' + ", account='" + account + '\'' + ", pwd='" + pwd + '\'' + ", phone='" + phone + '\'' + ", email='" + email + '\'' + ", userName='" + userName + '\'' + ", sex='" + sex + '\'' + ", headImg='" + headImg + '\'' + ", type='" + type + '\'' + ", personalSignature='" + personalSignature + '\'' + ", birthday=" + birthday + ", songs=" + songs + ", singers=" + singers + ", albums=" + albums + ", songlists1=" + songlists1 + ", songlists2=" + songlists2 + ", time=" + time + '}';
+        return "User{" + "userId=" + userId + ", nickName='" + nickName + '\'' + ", account='" + account + '\'' + ", pwd='" + pwd + '\'' + ", phone='" + phone + '\'' + ", email='" + email + '\'' + ", userName='" + userName + '\'' + ", sex='" + sex + '\'' + ", headImg='" + headImg + '\'' + ", type='" + type + '\'' + ", personalSignature='" + personalSignature + '\'' + ", birthday=" + birthday + ", songs=" + songs + ", singers=" + singers + ", albums=" + albums + ", createdList=" + createdList + ", colList=" + colList + ", time=" + time + '}';
     }
 }

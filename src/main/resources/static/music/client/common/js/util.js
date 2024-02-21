@@ -108,11 +108,12 @@ function isFirst(num) {
         $.ajax({
             url: "/user/getUserInfo/" + userId, method: "get", success: function (data) {
                 console.log(data)
-                if ("user is not exited" !== $.trim(data)) {
-                    isLoginNav(data, num);
-                } else {
+                if (data.code === 403) {
                     localStorage.removeItem("userId");
                     initNav();
+                    toastr.error(data.msg);
+                } else {
+                    isLoginNav(data, num);
                 }
             }
         });
@@ -124,7 +125,10 @@ $("#logout").click(function () {
     var message = confirm("是否退出登录?");
     if (message === true) {
         $.ajax({
-            url: "/user/logout", data: {"userId": userId}, method: "post", success: function (data) {
+            url: "/user/logout",
+            data: {"userId": userId},
+            method: "post",
+            success: function (data) {
                 location.href = data;
                 localStorage.removeItem("userId");
             }

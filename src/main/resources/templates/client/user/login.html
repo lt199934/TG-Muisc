@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="modal-dialog" role="document" style="margin-top: 10%">
-    <div class="modal-content" style="width: 80%">
+    <div class="modal-content" style="width: 80%;margin: auto">
         <div class="modal-header">
             <h4 class="modal-title text-center" id="myModalLoginLabel" style="color: #337ab7;font-weight: bolder">用户登录</h4>
         </div>
@@ -38,16 +38,14 @@
                         <input class="form-control" id="pwd" name="pwd" placeholder="请输入密码" type="password">
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-2"></div>
-                    <button class="btn btn-danger" type="reset">清空</button>
-                    <a href="/register" id="reg" style="font-size: 18px;">没有帐号？注册</a>
-                </div>
             </form>
         </div>
         <div class="modal-footer">
             <div class="row">
                 <input class="btn btn-primary col-sm-6 col-sm-offset-3" id="subBtn" type="button" value="登录">
+            </div>
+            <div class="row">
+                <a class="col-md-12 text-center" href="/register" id="reg" style="font-size: 18px;padding: 10px 0 0">没有帐号？注册</a>
             </div>
         </div>
     </div>

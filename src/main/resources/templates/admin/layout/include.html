@@ -35,5 +35,40 @@
         </div>
     </nav>
 </div>
+<!--aside-->
+<div th:fragment="aside">
+    <ul class="nav nav-pills nav-stacked" id="menu">
+        <li role="presentation" th:class="${active=='index.html'}?'active':''">
+            <a href="/admin/index">
+                <span class="glyphicon glyphicon-home"></span> 首页
+            </a>
+        </li>
+        <li role="presentation" th:class="${active=='users.html'}?'active':''">
+            <a href="/admin/users">
+                <span class="glyphicon glyphicon-user"></span> 用户管理
+            </a>
+        </li>
+        <li role="presentation" th:class="${active=='singers.html'}?'active':''">
+            <a href="/admin/singers">
+                <span class="glyphicon glyphicon-user"></span> 歌手管理
+            </a>
+        </li>
+        <li role="presentation" th:class="${active=='songs.html'}?'active':''">
+            <a href="/admin/songs">
+                <span class="glyphicon glyphicon-music"></span> 歌曲管理
+            </a>
+        </li>
+        <li role="presentation" th:class="${active=='albums.html'}?'active':''">
+            <a href="/admin/albums">
+                <span class="glyphicon glyphicon-cd"></span> 专辑管理
+            </a>
+        </li>
+        <li role="presentation" th:class="${active=='songLists.html'}?'active':''">
+            <a href="/admin/songLists">
+                <span class="glyphicon glyphicon-list"></span> 歌单管理
+            </a>
+        </li>
+    </ul>
+</div>
 </body>
 </html>

@@ -3,9 +3,9 @@
 <div th:replace="client/common/include::admin_header('专辑管理')"></div>
 <body>
 <!--   header-->
-<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/header::head"></header>
+<header class="col-md-12 column" style="padding: 0" th:include="admin/layout/include::head"></header>
 <div class="container-fluid">
-    <aside class="col-md-1" th:include="admin/layout/aside::aside"></aside>
+    <aside class="col-md-1" th:include="admin/layout/include::aside(active='albums.html')"></aside>
     <main class="col-md-11">
         <!--搜索-->
         <div class="row">
@@ -36,7 +36,8 @@
                             </div>
                             <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2">
                                 <label class="" for="album_company">发行机构</label>
-                                <input class="form-control " id="album_company" placeholder="请输入机构名称" type="text">
+                                <input class="form-control " id="album_company" placeholder="请输入机构名称"
+                                       type="text">
                             </div>
                             <div class="form-group col-xs-12 col-sm-2 col-md-3 col-lg-2">
                                 <label class="" for="startDate">开始时间</label>
@@ -65,13 +66,11 @@
                                         data-toggle="modal"
                                         id="getInsertRows"
                                         onclick="init()"
-                                        style="margin-top: 10px"
                                         type="button"><i class="glyphicon glyphicon-plus"></i> 添加
                                 </button>
                                 <button class="btn btn-warning"
                                         id="reset"
                                         onclick="resetForm()"
-                                        style="margin-top: 10px"
                                         type="button">重置
                                 </button>
                             </div>
@@ -84,14 +83,14 @@
     </main>
 </div>
 <!--dialog-->
-<div aria-labelledby="myModalLoginLabel" class="modal fade" id="albumModal" role="dialog" tabindex="-1">
+<div aria-labelledby="albumModalLabel" class="modal fade" id="albumModal" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                         aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLoginLabel">添加专辑页面</h4>
+                <h4 class="modal-title" id="albumModalLabel">添加专辑</h4>
             </div>
             <div class="modal-body">
                 <form id="albumForm">
@@ -100,7 +99,7 @@
                             <label class="control-label" for="albumId">ID</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input class="form-control" id="albumId" name="albumId" placeholder="请输入用户ID"
+                                <input class="form-control" id="albumId" name="albumId" placeholder="请输入专辑ID"
                                        readonly
                                        type="text">
                             </div>
@@ -191,9 +190,14 @@
     $(function () {
         allSinger();
     })
-
+    let $imgSrc = $("#imgSrc");
+    let $albumModal = $("#albumModal");
+    let $albumForm = $("#albumForm");
+    let singers = document.getElementById("singerName");
+    let $albumModalLabel = $("#albumModalLabel");
+    let baseUrl = "/albums"
     $("#dataTable").bootstrapTable({
-        url: "/selectAlbumByExample",   //请求后台的URL（*）
+        url: baseUrl + "/page",   //请求后台的URL（*）
         method: 'get',  //请求方式（*）
         dataType: "json",
         toolbar: '#toolbar', // 
@@ -246,16 +250,16 @@
         columns: [
             {checkbox: true},
             {title: 'ID', field: 'albumId'},
-            {title: '专辑', field: 'album'},
             {
-                title: '专辑图片', field: 'albumImg', formatter(value) {
+                title: '专辑图片', field: 'albumImg', align: 'center', width: 100, formatter(value) {
                     return "<img src='" + value + "' alt='加载中。。。' style='width:50px;height:50px;border: 1px solid;'>";
                 }
             },
+            {title: '专辑', field: 'album'},
             {title: '歌手名', field: 'singer.singerName'},
             {title: '专辑简介', field: 'introduction', width: 600},
             {title: '发行机构', field: 'company'},
-            {title: '发布时间',field: 'time'},
+            {title: '发布时间', field: 'time'},
             {
                 title: '操作', formatter: function (value, row, index) {
                     // console.log(row)
@@ -272,6 +276,22 @@
         $("#dataTable").bootstrapTable('refresh');
     });
 
+    const init = () => {
+        $albumModalLabel.html("添加专辑");
+        $("#subBtn").val("添加");
+        $(".albumId").css('display', 'none');
+        $imgSrc.css('display', 'none');
+        $albumForm[0].reset();
+        $albumForm.data('bootstrapValidator').destroy();
+        $albumForm.data('bootstrapValidator', null);
+
+    };
+
+    const resetForm = () => {
+        $("#selectForm")[0].reset();
+        $("#dataTable").bootstrapTable('refresh');
+    };
+
     function allSinger() {
         $.ajax({
             url: "/singer/all",
@@ -286,7 +306,7 @@
     }
 
     $("#subBtn").click(function () {
-        var url = "/insertAlbum";
+        var url = "/album/save";
         var form = $("#albumForm")[0];
         // var time=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
         // console.log(time);
@@ -304,13 +324,15 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                console.log(data);
-                if (data === 1) {
-                    alert("添加成功");
-                    $("#albumForm")[0].reset();
-                    $("#albumModal").modal("hide");
-                    getAlbums(1);
+                if (data.code === 200) {
+                    toastr.success(data.msg, null, {positionClass: "toast-top-center"});
+                    $albumForm[0].reset();
+                    // $userForm.data('bootstrapValidator').resetForm(true);
+                    $albumModal.modal("hide");
+                } else {
+                    toastr.error(data.msg, null, {positionClass: "toast-top-center"});
                 }
+                $("#dataTable").bootstrapTable('refresh');
 
             }
         });
@@ -334,10 +356,14 @@
         // });
     }
 
-    let singers = document.getElementById("singerName");
+
     const edit = (album) => {
+        $("#subBtn").val("更新");
+        $albumModalLabel.html("专辑详情");
+        $(".albumId").css("display", "block");
         $("#albumId").val(album.albumId);
         $("#album").val(album.album);
+        $imgSrc.css("display", 'block');
         $("#imgSrc").attr("src", album.albumImg);
         $("#company").val(album.company);
         $("#time").val(album.time);

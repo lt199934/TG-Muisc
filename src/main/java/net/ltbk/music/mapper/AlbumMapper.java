@@ -1,7 +1,7 @@
 package net.ltbk.music.mapper;
 
-import net.ltbk.music.bean.Album;
 import com.github.pagehelper.Page;
+import net.ltbk.music.bean.Album;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -24,7 +24,7 @@ public interface AlbumMapper {
 
     int count(int albumId);
 
-    List<Album> allAlbum();
+    List<Album> findAll();
 
     Page<Album> singerIdAlbum(@Param("SingerId") int SingerId);
 }
