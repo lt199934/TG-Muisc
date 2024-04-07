@@ -1,7 +1,9 @@
-package net.ltbk.music.common;
+package net.ltbk.music.common.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.User;
+import net.ltbk.music.common.Constants;
+import net.ltbk.music.common.SessionManager;
 import net.ltbk.music.common.exception.ServiceException;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @Program: music
- * @ClassName LoginIntercepter
+ * @ClassName LoginInterceptor
  * @Author: liutao
  * @Description:
  * @Create: 2023-10-18 23:04
@@ -29,7 +31,12 @@ public class LoginInterceptor implements HandlerInterceptor {
         log.info("请求地址：{}",uri);
         log.info("登录用户：{}",user);
         if (user != null) {
-            return true;
+            HttpSession oldSession = SessionManager.getSession(user.getUserId().toString());
+            if (!oldSession.isNew()) {
+                return true;
+            } else {
+                throw new ServiceException(Constants.CODE_NOT_FORBIDDEN, "登录失效");
+            }
         }else {
             throw new ServiceException(Constants.CODE_NOT_FORBIDDEN,"用户已下线");
         }

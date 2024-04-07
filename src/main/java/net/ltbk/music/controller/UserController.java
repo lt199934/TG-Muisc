@@ -9,6 +9,7 @@ import net.ltbk.music.bean.User;
 import net.ltbk.music.bean.vo.UserVo;
 import net.ltbk.music.common.Constants;
 import net.ltbk.music.common.Result;
+import net.ltbk.music.common.SessionManager;
 import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.service.UserService;
 import net.ltbk.music.utils.FileHandleUtil;
@@ -16,43 +17,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Slf4j
 @Api(tags = "用户接口")
 @RequestMapping("/user")
 @RestController
 public class UserController {
-    private final Map<String, HttpSession> sessionMap = new HashMap<>();
+
     @Autowired
     private UserService userService;
 
     @ApiOperation("用户登录")
     @PostMapping("/userLogin")
-    public Result<Integer> userLogin(User user, HttpSession session) {
+    public Result<Integer> userLogin(User user, HttpSession session, HttpServletRequest request) {
         log.info("登录用户：{}", user);
         User login = userService.login(user);
         if (login == null || !user.getPwd().equals(login.getPwd())) {
             return Result.error("用户名或密码错误");
         }
-        if (Objects.equals("普通用户", user.getType()) && !Objects.equals(user.getType(), login.getType())) {
-            return Result.error("该角色不存在！");
-        }
-        // 存储会话
-        if (!sessionMap.isEmpty()) {
-            // 判断是否登录过
-            if (sessionMap.containsKey(login.getUserId().toString())) {
-                // 过期上一个session
-                sessionMap.get(login.getUserId().toString()).invalidate();
-                sessionMap.remove(login.getAccount());
-            }
-        }
         session.setMaxInactiveInterval(30 * 60);
         session.setAttribute("user", login);
         session.setAttribute(login.getUserId().toString(), login);
-        sessionMap.put(login.getUserId().toString(), session);
+        SessionManager.addSession(login.getUserId().toString(), session);
         return Result.success("登录成功", login.getUserId());
     }
 
@@ -93,15 +86,14 @@ public class UserController {
     }
 
     @GetMapping("/isLogin")
-    public Boolean isLogin(String userId) {
-        return sessionMap.containsKey(userId);
+    public Boolean isLogin(String userId, HttpSession session) {
+        return SessionManager.isLogin(session.getId());
     }
 
     @GetMapping("/getUserInfo/{userId}")
     public Object getUserLoginInfo(@PathVariable("userId") String userId) {
-        HttpSession session = sessionMap.get(userId);
         try {
-            User user = (User) session.getAttribute(userId);
+            User user = (User) SessionManager.getSession(userId).getAttribute(userId);
             log.info("当前用户：" + user);
             return user;
         } catch (NullPointerException e) {
@@ -111,9 +103,8 @@ public class UserController {
 
     @PostMapping("/logout")
     public String isLogout(String userId, HttpSession session) {
-        System.out.println("清除用户：" + userId);
-        session.removeAttribute(userId);
-        session.invalidate();
+        log.info("清除用户：" + userId);
+        SessionManager.removeSession(session.getId());
         return "/login";
     }
 

@@ -1,6 +1,7 @@
 package net.ltbk.music.config;
 
-import net.ltbk.music.common.LoginInterceptor;
+import net.ltbk.music.common.interceptor.AdminInterceptor;
+import net.ltbk.music.common.interceptor.LoginInterceptor;
 import net.ltbk.music.formatter.StringToDateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -51,11 +52,15 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/music/**","/headImg/**","/album/**","/singer/**","/songs/**","/songListImg/**")
-                .excludePathPatterns("/","/login","/adminLogin","/register","/isLogin","/admin/**","/user/**","/songList/**","/song/**")
+                .excludePathPatterns("/", "/login", "/adminLogin", "/register", "/isLogin", "/user/userLogin", "/admin/**", "/songList/**", "/song/**")
                 .excludePathPatterns("/songList/fenLei", "/song/all", "/albums/**", "/play", "/updatePlayCount/**")
                 .excludePathPatterns("/albumDetail","/songListDetail","/singerDetail")
                 .excludePathPatterns("/rankingList","/musics","/singers","/songs","/songLists","/albums")
                 .excludePathPatterns("/doc.html","/webjars/**","/swagger-resources","/v2/api-docs");
+
+        registry.addInterceptor(new AdminInterceptor())
+                .addPathPatterns("/admin/**")
+                .excludePathPatterns("/admin/users");
     }
 
     /***
