@@ -56,3 +56,5 @@ file:
       uploadPath: K:/软件开发/项目/SpringBoot+Thymeleaf/TG-Music/src/main/resources/
     linux:
         uploadPath: /home/ltbk/music/static/upload/
+    mac:
+        uploadPath: /Users/liutao/IdeaProjects/TG-Muisc/src/main/resources/static/upload

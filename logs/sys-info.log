@@ -118,42 +118,126 @@
 2024-11-23 22:10:39.727 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
 2024-11-23 22:10:39.729 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-2} closing ...
 2024-11-23 22:10:39.729 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-2} closed
-2024-11-23 22:10:39.822 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_401 on DESKTOP-4DD9P12 with PID 4020 (K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
-2024-11-23 22:10:39.822 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
-2024-11-23 22:10:40.144 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:10:40.144 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
-2024-11-23 22:10:40.144 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
-2024-11-23 22:10:40.148 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
-2024-11-23 22:10:40.173 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
-2024-11-23 22:10:40.185 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-3} inited
-2024-11-23 22:10:40.484 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:10:41.170 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.377 seconds (JVM running for 488.513)
-2024-11-23 22:10:41.170 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
-2024-11-23 22:10:41.170 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
-2024-11-23 22:17:04.643 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:17:04.643 [Thread-27] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
-2024-11-23 22:17:04.647 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:17:04.648 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:17:04.650 [Thread-27] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-3} closing ...
-2024-11-23 22:17:04.650 [Thread-27] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-3} closed
-2024-11-23 22:17:04.761 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_401 on DESKTOP-4DD9P12 with PID 4020 (K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
-2024-11-23 22:17:04.762 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
-2024-11-23 22:17:05.204 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:17:05.204 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
-2024-11-23 22:17:05.204 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
-2024-11-23 22:17:05.209 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
-2024-11-23 22:17:05.226 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
-2024-11-23 22:17:08.959 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_401 on DESKTOP-4DD9P12 with PID 4020 (K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
-2024-11-23 22:17:08.960 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
-2024-11-23 22:17:09.322 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:17:09.322 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
-2024-11-23 22:17:09.322 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
-2024-11-23 22:17:09.326 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
-2024-11-23 22:17:09.351 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
-2024-11-23 22:17:09.362 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-4} inited
-2024-11-23 22:17:09.727 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
-2024-11-23 22:17:10.411 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.48 seconds (JVM running for 877.754)
-2024-11-23 22:17:10.412 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
-2024-11-23 22:17:10.412 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
-2024-11-23 22:54:25.208 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-4} closing ...
-2024-11-23 22:54:25.208 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-4} closed
+2024-11-23 22:28:05.423 [background-preinit] INFO  o.h.validator.internal.util.Version - [<clinit>,27] - HV000001: Hibernate Validator 5.1.2.Final
+2024-11-23 22:28:05.426 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_431 on 192.168.1.5 with PID 6428 (/Users/liutao/IdeaProjects/TG-Muisc/target/classes started by liutao in /Users/liutao/IdeaProjects/TG-Muisc)
+2024-11-23 22:28:05.426 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:28:05.948 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:28:05.949 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:28:05.949 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:28:05.989 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:28:06.045 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-23 22:28:06.081 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-1} inited
+2024-11-23 22:28:06.460 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:28:06.852 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.575 seconds (JVM running for 1.873)
+2024-11-23 22:28:06.853 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-23 22:28:06.853 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-11-23 22:28:14.441 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-23 22:28:14.627 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [page,65] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-11-23 22:28:14.627 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,56] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-11-23 22:28:14.628 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [page,66] - null-null
+2024-11-23 22:28:14.628 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [page,67] - pageNum：1 pageSize：6
+2024-11-23 22:28:14.628 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,57] - 0
+2024-11-23 22:29:21.856 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:29:21.857 [Thread-7] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-11-23 22:29:21.858 [Thread-7] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-11-23 22:29:21.861 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:29:21.864 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:29:21.868 [Thread-7] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-1} closing ...
+2024-11-23 22:29:21.873 [Thread-7] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-1} closed
+2024-11-23 22:29:21.979 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_431 on 192.168.1.5 with PID 6428 (/Users/liutao/IdeaProjects/TG-Muisc/target/classes started by liutao in /Users/liutao/IdeaProjects/TG-Muisc)
+2024-11-23 22:29:21.980 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:29:22.105 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:29:22.106 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:29:22.106 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:29:22.108 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:29:22.119 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-23 22:29:22.122 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-2} inited
+2024-11-23 22:29:22.233 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:29:22.468 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 0.507 seconds (JVM running for 77.487)
+2024-11-23 22:29:22.468 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-23 22:29:22.468 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-11-23 22:34:33.376 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:34:33.378 [Thread-15] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-11-23 22:34:33.380 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:34:33.381 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:34:33.382 [Thread-15] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-2} closing ...
+2024-11-23 22:34:33.382 [Thread-15] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-2} closed
+2024-11-23 22:34:33.490 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_431 on 192.168.1.5 with PID 6428 (/Users/liutao/IdeaProjects/TG-Muisc/target/classes started by liutao in /Users/liutao/IdeaProjects/TG-Muisc)
+2024-11-23 22:34:33.490 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:34:33.611 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:34:33.611 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:34:33.611 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:34:33.617 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:34:33.628 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-23 22:34:33.632 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-3} inited
+2024-11-23 22:34:33.739 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:34:33.997 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 0.525 seconds (JVM running for 389.013)
+2024-11-23 22:34:33.998 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-23 22:34:33.998 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-11-23 22:35:13.176 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:13.177 [Thread-19] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-11-23 22:35:13.181 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:13.182 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:13.184 [Thread-19] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-3} closing ...
+2024-11-23 22:35:13.184 [Thread-19] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-3} closed
+2024-11-23 22:35:13.292 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_431 on 192.168.1.5 with PID 6428 (/Users/liutao/IdeaProjects/TG-Muisc/target/classes started by liutao in /Users/liutao/IdeaProjects/TG-Muisc)
+2024-11-23 22:35:13.292 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:35:13.400 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:13.400 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:35:13.400 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:35:13.403 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:35:13.414 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-23 22:35:13.418 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-4} inited
+2024-11-23 22:35:13.523 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:13.748 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 0.468 seconds (JVM running for 428.764)
+2024-11-23 22:35:13.749 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-23 22:35:13.749 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-11-23 22:35:24.033 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:24.033 [Thread-23] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-11-23 22:35:24.037 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:24.038 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:24.041 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-4} closing ...
+2024-11-23 22:35:24.041 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-4} closed
+2024-11-23 22:35:24.129 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_431 on 192.168.1.5 with PID 6428 (/Users/liutao/IdeaProjects/TG-Muisc/target/classes started by liutao in /Users/liutao/IdeaProjects/TG-Muisc)
+2024-11-23 22:35:24.129 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:35:24.251 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:24.251 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:35:24.251 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:35:24.254 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:35:24.263 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-23 22:35:24.266 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-5} inited
+2024-11-23 22:35:24.362 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:35:24.572 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 0.455 seconds (JVM running for 439.587)
+2024-11-23 22:35:24.572 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-23 22:35:24.572 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-11-23 22:35:44.626 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-23 22:41:48.354 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [page,56] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-11-23 22:41:48.355 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [page,57] - 0
+2024-11-23 22:41:54.574 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [page,56] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-11-23 22:41:54.574 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [page,57] - 0
+2024-11-23 22:41:54.577 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,65] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-11-23 22:41:54.578 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,66] - null-null
+2024-11-23 22:41:54.578 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,67] - pageNum：1 pageSize：6
+2024-11-23 22:41:55.575 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,65] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-11-23 22:41:55.576 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,66] - null-null
+2024-11-23 22:41:55.576 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,67] - pageNum：1 pageSize：1
+2024-11-23 22:43:06.943 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,65] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-11-23 22:43:06.944 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,66] - null-null
+2024-11-23 22:43:06.944 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,67] - pageNum：1 pageSize：1
+2024-11-23 22:43:08.567 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [findOne,34] - albumId:1
+2024-11-23 22:43:15.703 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,56] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-11-23 22:43:15.704 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,57] - 0
+2024-11-23 23:27:56.770 [http-nio-8081-exec-4] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,30] - 请求地址：/admin
+2024-11-23 23:27:56.770 [http-nio-8081-exec-4] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,31] - 登录用户：User{userId=10, nickName='测试用户1', account='aaa', pwd='123123', phone='15282330786', email='310516dd1314@qq.com', userName='李嘉欣', sex='女', headImg='/headImg/head.jpg', type='管理员', personalSignature='额我热温热', birthday=Sat Feb 29 00:00:00 CST 2020, songs=null, singers=null, albums=null, createdList=null, colList=null, time=2023-07-31 00:00:00.0}
+2024-11-23 23:27:56.771 [http-nio-8081-exec-4] INFO  n.l.m.c.interceptor.AdminInterceptor - [preHandle,29] - 请求地址：/admin
+2024-11-23 23:27:56.771 [http-nio-8081-exec-4] INFO  n.l.m.c.interceptor.AdminInterceptor - [preHandle,30] - 登录用户：User{userId=10, nickName='测试用户1', account='aaa', pwd='123123', phone='15282330786', email='310516dd1314@qq.com', userName='李嘉欣', sex='女', headImg='/headImg/head.jpg', type='管理员', personalSignature='额我热温热', birthday=Sat Feb 29 00:00:00 CST 2020, songs=null, singers=null, albums=null, createdList=null, colList=null, time=2023-07-31 00:00:00.0}
+2024-11-23 23:27:56.771 [http-nio-8081-exec-4] INFO  n.l.m.c.interceptor.AdminInterceptor - [preHandle,32] - 通过
+2024-11-23 23:27:56.824 [http-nio-8081-exec-6] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,30] - 请求地址：/error
+2024-11-23 23:27:56.824 [http-nio-8081-exec-10] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,30] - 请求地址：/error
+2024-11-23 23:27:56.825 [http-nio-8081-exec-6] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,31] - 登录用户：User{userId=10, nickName='测试用户1', account='aaa', pwd='123123', phone='15282330786', email='310516dd1314@qq.com', userName='李嘉欣', sex='女', headImg='/headImg/head.jpg', type='管理员', personalSignature='额我热温热', birthday=Sat Feb 29 00:00:00 CST 2020, songs=null, singers=null, albums=null, createdList=null, colList=null, time=2023-07-31 00:00:00.0}
+2024-11-23 23:27:56.825 [http-nio-8081-exec-10] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,31] - 登录用户：User{userId=10, nickName='测试用户1', account='aaa', pwd='123123', phone='15282330786', email='310516dd1314@qq.com', userName='李嘉欣', sex='女', headImg='/headImg/head.jpg', type='管理员', personalSignature='额我热温热', birthday=Sat Feb 29 00:00:00 CST 2020, songs=null, singers=null, albums=null, createdList=null, colList=null, time=2023-07-31 00:00:00.0}
+2024-11-23 23:27:56.870 [http-nio-8081-exec-3] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,30] - 请求地址：/admin
+2024-11-23 23:27:56.870 [http-nio-8081-exec-3] INFO  n.l.m.c.interceptor.LoginInterceptor - [preHandle,31] - 登录用户：User{userId=10, nickName='测试用户1', account='aaa', pwd='123123', phone='15282330786', email='310516dd1314@qq.com', userName='李嘉欣', sex='女', headImg='/headImg/head.jpg', type='管理员', personalSignature='额我热温热', birthday=Sat Feb 29 00:00:00 CST 2020, songs=null, singers=null, albums=null, createdList=null, colList=null, time=2023-07-31 00:00:00.0}
+2024-11-23 23:27:56.871 [http-nio-8081-exec-3] INFO  n.l.m.c.interceptor.AdminInterceptor - [preHandle,29] - 请求地址：/admin
+2024-11-23 23:27:56.871 [http-nio-8081-exec-3] INFO  n.l.m.c.interceptor.AdminInterceptor - [preHandle,30] - 登录用户：User{userId=10, nickName='测试用户1', account='aaa', pwd='123123', phone='15282330786', email='310516dd1314@qq.com', userName='李嘉欣', sex='女', headImg='/headImg/head.jpg', type='管理员', personalSignature='额我热温热', birthday=Sat Feb 29 00:00:00 CST 2020, songs=null, singers=null, albums=null, createdList=null, colList=null, time=2023-07-31 00:00:00.0}
+2024-11-23 23:27:56.871 [http-nio-8081-exec-3] INFO  n.l.m.c.interceptor.AdminInterceptor - [preHandle,32] - 通过
