@@ -33,9 +33,12 @@ public class FileHandleUtil {
      **/
     private static final String FILE_DIR = "/upload/";
 
-
+    /**
+     * 系统类型
+     **/
     private static String windowsPath;
     private static String linuxPath;
+    private static String macPath;
     /**
      * 绝对路径
      **/
@@ -123,6 +126,8 @@ public class FileHandleUtil {
             absolutePath = windowsPath;
         } else if (os != null && os.toLowerCase().startsWith("linux")) {
             absolutePath = linuxPath;
+        } else if (os != null && os.toLowerCase().startsWith("mac")) {
+            absolutePath = macPath;
         }
         log.info("绝对路径：{}", absolutePath);
     }
@@ -135,5 +140,9 @@ public class FileHandleUtil {
     @Value("${file.linux.uploadPath}")
     public void setLinuxPath(String linuxPath) {
         FileHandleUtil.linuxPath = linuxPath;
+    }
+    @Value("${file.mac.uploadPath}")
+    public void setMacPath(String macPath) {
+
     }
 }
