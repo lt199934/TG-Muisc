@@ -118,3 +118,42 @@
 2024-11-23 22:10:39.727 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
 2024-11-23 22:10:39.729 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-2} closing ...
 2024-11-23 22:10:39.729 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-2} closed
+2024-11-23 22:10:39.822 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_401 on DESKTOP-4DD9P12 with PID 4020 (K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-11-23 22:10:39.822 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:10:40.144 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:10:40.144 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:10:40.144 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:10:40.148 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:10:40.173 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-23 22:10:40.185 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-3} inited
+2024-11-23 22:10:40.484 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:10:41.170 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.377 seconds (JVM running for 488.513)
+2024-11-23 22:10:41.170 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-23 22:10:41.170 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-11-23 22:17:04.643 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:17:04.643 [Thread-27] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-11-23 22:17:04.647 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:17:04.648 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:17:04.650 [Thread-27] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-3} closing ...
+2024-11-23 22:17:04.650 [Thread-27] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-3} closed
+2024-11-23 22:17:04.761 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_401 on DESKTOP-4DD9P12 with PID 4020 (K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-11-23 22:17:04.762 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:17:05.204 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:17:05.204 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:17:05.204 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:17:05.209 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:17:05.226 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-11-23 22:17:08.959 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_401 on DESKTOP-4DD9P12 with PID 4020 (K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-11-23 22:17:08.960 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-23 22:17:09.322 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:17:09.322 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-23 22:17:09.322 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-23 22:17:09.326 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-23 22:17:09.351 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-23 22:17:09.362 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-4} inited
+2024-11-23 22:17:09.727 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-23 22:17:10.411 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.48 seconds (JVM running for 877.754)
+2024-11-23 22:17:10.412 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-23 22:17:10.412 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-11-23 22:54:25.208 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-4} closing ...
+2024-11-23 22:54:25.208 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-4} closed

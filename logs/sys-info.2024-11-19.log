@@ -1,0 +1,13 @@
+2024-11-19 23:39:34.707 [background-preinit] INFO  o.h.validator.internal.util.Version - [<clinit>,27] - HV000001: Hibernate Validator 5.1.2.Final
+2024-11-19 23:39:34.723 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_401 on DESKTOP-4DD9P12 with PID 10236 (K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in K:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-11-19 23:39:34.723 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-11-19 23:39:36.384 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-11-19 23:39:36.386 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-11-19 23:39:36.386 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-11-19 23:39:36.423 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-11-19 23:39:36.543 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-11-19 23:39:36.630 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-1} inited
+2024-11-19 23:39:37.757 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-11-19 23:39:38.878 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 4.586 seconds (JVM running for 5.438)
+2024-11-19 23:39:38.880 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-11-19 23:39:38.880 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
