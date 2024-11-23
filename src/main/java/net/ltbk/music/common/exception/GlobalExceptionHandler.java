@@ -4,9 +4,8 @@ package net.ltbk.music.common.exception;
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.common.Result;
 import org.apache.poi.ss.formula.functions.T;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @Program: admin
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  **/
 
 @Slf4j
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
     /**
      * @MethodName: handle
@@ -29,11 +28,11 @@ public class GlobalExceptionHandler {
      * @Return: com.tg.admin.common.Result
      * @Throw:
      **/
-    @ExceptionHandler
-    @ResponseBody
+    @ExceptionHandler(value = ServiceException.class)
     public Result<T> handle(ServiceException se) {
         log.error("业务异常" + se);
         return Result.error(se.getCode(), se.getMessage());
     }
+
 
 }

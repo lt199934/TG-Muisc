@@ -17,13 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Slf4j
 @Api(tags = "用户接口")
@@ -36,15 +32,22 @@ public class UserController {
 
     @ApiOperation("用户登录")
     @PostMapping("/userLogin")
-    public Result<Integer> userLogin(User user, HttpSession session, HttpServletRequest request) {
+    public Result<Integer> userLogin(User user, HttpSession session) {
         log.info("登录用户：{}", user);
         User login = userService.login(user);
-        if (login == null || !user.getPwd().equals(login.getPwd())) {
-            return Result.error("用户名或密码错误");
+        if (Objects.isNull(login)) {
+            return Result.error("用户名错误！！");
         }
+        if (!user.getPwd().equals(login.getPwd())) {
+            return Result.error("密码错误！！");
+        }
+        // 设置session过期时间
         session.setMaxInactiveInterval(30 * 60);
+        // 存储用户用于校验
         session.setAttribute("user", login);
+        // 存储用户用于前端获取
         session.setAttribute(login.getUserId().toString(), login);
+        // 存储session
         SessionManager.addSession(login.getUserId().toString(), session);
         return Result.success("登录成功", login.getUserId());
     }
@@ -63,7 +66,7 @@ public class UserController {
     public Result<Boolean> save(User user, @RequestParam("img") MultipartFile img) {
         String msg = "";
         if (user == null) {
-            return Result.error("注册失败");
+            return Result.error("注册信息不能为空");
         }
         if (!"".equals(img.getOriginalFilename())) {
             log.info(img.getOriginalFilename());
@@ -71,7 +74,7 @@ public class UserController {
             try {
                 fileURL = FileHandleUtil.upload(img.getInputStream(), "headImg/", img.getOriginalFilename());
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new ServiceException(Constants.CODE_WARNING, "头像上传失败");
             }
             log.info("上传地址：{}", fileURL);
             user.setHeadImg("/headImg/" + img.getOriginalFilename());
@@ -86,16 +89,16 @@ public class UserController {
     }
 
     @GetMapping("/isLogin")
-    public Boolean isLogin(String userId, HttpSession session) {
-        return SessionManager.isLogin(session.getId());
+    public Boolean isLogin(String userId) {
+        return SessionManager.isLogin(userId);
     }
 
     @GetMapping("/getUserInfo/{userId}")
-    public Object getUserLoginInfo(@PathVariable("userId") String userId) {
+    public Result<User> getUserLoginInfo(@PathVariable("userId") String userId) {
         try {
             User user = (User) SessionManager.getSession(userId).getAttribute(userId);
             log.info("当前用户：" + user);
-            return user;
+            return Result.success(user);
         } catch (NullPointerException e) {
             throw new ServiceException(Constants.CODE_NOT_FORBIDDEN, "登录失效");
         }
@@ -104,7 +107,7 @@ public class UserController {
     @PostMapping("/logout")
     public String isLogout(String userId, HttpSession session) {
         log.info("清除用户：" + userId);
-        SessionManager.removeSession(session.getId());
+        SessionManager.removeSession(userId);
         return "/login";
     }
 
@@ -119,7 +122,7 @@ public class UserController {
      **/
     @PostMapping("/checkAccount")
     public Map<String, Boolean> checkAccount(User user) {
-        System.out.println(user);
+        log.info("检验user：{}", user);
         User login = userService.selectByAccount(user.getAccount());
         System.out.println(login);
         Map<String, Boolean> map = new HashMap<String, Boolean>();

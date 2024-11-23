@@ -1,0 +1,570 @@
+2024-02-21 21:00:11.843 [background-preinit] INFO  o.h.validator.internal.util.Version - [<clinit>,27] - HV000001: Hibernate Validator 5.1.2.Final
+2024-02-21 21:00:11.940 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 12556 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:00:11.941 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:00:14.284 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:00:14.285 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:00:14.286 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:00:14.359 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:00:14.611 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:00:14.741 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-1} inited
+2024-02-21 21:00:18.038 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:00:19.042 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 7.889 seconds (JVM running for 10.639)
+2024-02-21 21:00:19.044 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 21:00:19.044 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 21:00:31.490 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-21 21:00:33.546 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:00:33.547 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:00:33.548 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:00:33.548 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:00:33.548 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:00:34.924 [http-nio-8081-exec-6] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:00:34.924 [http-nio-8081-exec-6] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:00:34.926 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:00:34.926 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:00:34.926 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:00:38.852 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:00:38.852 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:00:38.852 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:00:38.852 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:00:38.852 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:00:41.587 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:00:41.587 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:00:43.749 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:00:43.749 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:00:43.749 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:00:43.749 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:00:43.749 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:00:53.553 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:00:53.553 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:00:53.554 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:00:53.554 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:00:53.554 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:02:52.796 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:02:52.798 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:02:52.798 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:02:52.798 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:02:52.798 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:02:56.013 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:02:56.013 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:08.915 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:03:11.287 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:11.287 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:11.302 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:11.302 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:11.306 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:11.306 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:11.316 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:11.316 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:15.587 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:15.588 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:15.597 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:15.597 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:15.600 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:15.600 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:15.606 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:15.606 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:17.050 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:17.050 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:17.059 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:17.059 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:17.062 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:17.062 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:17.067 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:17.067 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:20.881 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:20.881 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:31.233 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:03:32.628 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:32.628 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:32.640 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:32.641 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:32.643 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:32.643 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:03:32.649 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:03:32.649 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:04:02.779 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:04:02.780 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:04:02.793 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:04:02.793 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:04:02.796 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:04:02.797 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:04:02.804 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:04:02.804 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:05:02.177 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:05:02.177 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:05:37.160 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:06:31.965 [Thread-16] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:31.966 [Thread-16] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 21:06:31.967 [Thread-16] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-02-21 21:06:31.974 [Thread-16] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:31.977 [Thread-16] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:31.981 [Thread-16] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-1} closing ...
+2024-02-21 21:06:32.016 [Thread-16] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-1} closed
+2024-02-21 21:06:32.167 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 12556 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:06:32.167 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:06:32.505 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:32.505 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:06:32.505 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:06:32.543 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:06:32.612 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:06:32.621 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-2} inited
+2024-02-21 21:06:33.312 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:33.978 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.843 seconds (JVM running for 385.575)
+2024-02-21 21:06:33.979 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 21:06:33.979 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 21:06:38.689 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:38.690 [Thread-27] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 21:06:38.695 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:38.697 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:38.700 [Thread-27] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-2} closing ...
+2024-02-21 21:06:38.700 [Thread-27] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-2} closed
+2024-02-21 21:06:38.832 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 12556 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:06:38.832 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:06:39.234 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:39.234 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:06:39.234 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:06:39.262 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:06:39.295 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:06:39.303 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-3} inited
+2024-02-21 21:06:40.331 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:40.543 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-21 21:06:40.545 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-3} closing ...
+2024-02-21 21:06:40.546 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-3} closed
+2024-02-21 21:06:40.569 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-21 21:06:41.063 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:41.084 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 21:06:41.087 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:41.094 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:42.946 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 12556 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:06:42.946 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:06:43.385 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:43.385 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:06:43.385 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:06:43.411 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:06:43.448 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:06:43.459 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-4} inited
+2024-02-21 21:06:44.159 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:06:44.222 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-21 21:06:44.533 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:06:45.168 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 2.263 seconds (JVM running for 396.766)
+2024-02-21 21:06:45.169 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 21:06:45.169 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 21:06:47.346 [http-nio-8081-exec-3] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:06:47.346 [http-nio-8081-exec-3] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:06:47.363 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:06:47.363 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:06:47.366 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:06:47.367 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:06:47.376 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:06:47.376 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:07:34.690 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:07:34.691 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:09:39.545 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:09:39.546 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:09:39.561 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:09:39.561 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:09:39.566 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:09:39.566 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:09:39.574 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:09:39.574 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:10:55.153 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:10:55.153 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:10:55.177 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:10:55.177 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:10:55.186 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:10:55.186 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:10:55.194 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:10:55.194 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:11:04.447 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:11:12.477 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:11:12.478 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:11:15.522 [http-nio-8081-exec-2] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:19:43.695 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:19:52.050 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:19:52.050 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:19:52.067 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:19:52.067 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:19:52.070 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:19:52.070 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:19:52.079 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:19:52.079 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:22:56.482 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:22:56.482 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:22:56.482 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：1
+2024-02-21 21:22:59.602 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:23:05.039 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:23:05.040 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:23:05.040 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:23:05.044 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:23:05.044 [http-nio-8081-exec-1] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:23:09.537 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:09.538 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:23:09.554 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:09.554 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:23:09.562 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:09.562 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:23:09.569 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:09.569 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:23:24.237 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:24.237 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:23:24.249 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:24.250 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:23:24.252 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:24.252 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:23:24.262 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:23:24.263 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:24:38.729 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:24:38.729 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:24:38.741 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:24:38.741 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:24:38.745 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:24:38.745 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:24:38.759 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:24:38.759 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:30:57.518 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:30:57.518 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:30:57.533 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:30:57.533 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:30:57.536 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:30:57.536 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:30:57.544 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:30:57.544 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:31:08.528 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:31:13.461 [http-nio-8081-exec-5] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:31:44.805 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:31:54.600 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:31:56.077 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:31:56.077 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:31:56.117 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:31:56.117 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:31:56.121 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:31:56.121 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:31:56.128 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:31:56.128 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:32:06.358 [http-nio-8081-exec-3] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:32:06.358 [http-nio-8081-exec-3] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:32:06.375 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:32:06.375 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:32:06.379 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:32:06.379 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:32:06.388 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:32:06.388 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:05.716 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:35:09.430 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:09.430 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:09.445 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:09.445 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:09.448 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:09.448 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:09.456 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:09.457 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:35.630 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:35.630 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:35.645 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:35.645 [http-nio-8081-exec-5] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:35.651 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:35.651 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:35:35.665 [http-nio-8081-exec-3] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:35:35.665 [http-nio-8081-exec-3] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:36:26.910 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:36:29.849 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:36:35.033 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:36:59.536 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:36:59.536 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:36:59.536 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:36:59.536 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:36:59.536 [http-nio-8081-exec-1] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:37:02.424 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:02.424 [http-nio-8081-exec-8] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:37:02.440 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:02.441 [http-nio-8081-exec-4] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:37:02.443 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:02.443 [http-nio-8081-exec-7] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:37:02.448 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:02.448 [http-nio-8081-exec-2] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:37:35.647 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:35.647 [http-nio-8081-exec-1] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:37:35.666 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:35.666 [http-nio-8081-exec-10] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:37:35.669 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:35.669 [http-nio-8081-exec-9] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:37:35.674 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,29] - 请求地址：/error
+2024-02-21 21:37:35.675 [http-nio-8081-exec-6] INFO  n.ltbk.music.common.LoginInterceptor - [preHandle,30] - 登录用户：null
+2024-02-21 21:39:10.554 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:10.554 [Thread-31] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 21:39:10.555 [Thread-31] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-02-21 21:39:10.562 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:10.565 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:10.568 [Thread-31] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-4} closing ...
+2024-02-21 21:39:10.570 [Thread-31] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-4} closed
+2024-02-21 21:39:10.839 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 12556 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:39:10.839 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:39:11.647 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:11.647 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:39:11.647 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:39:11.773 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:39:11.805 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:39:11.816 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-5} inited
+2024-02-21 21:39:12.740 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:13.407 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 2.674 seconds (JVM running for 2345.004)
+2024-02-21 21:39:13.408 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 21:39:13.408 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 21:39:14.665 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:14.666 [Thread-39] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 21:39:14.670 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:14.671 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:14.674 [Thread-39] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-5} closing ...
+2024-02-21 21:39:14.674 [Thread-39] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-5} closed
+2024-02-21 21:39:14.807 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 12556 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:39:14.807 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:39:15.085 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:15.086 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:39:15.086 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:39:15.098 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:39:15.138 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:39:15.147 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-6} inited
+2024-02-21 21:39:15.857 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:16.408 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.625 seconds (JVM running for 2348.006)
+2024-02-21 21:39:16.409 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 21:39:16.409 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 21:39:20.975 [Thread-43] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:20.977 [Thread-43] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 21:39:20.982 [Thread-43] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:20.984 [Thread-43] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:20.985 [Thread-43] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-6} closing ...
+2024-02-21 21:39:20.985 [Thread-43] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-6} closed
+2024-02-21 21:39:21.111 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 12556 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:39:21.112 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:39:21.393 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:21.393 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:39:21.393 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:39:21.405 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:39:21.428 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:39:21.435 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-7} inited
+2024-02-21 21:39:22.051 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:22.637 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 1.557 seconds (JVM running for 2354.235)
+2024-02-21 21:39:22.638 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 21:39:22.638 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 21:39:41.658 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-7} closing ...
+2024-02-21 21:39:41.658 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-7} closed
+2024-02-21 21:39:46.303 [background-preinit] INFO  o.h.validator.internal.util.Version - [<clinit>,27] - HV000001: Hibernate Validator 5.1.2.Final
+2024-02-21 21:39:46.309 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 21:39:46.311 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 21:39:47.893 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:47.894 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 21:39:47.894 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 21:39:48.017 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 21:39:48.138 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 21:39:48.270 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-1} inited
+2024-02-21 21:39:50.450 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 21:39:51.336 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 5.403 seconds (JVM running for 8.139)
+2024-02-21 21:39:51.339 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 21:39:51.339 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 21:39:55.293 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-21 21:40:25.635 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:40:25.635 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:40:25.639 [http-nio-8081-exec-5] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:40:25.639 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:40:25.639 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:40:30.984 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:40:30.985 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:40:30.986 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:40:30.986 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:40:30.987 [http-nio-8081-exec-8] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:40:38.425 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:40:38.425 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:40:38.425 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:40:38.427 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:40:38.427 [http-nio-8081-exec-10] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:43:28.497 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:43:29.586 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [findOne,32] - albumId:1
+2024-02-21 21:43:34.008 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:43:34.008 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:43:34.008 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:43:34.008 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:43:34.009 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:47:36.273 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:47:36.274 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:47:36.274 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:47:36.274 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:47:36.274 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:51:58.316 [http-nio-8081-exec-5] INFO  n.l.music.controller.UserController - [userLogin,35] - 登录用户：User{userId=null, nickName='null', account='admin', pwd='123123', phone='null', email='null', userName='null', sex='null', headImg='null', type='普通用户', personalSignature='null', birthday=null, songs=null, singers=null, albums=null, createdList=null, colList=null, time=null}
+2024-02-21 21:52:11.772 [http-nio-8081-exec-1] INFO  n.l.music.controller.UserController - [userLogin,35] - 登录用户：User{userId=null, nickName='null', account='aaa', pwd='123123', phone='null', email='null', userName='null', sex='null', headImg='null', type='普通用户', personalSignature='null', birthday=null, songs=null, singers=null, albums=null, createdList=null, colList=null, time=null}
+2024-02-21 21:52:15.323 [http-nio-8081-exec-9] INFO  n.l.music.controller.UserController - [getUserLoginInfo,105] - 当前用户：User{userId=10, nickName='测试用户1', account='aaa', pwd='123123', phone='15282330786', email='310516dd1314@qq.com', userName='李嘉欣', sex='女', headImg='/headImg/head.jpg', type='普通用户', personalSignature='额我热温热', birthday=Sat Feb 29 00:00:00 CST 2020, songs=null, singers=null, albums=null, createdList=null, colList=null, time=2023-07-31 00:00:00.0}
+2024-02-21 21:52:15.329 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='null', singerId=null, albumImg='null', introduction='null', company='null', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:52:15.329 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='null', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:52:15.329 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:52:15.329 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:52:15.329 [http-nio-8081-exec-6] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：6
+2024-02-21 21:55:24.498 [http-nio-8081-exec-6] INFO  n.l.music.controller.AdminController - [userLogin,37] - 登录用户：Admin(superId=null, userName=admin, nickName=null, pwd=123123)
+2024-02-21 21:55:36.674 [http-nio-8081-exec-8] INFO  n.l.music.controller.AdminController - [userLogin,37] - 登录用户：Admin(superId=null, userName=admin, nickName=null, pwd=123123)
+2024-02-21 21:55:44.822 [http-nio-8081-exec-4] INFO  n.l.music.controller.AdminController - [userLogin,37] - 登录用户：Admin(superId=null, userName=admin, nickName=null, pwd=123123)
+2024-02-21 21:56:14.199 [http-nio-8081-exec-1] INFO  n.l.music.controller.AdminController - [userLogin,37] - 登录用户：Admin(superId=null, userName=admin, nickName=null, pwd=admin)
+2024-02-21 21:56:19.293 [http-nio-8081-exec-10] INFO  n.l.music.controller.AdminController - [userLogin,37] - 登录用户：Admin(superId=null, userName=admin, nickName=null, pwd=admin)
+2024-02-21 21:56:47.043 [http-nio-8081-exec-2] INFO  n.l.music.controller.AdminController - [userLogin,37] - 登录用户：Admin(superId=null, userName=admin, nickName=null, pwd=admin)
+2024-02-21 21:56:50.775 [http-nio-8081-exec-8] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：1 pageSize：5
+2024-02-21 21:56:57.692 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,37] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null}
+2024-02-21 21:56:57.692 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,38] - null-null
+2024-02-21 21:56:57.693 [http-nio-8081-exec-1] INFO  n.l.music.controller.SongController - [selectSongByExample,39] - pageNum：1 pageSize：2
+2024-02-21 21:56:58.369 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:56:58.370 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:56:58.370 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 21:56:59.033 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:56:59.033 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:57:02.686 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:57:02.687 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:57:02.687 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 21:57:03.578 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 21:57:03.578 [http-nio-8081-exec-2] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 21:57:05.702 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,37] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null}
+2024-02-21 21:57:05.702 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,38] - null-null
+2024-02-21 21:57:05.703 [http-nio-8081-exec-7] INFO  n.l.music.controller.SongController - [selectSongByExample,39] - pageNum：1 pageSize：2
+2024-02-21 21:57:06.429 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 21:57:06.429 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 21:57:06.429 [http-nio-8081-exec-10] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 21:57:08.368 [http-nio-8081-exec-2] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：1 pageSize：5
+2024-02-21 21:57:10.727 [http-nio-8081-exec-10] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：1 pageSize：5
+2024-02-21 21:59:54.215 [http-nio-8081-exec-8] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：null pageSize：null
+2024-02-21 21:59:59.966 [http-nio-8081-exec-9] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：1 pageSize：5
+2024-02-21 22:00:13.710 [http-nio-8081-exec-3] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：null pageSize：null
+2024-02-21 22:00:14.537 [http-nio-8081-exec-6] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：1 pageSize：5
+2024-02-21 22:00:17.022 [http-nio-8081-exec-5] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：null pageSize：null
+2024-02-21 22:00:17.674 [http-nio-8081-exec-7] INFO  n.l.music.controller.UserController - [findPage,177] - pageNum：1 pageSize：5
+2024-02-21 22:07:05.521 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 22:07:05.523 [http-nio-8081-exec-9] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 22:07:07.131 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 22:07:07.131 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 22:07:07.131 [http-nio-8081-exec-8] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 22:07:08.817 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,37] - Song{songId=null, song='', singerId=null, playCount=null, downloadCount=null, url='null', language='', albumId=null, time=null}
+2024-02-21 22:07:08.818 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,38] - null-null
+2024-02-21 22:07:08.818 [http-nio-8081-exec-9] INFO  n.l.music.controller.SongController - [selectSongByExample,39] - pageNum：1 pageSize：2
+2024-02-21 22:07:09.741 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 22:07:09.742 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 22:07:09.742 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 22:07:29.745 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 22:07:29.746 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 22:07:29.746 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 22:07:44.706 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 22:07:44.706 [http-nio-8081-exec-4] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 22:07:47.896 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 22:07:47.897 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 22:07:47.897 [http-nio-8081-exec-4] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 22:08:12.445 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 22:08:12.445 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 22:08:12.445 [http-nio-8081-exec-9] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：2 pageSize：2
+2024-02-21 22:08:14.105 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 22:08:14.106 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 22:08:14.106 [http-nio-8081-exec-3] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 22:08:15.082 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 22:08:15.082 [http-nio-8081-exec-7] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 22:08:19.007 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,61] - Album{albumId=null, album='', singerId=null, albumImg='null', introduction='null', company='', singer=null, songs=null, time=null, count=0}
+2024-02-21 22:08:19.007 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,62] - null-null
+2024-02-21 22:08:19.007 [http-nio-8081-exec-7] INFO  n.l.music.controller.AlbumController - [page,63] - pageNum：1 pageSize：2
+2024-02-21 22:09:23.849 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [page,55] - SongList{songListId=null, songList='', introduction='null', imgUrl='null', time=null, userId=null, createUser='null', songs=null, albums=null, singers=null, count=null, fenLeis=null, songDto=null}
+2024-02-21 22:09:23.850 [http-nio-8081-exec-3] INFO  n.l.m.controller.SongListController - [page,56] - 0
+2024-02-21 22:14:01.044 [Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:01.044 [Thread-13] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 22:14:01.046 [Thread-13] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-02-21 22:14:01.084 [Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:01.087 [Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:01.091 [Thread-13] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-1} closing ...
+2024-02-21 22:14:01.100 [Thread-13] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-1} closed
+2024-02-21 22:14:01.300 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:01.301 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:02.991 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:02.992 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:06.994 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:06.994 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:07.394 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:07.394 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 22:14:07.394 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 22:14:07.409 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 22:14:07.450 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 22:14:07.463 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-2} inited
+2024-02-21 22:14:08.343 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:09.809 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 2.859 seconds (JVM running for 2066.611)
+2024-02-21 22:14:09.810 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 22:14:09.810 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 22:14:11.078 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:11.079 [Thread-23] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 22:14:11.084 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:11.086 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:11.088 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-2} closing ...
+2024-02-21 22:14:11.089 [Thread-23] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-2} closed
+2024-02-21 22:14:11.270 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:11.272 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:11.677 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:11.677 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 22:14:11.678 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 22:14:11.697 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 22:14:11.738 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 22:14:11.749 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-3} inited
+2024-02-21 22:14:12.699 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:13.989 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 2.783 seconds (JVM running for 2070.791)
+2024-02-21 22:14:13.990 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 22:14:13.990 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 22:14:14.910 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:14.911 [Thread-31] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 22:14:14.914 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:14.916 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:14.918 [Thread-31] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-3} closing ...
+2024-02-21 22:14:14.919 [Thread-31] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-3} closed
+2024-02-21 22:14:15.107 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:15.108 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:15.436 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:15.436 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 22:14:15.436 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 22:14:15.451 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 22:14:15.488 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 22:14:15.498 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-4} inited
+2024-02-21 22:14:16.433 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:17.328 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 2.26 seconds (JVM running for 2074.129)
+2024-02-21 22:14:17.329 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 22:14:17.330 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 22:14:19.675 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:19.676 [Thread-35] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 22:14:19.681 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:19.684 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:19.688 [Thread-35] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-4} closing ...
+2024-02-21 22:14:19.688 [Thread-35] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-4} closed
+2024-02-21 22:14:19.867 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:19.868 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:20.351 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:20.352 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 22:14:20.352 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 22:14:20.366 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 22:14:20.379 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 22:14:23.710 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:23.711 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:24.422 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:24.422 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 22:14:24.422 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 22:14:24.439 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 22:14:24.481 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 22:14:24.498 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-5} inited
+2024-02-21 22:14:25.847 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:28.976 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 5.32 seconds (JVM running for 2085.778)
+2024-02-21 22:14:28.978 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 22:14:28.978 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 22:14:29.840 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:29.841 [Thread-39] INFO  o.a.catalina.core.StandardService - [log,173] - Stopping service [Tomcat]
+2024-02-21 22:14:29.848 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:29.850 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:29.853 [Thread-39] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-5} closing ...
+2024-02-21 22:14:29.854 [Thread-39] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-5} closed
+2024-02-21 22:14:30.070 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:30.071 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:35.712 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarting,55] - Starting MusicApplication using Java 1.8.0_381 on DELL-G3 with PID 18448 (F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music\target\classes started by aa152 in F:\软件开发\项目\SpringBoot+Thymeleaf\TG-Music)
+2024-02-21 22:14:35.712 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStartupProfileInfo,645] - No active profile set, falling back to 1 default profile: "default"
+2024-02-21 22:14:37.399 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:37.399 [restartedMain] INFO  o.a.catalina.core.StandardService - [log,173] - Starting service [Tomcat]
+2024-02-21 22:14:37.399 [restartedMain] INFO  o.a.catalina.core.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2024-02-21 22:14:37.425 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-02-21 22:14:37.481 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+2024-02-21 22:14:37.594 [restartedMain] INFO  c.alibaba.druid.pool.DruidDataSource - [init,996] - {dataSource-6} inited
+2024-02-21 22:14:39.296 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-21 22:14:40.413 [restartedMain] INFO  net.ltbk.music.MusicApplication - [logStarted,61] - Started MusicApplication in 4.773 seconds (JVM running for 2097.215)
+2024-02-21 22:14:40.414 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,25] - 程序部署完成，访问地址：http://localhost:8081
+2024-02-21 22:14:40.414 [restartedMain] INFO  n.l.m.runner.MusicApplicationRunner - [run,26] - Swagger文档，访问地址：http://localhost:8081/doc.html
+2024-02-21 22:20:43.053 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2138] - {dataSource-6} closing ...
+2024-02-21 22:20:43.054 [SpringApplicationShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - [close,2211] - {dataSource-6} closed

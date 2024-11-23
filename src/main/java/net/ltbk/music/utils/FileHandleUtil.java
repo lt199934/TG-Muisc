@@ -41,16 +41,6 @@ public class FileHandleUtil {
      **/
     private static String absolutePath;
 
-    @Value("${file.windows.uploadPath}")
-    public void setWindowsPath(String windowsPath) {
-        FileHandleUtil.windowsPath = windowsPath;
-    }
-
-    @Value("${file.linux.uploadPath}")
-    public void setLinuxPath(String linuxPath) {
-        FileHandleUtil.linuxPath = linuxPath;
-    }
-
     /**
      * 上传单个文件
      * 最后文件存放路径为：static/upload/image/test.jpg
@@ -67,6 +57,7 @@ public class FileHandleUtil {
         createDirIfNotExists();
         String filePath = FILE_DIR + path + filename;
         String resultPath = '/' + path + filename;
+        log.info("Uploading:{}", absolutePath + STATIC_DIR + filePath);
         //存文件
         File uploadFile = new File(absolutePath, STATIC_DIR + filePath);
         log.info("{}", uploadFile.exists());
@@ -134,5 +125,15 @@ public class FileHandleUtil {
             absolutePath = linuxPath;
         }
         log.info("绝对路径：{}", absolutePath);
+    }
+
+    @Value("${file.windows.uploadPath}")
+    public void setWindowsPath(String windowsPath) {
+        FileHandleUtil.windowsPath = windowsPath;
+    }
+
+    @Value("${file.linux.uploadPath}")
+    public void setLinuxPath(String linuxPath) {
+        FileHandleUtil.linuxPath = linuxPath;
     }
 }

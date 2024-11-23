@@ -6,7 +6,9 @@ import com.github.pagehelper.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.Song;
 import net.ltbk.music.bean.vo.SongVo;
+import net.ltbk.music.common.Constants;
 import net.ltbk.music.common.Result;
+import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.service.SongService;
 import net.ltbk.music.utils.FileHandleUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,15 +62,20 @@ public class SongController {
      **/
     @RequestMapping("/save")
     @ResponseBody
-    public Result<String> save(Song song, @RequestParam("songPath") MultipartFile songPath) throws IOException {
+    public Result<String> save(Song song, @RequestParam("songPath") MultipartFile songPath) {
         String msg = "";
         log.info("更新歌曲：{}", song);
         if (!"".equals(songPath.getOriginalFilename())) {
             log.info("上传文件：{}", songPath.getOriginalFilename());
-            System.out.println();
-            int i = Objects.requireNonNull(songPath.getOriginalFilename()).lastIndexOf("-");
-            String data = songPath.getOriginalFilename().substring(i + 1);
-            String fileURL = FileHandleUtil.upload(songPath.getInputStream(), "headImg/", data);
+            String fileURL = null;
+            String data = null;
+            try {
+                int i = Objects.requireNonNull(songPath.getOriginalFilename()).lastIndexOf("-");
+                data = songPath.getOriginalFilename().substring(i + 1);
+                fileURL = FileHandleUtil.upload(songPath.getInputStream(), "songs/", data);
+            } catch (IOException e) {
+                throw new ServiceException(Constants.CODE_WARNING, "歌曲文件上传失败");
+            }
             log.info("访问路径：{}", fileURL);
             song.setUrl("/songs/" + data);
         }
@@ -95,7 +102,9 @@ public class SongController {
         return songService.selectSongById(Integer.parseInt(songId));
     }
 
-    /**播放排行榜**/
+    /**
+     * 播放排行榜
+     **/
     @RequestMapping("/list")
     @ResponseBody
     public Object selectSongsByList(@RequestParam(value = "pageNum", defaultValue = "1", required = false) String pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "1") String pageSize) {
@@ -105,7 +114,9 @@ public class SongController {
         return songService.selectSongsByList().toPageInfo();
     }
 
-    /**播放量 播放一次+1**/
+    /**
+     * 播放量 播放一次+1
+     **/
     @RequestMapping("/updatePlayCount/{songId}")
     @ResponseBody
     public int updatePlayCount(@PathVariable("songId") String songId) {
@@ -113,7 +124,9 @@ public class SongController {
         return songService.updatePlayCount(Integer.parseInt(songId));
     }
 
-    /**播放量 播放一次+1**/
+    /**
+     * 播放量 播放一次+1
+     **/
     @RequestMapping("/addDownloadCount/{songId}")
     @ResponseBody
     public int updateDownloadCount(@PathVariable("songId") String songId) {

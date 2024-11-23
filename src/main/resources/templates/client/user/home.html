@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>个人主页</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="client/common/include::header('用户中心')"></div>
 <body>
+<!--   header-->
+<header class="col-md-12 column" style="padding: 0" th:include="client/common/header::head(active='user')"></header>
+<!--main-->
+<main class="container">
+    <div class="row clearfix">
+        <!--    轮播图-->
+        <div class="col-md-12 column" style="padding-top: 0" th:include="client/common/carousel::carousel"></div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="recom__title">
+                <h1>曲库 <small>全部（<span class="num"></span>）</small></h1>
+            </div>
+            <hr class="hx">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row" id="music" style="padding-left: 20px;padding-right: 20px">
 
+                    </div>
+                </div>
+                <!--分页-->
+                <div class="col-md-12 column" th:include="client/common/page::page"></div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--footer-->
+<footer class="footer_copyright col-md-12 col-xs-12 col-sm-12" th:include="client/common/footer::footer"></footer>
+<iframe frameborder="0" height="280px" id="player" name="play" src=""
+        style="position: fixed;bottom: 150px;display: none" width="300px"></iframe>
 </body>
+<div th:include="client/common/include::footer"></div>
+<script th:src="@{/music/client/song/songs.js}"></script>
 </html>

@@ -17,7 +17,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     int delBatchByIds(List<Integer> ids);
 
-    int insert(User record);
+    int add(User record);
 
     int selectAlbumStatus(@Param("userId") int userId, @Param("albumId") int albumId);
 

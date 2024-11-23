@@ -70,6 +70,7 @@ function initNav() {
     $("#personalPage").css("display", "none");
     $("#headimg").css("display", "none");
     $("#profile").css("display", "none");
+    $("#console").css("display", "none");
     $("#uc").html(" ");
 }
 
@@ -78,10 +79,17 @@ initNav();
 
 // 登录以后
 function isLoginNav(data, num) {
+    console.log(data.type)
     if (num === 0 && i === 0) {
         toastr.success("欢迎您" + data.nickName + "回来(*∩_∩*)")
     }
     i++;
+    localStorage.removeItem("admin");
+    if (data.type === "管理员") {
+        console.log(data.userId)
+        $("#console").css("display", "block");
+        localStorage.setItem("admin", data.userId);
+    }
     $("#login").css("display", "none");
     $("#register").css("display", "none");
     $("#logout").css("display", "block");
@@ -106,15 +114,20 @@ function isFirst(num) {
         initNav();
     } else {
         $.ajax({
-            url: "/user/getUserInfo/" + userId, method: "get", success: function (data) {
-                console.log(data)
-                if (data.code === 403) {
-                    localStorage.removeItem("userId");
-                    initNav();
-                    toastr.error(data.msg);
-                } else {
-                    isLoginNav(data, num);
+            url: "/user/getUserInfo/" + userId, method: "get", success: function (res) {
+                try {
+                    console.log(res.data)
+                    if (res.code === 200) {
+                        isLoginNav(res.data, num);
+                    } else {
+                        localStorage.removeItem("userId");
+                        initNav();
+                        toastr.error(res.msg);
+                    }
+                } catch (e) {
+                    console.log(e);
                 }
+
             }
         });
     }

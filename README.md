@@ -40,7 +40,7 @@ git clone https://gitee.com/lt199934/music-website.git
 后台访问的地址：localhost:8080/admin
 
         默认的用户名和密码
-        1,用户：aaa 密码：123123
+        1，用户：aaa 密码：123123
         2，管理员：admin 密码：admin
 
 项目中 哪些功能可以展示，以及哪些功能是未完成无法展示的。
@@ -105,5 +105,3 @@ git clone https://gitee.com/lt199934/music-website.git
 ![歌单数据管理](README.assets/歌单数据管理.png)
 
 ![添加歌单数据](README.assets/添加歌单数据.png)
-
-

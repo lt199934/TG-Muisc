@@ -5,7 +5,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.util.StringUtil;
 import net.ltbk.music.bean.SongList;
 import net.ltbk.music.bean.dto.SongListDto;
+import net.ltbk.music.common.Constants;
 import net.ltbk.music.common.Result;
+import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.service.SongListService;
 import net.ltbk.music.utils.FileHandleUtil;
 import org.apache.ibatis.annotations.Param;
@@ -103,8 +105,13 @@ public class SongListController {
         String msg = "";
         log.info("更新歌单：{}", songList);
         if (!"".equals(img.getOriginalFilename())) {
-            log.info("上传文件：{}", img.getOriginalFilename());
-            String fileURL = FileHandleUtil.upload(img.getInputStream(), "songListImg/", img.getOriginalFilename());
+            log.info("上传歌单封面：{}", img.getOriginalFilename());
+            String fileURL = null;
+            try {
+                fileURL = FileHandleUtil.upload(img.getInputStream(), "songListImg/", img.getOriginalFilename());
+            } catch (IOException e) {
+                throw new ServiceException(Constants.CODE_WARNING, "头像上传失败");
+            }
             log.info("访问路径：{}", fileURL);
             songList.setImgUrl("/songListImg/" + img.getOriginalFilename());
         }

@@ -3,7 +3,9 @@ package net.ltbk.music.controller;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.Album;
+import net.ltbk.music.common.Constants;
 import net.ltbk.music.common.Result;
+import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.service.AlbumService;
 import net.ltbk.music.utils.FileHandleUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,8 +93,13 @@ public class AlbumController {
         String msg = "";
         log.info("更新专辑：{}", album);
         if (!"".equals(img.getOriginalFilename())) {
-            log.info("上传文件：{}", img.getOriginalFilename());
-            String fileURL = FileHandleUtil.upload(img.getInputStream(), "album/", img.getOriginalFilename());
+            log.info("上传专辑封面：{}", img.getOriginalFilename());
+            String fileURL = null;
+            try {
+                fileURL = FileHandleUtil.upload(img.getInputStream(), "album/", img.getOriginalFilename());
+            } catch (IOException e) {
+                throw new ServiceException(Constants.CODE_WARNING, "专辑封面上传失败");
+            }
             log.info("访问路径：{}", fileURL);
             album.setAlbumImg("/album/" + img.getOriginalFilename());
         }

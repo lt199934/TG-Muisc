@@ -4,7 +4,9 @@ import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import net.ltbk.music.bean.Singer;
 import net.ltbk.music.bean.vo.SingerVo;
+import net.ltbk.music.common.Constants;
 import net.ltbk.music.common.Result;
+import net.ltbk.music.common.exception.ServiceException;
 import net.ltbk.music.service.SingerService;
 import net.ltbk.music.utils.FileHandleUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -75,7 +77,13 @@ public class SingerController {
     public Result<String> save(Singer singer, @Param("img") MultipartFile img) throws IOException {
         String msg = "";
         if (!"".equals(img.getOriginalFilename())) {
-            String fileURL = FileHandleUtil.upload(img.getInputStream(), "singer/", img.getOriginalFilename());
+            log.info("上传歌手图片：{}", img.getOriginalFilename());
+            String fileURL = null;
+            try {
+                fileURL = FileHandleUtil.upload(img.getInputStream(), "singer/", img.getOriginalFilename());
+            } catch (IOException e) {
+                throw new ServiceException(Constants.CODE_WARNING, "歌手图片上传失败");
+            }
             singer.setImgUrl("/singer/" + img.getOriginalFilename());
             log.info("上传图片地址：" + fileURL);
         }

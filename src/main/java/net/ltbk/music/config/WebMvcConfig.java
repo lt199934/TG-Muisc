@@ -3,6 +3,7 @@ package net.ltbk.music.config;
 import net.ltbk.music.common.interceptor.AdminInterceptor;
 import net.ltbk.music.common.interceptor.LoginInterceptor;
 import net.ltbk.music.formatter.StringToDateFormatter;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
@@ -30,11 +31,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
     /**
      * 静态目录
      **/
-    private static String staticDir = "static";
+    private static final String STATIC_DIR = "classpath:/static";
     /**
      * 文件存放的目录
      **/
-    private static String fileDir = "/upload/";
+    private static final String FILE_DIR = "/upload";
     @Autowired
     private StringToDateFormatter stringToDateFormatter;
 
@@ -52,15 +53,15 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/music/**","/headImg/**","/album/**","/singer/**","/songs/**","/songListImg/**")
-                .excludePathPatterns("/", "/login", "/adminLogin", "/register", "/isLogin", "/user/userLogin", "/admin/**", "/songList/**", "/song/**")
+                .excludePathPatterns("/", "/login", "/adminLogin", "/register", "/isLogin", "/user/userLogin", "/songList/**", "/song/**")
                 .excludePathPatterns("/songList/fenLei", "/song/all", "/albums/**", "/play", "/updatePlayCount/**")
-                .excludePathPatterns("/albumDetail","/songListDetail","/singerDetail")
+                .excludePathPatterns("/albumDetail", "/songListDetail", "/singerDetail", "/user")
                 .excludePathPatterns("/rankingList","/musics","/singers","/songs","/songLists","/albums")
                 .excludePathPatterns("/doc.html","/webjars/**","/swagger-resources","/v2/api-docs");
 
         registry.addInterceptor(new AdminInterceptor())
                 .addPathPatterns("/admin/**")
-                .excludePathPatterns("/admin/users");
+                .excludePathPatterns("/");
     }
 
     /***
@@ -75,13 +76,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/music/**").addResourceLocations("classpath:/static/music/");
+        registry.addResourceHandler("/music/**").addResourceLocations(STATIC_DIR + "/music/");
 //        开发环境
-        registry.addResourceHandler("/album/**").addResourceLocations("classpath:/static/upload/album/");
-        registry.addResourceHandler("/headImg/**").addResourceLocations("classpath:/static/upload/headImg/");
-        registry.addResourceHandler("/singer/**").addResourceLocations("classpath:/static/upload/singer/");
-        registry.addResourceHandler("/songListImg/**").addResourceLocations("classpath:/static/upload/songListImg/");
-        registry.addResourceHandler("/songs/**").addResourceLocations("classpath:/static/upload/songs/");
+        registry.addResourceHandler("/album/**").addResourceLocations(STATIC_DIR + FILE_DIR + "/album/");
+        registry.addResourceHandler("/headImg/**").addResourceLocations(STATIC_DIR + FILE_DIR + "/headImg/");
+        registry.addResourceHandler("/singer/**").addResourceLocations(STATIC_DIR + FILE_DIR + "/singer/");
+        registry.addResourceHandler("/songListImg/**").addResourceLocations(STATIC_DIR + FILE_DIR + "/songListImg/");
+        registry.addResourceHandler("/songs/**").addResourceLocations(STATIC_DIR + FILE_DIR + "/songs/");
 //        生产环境
 //        registry.addResourceHandler("/album/**").addResourceLocations("/upload/album/");
 //        registry.addResourceHandler("/headImg/**").addResourceLocations("/upload/headImg/");
@@ -106,8 +107,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * @Throw:
      **/
     @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
+    public void addViewControllers(@NotNull ViewControllerRegistry registry) {
         WebMvcConfigurer.super.addViewControllers(registry);
+        // 客户端
         registry.addViewController("/").setViewName("client/index");
         registry.addViewController("/index").setViewName("client/iframe/index");
         registry.addViewController("/user").setViewName("client/user/home");
@@ -128,19 +130,19 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/iframe/songLists").setViewName("client/iframe/songList/songlists");
         registry.addViewController("/iframe/singers").setViewName("client/iframe/singer/singers");
         registry.addViewController("/iframe/albums").setViewName("client/iframe/album/albums");
-        registry.addViewController("/admin").setViewName("admin/adminLogin");
-        registry.addViewController("/admin/index").setViewName("admin/index");
-        registry.addViewController("/admin/users").setViewName("admin/bootstrap-table/users");
-        registry.addViewController("/admin/songs").setViewName("admin/bootstrap-table/songs");
-        registry.addViewController("/admin/songLists").setViewName("admin/bootstrap-table/songLists");
-        registry.addViewController("/admin/songListsData").setViewName("admin/bootstrap-table/songListsData");
-        registry.addViewController("/admin/singers").setViewName("admin/bootstrap-table/singers");
-        registry.addViewController("/admin/albums").setViewName("admin/bootstrap-table/albums");
-        registry.addViewController("/user/index").setViewName("client/user/index");
+        // 管理端
+//        registry.addViewController("/admin").setViewName("admin/index");
+//        registry.addViewController("/admin/users").setViewName("admin/bootstrap-table/users");
+//        registry.addViewController("/admin/songs").setViewName("admin/bootstrap-table/songs");
+//        registry.addViewController("/admin/songLists").setViewName("admin/bootstrap-table/songLists");
+//        registry.addViewController("/admin/songListsData").setViewName("admin/bootstrap-table/songListsData");
+//        registry.addViewController("/admin/singers").setViewName("admin/bootstrap-table/singers");
+//        registry.addViewController("/admin/albums").setViewName("admin/bootstrap-table/albums");
+//        registry.addViewController("/user/index").setViewName("client/user/index");
     }
 
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
+    public void addCorsMappings(@NotNull CorsRegistry registry) {
         WebMvcConfigurer.super.addCorsMappings(registry);
     }
 
@@ -150,13 +152,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
         WebMvcConfigurer.super.addFormatters(registry);
     }
 
+
     @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+    public void configureMessageConverters(@NotNull List<HttpMessageConverter<?>> converters) {
         WebMvcConfigurer.super.configureMessageConverters(converters);
     }
 
     @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
+    public void configureViewResolvers(@NotNull ViewResolverRegistry registry) {
         WebMvcConfigurer.super.configureViewResolvers(registry);
     }
 }

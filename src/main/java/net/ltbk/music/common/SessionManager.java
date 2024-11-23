@@ -1,8 +1,8 @@
 package net.ltbk.music.common;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Program: TG-Music
@@ -14,19 +14,28 @@ import java.util.Map;
  **/
 
 public class SessionManager {
-    private static final Map<String, HttpSession> SESSION_MAP = new HashMap<>();
+    private static final Map<String, HttpSession> SESSION_MAP = new ConcurrentHashMap<>();
 
     public static synchronized void addSession(String userId, HttpSession session) {
         HttpSession oldSession = getSession(userId);
-        if (oldSession != null && !oldSession.isNew()) {
-            oldSession.invalidate();
+        if (oldSession != null) {
+            try {
+                // 如果存新再过期旧session
+                if (!oldSession.isNew()) {
+                    oldSession.invalidate();
+                }
+            } catch (IllegalStateException e) {
+                SESSION_MAP.remove(userId);
+            }
         }
+        // 存储新session
         SESSION_MAP.put(userId, session);
     }
 
     public static synchronized void removeSession(String userId) {
         HttpSession session = getSession(userId);
         session.removeAttribute(userId);
+        session.removeAttribute("user");
         session.invalidate();
         SESSION_MAP.remove(userId);
     }
@@ -35,7 +44,7 @@ public class SessionManager {
         return SESSION_MAP.get(userId);
     }
 
-    public static boolean isLogin(String userId) {
+    public static synchronized boolean isLogin(String userId) {
         return SESSION_MAP.containsKey(userId);
     }
 }

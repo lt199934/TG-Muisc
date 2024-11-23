@@ -5,15 +5,12 @@
 <!--   header-->
 <header class="col-md-12 column" style="padding: 0" th:include="admin/layout/include::head"></header>
 <div class="container-fluid">
-    <aside class="col-md-1" th:include="admin/layout/include::aside(active='albums.html')"></aside>
-    <main class="col-md-11">
+    <aside class="col-sm-3 col-md-1 sidebar" th:include="admin/layout/include::aside(active='albums.html')"></aside>
+    <main class="col-sm-9 col-sm-offset-3 col-md-11 col-md-offset-1 main">
         <!--搜索-->
         <div class="row">
             <div class="col-md-12">
-                <ol class="breadcrumb">
-                    <li><a href="/admin/index">Home</a></li>
-                    <li class="active">专辑管理</li>
-                </ol>
+                <div th:include="admin/layout/include::breadcrumb(text='专辑管理')"></div>
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form action="" id="selectForm">
@@ -74,7 +71,8 @@
                                         type="button">重置
                                 </button>
                             </div>
-                            <table class="table table-hover table-responsive table-bordered" id="dataTable"></table>
+                            <table class="table table-hover table-striped table-responsive table-bordered"
+                                   id="dataTable"></table>
                         </div>
                     </div>
                 </div>

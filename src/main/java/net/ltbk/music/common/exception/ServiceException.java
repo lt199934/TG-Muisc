@@ -1,5 +1,6 @@
 package net.ltbk.music.common.exception;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 /**
@@ -10,7 +11,7 @@ import lombok.Getter;
  * @Create: 2023-03-14 03:52
  * @Version 1.0
  **/
-
+@EqualsAndHashCode(callSuper = true)
 @Getter
 public class ServiceException extends RuntimeException{
     private final Integer code;

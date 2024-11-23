@@ -5,8 +5,8 @@
 <!--   header-->
 <header class="col-md-12 column" style="padding: 0" th:include="admin/layout/include::head"></header>
 <div class="container-fluid">
-    <aside class="col-md-1" th:include="admin/layout/include::aside"></aside>
-    <main class="col-md-11">
+    <aside class="col-sm-3 col-md-1 sidebar" th:include="admin/layout/include::aside"></aside>
+    <main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
@@ -57,7 +57,8 @@
                                         type="button">重置
                                 </button>
                             </div>
-                            <table class="table table-hover table-striped table-bordered" id="dataTable"></table>
+                            <table class="table table-hover table-striped table-responsive table-bordered"
+                                   id="dataTable"></table>
                         </div>
                     </div>
                 </div>
@@ -117,6 +118,8 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<iframe frameborder="0" height="280px" id="player" name="play" src=""
+        style="position: fixed;left:170px;bottom: 150px;display: none;z-index: 9999" width="300px"></iframe>
 </body>
 <div th:include="client/common/include::footer"></div>
 <script src="/music/admin/js/isLogin.js"></script>
@@ -219,7 +222,8 @@
     }
 
     const listenTo = (songId) => {
-        window.location.href = "/play?temp=song&songId=" + songId
+        $("#player").css("display", "block");
+        $("#player").attr("src", "/play?temp=song&songId=" + songId);
     }
 
     const init = () => {

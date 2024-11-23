@@ -64,8 +64,7 @@ function checkLoginForm() {
 $("#subBtn").click(function () {
     const user = {
         "account": $("#account").val(),
-        "pwd": $("#pwd").val(),
-        "type": "普通用户"
+        "pwd": $("#pwd").val()
     }
     $('#loginForm').data('bootstrapValidator').validate();//手动开启验证
     var flag = $('#loginForm').data('bootstrapValidator').isValid();//
